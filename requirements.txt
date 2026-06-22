@@ -1,0 +1,6 @@
+dvc[gdrive]
+opencv-python-headless
+numpy
+pandas
+matplotlib
+# ultralytics  # يُفعَّل لاحقاً عند بدء التدريب

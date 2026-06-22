@@ -1,0 +1,24 @@
+# DVC — credentials وملفات مؤقتة
+.dvc/config.local
+.dvc/tmp/
+.dvc/cache/
+
+# البيانات يتتبعها DVC مش Git
+data/raw/
+data/processed/
+data/annotations/
+models/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+*.env.local
+
+# OS
+.DS_Store
+.vscode/
