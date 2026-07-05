@@ -3,4 +3,9 @@ opencv-python-headless
 numpy
 pandas
 matplotlib
+opencv-python
+albumentations
+Pillow
+
+
 # ultralytics  # يُفعَّل لاحقاً عند بدء التدريب

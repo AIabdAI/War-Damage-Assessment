@@ -1,0 +1,145 @@
+generated_at: '2026-06-29T12:58:06.005750Z'
+total_images: 1
+total_boxes: 1
+classes:
+  Brick_Wall:
+    class_id: 0
+    total_boxes: 1
+    images_present: 1
+    percentage_of_all: 100.0
+    avg_bbox_width: 0.2375
+    avg_bbox_height: 0.1531
+  Column:
+    class_id: 1
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Staircase:
+    class_id: 2
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Floor_Tiles:
+    class_id: 3
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Ceiling:
+    class_id: 4
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Beam:
+    class_id: 5
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Kitchen_Countertop:
+    class_id: 6
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Sink:
+    class_id: 7
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Wall_Cabinet:
+    class_id: 8
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Chair:
+    class_id: 9
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Floor_Cabinet:
+    class_id: 10
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Bathtub:
+    class_id: 11
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Water_Faucet:
+    class_id: 12
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Window:
+    class_id: 13
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Fire_Extinguisher:
+    class_id: 14
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Roof:
+    class_id: 15
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Door:
+    class_id: 16
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Air_Conditioner:
+    class_id: 17
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Window_Sill:
+    class_id: 18
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+  Light_Fixture:
+    class_id: 19
+    total_boxes: 0
+    images_present: 0
+    percentage_of_all: 0.0
+    avg_bbox_width: 0.0
+    avg_bbox_height: 0.0
+images_with_annotation: 1
