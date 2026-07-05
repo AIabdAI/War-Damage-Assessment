@@ -1,8 +1,8 @@
-generated_at: '2026-07-05T13:58:19.661597Z'
-total_images_annotated: 2
+generated_at: '2026-07-05T14:20:48.281443Z'
+total_images_annotated: 3
 total_boxes: 13
 images_per_developer:
-  Abdallah: 2
+  Abdallah: 3
 boxes_per_class_total:
   Brick_Wall: 1
   Column: 0
@@ -46,3 +46,8 @@ per_image:
       Beam: 1
       Window: 1
       Door: 2
+  VID_20260607_174844_f000006:
+    annotated_by: Abdallah
+    timestamp: '2026-07-05T13:58:29.006405Z'
+    boxes: 0
+    class_boxes: {}
