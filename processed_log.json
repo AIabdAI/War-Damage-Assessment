@@ -30,8 +30,8 @@
     },
     "VID_20260607_174844_f000003": {
       "hash": "902f0379386413058160c3ee0bf7c253",
-      "timestamp": "2026-07-05T13:37:40.625663Z",
-      "boxes": 1,
+      "timestamp": "2026-07-05T13:42:05.123544Z",
+      "boxes": 0,
       "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 0,
@@ -44,7 +44,7 @@
         "Sink": 0,
         "Wall_Cabinet": 0,
         "Chair": 0,
-        "Floor_Cabinet": 1,
+        "Floor_Cabinet": 0,
         "Bathtub": 0,
         "Water_Faucet": 0,
         "Window": 0,
@@ -68,6 +68,21 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-05T13:37:40.635645Z",
       "expires_at": "2026-07-05T15:37:40.635645Z"
+    },
+    "VID_20260607_174844_f000018": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T13:37:50.707804Z",
+      "expires_at": "2026-07-05T15:37:50.707804Z"
+    },
+    "VID_20260607_174844_f000015": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T13:37:54.203866Z",
+      "expires_at": "2026-07-05T15:37:54.203866Z"
+    },
+    "VID_20260607_174844_f000000": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T13:42:05.161551Z",
+      "expires_at": "2026-07-05T15:42:05.161551Z"
     }
   }
 }
