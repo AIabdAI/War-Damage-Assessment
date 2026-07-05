@@ -1,0 +1,48 @@
+generated_at: '2026-07-05T13:58:03.150468Z'
+total_images_annotated: 2
+total_boxes: 13
+images_per_developer:
+  Abdallah: 2
+boxes_per_class_total:
+  Brick_Wall: 1
+  Column: 0
+  Staircase: 2
+  Floor_Tiles: 2
+  Ceiling: 0
+  Beam: 2
+  Kitchen_Countertop: 0
+  Sink: 0
+  Wall_Cabinet: 0
+  Chair: 0
+  Floor_Cabinet: 0
+  Bathtub: 0
+  Water_Faucet: 0
+  Window: 2
+  Fire_Extinguisher: 0
+  Roof: 0
+  Door: 4
+  Air_Conditioner: 0
+  Window_Sill: 0
+  Light_Fixture: 0
+per_image:
+  VID_20260607_174844_f000000:
+    annotated_by: Abdallah
+    timestamp: '2026-07-05T13:49:05.965774Z'
+    boxes: 6
+    class_boxes:
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 2
+  VID_20260607_174844_f000003:
+    annotated_by: Abdallah
+    timestamp: '2026-07-05T13:52:41.608931Z'
+    boxes: 7
+    class_boxes:
+      Brick_Wall: 1
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 2
