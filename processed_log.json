@@ -27,8 +27,47 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_174844_f000003": {
+      "hash": "902f0379386413058160c3ee0bf7c253",
+      "timestamp": "2026-07-05T13:37:40.625663Z",
+      "boxes": 1,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 1,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
-  "locks": {}
+  "locks": {
+    "VID_20260607_174844_f000006": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T13:37:40.635645Z",
+      "expires_at": "2026-07-05T15:37:40.635645Z"
+    },
+    "VID_20260607_174844_f000009": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T13:37:40.635645Z",
+      "expires_at": "2026-07-05T15:37:40.635645Z"
+    }
+  }
 }
