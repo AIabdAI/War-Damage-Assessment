@@ -1,13 +1,13 @@
 {
   "annotated": {
     "VID_20260607_174844_f000000": {
-      "hash": "c8a650ffe3dadc254c71868184d78398",
-      "timestamp": "2026-06-29T12:53:21.182506Z",
-      "boxes": 1,
+      "hash": "ccac820e59eeef429d8aa7009230d090",
+      "timestamp": "2026-07-05T13:37:09.251147Z",
+      "boxes": 2,
       "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 0,
-        "Column": 0,
+        "Column": 1,
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
@@ -17,7 +17,7 @@
         "Wall_Cabinet": 0,
         "Chair": 0,
         "Floor_Cabinet": 0,
-        "Bathtub": 0,
+        "Bathtub": 1,
         "Water_Faucet": 0,
         "Window": 0,
         "Fire_Extinguisher": 0,
@@ -30,38 +30,5 @@
     }
   },
   "augmented": {},
-  "locks": {
-    "VID_20260607_174844_f000003": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-06-30T15:27:27.703839Z",
-      "expires_at": "2026-06-30T17:27:27.703839Z"
-    },
-    "VID_20260607_174844_f000006": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-06-30T15:27:27.703839Z",
-      "expires_at": "2026-06-30T17:27:27.703839Z"
-    }
-  },
-  "class_counts": {
-    "Brick_Wall": 0,
-    "Column": 0,
-    "Staircase": 0,
-    "Floor_Tiles": 0,
-    "Ceiling": 0,
-    "Beam": 0,
-    "Kitchen_Countertop": 0,
-    "Sink": 0,
-    "Wall_Cabinet": 0,
-    "Chair": 0,
-    "Floor_Cabinet": 0,
-    "Bathtub": 0,
-    "Water_Faucet": 0,
-    "Window": 0,
-    "Fire_Extinguisher": 0,
-    "Roof": 0,
-    "Door": 0,
-    "Air_Conditioner": 0,
-    "Window_Sill": 0,
-    "Light_Fixture": 0
-  }
+  "locks": {}
 }
