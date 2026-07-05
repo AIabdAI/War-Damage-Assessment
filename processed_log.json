@@ -58,8 +58,9 @@
     },
     "VID_20260607_174844_f000006": {
       "hash": "0bc4a8f9dabb2762f61c75a2a5d18cdd",
-      "timestamp": "2026-07-05T14:30:13.237003Z",
+      "timestamp": "2026-07-05T16:13:52.668442Z",
       "boxes": 5,
+      "damaged_boxes": 2,
       "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 1,
@@ -86,5 +87,16 @@
     }
   },
   "augmented": {},
-  "locks": {}
+  "locks": {
+    "VID_20260607_174844_f000015": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T16:12:49.134333Z",
+      "expires_at": "2026-07-05T18:12:49.134333Z"
+    },
+    "VID_20260607_174844_f000009": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-05T16:13:02.298177Z",
+      "expires_at": "2026-07-05T18:13:02.298177Z"
+    }
+  }
 }
