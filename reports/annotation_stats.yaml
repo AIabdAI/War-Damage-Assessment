@@ -1,8 +1,9 @@
-generated_at: '2026-07-05T13:58:19.661597Z'
-total_images_annotated: 2
-total_boxes: 13
+generated_at: '2026-07-07T11:19:00.923591Z'
+total_images_annotated: 4
+total_boxes: 17
 images_per_developer:
-  Abdallah: 2
+  Abdallah: 3
+  Mohammed Bashir: 1
 boxes_per_class_total:
   Brick_Wall: 1
   Column: 0
@@ -20,11 +21,18 @@ boxes_per_class_total:
   Window: 2
   Fire_Extinguisher: 0
   Roof: 0
-  Door: 4
+  Door: 5
   Air_Conditioner: 0
   Window_Sill: 0
-  Light_Fixture: 0
+  Light_Fixture: 3
 per_image:
+  MB_Door_0001:
+    annotated_by: Mohammed Bashir
+    timestamp: '2026-07-07T11:18:53.125523Z'
+    boxes: 4
+    class_boxes:
+      Door: 1
+      Light_Fixture: 3
   VID_20260607_174844_f000000:
     annotated_by: Abdallah
     timestamp: '2026-07-05T13:49:05.965774Z'
@@ -46,3 +54,8 @@ per_image:
       Beam: 1
       Window: 1
       Door: 2
+  VID_20260607_174844_f000006:
+    annotated_by: Abdallah
+    timestamp: '2026-07-05T13:58:29.006405Z'
+    boxes: 0
+    class_boxes: {}
