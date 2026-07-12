@@ -9742,6 +9742,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1457": {
+      "hash": "4d1157d77f1a9090e09fc5d461e8c17d",
+      "timestamp": "2026-07-12T20:24:59.680189Z",
+      "boxes": 7,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 1,
+        "Staircase": 1,
+        "Floor_Tiles": 1,
+        "Ceiling": 1,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 1,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -9755,6 +9784,36 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-12T20:20:13.801807Z",
       "expires_at": "2026-07-12T22:20:13.801807Z"
+    },
+    "VID_20260607_174900_f000051": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:20:15.134164Z",
+      "expires_at": "2026-07-12T22:20:15.134164Z"
+    },
+    "VID_20260607_174900_f000042": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:20:16.088673Z",
+      "expires_at": "2026-07-12T22:20:16.088673Z"
+    },
+    "image_1460": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:24:02.037447Z",
+      "expires_at": "2026-07-12T22:24:02.037447Z"
+    },
+    "image_146": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:24:02.930277Z",
+      "expires_at": "2026-07-12T22:24:02.930277Z"
+    },
+    "image_1459": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:24:03.208608Z",
+      "expires_at": "2026-07-12T22:24:03.208608Z"
+    },
+    "image_1458": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T20:24:07.053280Z",
+      "expires_at": "2026-07-12T22:24:07.053280Z"
     }
   }
 }
