@@ -8959,6 +8959,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "Crack-218_jpg.rf.63cf65c220ceed68e8a5f8731d013952": {
+      "hash": "cb9bd4fe112865a41cfda1cb056fa4ea",
+      "timestamp": "2026-07-12T12:49:45.105641Z",
+      "boxes": 2,
+      "damaged_boxes": 2,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 2,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -9792,21 +9821,6 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T11:51:49.206417Z",
       "expires_at": "2026-07-12T13:51:49.206417Z"
-    },
-    "VID_20260607_174844_f000003": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T10:49:21.983770Z",
-      "expires_at": "2026-07-12T12:49:21.983770Z"
-    },
-    "VID_20260607_174844_f000009": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T10:49:25.409047Z",
-      "expires_at": "2026-07-12T12:49:25.409047Z"
-    },
-    "VID_20260607_174844_f000015": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T10:49:36.810252Z",
-      "expires_at": "2026-07-12T12:49:36.810252Z"
     },
     "Crack-176_jpg.rf.72c1a9f503fcbfbdba616f9dcc1d98a6": {
       "locked_by": "Ahmed AbuDagga",
@@ -11077,6 +11091,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T12:49:14.473905Z",
       "expires_at": "2026-07-12T14:49:14.473905Z"
+    },
+    "Crack-219_jpg.rf.86d533589bb2052874a81889967b3966": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T12:49:45.113274Z",
+      "expires_at": "2026-07-12T14:49:45.113274Z"
     }
   }
 }
