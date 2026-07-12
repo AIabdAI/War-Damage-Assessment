@@ -86,8 +86,9 @@
     },
     "MB_Door_0001": {
       "hash": "f8836a168d879c8721846eda8d93cd92",
-      "timestamp": "2026-07-07T11:18:53.125523Z",
+      "timestamp": "2026-07-12T13:06:42.511036Z",
       "boxes": 4,
+      "damaged_boxes": 3,
       "annotated_by": "Mohammed Bashir",
       "class_boxes": {
         "Brick_Wall": 0,
@@ -115,10 +116,15 @@
   },
   "augmented": {},
   "locks": {
-    "MB_Door_0002": {
+    "MB_Door_0004": {
       "locked_by": "Mohammed Bashir",
-      "locked_at": "2026-07-07T11:17:09.118486Z",
-      "expires_at": "2026-07-07T13:17:09.118486Z"
+      "locked_at": "2026-07-12T13:05:40.549862Z",
+      "expires_at": "2026-07-12T15:05:40.549862Z"
+    },
+    "MB_Door_0003": {
+      "locked_by": "Mohammed Bashir",
+      "locked_at": "2026-07-12T13:05:41.379219Z",
+      "expires_at": "2026-07-12T15:05:41.379219Z"
     }
   }
 }
