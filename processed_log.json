@@ -31,8 +31,9 @@
     },
     "VID_20260607_174844_f000003": {
       "hash": "902f0379386413058160c3ee0bf7c253",
-      "timestamp": "2026-07-05T13:52:41.608931Z",
+      "timestamp": "2026-07-12T11:24:28.803507Z",
       "boxes": 7,
+      "damaged_boxes": 2,
       "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 1,
