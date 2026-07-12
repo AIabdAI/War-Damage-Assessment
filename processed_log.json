@@ -9688,21 +9688,6 @@
   },
   "augmented": {},
   "locks": {
-    "Crack-106_jpg.rf.a1fd265cd4b4817383be583dee50a111": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:53:24.411692Z",
-      "expires_at": "2026-07-12T12:53:24.411692Z"
-    },
-    "Crack-107_jpg.rf.8946e70b16fe9d69430d0990009b2bcc": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:53:30.758149Z",
-      "expires_at": "2026-07-12T12:53:30.758149Z"
-    },
-    "Crack-107_jpg.rf.95abdc00a24923483d13250b24f0e2b7": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:53:30.758149Z",
-      "expires_at": "2026-07-12T12:53:30.758149Z"
-    },
     "Crack-107_jpg.rf.fa01d0c07e0f095172a27bd5d2a4f9ef": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:53:39.397866Z",
@@ -10868,21 +10853,6 @@
       "locked_at": "2026-07-12T12:12:28.917081Z",
       "expires_at": "2026-07-12T14:12:28.917081Z"
     },
-    "VID_20260607_174900_f000009": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T12:15:25.623297Z",
-      "expires_at": "2026-07-12T14:15:25.623297Z"
-    },
-    "VID_20260607_174900_f000012": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T12:15:25.623297Z",
-      "expires_at": "2026-07-12T14:15:25.623297Z"
-    },
-    "VID_20260607_174900_f000015": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-12T12:17:26.355062Z",
-      "expires_at": "2026-07-12T14:17:26.355062Z"
-    },
     "VID_20260607_174900_f000078": {
       "locked_by": "Abdallah",
       "locked_at": "2026-07-12T12:20:22.096893Z",
@@ -11807,6 +11777,26 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T12:52:24.405180Z",
       "expires_at": "2026-07-12T14:52:24.405180Z"
+    },
+    "VID_20260607_174900_f000018": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:53:49.453972Z",
+      "expires_at": "2026-07-12T14:53:49.453972Z"
+    },
+    "VID_20260607_174900_f000015": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:53:55.041569Z",
+      "expires_at": "2026-07-12T14:53:55.041569Z"
+    },
+    "VID_20260607_174900_f000009": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:53:57.179851Z",
+      "expires_at": "2026-07-12T14:53:57.179851Z"
+    },
+    "VID_20260607_174900_f000012": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:53:57.179851Z",
+      "expires_at": "2026-07-12T14:53:57.179851Z"
     }
   }
 }

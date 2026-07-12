@@ -1,4 +1,4 @@
-dvc[gdrive]
+dvc[gdrive]>=3.0    # ملفات .dvc بصيغة DVC 3 — الإصدار 2.x لا يقرؤها
 opencv-python-headless
 numpy
 pandas

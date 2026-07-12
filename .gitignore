@@ -3,10 +3,10 @@
 .dvc/tmp/
 .dvc/cache/
 
-# البيانات يتتبعها DVC مش Git
+# البيانات الكبيرة يتتبعها DVC مش Git — أما data/annotations (labels نصية
+# صغيرة) فهي في git مباشرة
 data/raw/
 data/processed/
-data/annotations/
 models/
 
 # Python

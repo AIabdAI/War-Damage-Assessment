@@ -7,16 +7,18 @@ War-Damage-Assessment — Team Annotation Tool
 
 - ترسم Bounding Boxes عادية (YOLO) ومدوّرة (YOLO-OBB).
 - تدير الأقفال (Locks) بين أعضاء الفريق عبر processed_log.json المتزامن مع GitHub.
-- تحفظ الـ labels في data/annotations (المُدار عبر DVC).
+- تحفظ الـ labels في data/annotations (مُدارة عبر git مباشرة — ملفات نصية صغيرة)
+  وتُرفع تلقائياً مع كل "حفظ + مزامنة". الصور الخام فقط هي المُدارة عبر DVC.
 - Idempotency عبر MD5 + سجل الصور المعالجة.
 - تصدير إحصائيات YAML وتقرير Markdown مع فتح Pull Request.
 
-الاستخدام:
-    python tools/annotation_tool.py            # من جذر الريبو
-    python tools/annotation_tool.py --repo /path/to/War-Damage-Assessment
+الاستخدام (من داخل البيئة الافتراضية للمشروع):
+    .venv\\Scripts\\activate           # Windows  (أو: source .venv/bin/activate)
+    python annotation_tool.py          # من جذر الريبو
+    python annotation_tool.py --repo /path/to/War-Damage-Assessment
 
 المتطلبات:
-    pip install pillow pyyaml
+    pip install -r requirements.txt   (تتضمن dvc[gdrive] 3.x و Pillow و PyYAML)
 """
 
 from __future__ import annotations
@@ -317,6 +319,14 @@ class LockManager:
         except json.JSONDecodeError:
             return empty_log()
 
+    def refresh_from_remote(self) -> None:
+        """جلب أحدث سجل من origin ودمجه محلياً — تُستدعى قبل الإحصائيات والتقارير
+        حتى تعكس آخر عمل الفريق كله وليس النسخة المحلية فقط."""
+        if not self.git_available():
+            return
+        self.log = merge_logs(self.log, self._remote_log())
+        write_log(self.log_path, self.log)
+
     def sync(self, message: str, extra_paths: list[Path] | None = None) -> tuple[bool, str]:
         """مزامنة السجل مع GitHub: fetch → merge → commit → push (مع إعادة محاولة).
 
@@ -567,17 +577,33 @@ def publish_report_pr(lm: LockManager, report_md: str, stats_path: Path) -> str:
 
 # ----------------------------------------------------------------------------
 # التكامل مع DVC
-#   - الصور الخام (data/raw) والـ labels (data/annotations) مُدارة عبر DVC
-#     وليست في git — git يحمل فقط ملفات .dvc المؤشِّرة إليها.
-#   - سير المزامنة: dvc add → git commit/push (للمؤشّر) → dvc push (للبيانات).
+#   - الصور الخام (data/raw) فقط هي المُدارة عبر DVC — git يحمل مؤشّر raw.dvc.
+#   - الـ labels (data/annotations) ملفات نصية صغيرة تُدار في git مباشرة.
+#   - سير رفع صور جديدة: dvc add → dvc push (البيانات) → git commit/push (المؤشّر).
+#     dvc push قبل git حتى لا يصل المؤشّر للفريق قبل البيانات نفسها.
 # ----------------------------------------------------------------------------
 
 class DvcManager:
     def __init__(self, repo: Path):
         self.repo = repo
+        self.dvc_cmd = self._resolve_dvc()
+
+    def _resolve_dvc(self) -> str:
+        """يفضّل dvc الخاص ببيئة المشروع الافتراضية (.venv) حتى لا تُستخدم
+        نسخة نظام قديمة غير متوافقة مع صيغة ملفات .dvc الحالية (DVC 3)."""
+        exe = "dvc.exe" if os.name == "nt" else "dvc"
+        candidates = [
+            Path(sys.executable).parent / exe,       # بيئة تشغيل الأداة نفسها
+            self.repo / ".venv" / "Scripts" / exe,   # venv المشروع (Windows)
+            self.repo / ".venv" / "bin" / "dvc",     # venv المشروع (Linux/macOS)
+        ]
+        for c in candidates:
+            if c.exists():
+                return str(c)
+        return "dvc"
 
     def _dvc(self, *args: str, timeout: int | None = None) -> subprocess.CompletedProcess:
-        return subprocess.run(["dvc", *args], cwd=self.repo,
+        return subprocess.run([self.dvc_cmd, *args], cwd=self.repo,
                               capture_output=True, text=True, timeout=timeout)
 
     def available(self) -> bool:
@@ -586,48 +612,44 @@ class DvcManager:
         except (OSError, subprocess.TimeoutExpired):
             return False
 
-    def raw_missing(self) -> bool:
-        """هل data/raw غير مسحوبة بعد رغم وجود مؤشّر raw.dvc؟"""
-        raw = self.repo / RAW_DIR
-        has_pointer = (self.repo / "data" / "raw.dvc").exists()
-        has_images = raw.exists() and any(
-            p.suffix.lower() in IMG_EXTS for p in raw.iterdir()) if raw.exists() else False
-        return has_pointer and not has_images
-
     def pull_raw(self) -> tuple[bool, str]:
         r = self._dvc("pull", str(Path("data") / "raw.dvc"))
         if r.returncode == 0:
             return True, "تم سحب data/raw من DVC remote بنجاح."
         return False, f"فشل dvc pull:\n{(r.stderr or r.stdout).strip()[-400:]}"
 
-    def annotations_changed(self) -> bool:
-        """هل توجد تغييرات في data/annotations لم تُسجَّل في DVC بعد؟"""
-        ptr = self.repo / "data" / "annotations.dvc"
+    def raw_changed(self) -> bool:
+        """هل توجد صور جديدة/متغيرة في data/raw لم تُسجَّل في DVC بعد؟"""
+        ptr = self.repo / "data" / "raw.dvc"
         if not ptr.exists():
-            return (self.repo / ANNOT_DIR).exists()
-        r = self._dvc("status", str(Path("data") / "annotations.dvc"))
+            return (self.repo / RAW_DIR).exists()
+        r = self._dvc("status", str(Path("data") / "raw.dvc"))
         out = (r.stdout + r.stderr).lower()
         return r.returncode == 0 and "up to date" not in out and out.strip() != ""
 
-    def sync_annotations(self, lm: "LockManager") -> tuple[bool, str]:
-        """المزامنة الكاملة: dvc add → git (مؤشّر + سجل) → dvc push."""
-        add = self._dvc("add", str(ANNOT_DIR))
+    def sync_raw(self, lm: "LockManager") -> tuple[bool, str]:
+        """رفع الصور الخام الجديدة: dvc add → dvc push → git (المؤشّر)."""
+        add = self._dvc("add", str(RAW_DIR))
         if add.returncode != 0:
-            return False, f"فشل dvc add:\n{(add.stderr or add.stdout).strip()[-400:]}"
+            return False, f"فشل dvc add data/raw:\n{(add.stderr or add.stdout).strip()[-400:]}"
 
-        extra = [Path("data") / "annotations.dvc"]
+        push = self._dvc("push", str(Path("data") / "raw.dvc"))
+        if push.returncode != 0:
+            return False, ("فشل dvc push — تحقق من اعتمادات Google Drive في "
+                           ".dvc/config.local أو ثبّت:  pip install \"dvc[gdrive]\"\n"
+                           f"{(push.stderr or push.stdout).strip()[-400:]}")
+
+        extra = [Path("data") / "raw.dvc"]
         if (self.repo / "data" / ".gitignore").exists():
             extra.append(Path("data") / ".gitignore")
-        ok, git_msg = lm.sync(f"data: update annotations via DVC ({lm.user})",
+        ok, git_msg = lm.sync(f"data: add raw images via DVC ({lm.user})",
                               extra_paths=extra)
-
-        push = self._dvc("push", str(Path("data") / "annotations.dvc"))
-        if push.returncode != 0:
-            return False, (f"تم تحديث المؤشّر لكن فشل dvc push (تحقق من صلاحيات "
-                           f"Google Drive remote):\n{(push.stderr or push.stdout).strip()[-400:]}")
         if not ok:
             return False, f"تم dvc add/push لكن فشلت مزامنة git:\n{git_msg}"
-        return True, "تمت مزامنة DVC كاملة: dvc add ✓  git push ✓  dvc push ✓"
+        if self.raw_changed():
+            return False, ("رُفعت صورك لكن مؤشّر raw.dvc تغيّر أثناء المزامنة "
+                           "(زميل رفع صوراً في نفس اللحظة) — أعد المزامنة بعد قليل.")
+        return True, "تم رفع الصور الجديدة: dvc add ✓  dvc push ✓  git push ✓"
 
 
 
@@ -649,7 +671,6 @@ class AnnotationApp:
         self.user = user
         self.lm = LockManager(repo, user)
         self.dvc = DvcManager(repo)
-        self.labels_written = False   # هل كتبنا labels في هذه الجلسة؟
 
         self.images: list[Path] = []
         self.idx = -1
@@ -679,27 +700,50 @@ class AnnotationApp:
         self._bind_keys()
 
         raw = repo / RAW_DIR
-        if self.dvc.available() and self.dvc.raw_missing():
-            if messagebox.askyesno(
-                    "DVC", "مجلد data/raw فارغ لكن مؤشّر raw.dvc موجود.\n"
-                           "سحب الصور الآن عبر dvc pull؟ (قد يستغرق وقتاً حسب الاتصال)"):
-                self.status.set("جارِ dvc pull data/raw …")
-                self.root.update_idletasks()
-
-                def pull_worker():
-                    ok, msg = self.dvc.pull_raw()
-                    def done():
-                        self.status.set(("✅ " if ok else "⚠️ ") + msg.splitlines()[0])
-                        if not ok:
-                            messagebox.showwarning("DVC", msg)
-                        elif raw.exists():
-                            self.load_folder(raw)
-                    self.root.after(0, done)
-
-                threading.Thread(target=pull_worker, daemon=True).start()
-                return
-        if raw.exists():
+        has_images = raw.exists() and any(
+            p.suffix.lower() in IMG_EXTS for p in raw.iterdir())
+        if has_images:
             self.load_folder(raw)
+        if self.dvc.available():
+            # دائماً: سحب أي تحديثات للصور في الخلفية (no-op إن لم يتغير شيء)
+            self._pull_raw_updates(raw)
+        elif not has_images:
+            messagebox.showwarning(
+                "DVC", "مجلد data/raw فارغ وأمر dvc غير متوفر.\n"
+                       "ثبّته ثم أعد التشغيل:  pip install \"dvc[gdrive]\"")
+
+    def _pull_raw_updates(self, raw: Path):
+        """في الخلفية: git جلب raw.dvc يتم في sync، وهنا نسحب الصور الموافقة له.
+        يجلب صور الزملاء الجديدة تلقائياً دون أي أمر يدوي."""
+        self.status.set("جارِ التحقق من تحديثات الصور (dvc pull)…")
+
+        def worker():
+            ok, msg = self.dvc.pull_raw()
+
+            def done():
+                if not ok:
+                    self.status.set("⚠️ " + msg.splitlines()[0])
+                    messagebox.showwarning(
+                        "DVC", msg + "\n\nتحقق من تثبيت dvc واعتمادات Google Drive "
+                                     "في .dvc/config.local")
+                    return
+                on_disk = sorted(p for p in raw.iterdir()
+                                 if p.suffix.lower() in IMG_EXTS) if raw.exists() else []
+                if len(on_disk) != len(self.images):
+                    if self.idx < 0:
+                        self.load_folder(raw)
+                        self.status.set(f"✅ وصلت صور جديدة — الإجمالي الآن {len(self.images)}")
+                    else:
+                        # لا نقاطع المستخدم أثناء عمله — نكتفي بالتنبيه
+                        self.status.set(f"✅ وصلت صور جديدة ({len(on_disk)}) — "
+                                        "أعد فتح المجلد (📁) لرؤيتها")
+                elif self.idx >= 0:
+                    self._update_status()
+                else:
+                    self.status.set("✅ الصور محدّثة — اختر مجلد الصور للبدء…")
+            self.root.after(0, done)
+
+        threading.Thread(target=worker, daemon=True).start()
 
     # ------------------------------------------------------------------ UI --
 
@@ -720,7 +764,7 @@ class AnnotationApp:
         tk.Button(top, text="📊 الإحصائيات", command=self.show_stats).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="📄 تقرير + PR", command=self.report_pr).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="🟡 YAML", command=self.export_yaml).pack(side=tk.RIGHT, padx=2)
-        self.dvc_btn = tk.Button(top, text="☁ مزامنة DVC", bg="#d6e4ff",
+        self.dvc_btn = tk.Button(top, text="☁ مزامنة الصور (DVC)", bg="#d6e4ff",
                                  command=self.sync_dvc)
         self.dvc_btn.pack(side=tk.RIGHT, padx=8)
 
@@ -1237,7 +1281,6 @@ class AnnotationApp:
         img_path = self.images[self.idx]
 
         save_labels(stem, self.boxes, self.img_w, self.img_h, self.repo)
-        self.labels_written = True
         self.lm.record_annotation(stem, img_path, self.boxes)
         self.lm.release(stem)  # انتهينا من هذه الصورة → تحرير قفلها
         self.dirty = False
@@ -1246,8 +1289,10 @@ class AnnotationApp:
         self.root.update_idletasks()
 
         def do_sync():
+            # ANNOT_DIR ضمن الرفع: كل حفظ يرفع ملفات الـ labels مع السجل في commit واحد
             ok, msg = self.lm.sync(
-                f"annotate({self.user}): {stem} — {len(self.boxes)} boxes")
+                f"annotate({self.user}): {stem} — {len(self.boxes)} boxes",
+                extra_paths=[ANNOT_DIR])
             self.root.after(0, lambda: self._after_sync(ok, msg))
 
         threading.Thread(target=do_sync, daemon=True).start()
@@ -1263,11 +1308,35 @@ class AnnotationApp:
     # ---------------------------------------------- إحصائيات / تقارير / PR --
 
     def export_yaml(self):
-        out = self.repo / REPORTS_DIR / "annotation_stats.yaml"
-        export_stats_yaml(self.lm.log, out)
-        messagebox.showinfo("YAML", f"تم تصدير الإحصائيات إلى:\n{out}")
+        self.status.set("جارِ تحديث السجل من GitHub ثم التصدير…")
+        self.root.update_idletasks()
+
+        def worker():
+            self.lm.refresh_from_remote()
+            out = self.repo / REPORTS_DIR / "annotation_stats.yaml"
+            export_stats_yaml(self.lm.log, out)
+            self.root.after(0, lambda: (
+                self._update_status(),
+                messagebox.showinfo("YAML", f"تم تصدير الإحصائيات إلى:\n{out}")))
+
+        threading.Thread(target=worker, daemon=True).start()
 
     def show_stats(self):
+        # نجلب أحدث سجل من GitHub أولاً حتى تشمل الإحصائيات آخر عمل الفريق كله
+        self.status.set("جارِ تحديث السجل من GitHub قبل عرض الإحصائيات…")
+        self.root.update_idletasks()
+
+        def worker():
+            self.lm.refresh_from_remote()
+            self.root.after(0, self._show_stats_window)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _show_stats_window(self):
+        if self.idx >= 0:
+            self._update_status()
+        else:
+            self.status.set("الإحصائيات محدّثة من GitHub")
         stats = build_stats(self.lm.log)
         win = tk.Toplevel(self.root)
         win.title("إحصائيات الأنوتيشن")
@@ -1302,6 +1371,7 @@ class AnnotationApp:
         self.root.update_idletasks()
 
         def worker():
+            self.lm.refresh_from_remote()
             stats_path = export_stats_yaml(
                 self.lm.log, self.repo / REPORTS_DIR / "annotation_stats.yaml")
             md = build_markdown_report(self.lm.log, len(self.images))
@@ -1314,25 +1384,29 @@ class AnnotationApp:
     # ---------------------------------------------------------- مزامنة DVC --
 
     def sync_dvc(self, on_done=None):
-        """dvc add → git push (المؤشّر + السجل) → dvc push — في الخلفية."""
+        """مزامنة الصور الخام: سحب تحديثات الزملاء + رفع الصور الجديدة — في الخلفية.
+        الـ labels لم تعد بحاجة لهذا الزر: تُرفع تلقائياً مع كل حفظ."""
         if not self.dvc.available():
             messagebox.showwarning("DVC", "أمر dvc غير متوفر في هذا الجهاز.\n"
                                           "ثبّته عبر:  pip install \"dvc[gdrive]\"")
             return
-        if self.dirty and not self._confirm_leave():
-            return
         self.dvc_btn.configure(state=tk.DISABLED)
-        self.status.set("جارِ مزامنة DVC (add → git → push)… قد يستغرق دقائق حسب حجم التغييرات")
+        self.status.set("جارِ مزامنة الصور مع DVC… قد يستغرق دقائق حسب حجم التغييرات")
         self.root.update_idletasks()
 
         def worker():
-            ok, msg = self.dvc.sync_annotations(self.lm)
+            pull_ok, pull_msg = self.dvc.pull_raw()
+            if self.dvc.raw_changed():
+                ok, msg = self.dvc.sync_raw(self.lm)
+            elif pull_ok:
+                ok, msg = True, "الصور محدّثة — لا توجد صور جديدة للرفع."
+            else:
+                ok, msg = pull_ok, pull_msg
+
             def done():
                 self.dvc_btn.configure(state=tk.NORMAL)
                 self.status.set(("✅ " if ok else "⚠️ ") + msg.splitlines()[0])
-                if ok:
-                    self.labels_written = False
-                else:
+                if not ok:
                     messagebox.showwarning("DVC", msg)
                 if on_done:
                     on_done(ok)
@@ -1345,21 +1419,15 @@ class AnnotationApp:
     def on_close(self):
         if not self._confirm_leave():
             return
-        # labels كُتبت في هذه الجلسة ولم تُزامَن عبر DVC بعد؟
-        if self.labels_written and self.dvc.available() and self.dvc.annotations_changed():
-            if messagebox.askyesno(
-                    "مزامنة DVC",
-                    "كتبت labels في هذه الجلسة ولم تُرفع إلى DVC remote بعد.\n"
-                    "مزامنتها الآن قبل الخروج؟ (يُنصح بذلك حتى تصل لبقية الفريق)"):
-                self.sync_dvc(on_done=lambda ok: self._finalize_close())
-                return
         self._finalize_close()
 
     def _finalize_close(self):
-        # تحرير كل أقفالي عند الخروج ومزامنتها حتى لا تبقى صور محجوزة بلا داعٍ
+        # تحرير كل أقفالي عند الخروج ومزامنتها (مع أي labels متبقية) حتى لا
+        # تبقى صور محجوزة بلا داعٍ
         self.lm.release_all_mine()
         try:
-            self.lm.sync(f"chore(locks): release locks on exit ({self.user})")
+            self.lm.sync(f"chore(locks): release locks on exit ({self.user})",
+                         extra_paths=[ANNOT_DIR])
         except Exception:
             write_log(self.lm.log_path, self.lm.log)
         self.root.destroy()
