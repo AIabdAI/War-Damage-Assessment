@@ -111,8 +111,48 @@
         "Window_Sill": 0,
         "Light_Fixture": 3
       }
+    },
+    "a-big-crack-on-an-old-rotten-wall_webp.rf.7d96b11fdc2e00286532590ddec2b9d4": {
+      "hash": "6ed163e337822ae20c99b0b53bbb7d3f",
+      "timestamp": "2026-07-12T10:03:55.700064Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
-  "locks": {}
+  "locks": {
+    "black-mould-in-the-wall-corner-of-the-house_webp.rf.87e1583f4b92cb26122895a1fa63af8c": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:03:55.708249Z",
+      "expires_at": "2026-07-12T12:03:55.708249Z"
+    },
+    "a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:03:55.708249Z",
+      "expires_at": "2026-07-12T12:03:55.708249Z"
+    }
+  }
 }
