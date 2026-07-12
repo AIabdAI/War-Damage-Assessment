@@ -2,7 +2,7 @@
   "annotated": {
     "VID_20260607_174844_f000000": {
       "hash": "ccac820e59eeef429d8aa7009230d090",
-      "timestamp": "2026-07-12T10:49:21.962396Z",
+      "timestamp": "2026-07-12T10:49:28.886796Z",
       "boxes": 6,
       "damaged_boxes": 0,
       "annotated_by": "Abdallah",
@@ -125,6 +125,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-12T10:49:21.983770Z",
       "expires_at": "2026-07-12T12:49:21.983770Z"
+    },
+    "VID_20260607_174844_f000009": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T10:49:25.409047Z",
+      "expires_at": "2026-07-12T12:49:25.409047Z"
     }
   }
 }
