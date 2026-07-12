@@ -612,20 +612,66 @@ class DvcManager:
         except (OSError, subprocess.TimeoutExpired):
             return False
 
-    def pull_raw(self) -> tuple[bool, str]:
-        r = self._dvc("pull", str(Path("data") / "raw.dvc"))
-        if r.returncode == 0:
-            return True, "تم سحب data/raw من DVC remote بنجاح."
-        return False, f"فشل dvc pull:\n{(r.stderr or r.stdout).strip()[-400:]}"
+    def raw_pointer_nfiles(self) -> int | None:
+        """عدد الملفات المسجّل في مؤشّر raw.dvc (nfiles)، أو None إن تعذّر."""
+        ptr = self.repo / "data" / "raw.dvc"
+        if not ptr.exists():
+            return None
+        try:
+            for line in ptr.read_text(encoding="utf-8").splitlines():
+                s = line.strip()
+                if s.startswith("nfiles:"):
+                    return int(s.split(":", 1)[1].strip())
+        except (OSError, ValueError):
+            pass
+        return None
+
+    def raw_disk_image_count(self) -> int:
+        raw = self.repo / RAW_DIR
+        if not raw.exists():
+            return 0
+        return sum(1 for p in raw.iterdir() if p.suffix.lower() in IMG_EXTS)
 
     def raw_changed(self) -> bool:
-        """هل توجد صور جديدة/متغيرة في data/raw لم تُسجَّل في DVC بعد؟"""
+        """هل يختلف محتوى data/raw عمّا هو مسجّل في المؤشّر (dvc status)؟"""
         ptr = self.repo / "data" / "raw.dvc"
         if not ptr.exists():
             return (self.repo / RAW_DIR).exists()
         r = self._dvc("status", str(Path("data") / "raw.dvc"))
         out = (r.stdout + r.stderr).lower()
         return r.returncode == 0 and "up to date" not in out and out.strip() != ""
+
+    def raw_state(self) -> str:
+        """تصنيف حالة data/raw مقابل المؤشّر — يحدّد الإجراء الآمن:
+          'clean'    : مطابق للمؤشّر — لا شيء.
+          'has_new'  : على القرص صور أكثر من المؤشّر (إضافات محلية) → يجب الرفع،
+                       وممنوع dvc pull لأنه سيحذفها.
+          'missing'  : على القرص صور أقل (ناقصة) → السحب آمن ومطلوب.
+          'unknown'  : تغيّر غامض بنفس العدد → نعامله كإضافة (الأحوط: لا حذف).
+        """
+        if not self.raw_changed():
+            return "clean"
+        nf = self.raw_pointer_nfiles()
+        dc = self.raw_disk_image_count()
+        if nf is None:
+            return "unknown"
+        if dc > nf:
+            return "has_new"
+        if dc < nf:
+            return "missing"
+        return "unknown"
+
+    def pull_raw(self) -> tuple[bool, str]:
+        """سحب صور المؤشّر. أمان: نرفض السحب إن وُجدت إضافات محلية غير مرفوعة
+        لأن dvc pull ينفّذ checkout يحذف أي ملف ليس في المؤشّر."""
+        if self.raw_state() in ("has_new", "unknown"):
+            return False, ("توجد صور محلية جديدة في data/raw لم تُرفع بعد. "
+                           "أُلغي dvc pull حتى لا تُحذف — ارفعها أولاً بزر "
+                           "«☁ مزامنة الصور».")
+        r = self._dvc("pull", str(Path("data") / "raw.dvc"))
+        if r.returncode == 0:
+            return True, "تم سحب data/raw من DVC remote بنجاح."
+        return False, f"فشل dvc pull:\n{(r.stderr or r.stdout).strip()[-400:]}"
 
     def sync_raw(self, lm: "LockManager") -> tuple[bool, str]:
         """رفع الصور الخام الجديدة: dvc add → dvc push → git (المؤشّر)."""
@@ -713,8 +759,13 @@ class AnnotationApp:
                        "ثبّته ثم أعد التشغيل:  pip install \"dvc[gdrive]\"")
 
     def _pull_raw_updates(self, raw: Path):
-        """في الخلفية: git جلب raw.dvc يتم في sync، وهنا نسحب الصور الموافقة له.
-        يجلب صور الزملاء الجديدة تلقائياً دون أي أمر يدوي."""
+        """في الخلفية: سحب تحديثات الصور من الزملاء تلقائياً — بأمان.
+        إن وُجدت إضافات محلية غير مرفوعة لا نسحب (لأن السحب يحذفها) بل ننبّه فقط."""
+        state = self.dvc.raw_state()
+        if state in ("has_new", "unknown"):
+            # لدى المستخدم صور جديدة لم تُرفع — لا نلمس القرص، فقط ننبّه
+            self.status.set("⬆ لديك صور جديدة في data/raw لم تُرفع — اضغط «☁ مزامنة الصور» لرفعها")
+            return
         self.status.set("جارِ التحقق من تحديثات الصور (dvc pull)…")
 
         def worker():
@@ -1395,13 +1446,15 @@ class AnnotationApp:
         self.root.update_idletasks()
 
         def worker():
-            pull_ok, pull_msg = self.dvc.pull_raw()
-            if self.dvc.raw_changed():
-                ok, msg = self.dvc.sync_raw(self.lm)
-            elif pull_ok:
-                ok, msg = True, "الصور محدّثة — لا توجد صور جديدة للرفع."
-            else:
-                ok, msg = pull_ok, pull_msg
+            # نصنّف الحالة أولاً — ولا نُنفّذ سحباً (checkout) قبل التأكد أنه لا
+            # توجد إضافات محلية، حتى لا تُحذف صور لم تُرفع بعد.
+            state = self.dvc.raw_state()
+            if state in ("has_new", "unknown"):
+                ok, msg = self.dvc.sync_raw(self.lm)          # رفع أولاً — يبدأ بـ dvc add
+            elif state == "missing":
+                ok, msg = self.dvc.pull_raw()                 # ناقصة — السحب آمن
+            else:  # clean
+                ok, msg = self.dvc.pull_raw()                 # تحديث محتمل من الزملاء
 
             def done():
                 self.dvc_btn.configure(state=tk.NORMAL)
