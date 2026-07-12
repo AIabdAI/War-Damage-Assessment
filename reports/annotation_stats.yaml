@@ -1,18 +1,19 @@
-generated_at: '2026-07-12T11:22:15.082543Z'
-total_images_annotated: 4
-total_boxes: 17
-total_damaged_boxes: 1
-total_intact_boxes: 16
+generated_at: '2026-07-12T12:45:07.904402Z'
+total_images_annotated: 302
+total_boxes: 629
+total_damaged_boxes: 482
+total_intact_boxes: 147
 images_per_developer:
-  Abdallah: 3
+  Ahmed AbuDagga: 287
+  Abdallah: 14
   Mohammed Bashir: 1
 boxes_per_class_total:
-  Brick_Wall: 1
-  Column: 0
-  Staircase: 2
-  Floor_Tiles: 2
+  Brick_Wall: 500
+  Column: 7
+  Staircase: 11
+  Floor_Tiles: 12
   Ceiling: 0
-  Beam: 2
+  Beam: 50
   Kitchen_Countertop: 0
   Sink: 0
   Wall_Cabinet: 0
@@ -20,14 +21,1975 @@ boxes_per_class_total:
   Floor_Cabinet: 0
   Bathtub: 0
   Water_Faucet: 0
-  Window: 2
+  Window: 12
   Fire_Extinguisher: 0
   Roof: 0
-  Door: 5
+  Door: 33
   Air_Conditioner: 0
-  Window_Sill: 0
+  Window_Sill: 1
   Light_Fixture: 3
 per_image:
+  Copy-of-PXL_20250418_050539554_jpg.rf.36cea691b44591191eb4f4f07e562abb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:32:09.626521Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Beam: 1
+  Copy-of-PXL_20250418_050539554_jpg.rf.df61434a67dee8b774fb65cebb7e2504:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:32:27.285581Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Beam: 1
+  Crack-01_jpg.rf.11ff7439144c25cb49c7d75e42629da2:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:32:43.682286Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-01_jpg.rf.3a69d428e52e0047f7a3e45e1d79fde9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:32:54.061983Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-02_jpeg.rf.2a89ca2ad17743ddedeb8e36a98055aa:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:33:30.192096Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+  Crack-02_jpeg.rf.59f916f9db205ad3c9035ae8a4c68b19:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:33:54.768168Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-02_jpeg.rf.715e5cd814b30e3e98b2275ce5da2aa8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:34:31.681943Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-03_jpg.rf.49539228109a6d4c25200ca7c0c22e4a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:34:57.121737Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-03_jpg.rf.5d92d58bf76c356e11a7fec44dbc58be:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:40:01.168482Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+  Crack-03_jpg.rf.d4bc799152ecacc33e3f6fbe67a9aee8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:40:12.626870Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+  Crack-04_png.rf.986d2fb98b7c9f1410b465a119292d18:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:41:07.032443Z'
+    boxes: 5
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 3
+  Crack-04_png.rf.9d644a31304cbf9a7b4e5cb0c8d2f7ce:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:42:21.537948Z'
+    boxes: 4
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 2
+  Crack-04_png.rf.b8f7c804596664f7bbb7c6b91dd57629:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:42:51.000236Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-05_png.rf.67d6b96d3b4a6062c5a2dc1228989e2c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:43:21.746860Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+  Crack-05_png.rf.a2ed8775ec33a58c1108b0fcfea560be:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:43:34.143656Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-05_png.rf.e357c4a0cb158201b1c130829c8fdb89:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:44:19.851815Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-06_jpg.rf.0bbe7ad0a7c508706c02e4441a6bc0c0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:44:33.253007Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-06_jpg.rf.7a5b7720ab6be2564ade8ea3e0580451:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:44:48.013602Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-06_jpg.rf.a0138c70ef7a609acac853fca01fffc4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:44:59.855668Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-07_jpg.rf.8051f2d1d4eba5f6ca6b8a5b4ffeac5f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:45:15.879706Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-07_jpg.rf.9c4535ed17eaea4a55efc70742531c9f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:45:29.852539Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-07_jpg.rf.c7d424aa1aa9a21de552a45db71c6106:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:48:08.439344Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-08-1-_jpg.rf.154499d8491d831055a891d89aeff322:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:48:50.595920Z'
+    boxes: 4
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+      Door: 1
+  Crack-08-1-_jpg.rf.1e69cf86545d5ed9d222e57370cbb0d8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:49:52.862695Z'
+    boxes: 4
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+      Door: 1
+  Crack-08-1-_jpg.rf.4d5a0f668be874f370f87f475f7050e1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:50:13.138592Z'
+    boxes: 4
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+      Door: 1
+  Crack-09_jpg.rf.9b1515327c4e342ec707d24e14663c43:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:50:22.478663Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-09_jpg.rf.e4be9f2a34bbf8d7379f4a1f0d84d5f4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:50:30.110610Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-09_jpg.rf.ff4cfe35a2df0352bf3dcc051608ae80:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:50:34.169666Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-09_png.rf.12d20eab1119fd33b409135fdf7025e9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:50:56.141938Z'
+    boxes: 6
+    damaged_boxes: 6
+    class_boxes:
+      Brick_Wall: 6
+  Crack-09_png.rf.15347658dd59445f6e75ec7c692f250f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:07.408801Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-09_png.rf.e3d959618f8c315847edc7a2e8af2d4f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:16.688390Z'
+    boxes: 4
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 4
+  Crack-101_jpg.rf.454790f60c6c594542b1babaaaaeb2f3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:37.448733Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+  Crack-101_jpg.rf.d03c0ae6dec7f19bd3f944c5575af546:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:42.123901Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-101_jpg.rf.eaf1e2ba4ed38143d591ec70d4b95ec0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:44.918802Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-102_jpg.rf.7b9c083d3c6ec9968c398852d12b2b2c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:52.918163Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-102_jpg.rf.b4efd3575d9888cac72bbb706794a314:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:51:58.819145Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-102_jpg.rf.f62d613611e2215835ad4aa061494263:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:52:04.916897Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-104_jpg.rf.6ee581426720bc2b8de244fb62049c44:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:52:15.988886Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-104_jpg.rf.75bc8e0ad4822921cf02e4ab9d8867f6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:52:24.408208Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-104_jpg.rf.c8e6563e48e7f2c02947c5c2d0b0d835:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:52:34.451212Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-105_jpg.rf.1b4748aee228daac943ea1c4ec5a9c8d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:52:47.612781Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-105_jpg.rf.3aaa18c3572cc51623fd8db09b174284:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:00.248171Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-105_jpg.rf.8ba5b54f89fbe8ad585b415ba5d032da:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:13.178548Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-106_jpg.rf.005716df39abd308e962229d6c5f18e5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:24.400295Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-106_jpg.rf.930cb2d0100d9706813625ce0cc03d2b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:27.686188Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-106_jpg.rf.a1fd265cd4b4817383be583dee50a111:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:30.749991Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-107_jpg.rf.8946e70b16fe9d69430d0990009b2bcc:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:39.382324Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-107_jpg.rf.95abdc00a24923483d13250b24f0e2b7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:53:59.198010Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-107_jpg.rf.fa01d0c07e0f095172a27bd5d2a4f9ef:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:54:11.777795Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-109_jpg.rf.3dc8db439c14bd3e7833c48aa9f17898:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:54:32.427818Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-109_jpg.rf.a1f5a690e4789f0b72662f91f7ceb2f1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:54:51.837861Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-109_jpg.rf.aec404532e8910beda77b396aebf0d39:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:05.861733Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-10_jpg.rf.a3d88bdce1cf2ea14356d1a2ee88b5ef:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:16.858718Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-10_jpg.rf.aecfba725ac871cea21af22974696da3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:25.887643Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-10_jpg.rf.c3f1ff7361e1c4c03cdbe1e10ac5e77e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:31.727860Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-111_jpg.rf.9fc4a73273bc9a977556276e11cf7a56:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:36.490422Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-111_jpg.rf.d04c48c45bc98653bbdd78844562198d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:40.108863Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-111_jpg.rf.efde76a0e4e64c8468f613e9a424c8cd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:45.109274Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-113_jpg.rf.0ab1f9a1a327152f3d800e2fe88929f4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:52.096479Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-113_jpg.rf.16dd29bb00e37152d0ec5fbdd45d4703:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:54.999358Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-113_jpg.rf.bb27427c471b8456d70ac5a52f151d2b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:55:57.687374Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-114_jpg.rf.e47b5c0308a54e8b6bb5304ff3a1808a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:01.497307Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-114_jpg.rf.e55ad0f2908e5b639317a79666a394ee:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:04.407375Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-114_jpg.rf.f3cc89001cced518b27ea15deb666a22:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:06.720027Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-116_jpg.rf.18de44ae375e2db1a34dcbceced64ae8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:10.388417Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-116_jpg.rf.48c80b0a409f7e1bbd77f35f8afa17c9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:14.629121Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-116_jpg.rf.d5b4b229a66ea812238ae1d9f30a7b44:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:18.407817Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-11_jpg.rf.79aecc5f285904e88f32370d6b59afc1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:35.601924Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-11_jpg.rf.e4526fd4ba69985d648f44d100f8a9b0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:56:47.190798Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-11_jpg.rf.eddc1dca673877a9ce4ea6baae73c624:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:57:02.506463Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-120_jpg.rf.0bc210f456a32637dee3e1eb6342e94f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:58:41.566838Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+  Crack-120_jpg.rf.ba1ee6523849171c7d6cb6d962c32cf7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:59:01.424173Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+  Crack-120_jpg.rf.fdf3191c9df78b38687c1288db71bf6f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:59:16.199640Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+  Crack-121_jpg.rf.583e2838affc2d3c05cefe34eb03c71a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:59:44.957011Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-121_jpg.rf.9bf4ef6a3edcc54471040797722860f8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:00:15.768670Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-121_jpg.rf.f4723d4de7f47abaf4cb77e0fbbdb7e0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:01:19.746866Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-123_jpeg.rf.3ab365527642e3ce298244da986f0b5f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:01:41.336467Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-123_jpeg.rf.4736b178d7982be401ae5fe3cc4a3070:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:01:47.426607Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-123_jpeg.rf.799b6db0956a73004fb2ce3f3cf0d71c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:01:53.961716Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-126_jpg.rf.0e537852a0414447c6090e1deb69cc19:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:02:21.626060Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-126_jpg.rf.ddb496e52b2ea847511199268d63c998:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:03:00.195911Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+      Door: 1
+  Crack-126_jpg.rf.eaf7e57d0653dcdf008044cff59aef72:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:07.555823Z'
+    boxes: 5
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 2
+      Door: 1
+  Crack-128_jpg.rf.40e1def396b0dcac878eb4ae10a66067:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:22.018161Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-128_jpg.rf.63ded3410d157f20524bfc94091cb669:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:30.895888Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-128_jpg.rf.bc7ed985e4420af50b70bfaea8be0429:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:40.560338Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-129_jpg.rf.6b30d0ad1ce293859f1127f99c9bf601:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:47.256022Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-129_jpg.rf.b8709170e22a1cade7e951d1710b0b64:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:53.675568Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-129_jpg.rf.d199318e98f77ec2d810ddab05e1ebab:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:04:59.745784Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-12_png.rf.4906ad2ad9cd00b9e59102f2723a87ae:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:05:06.804069Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-12_png.rf.64e5b9a87b9270d4c31fb6c1ee972e5d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:05:13.589209Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-12_png.rf.64fa52f797bea76252acbbf809a347bf:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:05:21.749993Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-131_jpg.rf.541f64ef07acc538c85cc4b8fb24e19f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:06:10.168194Z'
+    boxes: 4
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-131_jpg.rf.82f8d5eaa3da622aa95b96345e8df8cd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:06:19.696801Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-131_jpg.rf.89adf8a8009cbbde6c9cd4109e201d2a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:06:32.471107Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+  Crack-132_jpg.rf.0af695dbd1c5ab587ec235df31513019:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:06:51.685608Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-132_jpg.rf.32b3c8c935e9cbe992eef9dcafac49ce:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:07:13.077075Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-132_jpg.rf.b7f2d3d76db051e869b9e10f26b7e929:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:07:47.447433Z'
+    boxes: 4
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-133_jpg.rf.49b4bacdb95a4c4e5e278a8fbc6d3119:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:07:57.772784Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-133_jpg.rf.4c6dc4914130e23ab545415b1e03d389:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:08:06.906727Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-133_jpg.rf.64ea0e09c4af2bc92cc1c54277c172eb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:08:28.152135Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-135_jpg.rf.2fe9a8d679e1362b7ecd6d0eb94fcda7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:08:35.335037Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-135_jpg.rf.9ca0b0719bab18cdcc34aa50552273af:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:08:41.586107Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-135_jpg.rf.e171895ff4de4ecf00e092a91411809d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:08:46.726831Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-136_jpg.rf.57a771593fea1d3856bd7586bbd10909:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:09:21.806187Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-136_jpg.rf.7fb86e3dc8dad7e7687bd137017d7c5d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:10:04.615217Z'
+    boxes: 4
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+      Beam: 1
+  Crack-136_jpg.rf.9bfe13362bf18b1765b13d8d5912833e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:10:41.914528Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-137_jpg.rf.09706756fcf7729b4b2b0289e96616b2:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:11:01.737378Z'
+    boxes: 5
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 5
+  Crack-137_jpg.rf.1860e21875c48116aeaaa6b83ded4914:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:34:27.604063Z'
+    boxes: 4
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 4
+  Crack-137_jpg.rf.4ddb6aaa5b9dda7e673aa41ce5e7a5bc:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:34:39.181310Z'
+    boxes: 4
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 4
+  Crack-138_jpg.rf.273a093d688f4468ffb96bbef907a24a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:34:48.316691Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-138_jpg.rf.275d3844f07b778143b8b14a7c48bc6a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:34:54.010260Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-138_jpg.rf.d56cc15c2f2972508706a0779190b183:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:35:06.831817Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-139_jpg.rf.222882d88cc296ad856baae71af01bbd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:35:28.189877Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-139_jpg.rf.90f0325167be56a7a2efe156130cf60e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:35:35.665226Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-139_jpg.rf.a8da7ab2f701c655758dabe02acedb63:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:35:40.380888Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-143_jpeg.rf.05f54bd443715c23f5d71aeddcacfc83:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:35:56.470167Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-143_jpeg.rf.46b369c3b0be7bba8b445f3f64eaffc9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:36:13.139703Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-143_jpeg.rf.630f26931d318847a2466e14bdcba952:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:36:22.359478Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 3
+  Crack-144_jpg.rf.3d14af745b638e5fc6241a10b89578e0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:36:28.703234Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-144_jpg.rf.6c46c13b21074c18bbb70e6ac62aa9c3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:36:32.904923Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-144_jpg.rf.fa74fe992762b83cd934d32eaa5ee5ff:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:36:55.823217Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-145_jpg.rf.9ef2cc646317b8839e106fc19549a03d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:37:41.869517Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-145_jpg.rf.d2e33118052ce93333dbd7f514916346:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:37:58.169658Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-146_jpeg.rf.010619c528ad536d484157d89e103d0b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:38:08.859533Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-146_jpeg.rf.29bdf6d1863593879a59f355845f2a54:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:38:25.694696Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-146_jpeg.rf.8616614ee5f92106cf3b7a4e6c7d851b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:38:41.649817Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-149_jpeg.rf.1c4dc027503cbdcbbcbdf5bf7a8097a1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:38:55.809446Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-149_jpeg.rf.26bbbf3edd95a6f9ad1e5622609775c3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:39:06.457050Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-149_jpeg.rf.6296772826155cb761e41cae8adca309:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:39:29.822754Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-150_jpeg.rf.15f8f1d692a92392d659bd34163be289:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:39:52.282495Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-150_jpeg.rf.989db9de561409141a66ebcde122c705:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:40:01.479510Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-150_jpeg.rf.d9050825907f19754799f72f75be8fd2:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:40:10.874565Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-151_jpeg.rf.15748a3ec3883a119f5800a778f47304:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:40:18.453984Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-151_jpeg.rf.50bd26ea68588efe182149dc55e7a7b1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:42:04.308637Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-151_jpeg.rf.6d3d95efcdfffd27785093a666c139ce:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:42:25.626948Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-152_jpeg.rf.5d3748cd1b168043f6fc75527dfdf5bb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:42:42.970648Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-152_jpeg.rf.c692c7ed097f8c357301b5717ee2a65a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:42:49.802349Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-152_jpeg.rf.df0473825e2a7276e88d7974ed798e79:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:42:57.088533Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-155_jpeg.rf.1b234ee49bda3a30584b12337d094c6c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:00.988535Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-155_jpeg.rf.35015fcd321b3eccdc76021f7da75997:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:04.432804Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-155_jpeg.rf.6f9a73743b2a82ba3d8a5c43d29e9fc1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:12.479142Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-156_jpeg.rf.5b3eb5c5c499e0eab6d1d9d7a4e1d377:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:18.661737Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-156_jpeg.rf.a051fb2c7530fac196d7ecb39d23122f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:25.611863Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-156_jpeg.rf.eed24e202bba5a465cbcadc9e9735fb7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:31.901444Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-157_jpeg.rf.9da311b445c3fa4dde4fe6d25975eab1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:39.148645Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-157_jpeg.rf.9e0827e92ed45faf002df50f2fd2fed9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:44.928185Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-157_jpeg.rf.eec382580f7bf27d154e5cd8cb72d056:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:51.393581Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-158_jpeg.rf.1e281e5efb320589b7572bae807d5ac0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:43:59.490309Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-158_jpeg.rf.3eee9060e9077f97b42ebf3b9c8a783a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:44:05.284424Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-158_jpeg.rf.fa0e7f2d45ef0e131c350ef468e79bf6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:44:11.822127Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-159_jpeg.rf.2177abdb1092c87cdb08887ba5c1f544:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:44:26.728508Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Door: 1
+  Crack-159_jpeg.rf.4dacdf033c27d1277d512b4e206551a1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:45:01.691610Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-159_jpeg.rf.f6da6806d4757f45cf9ecc3e22b3b4e5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:45:10.982982Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-160_jpg.rf.887a870ded2a439544c0e0a40616e052:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:45:20.468191Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-160_jpg.rf.cb4a5ea81895e10450f41f8a782cc0c0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:45:58.635097Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-160_jpg.rf.e84acaf25bac51396144a743696ba870:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:46:48.459125Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-161_jpg.rf.8f47342206cd8321831bc1d4b022d81c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:46:58.981964Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-161_jpg.rf.aedaab5d620701f17d9e86fc223fbcfc:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:47:05.995015Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-161_jpg.rf.d3bd85f7ec97610f3c81a8a566550e17:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:47:43.661297Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-162_jpg.rf.1dcfb8f288f80e124f6f56f32eed2451:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:47:51.018139Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-162_jpg.rf.39d0df0781f9580665b1e77dc7862b13:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:47:57.057280Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-162_jpg.rf.5033bd65554e1888179a1d77b6ea572b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:05.880082Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-163_jpg.rf.8dfc8c2f1af1df756ed44114e3aacecf:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:28.398680Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-163_jpg.rf.a6118af56d741e58329c26af2c990e44:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:32.690451Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-163_jpg.rf.cac24540779be9e5df6a776d891e73e8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:42.137029Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-166_jpg.rf.56580ca62d2b21d6960cb2e7bb4b90ae:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:51.957479Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-166_jpg.rf.7c5fe41ea3fc133cb04105b2a57112a8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:48:59.973932Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-166_jpg.rf.85d0e4509b296852e5789fbf6fe763fa:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:06.472403Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-167_jpg.rf.3d860a722542540e6d820ab6ea297048:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:15.165258Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-167_jpg.rf.95293856fcabf2a76ca1ac26edf4c51e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:20.509499Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-167_jpg.rf.b49f3b7453a0272191206e8b1a2a5183:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:27.747414Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-168_jpg.rf.0927aee5b9ab955c3d029eb46b0ec1c5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:40.514025Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-168_jpg.rf.215bb0338a64c9232adbbd370cbdf1bd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:49:58.759585Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-168_jpg.rf.e169b010c6c89b8265e813d5813afa6e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:50:09.438982Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-170_jpg.rf.1636e35f62e8dbe422d5eae88b9bb5bd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:50:21.216968Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-170_jpg.rf.6f7f4a09416a64b5cee304d1b856d3b0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:50:31.606850Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-170_jpg.rf.cde3bad2c83e50c80741cae891f31c01:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:50:48.907293Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-171_jpg.rf.3e49e19f47f208d5eabb5b9ff74148f4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:50:56.877006Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-171_jpg.rf.5782ce9ddb8b4bd3ee1f8275eea4517d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:01.650644Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-171_jpg.rf.6abd5effbd41a923107bc98f3a690ac6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:04.837052Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-173_jpg.rf.0df840220613ae6d78bbbdf38c5e0f70:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:08.288820Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-173_jpg.rf.68ec461ff536a8ef7d51ff1e2ce123b9:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:11.859815Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-173_jpg.rf.c0ea1b2c9d46c84397e46f168d574aea:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:15.296907Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-174_jpg.rf.71968639d78ada5a0e39d2116cf74d4f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:20.496538Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-174_jpg.rf.bebf91f902eca555b7305159c48a784b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:27.879237Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-174_jpg.rf.db40f1adde744fabf5a75b3e3c425174:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:46.006899Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-175_jpg.rf.c5cb8fab6cf07c289f774873ff4672b8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:51:49.197883Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-175_jpg.rf.c97bff02dd19454c1dca16b2f628acb7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:54:46.109857Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-175_jpg.rf.ef9b33798d188021f0372c8ff36f9f83:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:54:50.951585Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-176_jpg.rf.72c1a9f503fcbfbdba616f9dcc1d98a6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:54:54.378605Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-176_jpg.rf.a8178abbafff54d1b37a9e699a380556:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:54:59.636372Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-176_jpg.rf.cba171174831b61257795eeb810db87a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:08.116075Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-177_jpg.rf.658d063bb12104d2a4b6962c39e66e89:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:18.036454Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-177_jpg.rf.a716ef32c0dc35674a2485978ca807f1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:23.539938Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-177_jpg.rf.b8a2bc60aa638d2a3f9a502a3fff60bc:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:37.955998Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-178_jpg.rf.0705fc4fcac071d6edf4ca1ea967c25d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:49.538651Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-178_jpg.rf.c41c087ef3bdad26a6a07abb04cb3d3b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:55:56.318287Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-178_jpg.rf.f66ef2e7c400deeb7d95b2c666f5076a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:01.552729Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-17_jpg.rf.02aa1bdf6bffe2361eb89ed921540ca6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:06.701840Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-17_jpg.rf.3184b5a8f7caedd08aeee447da7ccd68:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:12.955718Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-17_jpg.rf.e77d585bd1c85b78c3cadab59e25d167:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:17.845471Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-180_jpg.rf.82c213a3e3f9ad11606e04a675370baf:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:36.848402Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-180_jpg.rf.f2b148ca726915d6452bfcd10c4d9d22:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:56:47.905492Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-180_jpg.rf.fa9637050a5ec82e04d1543e2f75176f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:07.966104Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-183_jpg.rf.755f168e1da2dd81312f3fe6c06e48a3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:13.295726Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-183_jpg.rf.7744f03546da60a4f7e58e065b3c33d5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:25.845647Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-183_jpg.rf.e1e24fc192734efbabc5003d24113617:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:28.978498Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-185_jpg.rf.03345a578053b2a4d5a939cb43948d09:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:42.372696Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
+  Crack-185_jpg.rf.468dcdd52ccaf573f14187b043e6a399:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:47.414174Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-185_jpg.rf.78e5d3f5b3043917fcdf764f034786f0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:57:51.275610Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-186_jpeg.rf.21e3d04f6996ec77085b3afc2b03f628:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T11:58:59.435245Z'
+    boxes: 5
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+      Window: 1
+      Door: 2
+  Crack-186_jpeg.rf.70103740a4c3184adf72d54dd177d380:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:00:08.661206Z'
+    boxes: 5
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+      Window: 1
+      Door: 2
+  Crack-186_jpeg.rf.f42c42f65cf9cc1561f1d4260b1e5418:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:00:40.110958Z'
+    boxes: 3
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Door: 2
+  Crack-188_jpg.rf.1efaa3025f410313122e09a4b158843d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:00:43.998427Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Door: 1
+  Crack-188_jpg.rf.d0c85444c4ecdf41855e1abf86959838:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:02.743600Z'
+    boxes: 3
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 3
+  Crack-188_jpg.rf.f7c13f218ce07ada3652aa3a6a8ac39a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:25.524585Z'
+    boxes: 4
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 4
+  Crack-189_jpg.rf.3b0e2cdeae2edc9603d8e77520ef7151:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:32.728526Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-189_jpg.rf.6e9372791751f624540edf8198c4d6c4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:37.524992Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-189_jpg.rf.8749a1c02fd489e30ef71fb87570baa3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:43.647215Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-18_jpg.rf.08db48c3880de655cd41d668b491fac7:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:01:53.816704Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-18_jpg.rf.5496204122c7e267a47673ef7f95be94:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:01.281576Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-18_jpg.rf.ab51e5d247ad5c17eb2e6a2f6790eb61:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:06.880222Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-190_jpg.rf.0e90160fe6d56657f6b8d3c3c771020f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:13.218534Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-190_jpg.rf.de8cf42acf9639b3e15ae5dcec9b4879:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:16.916711Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-190_jpg.rf.e98eea4475b3f1e876d8e74c89b557ef:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:19.848199Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-192_jpeg.rf.872f36da0383e1610e92d52083b39382:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:24.095982Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-192_jpeg.rf.aed8595c9b745376617145a3ed989f97:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:28.156224Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-192_jpeg.rf.c4fa11133d61517c3ea5768acf047437:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:31.033010Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-194_jpg.rf.6db1757b8983b1423ecd132552dfc8c1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:37.114606Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-194_jpg.rf.acd0eae4e29b14e25b7332160c938f70:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:41.847917Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-194_jpg.rf.f3c69c167c996c6696e7f14f1dd3f1b1:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:45.978812Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-199_jpg.rf.40629bca4caba54ea2955bd8691c9ffb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:52.869251Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-199_jpg.rf.441e90daad3d3b719f746fe0a6b28ea2:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:02:57.294945Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-199_jpg.rf.bd14991ddc56e3d5e19d9b3f7bc9bb95:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:03.919131Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-200_png.rf.5dc55c4d7591d1432cce878588a1501a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:07.604473Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-200_png.rf.b5d73a36e38819b8b10cd21a0b796307:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:11.236526Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-200_png.rf.c375a6201ec928a1a1ed090a7e1c6e89:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:16.554506Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-201_jpg.rf.58bb57a894f48ec3268146a82974c5e0:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:20.654451Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-201_jpg.rf.5bcb104b05843e8d03c4e735b744e46d:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:30.979678Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+  Crack-201_jpg.rf.db1cb785df948f58a3aeed5c86c1237f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:03:36.658495Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-202_jpg.rf.0f2a9dbf817ea3d37b3270e1fd9963a6:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:04:07.844381Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-202_jpg.rf.4143e031c1ec13419d7df7dfbfbb8056:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:04:27.640358Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-202_jpg.rf.7e9e575e19859dbb5eab1a88a4b74e5f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:04:44.714210Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-203_jpg.rf.b602b2e05640d48323902e3325dbc20c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:05:08.275780Z'
+    boxes: 0
+    damaged_boxes: 0
+    class_boxes: {}
+  Crack-203_jpg.rf.e6600a82f5c2d12464bf0da91264b74c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:05:24.486233Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-203_jpg.rf.f900692b3c6736d8f8ab871c60d160cd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:05:58.707931Z'
+    boxes: 2
+    damaged_boxes: 2
+    class_boxes:
+      Beam: 2
+  Crack-206_jpg.rf.1cdedb81c2d70272a415208815c3f999:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:03.269676Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-206_jpg.rf.524a0f3aae910b844a67873fad558d20:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:05.893925Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-206_jpg.rf.ed542d4f4d19bf4370fbb076e0f2088b:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:08.637872Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-207_jpg.rf.14189ab569762942cfb872b7fb3cd5fb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:16.990763Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-207_jpg.rf.a3464a107d7a24bae3b10f2c740d43be:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:24.235006Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-207_jpg.rf.d615b230e9a7b159e1ebce3935ec9d38:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:30.716403Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-208_jpg.rf.455a0578d6453bb953bb40b25dbdc795:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:35.598156Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-208_jpg.rf.630bdfca0539b0b467d5a4b4192654f8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:06:54.722510Z'
+    boxes: 3
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 2
+      Beam: 1
+  Crack-208_jpg.rf.b0d816dd39d89558b833a9b04710db84:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:07:02.134371Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-20_png.rf.37c46977da1f474d272438cf6d618076:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:07:05.719562Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-20_png.rf.9a4e38edab4b5d4bc08c200562e954a8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:07:09.751986Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-20_png.rf.a52a27a845fcd6b3c67024209f7fe775:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:07:13.143572Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-210_jpg.rf.2e6413de46ba96128d41dba99776ca4a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:07.313414Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-210_jpg.rf.3f1062aba6e2116bb873b8b232457141:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:23.908753Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-210_jpg.rf.6e283513b75bdd559a2d1b9a1e5f6c46:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:43.506818Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Beam: 1
+  Crack-211_jpg.rf.e0b9f22c34ba1c9171631043f3ea0eee:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:51.219114Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-211_jpg.rf.e7ead85dc97c579b402ee48b0e8a8b2e:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:55.203298Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-211_jpg.rf.f96c68d86c78892699b33a57f3a216e4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:08:58.003602Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-212_jpg.rf.23ee5ec690c113c556a21848721b88e5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:01.366910Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-212_jpg.rf.6b5ea3c396c31b1f1552ee8a1704c3cd:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:04.489485Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-212_jpg.rf.db5ffb116224e9d036bf61f9c5b2a7e5:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:07.295053Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-213_jpg.rf.6b876a8563e0fe16f5d44c767eb14b44:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:11.163390Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-213_jpg.rf.a4a652e4bf15354c32b3dd06b44ae809:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:15.626247Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-213_jpg.rf.acc06a4196153ea3fbafd8abbca36846:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:19.265510Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-214_jpg.rf.36722587ef76151791b920d2017022bf:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:23.013326Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-214_jpg.rf.68cf20d24898b204ecf36d11ca4afafc:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:28.016923Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-214_jpg.rf.d3cd9530675c66866c3baca00c9e8677:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:09:34.814173Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  Crack-217-1-_jpg.rf.698405db6245b24f65d3b93172a639cb:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T12:12:28.912466Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
   MB_Door_0001:
     annotated_by: Mohammed Bashir
     timestamp: '2026-07-07T11:18:53.125523Z'
@@ -38,10 +2000,11 @@ per_image:
       Light_Fixture: 3
   VID_20260607_174844_f000000:
     annotated_by: Abdallah
-    timestamp: '2026-07-12T11:04:46.514355Z'
-    boxes: 6
-    damaged_boxes: 1
+    timestamp: '2026-07-12T11:23:43.093524Z'
+    boxes: 7
+    damaged_boxes: 2
     class_boxes:
+      Brick_Wall: 1
       Staircase: 1
       Floor_Tiles: 1
       Beam: 1
@@ -49,9 +2012,9 @@ per_image:
       Door: 2
   VID_20260607_174844_f000003:
     annotated_by: Abdallah
-    timestamp: '2026-07-05T13:52:41.608931Z'
+    timestamp: '2026-07-12T11:24:28.803507Z'
     boxes: 7
-    damaged_boxes: 0
+    damaged_boxes: 2
     class_boxes:
       Brick_Wall: 1
       Staircase: 1
@@ -61,7 +2024,218 @@ per_image:
       Door: 2
   VID_20260607_174844_f000006:
     annotated_by: Abdallah
-    timestamp: '2026-07-05T13:58:29.006405Z'
+    timestamp: '2026-07-12T11:52:34.151591Z'
+    boxes: 7
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 2
+  VID_20260607_174844_f000009:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:02:34.484841Z'
+    boxes: 5
+    damaged_boxes: 1
+    class_boxes:
+      Staircase: 1
+      Floor_Tiles: 1
+      Window: 1
+      Door: 2
+  VID_20260607_174844_f000015:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:04:25.426607Z'
+    boxes: 7
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 2
+  VID_20260607_174844_f000018:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:05:45.055722Z'
+    boxes: 6
+    damaged_boxes: 2
+    class_boxes:
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Door: 2
+      Window_Sill: 1
+  VID_20260607_174900_f000000:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:07:28.174557Z'
+    boxes: 7
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Column: 1
+      Staircase: 1
+      Floor_Tiles: 1
+      Door: 3
+  VID_20260607_174900_f000003:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:12:49.877183Z'
+    boxes: 10
+    damaged_boxes: 4
+    class_boxes:
+      Brick_Wall: 4
+      Column: 1
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 1
+  VID_20260607_174900_f000006:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:15:25.602781Z'
+    boxes: 8
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Column: 2
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 1
+  VID_20260607_174900_f000009:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:17:26.343929Z'
+    boxes: 9
+    damaged_boxes: 3
+    class_boxes:
+      Brick_Wall: 1
+      Column: 3
+      Staircase: 1
+      Floor_Tiles: 1
+      Beam: 1
+      Window: 1
+      Door: 1
+  VID_20260607_174900_f000075:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:20:22.085806Z'
+    boxes: 7
+    damaged_boxes: 2
+    class_boxes:
+      Brick_Wall: 1
+      Staircase: 1
+      Floor_Tiles: 2
+      Beam: 1
+      Window: 2
+  VID_20260607_174900_f000177:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:40:39.855360Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+      Door: 1
+  VID_20260607_174900_f000183:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:29:53.688241Z'
     boxes: 0
     damaged_boxes: 0
     class_boxes: {}
+  VID_20260607_174900_f000192:
+    annotated_by: Abdallah
+    timestamp: '2026-07-12T12:29:41.319061Z'
+    boxes: 0
+    damaged_boxes: 0
+    class_boxes: {}
+  a-big-crack-on-an-old-rotten-wall_webp.rf.7d96b11fdc2e00286532590ddec2b9d4:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:03:55.700064Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:26:58.353844Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  black-mould-in-the-wall-corner-of-the-house_webp.rf.87e1583f4b92cb26122895a1fa63af8c:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:27:29.822790Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  black-mould-in-the-wall-corner-of-the-house_webp.rf.9d9af9db3c56fd14a01dd23a9590b39a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:27:41.302431Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.2cb963cf10ccc19b8453636b61d1885f:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:28:09.785138Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.4f27ea6bda8878a743c9132b5499b826:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:28:24.762641Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.ff46cf1d66e3fa98fc981f21f3d927c3:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:28:34.330244Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ? closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.599170391f7d7741cd590b0ffe5b903a
+  : annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:28:48.900751Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ? closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.8633dd89168395c4b4a3a2d8809f7437
+  : annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:28:58.323835Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  ? closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.ce718a116144791a7e706fe91993ef4d
+  : annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:29:06.891830Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  concrete-wall_webp.rf.75b8d259f002cac82aa7880ec40d2756:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:29:17.930687Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  concrete-wall_webp.rf.97481caeab6b24a84d26962500d67728:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:31:22.242888Z'
+    boxes: 1
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 1
+  concrete-wall_webp.rf.ccab660a5b5e49d1bef9f4afc9db413a:
+    annotated_by: Ahmed AbuDagga
+    timestamp: '2026-07-12T10:31:38.865834Z'
+    boxes: 2
+    damaged_boxes: 1
+    class_boxes:
+      Brick_Wall: 2
