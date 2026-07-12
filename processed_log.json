@@ -9394,20 +9394,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "Crack-224_jpg.rf.c5a2ae3003eb59ea093db5b4e851d827": {
+      "hash": "8edc96832171ca5e61bafc39d65c20d4",
+      "timestamp": "2026-07-12T12:51:44.983145Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "Crack-102_jpg.rf.7b9c083d3c6ec9968c398852d12b2b2c": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:51:44.929237Z",
-      "expires_at": "2026-07-12T12:51:44.929237Z"
-    },
-    "Crack-102_jpg.rf.b4efd3575d9888cac72bbb706794a314": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:51:44.929237Z",
-      "expires_at": "2026-07-12T12:51:44.929237Z"
-    },
     "Crack-102_jpg.rf.f62d613611e2215835ad4aa061494263": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:51:52.929562Z",
@@ -11525,8 +11544,13 @@
     },
     "Crack-225_jpg.rf.05096516cc22ef765a1be35600fcaf41": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T12:51:41.873078Z",
-      "expires_at": "2026-07-12T14:51:41.873078Z"
+      "locked_at": "2026-07-12T12:51:44.992598Z",
+      "expires_at": "2026-07-12T14:51:44.992598Z"
+    },
+    "Crack-225_jpg.rf.d056418e8fdaf09a105ba5aef20a7cda": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T12:51:44.992598Z",
+      "expires_at": "2026-07-12T14:51:44.992598Z"
     }
   }
 }
