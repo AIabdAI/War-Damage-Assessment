@@ -8611,15 +8611,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_174900_f000009": {
+      "hash": "824ff7781ff269909bddf8e127375f49",
+      "timestamp": "2026-07-12T12:17:26.343929Z",
+      "boxes": 9,
+      "damaged_boxes": 3,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 3,
+        "Staircase": 1,
+        "Floor_Tiles": 1,
+        "Ceiling": 0,
+        "Beam": 1,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 1,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 1,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "black-mould-in-the-wall-corner-of-the-house_webp.rf.9d9af9db3c56fd14a01dd23a9590b39a": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:16:58.947950Z",
-      "expires_at": "2026-07-12T12:16:58.947950Z"
-    },
     "black-mould-in-the-wall-corner-of-the-house_webp.rf.ff8414051d2208ba782230845b82e705": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:27:29.832127Z",
@@ -10114,6 +10138,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-12T12:15:25.623297Z",
       "expires_at": "2026-07-12T14:15:25.623297Z"
+    },
+    "VID_20260607_174900_f000015": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:17:26.355062Z",
+      "expires_at": "2026-07-12T14:17:26.355062Z"
     }
   }
 }
