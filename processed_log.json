@@ -9655,15 +9655,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "Crack-230_jpg.rf.fea647f958d88babaa1cf782f4cea36a": {
+      "hash": "2eb0d9d4513c188a1270922046e7e472",
+      "timestamp": "2026-07-12T12:52:24.394768Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "Crack-105_jpg.rf.1b4748aee228daac943ea1c4ec5a9c8d": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:52:24.415265Z",
-      "expires_at": "2026-07-12T12:52:24.415265Z"
-    },
     "Crack-105_jpg.rf.3aaa18c3572cc51623fd8db09b174284": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:52:34.461821Z",
@@ -11791,13 +11815,18 @@
     },
     "Crack-230_jpg.rf.fea647f958d88babaa1cf782f4cea36a": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T12:52:21.408522Z",
-      "expires_at": "2026-07-12T14:52:21.408522Z"
+      "locked_at": "2026-07-12T12:52:17.962623Z",
+      "expires_at": "2026-07-12T14:52:17.962623Z"
     },
     "Crack-231_jpg.rf.2ae5659fbc8498c9bc7500efaf4e7d86": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T12:52:21.408522Z",
-      "expires_at": "2026-07-12T14:52:21.408522Z"
+      "locked_at": "2026-07-12T12:52:24.405180Z",
+      "expires_at": "2026-07-12T14:52:24.405180Z"
+    },
+    "Crack-231_jpg.rf.ce22694390663f8434daf12727d2874c": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T12:52:24.405180Z",
+      "expires_at": "2026-07-12T14:52:24.405180Z"
     }
   }
 }
