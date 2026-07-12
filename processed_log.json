@@ -2,8 +2,9 @@
   "annotated": {
     "VID_20260607_174844_f000000": {
       "hash": "ccac820e59eeef429d8aa7009230d090",
-      "timestamp": "2026-07-05T13:49:05.965774Z",
+      "timestamp": "2026-07-12T10:49:21.962396Z",
       "boxes": 6,
+      "damaged_boxes": 0,
       "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 0,
@@ -115,10 +116,15 @@
   },
   "augmented": {},
   "locks": {
-    "MB_Door_0002": {
-      "locked_by": "Mohammed Bashir",
-      "locked_at": "2026-07-07T11:17:09.118486Z",
-      "expires_at": "2026-07-07T13:17:09.118486Z"
+    "VID_20260607_174844_f000003": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T10:49:21.983770Z",
+      "expires_at": "2026-07-12T12:49:21.983770Z"
+    },
+    "VID_20260607_174844_f000006": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T10:49:21.983770Z",
+      "expires_at": "2026-07-12T12:49:21.983770Z"
     }
   }
 }
