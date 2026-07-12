@@ -140,6 +140,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8": {
+      "hash": "b06b3f4460631ca77011d321d36c3df5",
+      "timestamp": "2026-07-12T10:16:58.941421Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -153,6 +182,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:03:55.708249Z",
       "expires_at": "2026-07-12T12:03:55.708249Z"
+    },
+    "black-mould-in-the-wall-corner-of-the-house_webp.rf.9d9af9db3c56fd14a01dd23a9590b39a": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:16:58.947950Z",
+      "expires_at": "2026-07-12T12:16:58.947950Z"
     }
   }
 }
