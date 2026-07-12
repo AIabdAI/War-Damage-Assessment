@@ -114,11 +114,5 @@
     }
   },
   "augmented": {},
-  "locks": {
-    "MB_Door_0002": {
-      "locked_by": "Mohammed Bashir",
-      "locked_at": "2026-07-07T11:17:09.118486Z",
-      "expires_at": "2026-07-07T13:17:09.118486Z"
-    }
-  }
+  "locks": {}
 }
