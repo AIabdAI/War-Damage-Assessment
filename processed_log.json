@@ -9713,8 +9713,43 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_174900_f000042": {
+      "hash": "975a869186cdcccb486219418f505fc8",
+      "timestamp": "2026-07-12T19:42:24.616112Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
-  "locks": {}
+  "locks": {
+    "VID_20260607_174900_f000045": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-12T19:33:38.138351Z",
+      "expires_at": "2026-07-12T21:33:38.138351Z"
+    }
+  }
 }
