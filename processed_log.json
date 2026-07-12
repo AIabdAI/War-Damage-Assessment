@@ -227,6 +227,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.2cb963cf10ccc19b8453636b61d1885f": {
+      "hash": "f1881011f1f4bca1931a820ee6c88626",
+      "timestamp": "2026-07-12T10:28:09.785138Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -255,6 +284,16 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:27:41.312335Z",
       "expires_at": "2026-07-12T12:27:41.312335Z"
+    },
+    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.4f27ea6bda8878a743c9132b5499b826": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:28:09.793459Z",
+      "expires_at": "2026-07-12T12:28:09.793459Z"
+    },
+    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.ff46cf1d66e3fa98fc981f21f3d927c3": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:28:09.793459Z",
+      "expires_at": "2026-07-12T12:28:09.793459Z"
     }
   }
 }
