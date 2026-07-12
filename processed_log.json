@@ -343,6 +343,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.8633dd89168395c4b4a3a2d8809f7437": {
+      "hash": "ec960d478df4aa2942be36ff2fa3ec15",
+      "timestamp": "2026-07-12T10:28:58.323835Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -396,6 +425,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:28:48.918826Z",
       "expires_at": "2026-07-12T12:28:48.918826Z"
+    },
+    "concrete-wall_webp.rf.75b8d259f002cac82aa7880ec40d2756": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-12T10:28:58.332175Z",
+      "expires_at": "2026-07-12T12:28:58.332175Z"
     }
   }
 }
