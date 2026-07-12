@@ -2,12 +2,12 @@
   "annotated": {
     "VID_20260607_174844_f000000": {
       "hash": "ccac820e59eeef429d8aa7009230d090",
-      "timestamp": "2026-07-12T11:22:47.279768Z",
-      "boxes": 6,
-      "damaged_boxes": 1,
+      "timestamp": "2026-07-12T11:23:43.093524Z",
+      "boxes": 7,
+      "damaged_boxes": 2,
       "annotated_by": "Abdallah",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 1,
         "Floor_Tiles": 1,
