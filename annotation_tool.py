@@ -164,14 +164,15 @@ def save_labels(stem: str, boxes: list[dict], img_w: int, img_h: int, repo: Path
 
     std_lines, obb_lines = [], []
     for b in boxes:
+        dmg = int(b.get("dmg", 0))
         x0, y0, x1, y1 = enclosing_rect(b)
         cx, cy = nx((x0 + x1) / 2), ny((y0 + y1) / 2)
         w, h = nx(x1 - x0), ny(y1 - y0)
-        std_lines.append(f"{b['cls']} {cx:.6f} {cy:.6f} {w:.6f} {h:.6f}")
+        std_lines.append(f"{b['cls']} {cx:.6f} {cy:.6f} {w:.6f} {h:.6f} {dmg}")
 
         pts = box_corners(b)
         flat = " ".join(f"{nx(px):.6f} {ny(py):.6f}" for px, py in pts)
-        obb_lines.append(f"{b['cls']} {flat}")
+        obb_lines.append(f"{b['cls']} {flat} {dmg}")
 
     (repo / LABELS_DIR / f"{stem}.txt").write_text("\n".join(std_lines) + ("\n" if std_lines else ""), encoding="utf-8")
     (repo / LABELS_OBB_DIR / f"{stem}.txt").write_text("\n".join(obb_lines) + ("\n" if obb_lines else ""), encoding="utf-8")
@@ -184,24 +185,27 @@ def load_labels(stem: str, img_w: int, img_h: int, repo: Path) -> list[dict]:
     if obb.exists():
         for line in obb.read_text(encoding="utf-8").splitlines():
             parts = line.split()
-            if len(parts) != 9:
+            if len(parts) not in (9, 10):
                 continue
             cls = int(float(parts[0]))
-            vals = list(map(float, parts[1:]))
+            dmg = int(float(parts[9])) if len(parts) == 10 else 0
+            vals = list(map(float, parts[1:9]))
             pts = [(vals[i] * img_w, vals[i + 1] * img_h) for i in range(0, 8, 2)]
             b = corners_to_box(pts, cls)
             if abs(b["angle"]) < 0.05:
                 b["angle"] = 0.0
+            b["dmg"] = dmg
             boxes.append(b)
     elif std.exists():
         for line in std.read_text(encoding="utf-8").splitlines():
             parts = line.split()
-            if len(parts) != 5:
+            if len(parts) not in (5, 6):
                 continue
             cls = int(float(parts[0]))
-            cx, cy, w, h = map(float, parts[1:])
+            dmg = int(float(parts[5])) if len(parts) == 6 else 0
+            cx, cy, w, h = map(float, parts[1:5])
             boxes.append({"cls": cls, "cx": cx * img_w, "cy": cy * img_h,
-                          "w": w * img_w, "h": h * img_h, "angle": 0.0})
+                          "w": w * img_w, "h": h * img_h, "angle": 0.0, "dmg": dmg})
     return boxes
 
 
@@ -428,6 +432,7 @@ class LockManager:
             "hash": file_md5(img_path),
             "timestamp": iso(utcnow()),
             "boxes": len(boxes),
+            "damaged_boxes": sum(int(b.get("dmg", 0)) for b in boxes),
             "annotated_by": self.user,
             "class_boxes": class_boxes,
         }
@@ -441,8 +446,10 @@ def build_stats(log: dict) -> dict:
     totals = {name: 0 for name in CLASSES}
     per_dev: dict[str, int] = {}
     total_boxes = 0
+    total_damaged = 0
     for entry in annotated.values():
         total_boxes += entry.get("boxes", 0)
+        total_damaged += entry.get("damaged_boxes", 0)
         dev = entry.get("annotated_by", "unknown")
         per_dev[dev] = per_dev.get(dev, 0) + 1
         for cls, n in entry.get("class_boxes", {}).items():
@@ -452,6 +459,8 @@ def build_stats(log: dict) -> dict:
         "generated_at": iso(utcnow()),
         "total_images_annotated": len(annotated),
         "total_boxes": total_boxes,
+        "total_damaged_boxes": total_damaged,
+        "total_intact_boxes": total_boxes - total_damaged,
         "images_per_developer": dict(sorted(per_dev.items(), key=lambda kv: -kv[1])),
         "boxes_per_class_total": totals,
         "per_image": {
@@ -459,6 +468,7 @@ def build_stats(log: dict) -> dict:
                 "annotated_by": e.get("annotated_by"),
                 "timestamp": e.get("timestamp"),
                 "boxes": e.get("boxes", 0),
+                "damaged_boxes": e.get("damaged_boxes", 0),
                 "class_boxes": {k: v for k, v in e.get("class_boxes", {}).items() if v},
             }
             for stem, e in sorted(annotated.items())
@@ -488,7 +498,8 @@ def build_markdown_report(log: dict, total_raw_images: int) -> str:
         "",
         f"- **Generated:** {stats['generated_at']}",
         f"- **Images annotated:** {done} / {total_raw_images} ({pct:.1f}%)",
-        f"- **Total bounding boxes:** {stats['total_boxes']}",
+        f"- **Total bounding boxes:** {stats['total_boxes']} "
+        f"(damaged: {stats['total_damaged_boxes']}, intact: {stats['total_intact_boxes']})",
         "",
         "## Images per developer",
         "",
@@ -555,8 +566,71 @@ def publish_report_pr(lm: LockManager, report_md: str, stats_path: Path) -> str:
             f"gh CLI غير متوفر — افتح الـ PR يدوياً من:\n{url}/compare/{base}...{branch}?expand=1")
 
 # ----------------------------------------------------------------------------
-# واجهة المستخدم الرسومية (Tkinter)
+# التكامل مع DVC
+#   - الصور الخام (data/raw) والـ labels (data/annotations) مُدارة عبر DVC
+#     وليست في git — git يحمل فقط ملفات .dvc المؤشِّرة إليها.
+#   - سير المزامنة: dvc add → git commit/push (للمؤشّر) → dvc push (للبيانات).
 # ----------------------------------------------------------------------------
+
+class DvcManager:
+    def __init__(self, repo: Path):
+        self.repo = repo
+
+    def _dvc(self, *args: str, timeout: int | None = None) -> subprocess.CompletedProcess:
+        return subprocess.run(["dvc", *args], cwd=self.repo,
+                              capture_output=True, text=True, timeout=timeout)
+
+    def available(self) -> bool:
+        try:
+            return self._dvc("--version", timeout=30).returncode == 0
+        except (OSError, subprocess.TimeoutExpired):
+            return False
+
+    def raw_missing(self) -> bool:
+        """هل data/raw غير مسحوبة بعد رغم وجود مؤشّر raw.dvc؟"""
+        raw = self.repo / RAW_DIR
+        has_pointer = (self.repo / "data" / "raw.dvc").exists()
+        has_images = raw.exists() and any(
+            p.suffix.lower() in IMG_EXTS for p in raw.iterdir()) if raw.exists() else False
+        return has_pointer and not has_images
+
+    def pull_raw(self) -> tuple[bool, str]:
+        r = self._dvc("pull", str(Path("data") / "raw.dvc"))
+        if r.returncode == 0:
+            return True, "تم سحب data/raw من DVC remote بنجاح."
+        return False, f"فشل dvc pull:\n{(r.stderr or r.stdout).strip()[-400:]}"
+
+    def annotations_changed(self) -> bool:
+        """هل توجد تغييرات في data/annotations لم تُسجَّل في DVC بعد؟"""
+        ptr = self.repo / "data" / "annotations.dvc"
+        if not ptr.exists():
+            return (self.repo / ANNOT_DIR).exists()
+        r = self._dvc("status", str(Path("data") / "annotations.dvc"))
+        out = (r.stdout + r.stderr).lower()
+        return r.returncode == 0 and "up to date" not in out and out.strip() != ""
+
+    def sync_annotations(self, lm: "LockManager") -> tuple[bool, str]:
+        """المزامنة الكاملة: dvc add → git (مؤشّر + سجل) → dvc push."""
+        add = self._dvc("add", str(ANNOT_DIR))
+        if add.returncode != 0:
+            return False, f"فشل dvc add:\n{(add.stderr or add.stdout).strip()[-400:]}"
+
+        extra = [Path("data") / "annotations.dvc"]
+        if (self.repo / "data" / ".gitignore").exists():
+            extra.append(Path("data") / ".gitignore")
+        ok, git_msg = lm.sync(f"data: update annotations via DVC ({lm.user})",
+                              extra_paths=extra)
+
+        push = self._dvc("push", str(Path("data") / "annotations.dvc"))
+        if push.returncode != 0:
+            return False, (f"تم تحديث المؤشّر لكن فشل dvc push (تحقق من صلاحيات "
+                           f"Google Drive remote):\n{(push.stderr or push.stdout).strip()[-400:]}")
+        if not ok:
+            return False, f"تم dvc add/push لكن فشلت مزامنة git:\n{git_msg}"
+        return True, "تمت مزامنة DVC كاملة: dvc add ✓  git push ✓  dvc push ✓"
+
+
+
 
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
@@ -574,6 +648,8 @@ class AnnotationApp:
         self.repo = repo
         self.user = user
         self.lm = LockManager(repo, user)
+        self.dvc = DvcManager(repo)
+        self.labels_written = False   # هل كتبنا labels في هذه الجلسة؟
 
         self.images: list[Path] = []
         self.idx = -1
@@ -586,6 +662,7 @@ class AnnotationApp:
         self.clipboard: list[dict] = []
         self.dirty = False
         self.current_class = 0
+        self.current_dmg = 0      # الحالة الافتراضية للصناديق الجديدة: 0 سليم / 1 مدمّر
 
         # حالة التفاعل بالماوس
         self.mode = None          # draw | move | resize | rotate | None
@@ -602,6 +679,25 @@ class AnnotationApp:
         self._bind_keys()
 
         raw = repo / RAW_DIR
+        if self.dvc.available() and self.dvc.raw_missing():
+            if messagebox.askyesno(
+                    "DVC", "مجلد data/raw فارغ لكن مؤشّر raw.dvc موجود.\n"
+                           "سحب الصور الآن عبر dvc pull؟ (قد يستغرق وقتاً حسب الاتصال)"):
+                self.status.set("جارِ dvc pull data/raw …")
+                self.root.update_idletasks()
+
+                def pull_worker():
+                    ok, msg = self.dvc.pull_raw()
+                    def done():
+                        self.status.set(("✅ " if ok else "⚠️ ") + msg.splitlines()[0])
+                        if not ok:
+                            messagebox.showwarning("DVC", msg)
+                        elif raw.exists():
+                            self.load_folder(raw)
+                    self.root.after(0, done)
+
+                threading.Thread(target=pull_worker, daemon=True).start()
+                return
         if raw.exists():
             self.load_folder(raw)
 
@@ -624,6 +720,9 @@ class AnnotationApp:
         tk.Button(top, text="📊 الإحصائيات", command=self.show_stats).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="📄 تقرير + PR", command=self.report_pr).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="🟡 YAML", command=self.export_yaml).pack(side=tk.RIGHT, padx=2)
+        self.dvc_btn = tk.Button(top, text="☁ مزامنة DVC", bg="#d6e4ff",
+                                 command=self.sync_dvc)
+        self.dvc_btn.pack(side=tk.RIGHT, padx=8)
 
         self.status = tk.StringVar(value="اختر مجلد الصور للبدء…")
         tk.Label(self.root, textvariable=self.status, anchor="w",
@@ -643,6 +742,12 @@ class AnnotationApp:
         combo.pack(fill=tk.X, pady=2)
         combo.bind("<<ComboboxSelected>>",
                    lambda e: self.set_class(CLASSES.index(self.class_var.get())))
+
+        self.dmg_var = tk.IntVar(value=0)
+        self.dmg_chk = tk.Checkbutton(
+            side, text="💥 مدمّر (X)", variable=self.dmg_var,
+            anchor="w", command=self.on_dmg_toggle)
+        self.dmg_chk.pack(fill=tk.X, pady=(2, 0))
 
         grid = tk.Frame(side)
         grid.pack(fill=tk.X, pady=4)
@@ -687,6 +792,8 @@ class AnnotationApp:
             r.bind(key, lambda e, i=i: self.set_class(i))
             r.bind(key.upper(), lambda e, i=i: self.set_class(i))
         r.bind("<Control-s>", lambda e: self.save_current())
+        r.bind("x", lambda e: self.toggle_dmg_key())
+        r.bind("X", lambda e: self.toggle_dmg_key())
         r.bind("<Control-c>", lambda e: self.copy_selected())
         r.bind("<Control-v>", lambda e: self.paste_clipboard())
         r.bind("<Delete>", lambda e: self.delete_selected())
@@ -696,6 +803,22 @@ class AnnotationApp:
         r.bind("<Left>", lambda e: self.prev_image())
         r.bind("<Right>", lambda e: self.next_image())
         r.protocol("WM_DELETE_WINDOW", self.on_close)
+
+    def on_dmg_toggle(self):
+        """Checkbox أو مفتاح X: يبدّل حالة الـ box المحدد، أو الافتراضي للجديد."""
+        val = self.dmg_var.get()
+        if self.selected is not None:
+            self.boxes[self.selected]["dmg"] = val
+            self.dirty = True
+            self._refresh_box_list()
+            self.redraw()
+        else:
+            self.current_dmg = val
+        self._update_status()
+
+    def toggle_dmg_key(self):
+        self.dmg_var.set(0 if self.dmg_var.get() else 1)
+        self.on_dmg_toggle()
 
     def set_class(self, i: int):
         self.current_class = i
@@ -913,7 +1036,8 @@ class AnnotationApp:
             self.select_box(None)
             self.mode = "draw"
             self.boxes.append({"cls": self.current_class, "cx": ix, "cy": iy,
-                               "w": 1.0, "h": 1.0, "angle": 0.0})
+                               "w": 1.0, "h": 1.0, "angle": 0.0,
+                               "dmg": self.current_dmg})
             self.select_box(len(self.boxes) - 1)
 
     def on_drag(self, event):
@@ -980,9 +1104,12 @@ class AnnotationApp:
         self.selected = i
         if i is not None:
             self.set_class(self.boxes[i]["cls"])
+            self.dmg_var.set(int(self.boxes[i].get("dmg", 0)))
             self.box_list.selection_clear(0, tk.END)
             if i < self.box_list.size():
                 self.box_list.selection_set(i)
+        else:
+            self.dmg_var.set(self.current_dmg)
         self.redraw()
 
     def _on_list_select(self, _):
@@ -1043,7 +1170,8 @@ class AnnotationApp:
         self.box_list.delete(0, tk.END)
         for b in self.boxes:
             rot = f" ∠{b['angle']:.0f}°" if abs(b["angle"]) > 0.05 else ""
-            self.box_list.insert(tk.END, f"{CLASSES[b['cls']]}{rot}")
+            state = "💥" if b.get("dmg", 0) else "✓"
+            self.box_list.insert(tk.END, f"{state} {CLASSES[b['cls']]}{rot}")
 
     # ------------------------------------------------------------- الرسم --
 
@@ -1060,12 +1188,14 @@ class AnnotationApp:
 
         for i, b in enumerate(self.boxes):
             color = CLASS_COLORS[b["cls"] % len(CLASS_COLORS)]
+            damaged = bool(b.get("dmg", 0))
             pts = [self.to_canvas(x, y) for x, y in box_corners(b)]
             flat = [v for p in pts for v in p]
             width = 3 if i == self.selected else 2
-            c.create_polygon(*flat, outline=color, fill="", width=width)
+            dash = (6, 4) if damaged else None
+            c.create_polygon(*flat, outline=color, fill="", width=width, dash=dash)
             lx, ly = pts[0]
-            label = CLASSES[b["cls"]]
+            label = ("💥 " if damaged else "") + CLASSES[b["cls"]]
             c.create_rectangle(lx, ly - 16, lx + 7 * len(label) + 6, ly,
                                fill=color, outline=color)
             c.create_text(lx + 3, ly - 8, text=label, anchor="w",
@@ -1107,6 +1237,7 @@ class AnnotationApp:
         img_path = self.images[self.idx]
 
         save_labels(stem, self.boxes, self.img_w, self.img_h, self.repo)
+        self.labels_written = True
         self.lm.record_annotation(stem, img_path, self.boxes)
         self.lm.release(stem)  # انتهينا من هذه الصورة → تحرير قفلها
         self.dirty = False
@@ -1180,11 +1311,51 @@ class AnnotationApp:
 
         threading.Thread(target=worker, daemon=True).start()
 
+    # ---------------------------------------------------------- مزامنة DVC --
+
+    def sync_dvc(self, on_done=None):
+        """dvc add → git push (المؤشّر + السجل) → dvc push — في الخلفية."""
+        if not self.dvc.available():
+            messagebox.showwarning("DVC", "أمر dvc غير متوفر في هذا الجهاز.\n"
+                                          "ثبّته عبر:  pip install \"dvc[gdrive]\"")
+            return
+        if self.dirty and not self._confirm_leave():
+            return
+        self.dvc_btn.configure(state=tk.DISABLED)
+        self.status.set("جارِ مزامنة DVC (add → git → push)… قد يستغرق دقائق حسب حجم التغييرات")
+        self.root.update_idletasks()
+
+        def worker():
+            ok, msg = self.dvc.sync_annotations(self.lm)
+            def done():
+                self.dvc_btn.configure(state=tk.NORMAL)
+                self.status.set(("✅ " if ok else "⚠️ ") + msg.splitlines()[0])
+                if ok:
+                    self.labels_written = False
+                else:
+                    messagebox.showwarning("DVC", msg)
+                if on_done:
+                    on_done(ok)
+            self.root.after(0, done)
+
+        threading.Thread(target=worker, daemon=True).start()
+
     # ------------------------------------------------------------- إغلاق --
 
     def on_close(self):
         if not self._confirm_leave():
             return
+        # labels كُتبت في هذه الجلسة ولم تُزامَن عبر DVC بعد؟
+        if self.labels_written and self.dvc.available() and self.dvc.annotations_changed():
+            if messagebox.askyesno(
+                    "مزامنة DVC",
+                    "كتبت labels في هذه الجلسة ولم تُرفع إلى DVC remote بعد.\n"
+                    "مزامنتها الآن قبل الخروج؟ (يُنصح بذلك حتى تصل لبقية الفريق)"):
+                self.sync_dvc(on_done=lambda ok: self._finalize_close())
+                return
+        self._finalize_close()
+
+    def _finalize_close(self):
         # تحرير كل أقفالي عند الخروج ومزامنتها حتى لا تبقى صور محجوزة بلا داعٍ
         self.lm.release_all_mine()
         try:
