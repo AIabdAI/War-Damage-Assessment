@@ -143,12 +143,12 @@
     },
     "a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8": {
       "hash": "b06b3f4460631ca77011d321d36c3df5",
-      "timestamp": "2026-07-12T10:16:58.941421Z",
-      "boxes": 0,
-      "damaged_boxes": 0,
+      "timestamp": "2026-07-12T10:26:58.353844Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
       "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
