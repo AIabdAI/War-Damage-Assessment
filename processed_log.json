@@ -8669,60 +8669,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_174900_f000192": {
+      "hash": "96aa1791438cd89d1c1952add2276923",
+      "timestamp": "2026-07-12T12:29:41.319061Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "black-mould-in-the-wall-corner-of-the-house_webp.rf.ff8414051d2208ba782230845b82e705": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:27:29.832127Z",
-      "expires_at": "2026-07-12T12:27:29.832127Z"
-    },
-    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.2cb963cf10ccc19b8453636b61d1885f": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:27:41.312335Z",
-      "expires_at": "2026-07-12T12:27:41.312335Z"
-    },
-    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.4f27ea6bda8878a743c9132b5499b826": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:09.793459Z",
-      "expires_at": "2026-07-12T12:28:09.793459Z"
-    },
-    "ceiling-panels-with-fungus-outside-house-from-water-pipes-damaged-or-rainy-leaked_webp.rf.ff46cf1d66e3fa98fc981f21f3d927c3": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:09.793459Z",
-      "expires_at": "2026-07-12T12:28:09.793459Z"
-    },
-    "closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.599170391f7d7741cd590b0ffe5b903a": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:24.775623Z",
-      "expires_at": "2026-07-12T12:28:24.775623Z"
-    },
-    "closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.8633dd89168395c4b4a3a2d8809f7437": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:34.341423Z",
-      "expires_at": "2026-07-12T12:28:34.341423Z"
-    },
-    "closeup-of-badly-fixed-building-facade-wall-covered-with-cracks-in-stucco-and-paint_jpg.rf.ce718a116144791a7e706fe91993ef4d": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:48.918826Z",
-      "expires_at": "2026-07-12T12:28:48.918826Z"
-    },
-    "concrete-wall_webp.rf.75b8d259f002cac82aa7880ec40d2756": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:28:58.332175Z",
-      "expires_at": "2026-07-12T12:28:58.332175Z"
-    },
-    "concrete-wall_webp.rf.97481caeab6b24a84d26962500d67728": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:29:06.902771Z",
-      "expires_at": "2026-07-12T12:29:06.902771Z"
-    },
-    "concrete-wall_webp.rf.ccab660a5b5e49d1bef9f4afc9db413a": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-12T10:29:17.947614Z",
-      "expires_at": "2026-07-12T12:29:17.947614Z"
-    },
     "Copy-of-PXL_20250418_050539554_jpg.rf.36cea691b44591191eb4f4f07e562abb": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-12T10:31:22.252185Z",
@@ -10182,6 +10161,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-12T12:20:22.096893Z",
       "expires_at": "2026-07-12T14:20:22.096893Z"
+    },
+    "VID_20260607_174900_f000195": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-12T12:20:47.673815Z",
+      "expires_at": "2026-07-12T14:20:47.673815Z"
     }
   }
 }
