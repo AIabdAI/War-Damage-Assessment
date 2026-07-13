@@ -18442,6 +18442,64 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1451": {
+      "hash": "02f8c6cfd46a166a3c5c19b7dc195783",
+      "timestamp": "2026-07-13T10:35:56.557217Z",
+      "boxes": 3,
+      "damaged_boxes": 2,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 2,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 1,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
+    },
+    "image_1468": {
+      "hash": "135fdf90a3d04df7362b717418cb4a6b",
+      "timestamp": "2026-07-13T10:36:34.011287Z",
+      "boxes": 9,
+      "damaged_boxes": 1,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 2,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 3,
+        "Ceiling": 1,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 1,
+        "Window": 1,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 1,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -20020,6 +20078,36 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-13T10:33:12.714241Z",
       "expires_at": "2026-07-13T12:33:12.714241Z"
+    },
+    "image_1456": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:41.923502Z",
+      "expires_at": "2026-07-13T12:34:41.923502Z"
+    },
+    "image_1455": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.117631Z",
+      "expires_at": "2026-07-13T12:34:42.117631Z"
+    },
+    "image_1454": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.305692Z",
+      "expires_at": "2026-07-13T12:34:42.305692Z"
+    },
+    "image_1453": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.483544Z",
+      "expires_at": "2026-07-13T12:34:42.483544Z"
+    },
+    "image_1452": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.693703Z",
+      "expires_at": "2026-07-13T12:34:42.693703Z"
+    },
+    "image_147": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:36:34.773672Z",
+      "expires_at": "2026-07-13T12:36:34.773672Z"
     }
   }
 }
