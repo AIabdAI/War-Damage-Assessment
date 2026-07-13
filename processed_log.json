@@ -60,7 +60,7 @@
     },
     "VID_20260607_174844_f000006": {
       "hash": "0bc4a8f9dabb2762f61c75a2a5d18cdd",
-      "timestamp": "2026-07-12T11:52:34.151591Z",
+      "timestamp": "2026-07-13T10:23:30.600646Z",
       "boxes": 7,
       "damaged_boxes": 2,
       "annotated_by": "Abdallah",
@@ -7193,15 +7193,15 @@
     },
     "VID_20260607_174844_f000009": {
       "hash": "8d890c7f08ce24467096e4377a359e4b",
-      "timestamp": "2026-07-12T12:02:34.484841Z",
-      "boxes": 5,
-      "damaged_boxes": 1,
+      "timestamp": "2026-07-13T10:23:56.151583Z",
+      "boxes": 1,
+      "damaged_boxes": 0,
       "annotated_by": "Abdallah",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
-        "Staircase": 1,
-        "Floor_Tiles": 1,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
         "Ceiling": 0,
         "Beam": 0,
         "Kitchen_Countertop": 0,
@@ -7211,10 +7211,10 @@
         "Floor_Cabinet": 0,
         "Bathtub": 0,
         "Water_Faucet": 0,
-        "Window": 1,
+        "Window": 0,
         "Fire_Extinguisher": 0,
         "Roof": 0,
-        "Door": 2,
+        "Door": 0,
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
@@ -18213,7 +18213,7 @@
     },
     "image_1460": {
       "hash": "d04e72cf78e8db011ea524c38e288179",
-      "timestamp": "2026-07-13T10:23:24.746996Z",
+      "timestamp": "2026-07-13T10:24:31.882076Z",
       "boxes": 5,
       "damaged_boxes": 0,
       "annotated_by": "Hazem",
@@ -19702,6 +19702,86 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-13T10:19:58.793981Z",
       "expires_at": "2026-07-13T12:19:58.793981Z"
+    },
+    "VID_20260607_174900_f000057": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:43.672486Z",
+      "expires_at": "2026-07-13T12:21:43.672486Z"
+    },
+    "VID_20260607_174900_f000054": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.057207Z",
+      "expires_at": "2026-07-13T12:21:44.057207Z"
+    },
+    "VID_20260607_174900_f000051": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.559477Z",
+      "expires_at": "2026-07-13T12:21:44.559477Z"
+    },
+    "VID_20260607_174900_f000048": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.608536Z",
+      "expires_at": "2026-07-13T12:21:44.608536Z"
+    },
+    "VID_20260607_174900_f000045": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.703664Z",
+      "expires_at": "2026-07-13T12:21:44.703664Z"
+    },
+    "VID_20260607_174900_f000039": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.742513Z",
+      "expires_at": "2026-07-13T12:21:44.742513Z"
+    },
+    "VID_20260607_174900_f000036": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.783219Z",
+      "expires_at": "2026-07-13T12:21:44.783219Z"
+    },
+    "VID_20260607_174900_f000033": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.828415Z",
+      "expires_at": "2026-07-13T12:21:44.828415Z"
+    },
+    "VID_20260607_174900_f000030": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.885019Z",
+      "expires_at": "2026-07-13T12:21:44.885019Z"
+    },
+    "VID_20260607_174900_f000027": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.933660Z",
+      "expires_at": "2026-07-13T12:21:44.933660Z"
+    },
+    "VID_20260607_174900_f000024": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:44.989466Z",
+      "expires_at": "2026-07-13T12:21:44.989466Z"
+    },
+    "VID_20260607_174900_f000021": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:45.036682Z",
+      "expires_at": "2026-07-13T12:21:45.036682Z"
+    },
+    "VID_20260607_174900_f000018": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:21:45.087454Z",
+      "expires_at": "2026-07-13T12:21:45.087454Z"
+    },
+    "VID_20260607_174900_f000015": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:23:30.616400Z",
+      "expires_at": "2026-07-13T12:23:30.616400Z"
+    },
+    "VID_20260607_174844_f000009": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:23:30.608738Z",
+      "expires_at": "2026-07-13T12:23:30.608738Z"
+    },
+    "image_1462": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:24:32.481784Z",
+      "expires_at": "2026-07-13T12:24:32.481784Z"
     }
   }
 }
