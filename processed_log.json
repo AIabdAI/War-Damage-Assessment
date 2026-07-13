@@ -16035,6 +16035,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "damp-buildings-damaged-by-black-mold-and-fungus-dampness-or-water_jpg.rf.df646aaa8ff80a2dfab7e5a2d1542c84": {
+      "hash": "0ee7d8c80e805b5c653f9c44b253fbef",
+      "timestamp": "2026-07-13T09:56:17.883516Z",
+      "boxes": 4,
+      "damaged_boxes": 4,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 1,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 2,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -17118,6 +17147,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T09:55:58.958905Z",
       "expires_at": "2026-07-13T11:55:58.958905Z"
+    },
+    "F-16-1-_jpg.rf.3a78a40d87c9d22e1a62aecc1ecb4127": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-13T09:56:17.889093Z",
+      "expires_at": "2026-07-13T11:56:17.889093Z"
     }
   }
 }
