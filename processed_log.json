@@ -15745,6 +15745,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "Crack-99_jpg.rf.14067e66662ebe7c5d74f55ffc27d555": {
+      "hash": "7bbb6f8f86f9265e3201df9a6da6b92c",
+      "timestamp": "2026-07-13T09:52:44.122607Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -16778,6 +16807,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T09:52:39.863900Z",
       "expires_at": "2026-07-13T11:52:39.863900Z"
+    },
+    "cracked-concrete-building-wall-corner_jpg.rf.31173c8df7d1f8b792c363baeb49b2fc": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-13T09:52:44.130912Z",
+      "expires_at": "2026-07-13T11:52:44.130912Z"
     }
   }
 }
