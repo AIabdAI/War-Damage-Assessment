@@ -1,6 +1,6 @@
 # Annotation Progress Report — War-Damage-Assessment
 
-- **Generated:** 2026-07-13T13:20:02.681996Z
+- **Generated:** 2026-07-13T13:20:48.997015Z
 - **Images annotated:** 1130 / 8615 (13.1%)
 - **Total bounding boxes:** 1881 (damaged: 1455, intact: 426)
 
