@@ -18355,6 +18355,122 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1465": {
+      "hash": "eb3bbc9782ef6c8107b252edce91cdac",
+      "timestamp": "2026-07-13T10:32:18.125431Z",
+      "boxes": 4,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 1,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
+    },
+    "image_1466": {
+      "hash": "27266986f71c2017fdd67ced0c071ba7",
+      "timestamp": "2026-07-13T10:32:56.471592Z",
+      "boxes": 3,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 1,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
+    },
+    "image_1467": {
+      "hash": "aeb91d29897be3245c8cd7fe716bab99",
+      "timestamp": "2026-07-13T10:33:11.521868Z",
+      "boxes": 4,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 1,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
+    },
+    "image_1451": {
+      "hash": "02f8c6cfd46a166a3c5c19b7dc195783",
+      "timestamp": "2026-07-13T10:35:56.557217Z",
+      "boxes": 3,
+      "damaged_boxes": 2,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 2,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 1,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -19918,6 +20034,46 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-13T10:30:48.536703Z",
       "expires_at": "2026-07-13T12:30:48.536703Z"
+    },
+    "image_1467": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:32:19.255629Z",
+      "expires_at": "2026-07-13T12:32:19.255629Z"
+    },
+    "image_1468": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:32:57.093855Z",
+      "expires_at": "2026-07-13T12:32:57.093855Z"
+    },
+    "image_1469": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:33:12.714241Z",
+      "expires_at": "2026-07-13T12:33:12.714241Z"
+    },
+    "image_1456": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:41.923502Z",
+      "expires_at": "2026-07-13T12:34:41.923502Z"
+    },
+    "image_1455": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.117631Z",
+      "expires_at": "2026-07-13T12:34:42.117631Z"
+    },
+    "image_1454": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.305692Z",
+      "expires_at": "2026-07-13T12:34:42.305692Z"
+    },
+    "image_1453": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.483544Z",
+      "expires_at": "2026-07-13T12:34:42.483544Z"
+    },
+    "image_1452": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T10:34:42.693703Z",
+      "expires_at": "2026-07-13T12:34:42.693703Z"
     }
   }
 }
