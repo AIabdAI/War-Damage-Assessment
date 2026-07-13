@@ -32866,20 +32866,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "Crack-103_jpg.rf.145b5111dd8a5783cc8f83fc705d6e4f": {
+      "hash": "71bf3c3597b96bb0178cc4f7ca682cee",
+      "timestamp": "2026-07-13T12:42:48.542087Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "image_1479": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-13T10:42:24.000927Z",
-      "expires_at": "2026-07-13T12:42:24.000927Z"
-    },
-    "image_148": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-13T10:42:42.488380Z",
-      "expires_at": "2026-07-13T12:42:42.488380Z"
-    },
     "image_1480": {
       "locked_by": "Hazem",
       "locked_at": "2026-07-13T10:43:06.403062Z",
@@ -33019,6 +33038,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T11:47:22.257739Z",
       "expires_at": "2026-07-13T13:47:22.257739Z"
+    },
+    "Crack-103_jpg.rf.adfaef84f8dc7e21521d51722528d188": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:42:39.005429Z",
+      "expires_at": "2026-07-13T14:42:39.005429Z"
     }
   }
 }
