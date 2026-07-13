@@ -18732,6 +18732,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1476": {
+      "hash": "8e881666fb1cdf6e483632a66ab1aecb",
+      "timestamp": "2026-07-13T10:42:20.181274Z",
+      "boxes": 6,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 4,
+        "Staircase": 1,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 1,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -20370,11 +20399,6 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-13T10:40:57.961393Z",
       "expires_at": "2026-07-13T12:40:57.961393Z"
-    },
-    "image_1476": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-13T10:41:22.785724Z",
-      "expires_at": "2026-07-13T12:41:22.785724Z"
     },
     "image_1477": {
       "locked_by": "Hazem",
