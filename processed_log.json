@@ -18094,6 +18094,64 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1459": {
+      "hash": "bdaf57b6dcb3e30a56e4a7c5bd3150de",
+      "timestamp": "2026-07-13T10:17:00.162995Z",
+      "boxes": 6,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 2,
+        "Staircase": 0,
+        "Floor_Tiles": 1,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
+    },
+    "F162_jpg.rf.4cfbb778af0b5f5afef2816ddb1eb5bf": {
+      "hash": "7cb83a22a9adeb76f5a0f36434c04c25",
+      "timestamp": "2026-07-13T10:16:44.011166Z",
+      "boxes": 3,
+      "damaged_boxes": 3,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 3,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -19532,6 +19590,16 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T10:16:30.450804Z",
       "expires_at": "2026-07-13T12:16:30.450804Z"
+    },
+    "image_146": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-13T10:12:34.049692Z",
+      "expires_at": "2026-07-13T12:12:34.049692Z"
+    },
+    "F163_jpg.rf.801bd36aefab33c6858c4248a08227a4": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-13T10:16:44.018338Z",
+      "expires_at": "2026-07-13T12:16:44.018338Z"
     }
   }
 }
