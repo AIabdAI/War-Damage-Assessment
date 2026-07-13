@@ -455,6 +455,11 @@ class LockManager:
             "class_boxes": class_boxes,
         }
 
+    def remove_image_record(self, stem: str) -> None:
+        """إزالة كل أثر لصورة محذوفة من السجل: من annotated و augmented والأقفال."""
+        for section in ("annotated", "augmented", "locks"):
+            self.log.get(section, {}).pop(stem, None)
+
 # ----------------------------------------------------------------------------
 # استعادة الإحصائيات من ملفات الـ labels
 #   إن فُقد قسم annotated من processed_log.json (خلل/حذف) بينما ملفات الـ labels
@@ -897,6 +902,31 @@ class DvcManager:
                            "(زميل رفع صوراً في نفس اللحظة) — أعد المزامنة بعد قليل.")
         return True, "تم رفع الصور الجديدة: dvc add ✓  dvc push ✓  git push ✓"
 
+    def delete_image_from_dvc(self, image_path: Path) -> tuple[bool, str]:
+        """حذف صورة نهائياً من DVC: حذف الملف → dvc add (يحدّث المؤشّر ليُسقطها) →
+        dvc push (يرفع المانيفست الجديد). لا يلمس git — المُنادي يتكفّل بمزامنته.
+
+        ملاحظة أمان: هذا الحذف قابل للاسترجاع — blob الصورة يبقى في الـ remote
+        cache، فيمكن التراجع لاحقاً بـ git revert للمؤشّر ثم dvc checkout، ما لم
+        يُشغّل أحدهم dvc gc على الـ cloud."""
+        if not image_path.exists():
+            return False, f"ملف الصورة غير موجود: {image_path.name}"
+        try:
+            image_path.unlink()
+        except OSError as e:
+            # على ويندوز قد يفشل الحذف إن كان الملف مفتوحاً في مكان آخر
+            return False, (f"تعذّر حذف ملف الصورة (قد يكون مفتوحاً في برنامج آخر): "
+                           f"{e}")
+        add = self._dvc("add", str(RAW_DIR))
+        if add.returncode != 0:
+            return False, (f"حُذف الملف محلياً لكن فشل dvc add لتحديث المؤشّر:\n"
+                           f"{(add.stderr or add.stdout).strip()[-400:]}")
+        push = self._dvc("push", str(Path("data") / "raw.dvc"))
+        if push.returncode != 0:
+            return False, (f"حُذف الملف وحُدّث المؤشّر محلياً لكن فشل dvc push:\n"
+                           f"{(push.stderr or push.stdout).strip()[-400:]}")
+        return True, "تم حذف الصورة من DVC (dvc add ✓  dvc push ✓)"
+
 
 
 
@@ -1029,6 +1059,8 @@ class AnnotationApp:
                   command=self.save_current).pack(side=tk.LEFT, padx=8)
         tk.Button(top, text="🗑 حذف المحدد (Del)", command=self.delete_selected).pack(side=tk.LEFT, padx=2)
         tk.Button(top, text="🧹 مسح الكل", command=self.clear_all).pack(side=tk.LEFT, padx=2)
+        tk.Button(top, text="❌ حذف الصورة نهائياً", bg="#f5b7b1",
+                  command=self.delete_current_image).pack(side=tk.LEFT, padx=8)
         tk.Button(top, text="📊 الإحصائيات", command=self.show_stats).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="📄 تقرير + PR", command=self.report_pr).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="🟡 YAML", command=self.export_yaml).pack(side=tk.RIGHT, padx=2)
@@ -1564,6 +1596,139 @@ class AnnotationApp:
             self._refresh_box_list()
             self.redraw()
             self._update_status()
+
+    # ------------------------------------------------- حذف الصورة نهائياً --
+
+    def delete_current_image(self):
+        """حذف الصورة الحالية نهائياً: الملف من DVC + ملفات الـ label + سجلّها،
+        ثم رفع كل ذلك إلى الفريق. عملية مدمّرة لكنها قابلة للاسترجاع بـ git revert."""
+        if self.idx < 0 or self.img is None:
+            messagebox.showwarning("لا صورة", "افتح صورة أولاً.")
+            return
+        if self.view_only:
+            messagebox.showinfo("عرض فقط",
+                                "هذه الصورة محجوزة لزميل (عرض فقط) — لا يمكنك حذفها.")
+            return
+        if not self.dvc.available():
+            messagebox.showwarning(
+                "DVC مطلوب",
+                "الصور مُدارة عبر DVC، وحذفها نهائياً يتطلب توفّر أمر dvc.\n"
+                "ثبّته ثم أعد المحاولة:  pip install \"dvc[gdrive]\"")
+            return
+        if self.dvc_busy:
+            self.status.set("عملية DVC جارية — انتظر انتهاءها ثم أعد المحاولة.")
+            return
+
+        stem = self._stem()
+        img_path = self.images[self.idx]
+
+        # لا نحذف صورة يعمل عليها زميل الآن (قفل نشط لغيري)
+        owner = self.lm.lock_owner(stem)
+        if owner is not None and owner != self.user:
+            messagebox.showwarning(
+                "محجوزة لزميل",
+                f"الصورة {stem} محجوزة حالياً بواسطة {owner} — لا تحذفها أثناء عمله عليها.\n"
+                f"انتظر انتهاء قفله (ساعتان كحدّ أقصى) أو نسّق معه.")
+            return
+
+        n_labels = sum(1 for d in (LABELS_DIR, LABELS_OBB_DIR)
+                       if (self.repo / d / f"{stem}.txt").exists())
+        if not messagebox.askyesno(
+                "⚠️ حذف نهائي للصورة",
+                f"سيُحذف نهائياً وللجميع:\n\n"
+                f"• الصورة: {img_path.name}\n"
+                f"• {n_labels} ملف label مرتبط بها\n"
+                f"• سجلّها في processed_log.json\n\n"
+                f"يُحدَّث مؤشّر DVC ويُرفع إلى الفريق. عند مزامنتهم القادمة ستختفي الصورة من أجهزتهم.\n\n"
+                f"↩ الحذف قابل للاسترجاع لاحقاً بـ git revert للمؤشّر ثم dvc checkout "
+                f"(تبقى الصورة في مخزن DVC حتى يُشغَّل dvc gc).\n\n"
+                f"متابعة الحذف؟"):
+            return
+        # تأكيد ثانٍ صريح — العملية تمسّ الجميع
+        if not messagebox.askyesno("تأكيد أخير",
+                                   f"تأكيد حذف «{img_path.name}» نهائياً من الريبو للجميع؟"):
+            return
+
+        self.dvc_busy = True
+        # نُفلت مرجع الصورة قبل الحذف حتى لا يمنع ويندوز حذف ملف مفتوح
+        self.img = None
+        self.tk_img = None
+        self.boxes = []
+        self.selected = None
+        self.dirty = False
+        self.canvas.delete("all")
+        self.status.set(f"جارِ حذف {img_path.name} نهائياً…")
+        self.root.update_idletasks()
+
+        def worker():
+            # 1) أحدث سجل من GitHub أولاً (كي لا نطمس عمل زملاء)
+            self.lm.refresh_from_remote()
+
+            # 2) حذف ملفات الـ label (مُدارة في git)
+            removed_labels = []
+            for d in (LABELS_DIR, LABELS_OBB_DIR):
+                p = self.repo / d / f"{stem}.txt"
+                try:
+                    if p.exists():
+                        p.unlink()
+                        removed_labels.append(str(d / f"{stem}.txt"))
+                except OSError:
+                    pass
+
+            # 3) إزالة سجلّ الصورة من processed_log.json (annotated/locks)
+            self.lm.remove_image_record(stem)
+            write_log(self.lm.log_path, self.lm.log)
+
+            # 4) حذف الصورة من DVC (unlink + dvc add + dvc push)
+            ok_dvc, msg_dvc = self.dvc.delete_image_from_dvc(img_path)
+            if not ok_dvc:
+                # فشل DVC — نعيد السجل لأقرب حالة متسقة ونبلّغ
+                self.root.after(0, lambda: self._after_delete(False, msg_dvc, stem, None))
+                return
+
+            # 5) مزامنة git: المؤشّر الجديد + حذف ملفات الـ label + السجل، في commit واحد
+            extra = [Path("data") / "raw.dvc", ANNOT_DIR]
+            if (self.repo / "data" / ".gitignore").exists():
+                extra.append(Path("data") / ".gitignore")
+            ok_git, msg_git = self.lm.sync(
+                f"delete(image): remove {stem} from dataset ({self.user})",
+                extra_paths=extra)
+            combined = (msg_dvc + "\n" + msg_git) if not ok_git else msg_git
+            self.root.after(0, lambda: self._after_delete(ok_git, combined, stem, img_path))
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _after_delete(self, ok: bool, msg: str, stem: str, img_path):
+        self.dvc_busy = False
+        if not ok:
+            self.status.set("⚠️ فشل الحذف — " + msg.splitlines()[0])
+            messagebox.showwarning("حذف الصورة", msg)
+            # نعيد فتح الصورة الحالية إن كانت ما زالت موجودة، وإلا ننتقل
+            if img_path is not None and img_path.exists():
+                self.open_index(self.idx)
+            else:
+                self._reopen_after_removal(stem)
+            return
+        # نجح: نزيل الصورة من القائمة وننتقل للتالية
+        self.status.set("✅ حُذفت الصورة نهائياً — " + msg.splitlines()[-1])
+        self._reopen_after_removal(stem)
+
+    def _reopen_after_removal(self, stem: str):
+        """يحدّث قائمة الصور بعد حذف واحدة وينتقل لصورة مناسبة."""
+        old_idx = self.idx
+        self.images = [p for p in self.images if p.stem != stem]
+        if not self.images:
+            self.idx = -1
+            self.img = None
+            self.tk_img = None
+            self.boxes = []
+            self.canvas.delete("all")
+            self.status.set("لا صور متبقية في المجلد.")
+            return
+        # نفتح الصورة التي أخذت مكان المحذوفة (أو آخر صورة إن حذفنا الأخيرة)
+        self.idx = -1   # نُجبر open_index على الفتح دون منطق "المغادرة"
+        target = min(old_idx, len(self.images) - 1)
+        self.open_index(target)
 
     def _refresh_box_list(self):
         self.box_list.delete(0, tk.END)
