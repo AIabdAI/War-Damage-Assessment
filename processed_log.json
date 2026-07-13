@@ -15977,6 +15977,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "damp-buildings-damaged-by-black-mold-and-fungus-dampness-or-water_jpg.rf.2ab28f37789e59b7486faaecfcfa8527": {
+      "hash": "bfdd4ad863a1f22dd00f87b05965d906",
+      "timestamp": "2026-07-13T09:55:15.305342Z",
+      "boxes": 3,
+      "damaged_boxes": 3,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 1,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 1,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -17050,6 +17079,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T09:54:53.120298Z",
       "expires_at": "2026-07-13T11:54:53.120298Z"
+    },
+    "damp-buildings-damaged-by-black-mold-and-fungus-dampness-or-water_jpg.rf.df646aaa8ff80a2dfab7e5a2d1542c84": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-13T09:55:15.313348Z",
+      "expires_at": "2026-07-13T11:55:15.313348Z"
     }
   }
 }
