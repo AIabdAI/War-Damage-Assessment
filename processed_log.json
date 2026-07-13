@@ -18935,6 +18935,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "image_1482": {
+      "hash": "f611745c2b31afc07cecefa38a0c5a50",
+      "timestamp": "2026-07-13T10:44:19.091057Z",
+      "boxes": 6,
+      "damaged_boxes": 0,
+      "annotated_by": "Hazem",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 2,
+        "Staircase": 0,
+        "Floor_Tiles": 2,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 2,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
