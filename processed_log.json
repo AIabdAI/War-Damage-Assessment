@@ -32895,6 +32895,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_175130_f000354": {
+      "hash": "cf779cf159e71a486b6183a8a721736a",
+      "timestamp": "2026-07-13T13:00:44.432453Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -33008,6 +33037,111 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-13T12:51:58.311997Z",
       "expires_at": "2026-07-13T14:51:58.311997Z"
+    },
+    "VID_20260607_175130_f000417": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:08.540874Z",
+      "expires_at": "2026-07-13T14:55:08.540874Z"
+    },
+    "VID_20260607_175130_f000414": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:13.688216Z",
+      "expires_at": "2026-07-13T14:55:13.688216Z"
+    },
+    "VID_20260607_175130_f000411": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:13.901222Z",
+      "expires_at": "2026-07-13T14:55:13.901222Z"
+    },
+    "VID_20260607_175130_f000408": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:14.091561Z",
+      "expires_at": "2026-07-13T14:55:14.091561Z"
+    },
+    "VID_20260607_175130_f000405": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:14.273558Z",
+      "expires_at": "2026-07-13T14:55:14.273558Z"
+    },
+    "VID_20260607_175130_f000402": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:14.464347Z",
+      "expires_at": "2026-07-13T14:55:14.464347Z"
+    },
+    "VID_20260607_175130_f000399": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:14.663641Z",
+      "expires_at": "2026-07-13T14:55:14.663641Z"
+    },
+    "VID_20260607_175130_f000396": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:15.215080Z",
+      "expires_at": "2026-07-13T14:55:15.215080Z"
+    },
+    "VID_20260607_175130_f000393": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:15.415261Z",
+      "expires_at": "2026-07-13T14:55:15.415261Z"
+    },
+    "VID_20260607_175130_f000390": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:15.588180Z",
+      "expires_at": "2026-07-13T14:55:15.588180Z"
+    },
+    "VID_20260607_175130_f000387": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:15.794415Z",
+      "expires_at": "2026-07-13T14:55:15.794415Z"
+    },
+    "VID_20260607_175130_f000384": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:15.999642Z",
+      "expires_at": "2026-07-13T14:55:15.999642Z"
+    },
+    "VID_20260607_175130_f000381": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:16.216395Z",
+      "expires_at": "2026-07-13T14:55:16.216395Z"
+    },
+    "VID_20260607_175130_f000378": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:16.417749Z",
+      "expires_at": "2026-07-13T14:55:16.417749Z"
+    },
+    "VID_20260607_175130_f000375": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:16.628730Z",
+      "expires_at": "2026-07-13T14:55:16.628730Z"
+    },
+    "VID_20260607_175130_f000372": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:16.869400Z",
+      "expires_at": "2026-07-13T14:55:16.869400Z"
+    },
+    "VID_20260607_175130_f000369": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:17.102217Z",
+      "expires_at": "2026-07-13T14:55:17.102217Z"
+    },
+    "VID_20260607_175130_f000366": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:17.779451Z",
+      "expires_at": "2026-07-13T14:55:17.779451Z"
+    },
+    "VID_20260607_175130_f000363": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:18.007762Z",
+      "expires_at": "2026-07-13T14:55:18.007762Z"
+    },
+    "VID_20260607_175130_f000360": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:18.209243Z",
+      "expires_at": "2026-07-13T14:55:18.209243Z"
+    },
+    "VID_20260607_175130_f000357": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-13T12:55:18.466975Z",
+      "expires_at": "2026-07-13T14:55:18.466975Z"
     }
   }
 }
