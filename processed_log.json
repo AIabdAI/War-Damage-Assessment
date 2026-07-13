@@ -12616,9 +12616,9 @@
     },
     "Crack-309_jpg.rf.7d765f8dbe1323f6238dee236fa83d9c": {
       "hash": "c95aa9d70ebf9a06f1c8142ed09001fc",
-      "timestamp": "2026-07-13T09:17:11.601410Z",
-      "boxes": 1,
-      "damaged_boxes": 1,
+      "timestamp": "2026-07-13T09:17:23.083074Z",
+      "boxes": 3,
+      "damaged_boxes": 3,
       "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
         "Brick_Wall": 1,
@@ -12626,7 +12626,7 @@
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
-        "Beam": 0,
+        "Beam": 2,
         "Kitchen_Countertop": 0,
         "Sink": 0,
         "Wall_Cabinet": 0,
@@ -13135,6 +13135,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-13T09:17:05.484927Z",
       "expires_at": "2026-07-13T11:17:05.484927Z"
+    },
+    "Crack-30_jpg.rf.451b595bbde16faacb82c6f21d1d54b6": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-13T09:17:23.086701Z",
+      "expires_at": "2026-07-13T11:17:23.086701Z"
     }
   }
 }
