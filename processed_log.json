@@ -36117,7 +36117,7 @@
     },
     "VID_20260607_174900_f002391": {
       "hash": "2f1d6c79576feea730960fd1a6d5b313",
-      "timestamp": "2026-07-14T12:11:48.157215Z",
+      "timestamp": "2026-07-14T12:13:54.297004Z",
       "boxes": 3,
       "damaged_boxes": 0,
       "annotated_by": "Abdallah",
@@ -36239,6 +36239,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-14T12:10:54.414627Z",
       "expires_at": "2026-07-14T14:10:54.414627Z"
+    },
+    "VID_20260607_174900_f002388": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T12:13:54.326654Z",
+      "expires_at": "2026-07-14T14:13:54.326654Z"
     }
   }
 }
