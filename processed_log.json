@@ -36288,6 +36288,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260607_174900_f002409": {
+      "hash": "f02d8ab218011d9bb6968295908cf0e8",
+      "timestamp": "2026-07-14T12:19:15.536888Z",
+      "boxes": 4,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 2,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 1,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 1,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -36351,6 +36380,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-14T12:18:15.624163Z",
       "expires_at": "2026-07-14T14:18:15.624163Z"
+    },
+    "VID_20260607_174900_f002415": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T12:19:15.572905Z",
+      "expires_at": "2026-07-14T14:19:15.572905Z"
     }
   }
 }
