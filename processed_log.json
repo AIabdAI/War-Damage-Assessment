@@ -37042,6 +37042,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260621_105708_f000411": {
+      "hash": "8b1cb54cda51636229d4b11d7b838bca",
+      "timestamp": "2026-07-14T13:24:03.859749Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -37435,6 +37464,41 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-14T13:23:47.667906Z",
       "expires_at": "2026-07-14T15:23:47.667906Z"
+    },
+    "VID_20260621_105708_f000564": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:23:50.043225Z",
+      "expires_at": "2026-07-14T15:23:50.043225Z"
+    },
+    "VID_20260621_105708_f000561": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:23:50.726766Z",
+      "expires_at": "2026-07-14T15:23:50.726766Z"
+    },
+    "VID_20260621_105708_f000558": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:23:51.231001Z",
+      "expires_at": "2026-07-14T15:23:51.231001Z"
+    },
+    "VID_20260621_105708_f000555": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:23:51.288991Z",
+      "expires_at": "2026-07-14T15:23:51.288991Z"
+    },
+    "VID_20260621_105708_f000552": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:24:04.529052Z",
+      "expires_at": "2026-07-14T15:24:04.529052Z"
+    },
+    "VID_20260621_105708_f000414": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:24:05.026607Z",
+      "expires_at": "2026-07-14T15:24:05.026607Z"
+    },
+    "VID_20260621_105708_f000420": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-14T13:24:05.026607Z",
+      "expires_at": "2026-07-14T15:24:05.026607Z"
     }
   }
 }
