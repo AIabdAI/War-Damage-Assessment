@@ -33971,7 +33971,7 @@
     },
     "F172_jpg.rf.1c258d975a41f844a83c2d866b73e273": {
       "hash": "be1284617a0828f9d6ee6ea059956d47",
-      "timestamp": "2026-07-14T09:19:52.876533Z",
+      "timestamp": "2026-07-14T09:26:40.796583Z",
       "boxes": 4,
       "damaged_boxes": 4,
       "annotated_by": "Ahmed AbuDagga",
@@ -34223,6 +34223,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-14T09:21:48.446798Z",
       "expires_at": "2026-07-14T11:21:48.446798Z"
+    },
+    "F174_jpg.rf.f15c376b9f35df55a4e8c6669fbb037c": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-14T09:23:23.733503Z",
+      "expires_at": "2026-07-14T11:23:23.733503Z"
     }
   }
 }
