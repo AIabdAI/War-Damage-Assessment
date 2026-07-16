@@ -44727,6 +44727,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "M-72_jpg.rf.44574d3085ac91c43aa20cc0e82bfa02": {
+      "hash": "cd15bb2cd5b2c5e0c72a46c620292899",
+      "timestamp": "2026-07-16T09:52:45.648267Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 1,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -45998,13 +46027,18 @@
     },
     "M-72_jpg.rf.44574d3085ac91c43aa20cc0e82bfa02": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:52:43.130091Z",
-      "expires_at": "2026-07-16T11:52:43.130091Z"
+      "locked_at": "2026-07-16T09:52:39.840170Z",
+      "expires_at": "2026-07-16T11:52:39.840170Z"
     },
     "M-72_jpg.rf.cc321facd00eadc855551b3bf4355046": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:52:43.130091Z",
-      "expires_at": "2026-07-16T11:52:43.130091Z"
+      "locked_at": "2026-07-16T09:52:45.665546Z",
+      "expires_at": "2026-07-16T11:52:45.665546Z"
+    },
+    "M-73_jpg.rf.8c4871b864356c84ad7b24b3533c2fb4": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:52:45.665546Z",
+      "expires_at": "2026-07-16T11:52:45.665546Z"
     }
   }
 }
