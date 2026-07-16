@@ -45452,6 +45452,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "M-95_jpg.rf.cb0249545ed1c1cc5f43214844ef7f86": {
+      "hash": "3247b656c9b4de93b1f572a93b4e9e96",
+      "timestamp": "2026-07-16T09:54:33.897429Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 1,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -46846,15 +46875,25 @@
       "locked_at": "2026-07-16T09:54:24.407500Z",
       "expires_at": "2026-07-16T11:54:24.407500Z"
     },
+    "M-95_jpg.rf.9dc0dbe400be4a61e1a58d320f4aba86": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:54:29.550348Z",
+      "expires_at": "2026-07-16T11:54:29.550348Z"
+    },
     "M-95_jpg.rf.cb0249545ed1c1cc5f43214844ef7f86": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:54:31.460323Z",
-      "expires_at": "2026-07-16T11:54:31.460323Z"
+      "locked_at": "2026-07-16T09:54:29.550348Z",
+      "expires_at": "2026-07-16T11:54:29.550348Z"
     },
     "M-95_jpg.rf.cf64a2e5d3e59ab57ea7f166d7865d5c": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:54:31.460323Z",
-      "expires_at": "2026-07-16T11:54:31.460323Z"
+      "locked_at": "2026-07-16T09:54:33.914091Z",
+      "expires_at": "2026-07-16T11:54:33.914091Z"
+    },
+    "pexels-photo-10472719_jpeg.rf.03bba332a38d60b96bb64ce55c2e6c4a": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:54:33.914091Z",
+      "expires_at": "2026-07-16T11:54:33.914091Z"
     }
   }
 }
