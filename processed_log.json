@@ -40203,6 +40203,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "M-130_jpg.rf.2b4d06983f211f28c19be79f885ba7f7": {
+      "hash": "4d886d81e82040b8e13925a5ae813488",
+      "timestamp": "2026-07-16T09:28:19.238247Z",
+      "boxes": 0,
+      "damaged_boxes": 0,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
