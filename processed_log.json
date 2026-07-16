@@ -60,10 +60,10 @@
     },
     "VID_20260607_174844_f000006": {
       "hash": "0bc4a8f9dabb2762f61c75a2a5d18cdd",
-      "timestamp": "2026-07-13T10:23:30.600646Z",
+      "timestamp": "2026-07-16T10:01:31.872988Z",
       "boxes": 7,
-      "damaged_boxes": 2,
-      "annotated_by": "Abdallah",
+      "damaged_boxes": 5,
+      "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
         "Brick_Wall": 1,
         "Column": 0,
@@ -47439,6 +47439,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T10:01:18.519579Z",
       "expires_at": "2026-07-16T12:01:18.519579Z"
+    },
+    "VID_20260607_174844_f000015": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:01:32.862779Z",
+      "expires_at": "2026-07-16T12:01:32.862779Z"
     }
   }
 }
