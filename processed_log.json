@@ -38115,6 +38115,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "F252_jpg.rf.2f367cd39542bfa1aeee702548379815": {
+      "hash": "6d45f803c14c22a8ba362bcd8d319e87",
+      "timestamp": "2026-07-16T09:16:19.565340Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 1,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -38244,11 +38273,6 @@
       "locked_at": "2026-07-16T09:16:07.190961Z",
       "expires_at": "2026-07-16T11:16:07.190961Z"
     },
-    "F251_jpg.rf.6d1b69daec7e0ff35af77074b47eb09d": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:16:11.685015Z",
-      "expires_at": "2026-07-16T11:16:11.685015Z"
-    },
     "F252_jpg.rf.101fa087131386ecaab70f937d9faa22": {
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T09:16:11.685015Z",
@@ -38256,13 +38280,23 @@
     },
     "F252_jpg.rf.2f367cd39542bfa1aeee702548379815": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:16:16.793799Z",
-      "expires_at": "2026-07-16T11:16:16.793799Z"
+      "locked_at": "2026-07-16T09:16:13.783779Z",
+      "expires_at": "2026-07-16T11:16:13.783779Z"
+    },
+    "F251_jpg.rf.6d1b69daec7e0ff35af77074b47eb09d": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:16:11.685015Z",
+      "expires_at": "2026-07-16T11:16:11.685015Z"
     },
     "F252_jpg.rf.40e00d3a82b24ef0764088c8d7b436c1": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:16:16.793799Z",
-      "expires_at": "2026-07-16T11:16:16.793799Z"
+      "locked_at": "2026-07-16T09:16:19.585440Z",
+      "expires_at": "2026-07-16T11:16:19.585440Z"
+    },
+    "F254_jpg.rf.19c3a64f4030927bf22922521fad71f3": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:16:19.585440Z",
+      "expires_at": "2026-07-16T11:16:19.585440Z"
     }
   }
 }
