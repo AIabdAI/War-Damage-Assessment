@@ -19402,10 +19402,10 @@
     },
     "VID_20260607_174900_f000282": {
       "hash": "ce91386399ff0c9fb4c60f65ead38da0",
-      "timestamp": "2026-07-13T11:12:13.766797Z",
+      "timestamp": "2026-07-16T10:03:26.925667Z",
       "boxes": 3,
-      "damaged_boxes": 1,
-      "annotated_by": "Abdallah",
+      "damaged_boxes": 3,
+      "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
         "Brick_Wall": 1,
         "Column": 0,
@@ -48125,6 +48125,41 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T10:03:10.750692Z",
       "expires_at": "2026-07-16T12:03:10.750692Z"
+    },
+    "VID_20260607_174900_f000306": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:16.878862Z",
+      "expires_at": "2026-07-16T12:03:16.878862Z"
+    },
+    "VID_20260607_174900_f000303": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:17.685316Z",
+      "expires_at": "2026-07-16T12:03:17.685316Z"
+    },
+    "VID_20260607_174900_f000300": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:17.984915Z",
+      "expires_at": "2026-07-16T12:03:17.984915Z"
+    },
+    "VID_20260607_174900_f000297": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:18.375608Z",
+      "expires_at": "2026-07-16T12:03:18.375608Z"
+    },
+    "VID_20260607_174900_f000294": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:18.708435Z",
+      "expires_at": "2026-07-16T12:03:18.708435Z"
+    },
+    "VID_20260607_174900_f000291": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:27.391640Z",
+      "expires_at": "2026-07-16T12:03:27.391640Z"
+    },
+    "VID_20260607_174900_f000288": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:03:27.391640Z",
+      "expires_at": "2026-07-16T12:03:27.391640Z"
     }
   }
 }
