@@ -8672,10 +8672,10 @@
     },
     "VID_20260607_174900_f000192": {
       "hash": "96aa1791438cd89d1c1952add2276923",
-      "timestamp": "2026-07-12T12:29:41.319061Z",
-      "boxes": 0,
-      "damaged_boxes": 0,
-      "annotated_by": "Abdallah",
+      "timestamp": "2026-07-16T10:02:20.113112Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
         "Brick_Wall": 0,
         "Column": 0,
@@ -8693,7 +8693,7 @@
         "Window": 0,
         "Fire_Extinguisher": 0,
         "Roof": 0,
-        "Door": 0,
+        "Door": 1,
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
@@ -47576,6 +47576,16 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T10:02:02.405639Z",
       "expires_at": "2026-07-16T12:02:02.405639Z"
+    },
+    "VID_20260607_174900_f000195": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:02:20.121562Z",
+      "expires_at": "2026-07-16T12:02:20.121562Z"
+    },
+    "VID_20260607_174900_f000198": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T10:02:20.121562Z",
+      "expires_at": "2026-07-16T12:02:20.121562Z"
     }
   }
 }
