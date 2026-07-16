@@ -38727,13 +38727,13 @@
     },
     "F31_jpg.rf.1af1c3be73a8dc7e5ef6131cb1f44ba6": {
       "hash": "4da97b2ed70f2357c0931619983e37be",
-      "timestamp": "2026-07-16T09:19:17.377424Z",
+      "timestamp": "2026-07-16T09:19:26.777339Z",
       "boxes": 2,
       "damaged_boxes": 2,
       "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
-        "Brick_Wall": 0,
-        "Column": 2,
+        "Brick_Wall": 1,
+        "Column": 1,
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
@@ -39035,6 +39035,11 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T09:19:17.387956Z",
       "expires_at": "2026-07-16T11:19:17.387956Z"
+    },
+    "F34_jpg.rf.665d42368bf6e0c78a8421e7552eaa7f": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:19:27.334755Z",
+      "expires_at": "2026-07-16T11:19:27.334755Z"
     }
   }
 }
