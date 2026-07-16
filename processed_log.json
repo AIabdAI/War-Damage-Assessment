@@ -45513,7 +45513,7 @@
     },
     "PXL_20250414_073856322_MP_jpg.rf.d07812aa95a703d7c0260b2cc9a9f5d5": {
       "hash": "d4ab0dd5f8c3247184421140394d817b",
-      "timestamp": "2026-07-16T09:55:47.421943Z",
+      "timestamp": "2026-07-16T09:55:56.454396Z",
       "boxes": 0,
       "damaged_boxes": 0,
       "annotated_by": "Ahmed AbuDagga",
@@ -46967,6 +46967,16 @@
       "locked_by": "Ahmed AbuDagga",
       "locked_at": "2026-07-16T09:55:28.673327Z",
       "expires_at": "2026-07-16T11:55:28.673327Z"
+    },
+    "PXL_20250414_073859642_MP_jpg.rf.ffe02e132cb6df2512211b56dd00f39a": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:55:52.861682Z",
+      "expires_at": "2026-07-16T11:55:52.861682Z"
+    },
+    "PXL_20250414_073859642_MP_jpg.rf.967eb12b2756be1f6cb11c09fa203128": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:55:53.940800Z",
+      "expires_at": "2026-07-16T11:55:53.940800Z"
     }
   }
 }
