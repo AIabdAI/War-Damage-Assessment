@@ -39597,9 +39597,9 @@
     },
     "M-107_jpg.rf.1068a0d03fb50a1dc439ed30bf7aeb8a": {
       "hash": "a826d7c055494f46ed65425fb96f85e4",
-      "timestamp": "2026-07-16T09:26:50.063532Z",
-      "boxes": 1,
-      "damaged_boxes": 1,
+      "timestamp": "2026-07-16T09:26:55.440723Z",
+      "boxes": 2,
+      "damaged_boxes": 2,
       "annotated_by": "Ahmed AbuDagga",
       "class_boxes": {
         "Brick_Wall": 0,
@@ -39607,7 +39607,7 @@
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
-        "Beam": 1,
+        "Beam": 2,
         "Kitchen_Countertop": 0,
         "Sink": 0,
         "Wall_Cabinet": 0,
