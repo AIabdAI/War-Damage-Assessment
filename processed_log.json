@@ -45249,6 +45249,35 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "M-90_jpg.rf.79f71351e56a64e524e4b62542125850": {
+      "hash": "12e35bfab1313516f0ec19c3ae54228c",
+      "timestamp": "2026-07-16T09:54:18.385679Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Ahmed AbuDagga",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 0,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 1,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
@@ -46603,20 +46632,25 @@
       "locked_at": "2026-07-16T09:54:01.880380Z",
       "expires_at": "2026-07-16T11:54:01.880380Z"
     },
+    "M-8_jpg.rf.c8e0062b49c855d46ef57accc5eb0b3e": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:54:14.069077Z",
+      "expires_at": "2026-07-16T11:54:14.069077Z"
+    },
+    "M-8_jpg.rf.d3e993449617eaa7abb8da8ca436bc62": {
+      "locked_by": "Ahmed AbuDagga",
+      "locked_at": "2026-07-16T09:54:14.069077Z",
+      "expires_at": "2026-07-16T11:54:14.069077Z"
+    },
     "M-90_jpg.rf.e85b48facba4bf261ad3babe4bcf66f8": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:54:15.266736Z",
-      "expires_at": "2026-07-16T11:54:15.266736Z"
-    },
-    "M-90_jpg.rf.79f71351e56a64e524e4b62542125850": {
-      "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:54:16.131753Z",
-      "expires_at": "2026-07-16T11:54:16.131753Z"
+      "locked_at": "2026-07-16T09:54:18.394084Z",
+      "expires_at": "2026-07-16T11:54:18.394084Z"
     },
     "M-90_jpg.rf.bcec068d6f58d17e7353af863a72790b": {
       "locked_by": "Ahmed AbuDagga",
-      "locked_at": "2026-07-16T09:54:16.131753Z",
-      "expires_at": "2026-07-16T11:54:16.131753Z"
+      "locked_at": "2026-07-16T09:54:18.394084Z",
+      "expires_at": "2026-07-16T11:54:18.394084Z"
     }
   }
 }
