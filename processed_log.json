@@ -175,15 +175,15 @@
     },
     "black-mould-in-the-wall-corner-of-the-house_webp.rf.87e1583f4b92cb26122895a1fa63af8c": {
       "hash": "5ed6749222469bbad5f28f99ee7e80c7",
-      "timestamp": "2026-07-12T10:27:29.822790Z",
-      "boxes": 1,
-      "damaged_boxes": 1,
-      "annotated_by": "Ahmed AbuDagga",
+      "timestamp": "2026-07-17T10:45:21.098193Z",
+      "boxes": 2,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
-        "Floor_Tiles": 0,
+        "Floor_Tiles": 1,
         "Ceiling": 0,
         "Beam": 0,
         "Kitchen_Countertop": 0,
@@ -51950,6 +51950,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-17T10:44:27.435328Z",
       "expires_at": "2026-07-17T12:44:27.435328Z"
+    },
+    "black-mould-in-the-wall-corner-of-the-house_webp.rf.9d9af9db3c56fd14a01dd23a9590b39a": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-17T10:45:21.122232Z",
+      "expires_at": "2026-07-17T12:45:21.122232Z"
     }
   }
 }
