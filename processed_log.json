@@ -726,10 +726,10 @@
     },
     "Crack-03_jpg.rf.5d92d58bf76c356e11a7fec44dbc58be": {
       "hash": "00a4d3b52809ef3fab1cf92462da78a9",
-      "timestamp": "2026-07-12T10:40:01.168482Z",
+      "timestamp": "2026-07-17T11:06:26.098017Z",
       "boxes": 2,
       "damaged_boxes": 1,
-      "annotated_by": "Ahmed AbuDagga",
+      "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 2,
         "Column": 0,
