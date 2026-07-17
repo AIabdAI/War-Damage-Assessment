@@ -784,17 +784,17 @@
     },
     "Crack-04_png.rf.986d2fb98b7c9f1410b465a119292d18": {
       "hash": "aa62e2cad898bfb4a235ef00b9c0ce0e",
-      "timestamp": "2026-07-12T10:41:07.032443Z",
-      "boxes": 5,
-      "damaged_boxes": 3,
-      "annotated_by": "Ahmed AbuDagga",
+      "timestamp": "2026-07-17T11:10:59.629492Z",
+      "boxes": 3,
+      "damaged_boxes": 1,
+      "annotated_by": "Abdallah",
       "class_boxes": {
         "Brick_Wall": 2,
-        "Column": 0,
+        "Column": 1,
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
-        "Beam": 3,
+        "Beam": 0,
         "Kitchen_Countertop": 0,
         "Sink": 0,
         "Wall_Cabinet": 0,
@@ -52004,6 +52004,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-17T10:48:19.504807Z",
       "expires_at": "2026-07-17T12:48:19.504807Z"
+    },
+    "Crack-04_png.rf.9d644a31304cbf9a7b4e5cb0c8d2f7ce": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-17T11:10:59.652496Z",
+      "expires_at": "2026-07-17T13:10:59.652496Z"
     }
   }
 }
