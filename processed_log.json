@@ -494,12 +494,12 @@
     },
     "Copy-of-PXL_20250418_050539554_jpg.rf.36cea691b44591191eb4f4f07e562abb": {
       "hash": "3c8236bb75d0add93f4124d6bccac1b3",
-      "timestamp": "2026-07-13T11:47:22.248211Z",
-      "boxes": 1,
-      "damaged_boxes": 1,
-      "annotated_by": "Ahmed AbuDagga",
+      "timestamp": "2026-07-17T10:46:40.732445Z",
+      "boxes": 2,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
@@ -51955,6 +51955,16 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-17T10:45:21.122232Z",
       "expires_at": "2026-07-17T12:45:21.122232Z"
+    },
+    "Crack-145_jpg.rf.5e5dfa5079ad0f907dde85cd1efcaed5": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-17T10:45:38.023645Z",
+      "expires_at": "2026-07-17T12:45:38.023645Z"
+    },
+    "Copy-of-PXL_20250418_050539554_jpg.rf.cf6c2ec3e9b779b96a3f0554ad0a6f00": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-17T10:46:40.742460Z",
+      "expires_at": "2026-07-17T12:46:40.742460Z"
     }
   }
 }
