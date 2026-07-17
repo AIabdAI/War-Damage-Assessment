@@ -47221,30 +47221,39 @@
         "Window_Sill": 0,
         "Light_Fixture": 0
       }
+    },
+    "VID_20260621_105708_f008499": {
+      "hash": "f59f43f52d8821542914440f6bfd2c6f",
+      "timestamp": "2026-07-17T10:40:49.654489Z",
+      "boxes": 1,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
+      "class_boxes": {
+        "Brick_Wall": 0,
+        "Column": 1,
+        "Staircase": 0,
+        "Floor_Tiles": 0,
+        "Ceiling": 0,
+        "Beam": 0,
+        "Kitchen_Countertop": 0,
+        "Sink": 0,
+        "Wall_Cabinet": 0,
+        "Chair": 0,
+        "Floor_Cabinet": 0,
+        "Bathtub": 0,
+        "Water_Faucet": 0,
+        "Window": 0,
+        "Fire_Extinguisher": 0,
+        "Roof": 0,
+        "Door": 0,
+        "Air_Conditioner": 0,
+        "Window_Sill": 0,
+        "Light_Fixture": 0
+      }
     }
   },
   "augmented": {},
   "locks": {
-    "VID_20260621_105708_f003711": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-17T08:40:41.221970Z",
-      "expires_at": "2026-07-17T10:40:41.221970Z"
-    },
-    "VID_20260621_105708_f003708": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-17T08:40:41.506140Z",
-      "expires_at": "2026-07-17T10:40:41.506140Z"
-    },
-    "VID_20260621_105708_f003705": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-17T08:40:41.715856Z",
-      "expires_at": "2026-07-17T10:40:41.715856Z"
-    },
-    "VID_20260621_105708_f003702": {
-      "locked_by": "Abdallah",
-      "locked_at": "2026-07-17T08:40:41.966185Z",
-      "expires_at": "2026-07-17T10:40:41.966185Z"
-    },
     "VID_20260621_105708_f003747": {
       "locked_by": "Abdallah",
       "locked_at": "2026-07-17T08:41:43.165889Z",
@@ -50629,6 +50638,11 @@
       "locked_by": "Abdallah",
       "locked_at": "2026-07-17T10:40:39.905165Z",
       "expires_at": "2026-07-17T12:40:39.905165Z"
+    },
+    "VID_20260621_105708_f008505": {
+      "locked_by": "Abdallah",
+      "locked_at": "2026-07-17T10:40:49.687497Z",
+      "expires_at": "2026-07-17T12:40:49.687497Z"
     }
   }
 }
