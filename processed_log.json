@@ -639,12 +639,12 @@
     },
     "Crack-02_jpeg.rf.59f916f9db205ad3c9035ae8a4c68b19": {
       "hash": "73c52029bcaccc36642349235253d29c",
-      "timestamp": "2026-07-12T10:33:54.768168Z",
-      "boxes": 3,
-      "damaged_boxes": 2,
-      "annotated_by": "Ahmed AbuDagga",
+      "timestamp": "2026-07-17T11:03:51.760949Z",
+      "boxes": 1,
+      "damaged_boxes": 0,
+      "annotated_by": "Abdallah",
       "class_boxes": {
-        "Brick_Wall": 3,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
