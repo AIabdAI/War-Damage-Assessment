@@ -345,8 +345,16 @@ class LockManager:
             self.log = merge_logs(self.log, remote)
             write_log(self.log_path, self.log)
 
-            add_paths = [str(LOG_FILE)] + [str(p) for p in (extra_paths or [])]
-            self._git("add", *add_paths)
+            # ملفات labels تُدار في git مباشرة. نضيفها بـ -f احترازاً: لو بقي من
+            # تصميم سابق سطر يتجاهل data/annotations في .gitignore (أو مؤشّر DVC
+            # قديم) لكان git add العادي يتجاهلها صامتاً فلا تصل GitHub.
+            annot = ANNOT_DIR.as_posix()
+            forced = [p for p in (extra_paths or [])
+                      if p.as_posix() == annot or p.as_posix().startswith(annot + "/")]
+            normal = [str(LOG_FILE)] + [str(p) for p in (extra_paths or []) if p not in forced]
+            self._git("add", *normal)
+            if forced:
+                self._git("add", "-f", *[str(p) for p in forced])
             commit = self._git("commit", "-m", message)
             if commit.returncode != 0 and "nothing to commit" not in (commit.stdout + commit.stderr):
                 last_err = (commit.stderr or commit.stdout).strip()
@@ -446,6 +454,163 @@ class LockManager:
             "annotated_by": self.user,
             "class_boxes": class_boxes,
         }
+
+    def remove_image_record(self, stem: str) -> None:
+        """إزالة كل أثر لصورة محذوفة من السجل: من annotated و augmented والأقفال."""
+        for section in ("annotated", "augmented", "locks"):
+            self.log.get(section, {}).pop(stem, None)
+
+# ----------------------------------------------------------------------------
+# استعادة الإحصائيات من ملفات الـ labels
+#   إن فُقد قسم annotated من processed_log.json (خلل/حذف) بينما ملفات الـ labels
+#   سليمة، نعيد بناء السجل بقراءة كل ملف label وعدّ صناديقه وكلاساته وحالة الدمار.
+#   يتطلب معرفة أبعاد كل صورة (لأن الإحداثيات منسّقة 0–1) — نقرأها من الصور نفسها.
+# ----------------------------------------------------------------------------
+
+def _count_label_file(path: Path) -> tuple[int, int, dict, bool] | None:
+    """يقرأ ملف label (std أو obb) ويرجع (عدد الصناديق, عدد المدمّرة,
+    عدّ لكل كلاس, هل obb). لا يحتاج أبعاد الصورة — العدّ لا يعتمد عليها.
+    يرجع None إذا كان الملف فارغاً أو غير صالح."""
+    try:
+        lines = [ln for ln in path.read_text(encoding="utf-8").splitlines() if ln.split()]
+    except OSError:
+        return None
+    class_boxes = {name: 0 for name in CLASSES}
+    n_boxes = 0
+    n_damaged = 0
+    is_obb = False
+    for line in lines:
+        parts = line.split()
+        # std: 5 (قديم) أو 6 (مع dmg) | obb: 9 (قديم) أو 10 (مع dmg)
+        if len(parts) in (9, 10):
+            is_obb = True
+            dmg_idx = 9
+        elif len(parts) in (5, 6):
+            dmg_idx = 5
+        else:
+            continue
+        try:
+            cls = int(float(parts[0]))
+        except ValueError:
+            continue
+        dmg = 0
+        if len(parts) == dmg_idx + 1:
+            try:
+                dmg = int(float(parts[dmg_idx]))
+            except ValueError:
+                dmg = 0
+        n_boxes += 1
+        n_damaged += 1 if dmg else 0
+        if 0 <= cls < len(CLASSES):
+            class_boxes[CLASSES[cls]] += 1
+    return n_boxes, n_damaged, class_boxes, is_obb
+
+
+def scan_labels_for_recovery(repo: Path) -> dict[str, dict]:
+    """يمسح مجلدي labels/ و labels_obb/ ويبني قاموس {stem: entry} جاهز
+    للدمج في log['annotated']. يفضّل نسخة OBB (الأكمل) عند وجود الاثنين.
+    stem = اسم الصورة بلا امتداد (يطابق اسم ملف الـ label)."""
+    result: dict[str, dict] = {}
+    # نبدأ بـ OBB (المصدر الكامل) ثم نكمّل بأي std لا يوجد له obb
+    for folder, prefer in ((repo / LABELS_OBB_DIR, True), (repo / LABELS_DIR, False)):
+        if not folder.exists():
+            continue
+        for path in sorted(folder.glob("*.txt")):
+            stem = path.stem
+            if stem in result and not prefer:
+                continue  # لدينا نسخة OBB أفضل بالفعل
+            counted = _count_label_file(path)
+            if counted is None:
+                continue
+            n_boxes, n_damaged, class_boxes, is_obb = counted
+            result[stem] = {
+                "boxes": n_boxes,
+                "damaged_boxes": n_damaged,
+                "class_boxes": class_boxes,
+                "_source": "obb" if is_obb else "std",
+            }
+    return result
+
+
+def find_image_for_stem(repo: Path, stem: str, image_index: dict[str, Path] | None = None) -> Path | None:
+    """يعثر على ملف الصورة المقابل لـ stem داخل data/raw (لأي امتداد مدعوم)."""
+    if image_index is not None:
+        return image_index.get(stem)
+    raw = repo / RAW_DIR
+    if not raw.exists():
+        return None
+    for ext in IMG_EXTS:
+        cand = raw / f"{stem}{ext}"
+        if cand.exists():
+            return cand
+    return None
+
+
+def recover_annotated_log(repo: Path, log: dict, default_dev: str,
+                          compute_hash: bool = True,
+                          progress=None) -> tuple[int, int, list[str]]:
+    """يعيد بناء إدخالات annotated المفقودة من ملفات الـ labels.
+
+    - لا يلمس الإدخالات الموجودة سلفاً (لا نكسر ما هو سليم) إلا لإكمال حقول ناقصة.
+    - لكل label بلا إدخال في annotated: ننشئ إدخالاً كاملاً. نحسب MD5 للصورة
+      المقابلة إن وُجدت (للحفاظ على Idempotency)، وإلا نترك hash فارغاً.
+    - annotated_by للإدخالات المستعادة = default_dev (لا نعرف الأصل الحقيقي).
+
+    يرجع (عدد المستعاد, عدد المتخطّى الموجود سلفاً, قائمة stems بلا صورة مطابقة).
+    """
+    recovered = scan_labels_for_recovery(repo)
+    raw = repo / RAW_DIR
+    image_index = {p.stem: p for p in raw.iterdir()
+                   if p.suffix.lower() in IMG_EXTS} if raw.exists() else {}
+
+    annotated = log.setdefault("annotated", {})
+    added = 0
+    skipped = 0
+    missing_images: list[str] = []
+    items = list(recovered.items())
+    for i, (stem, info) in enumerate(items):
+        if progress and i % 25 == 0:
+            progress(i, len(items))
+        img_path = image_index.get(stem)
+        if img_path is None:
+            missing_images.append(stem)
+
+        existing = annotated.get(stem)
+        if existing is not None:
+            # إدخال موجود — نكمّل الحقول الناقصة فقط دون الكتابة فوق الموجود
+            existing.setdefault("boxes", info["boxes"])
+            existing.setdefault("damaged_boxes", info["damaged_boxes"])
+            existing.setdefault("class_boxes", info["class_boxes"])
+            existing.setdefault("annotated_by", default_dev)
+            existing.setdefault("timestamp", iso(utcnow()))
+            if compute_hash and not existing.get("hash") and img_path is not None:
+                try:
+                    existing["hash"] = file_md5(img_path)
+                except OSError:
+                    pass
+            skipped += 1
+            continue
+
+        entry = {
+            "hash": "",
+            "timestamp": iso(utcnow()),
+            "boxes": info["boxes"],
+            "damaged_boxes": info["damaged_boxes"],
+            "annotated_by": default_dev,
+            "class_boxes": info["class_boxes"],
+            "recovered": True,   # وسم أن هذا الإدخال أُعيد بناؤه من ملفات الـ labels
+        }
+        if compute_hash and img_path is not None:
+            try:
+                entry["hash"] = file_md5(img_path)
+            except OSError:
+                pass
+        annotated[stem] = entry
+        added += 1
+    if progress:
+        progress(len(items), len(items))
+    return added, skipped, missing_images
+
 
 # ----------------------------------------------------------------------------
 # الإحصائيات والتقارير
@@ -584,6 +749,12 @@ def publish_report_pr(lm: LockManager, report_md: str, stats_path: Path) -> str:
 # ----------------------------------------------------------------------------
 
 class DvcManager:
+    # قفل على مستوى الصنف (وليس النسخة) يضمن ألّا يعمل أمرا dvc معاً أبداً داخل
+    # التطبيق مهما تعددت النسخ أو الـ threads. هذا هو سبب خطأ "Unable to acquire
+    # lock": التطبيق يشغّل dvc status/pull من threads خلفية فتتصادم على قفل DVC
+    # الداخلي (.dvc/tmp/rwlock)، بينما من سطر الأوامر يُنفَّذ أمر واحد فقط كل مرة.
+    _cmd_lock = threading.Lock()
+
     def __init__(self, repo: Path):
         self.repo = repo
         self.dvc_cmd = self._resolve_dvc()
@@ -602,9 +773,40 @@ class DvcManager:
                 return str(c)
         return "dvc"
 
-    def _dvc(self, *args: str, timeout: int | None = None) -> subprocess.CompletedProcess:
-        return subprocess.run([self.dvc_cmd, *args], cwd=self.repo,
-                              capture_output=True, text=True, timeout=timeout)
+    def _clear_stale_lock(self) -> bool:
+        """يحذف ملفات قفل DVC المتبقية من عملية سابقة انتهت فجأة (إغلاق التطبيق
+        أثناء pull، أو thread قُتِل). آمن لأننا نستدعيه فقط ونحن ممسكون بـ
+        _cmd_lock — أي لا توجد عملية dvc أطلقناها نحن تعمل الآن. يُعالِج الشِق
+        الثاني من رسالة الخطأ: '...or was terminated abruptly'."""
+        tmp = self.repo / ".dvc" / "tmp"
+        if not tmp.exists():
+            return False
+        removed = False
+        for name in ("lock", "rwlock", "rwlock.lock"):
+            p = tmp / name
+            try:
+                if p.exists():
+                    p.unlink()
+                    removed = True
+            except OSError:
+                pass  # قد يكون مقفولاً فعلاً من عملية حيّة خارج التطبيق — نتركه
+        return removed
+
+    def _dvc(self, *args: str, timeout: int | None = None,
+             retry_on_lock: bool = True) -> subprocess.CompletedProcess:
+        """تشغيل أمر dvc مع تسلسل صارم (قفل واحد) + تنظيف الأقفال العالقة وإعادة
+        محاولة واحدة عند خطأ القفل. كل أوامر dvc تمرّ من هنا."""
+        with DvcManager._cmd_lock:
+            r = subprocess.run([self.dvc_cmd, *args], cwd=self.repo,
+                               capture_output=True, text=True, timeout=timeout)
+            if retry_on_lock and r.returncode != 0:
+                out = (r.stdout + r.stderr).lower()
+                if "unable to acquire lock" in out or "another dvc process" in out:
+                    # لا عملية dvc لنا تعمل الآن (نحن داخل القفل) → القفل عالق: ننظّفه ونعيد مرة
+                    self._clear_stale_lock()
+                    r = subprocess.run([self.dvc_cmd, *args], cwd=self.repo,
+                                       capture_output=True, text=True, timeout=timeout)
+            return r
 
     def available(self) -> bool:
         try:
@@ -661,10 +863,13 @@ class DvcManager:
             return "missing"
         return "unknown"
 
-    def pull_raw(self) -> tuple[bool, str]:
+    def pull_raw(self, state: str | None = None) -> tuple[bool, str]:
         """سحب صور المؤشّر. أمان: نرفض السحب إن وُجدت إضافات محلية غير مرفوعة
-        لأن dvc pull ينفّذ checkout يحذف أي ملف ليس في المؤشّر."""
-        if self.raw_state() in ("has_new", "unknown"):
+        لأن dvc pull ينفّذ checkout يحذف أي ملف ليس في المؤشّر.
+        state: حالة raw محسوبة مسبقاً (لتفادي استدعاء dvc status مكرر)."""
+        if state is None:
+            state = self.raw_state()
+        if state in ("has_new", "unknown"):
             return False, ("توجد صور محلية جديدة في data/raw لم تُرفع بعد. "
                            "أُلغي dvc pull حتى لا تُحذف — ارفعها أولاً بزر "
                            "«☁ مزامنة الصور».")
@@ -697,6 +902,31 @@ class DvcManager:
                            "(زميل رفع صوراً في نفس اللحظة) — أعد المزامنة بعد قليل.")
         return True, "تم رفع الصور الجديدة: dvc add ✓  dvc push ✓  git push ✓"
 
+    def delete_image_from_dvc(self, image_path: Path) -> tuple[bool, str]:
+        """حذف صورة نهائياً من DVC: حذف الملف → dvc add (يحدّث المؤشّر ليُسقطها) →
+        dvc push (يرفع المانيفست الجديد). لا يلمس git — المُنادي يتكفّل بمزامنته.
+
+        ملاحظة أمان: هذا الحذف قابل للاسترجاع — blob الصورة يبقى في الـ remote
+        cache، فيمكن التراجع لاحقاً بـ git revert للمؤشّر ثم dvc checkout، ما لم
+        يُشغّل أحدهم dvc gc على الـ cloud."""
+        if not image_path.exists():
+            return False, f"ملف الصورة غير موجود: {image_path.name}"
+        try:
+            image_path.unlink()
+        except OSError as e:
+            # على ويندوز قد يفشل الحذف إن كان الملف مفتوحاً في مكان آخر
+            return False, (f"تعذّر حذف ملف الصورة (قد يكون مفتوحاً في برنامج آخر): "
+                           f"{e}")
+        add = self._dvc("add", str(RAW_DIR))
+        if add.returncode != 0:
+            return False, (f"حُذف الملف محلياً لكن فشل dvc add لتحديث المؤشّر:\n"
+                           f"{(add.stderr or add.stdout).strip()[-400:]}")
+        push = self._dvc("push", str(Path("data") / "raw.dvc"))
+        if push.returncode != 0:
+            return False, (f"حُذف الملف وحُدّث المؤشّر محلياً لكن فشل dvc push:\n"
+                           f"{(push.stderr or push.stdout).strip()[-400:]}")
+        return True, "تم حذف الصورة من DVC (dvc add ✓  dvc push ✓)"
+
 
 
 
@@ -717,6 +947,7 @@ class AnnotationApp:
         self.user = user
         self.lm = LockManager(repo, user)
         self.dvc = DvcManager(repo)
+        self.dvc_busy = False     # عملية dvc جارية (تمنع تداخل الأوامر من الواجهة)
 
         self.images: list[Path] = []
         self.idx = -1
@@ -728,6 +959,7 @@ class AnnotationApp:
         self.selected: int | None = None
         self.clipboard: list[dict] = []
         self.dirty = False
+        self.view_only = False    # الصورة الحالية للعرض فقط (محجوزة لزميل)
         self.current_class = 0
         self.current_dmg = 0      # الحالة الافتراضية للصناديق الجديدة: 0 سليم / 1 مدمّر
 
@@ -767,11 +999,13 @@ class AnnotationApp:
             self.status.set("⬆ لديك صور جديدة في data/raw لم تُرفع — اضغط «☁ مزامنة الصور» لرفعها")
             return
         self.status.set("جارِ التحقق من تحديثات الصور (dvc pull)…")
+        self.dvc_busy = True
 
         def worker():
-            ok, msg = self.dvc.pull_raw()
+            ok, msg = self.dvc.pull_raw(state=state)
 
             def done():
+                self.dvc_busy = False
                 if not ok:
                     self.status.set("⚠️ " + msg.splitlines()[0])
                     messagebox.showwarning(
@@ -808,13 +1042,30 @@ class AnnotationApp:
         tk.Button(top, text="⟨ السابق (A)", command=self.prev_image).pack(side=tk.LEFT, padx=2)
         tk.Button(top, text="التالي (D) ⟩", command=self.next_image).pack(side=tk.LEFT, padx=2)
         tk.Button(top, text="⏭ التالي غير المعالَج", command=self.next_unannotated).pack(side=tk.LEFT, padx=2)
+
+        # الانتقال لترتيب محدد: خانة إدخال رقم الصورة (1-based) + زر اذهب
+        tk.Label(top, text="اذهب لرقم:").pack(side=tk.LEFT, padx=(8, 1))
+        self.goto_var = tk.StringVar()
+        goto_entry = tk.Entry(top, textvariable=self.goto_var, width=6)
+        goto_entry.pack(side=tk.LEFT)
+        goto_entry.bind("<Return>", lambda e: self.goto_index_entry())
+        tk.Button(top, text="اذهب", command=self.goto_index_entry).pack(side=tk.LEFT, padx=1)
+
+        # علامة البداية الشخصية: كل مطوّر يحدد من أين يبدأ
+        tk.Button(top, text="⭐ ضع بدايتي هنا", command=self.set_start_marker).pack(side=tk.LEFT, padx=(8, 1))
+        tk.Button(top, text="↩ اذهب لبدايتي", command=self.goto_start_marker).pack(side=tk.LEFT, padx=1)
+
         tk.Button(top, text="💾 حفظ + مزامنة (Ctrl+S)", bg="#d1f0d1",
                   command=self.save_current).pack(side=tk.LEFT, padx=8)
         tk.Button(top, text="🗑 حذف المحدد (Del)", command=self.delete_selected).pack(side=tk.LEFT, padx=2)
         tk.Button(top, text="🧹 مسح الكل", command=self.clear_all).pack(side=tk.LEFT, padx=2)
+        tk.Button(top, text="❌ حذف الصورة نهائياً", bg="#f5b7b1",
+                  command=self.delete_current_image).pack(side=tk.LEFT, padx=8)
         tk.Button(top, text="📊 الإحصائيات", command=self.show_stats).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="📄 تقرير + PR", command=self.report_pr).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="🟡 YAML", command=self.export_yaml).pack(side=tk.RIGHT, padx=2)
+        tk.Button(top, text="♻ استعادة الإحصائيات", bg="#ffe0b3",
+                  command=self.recover_stats).pack(side=tk.RIGHT, padx=2)
         self.dvc_btn = tk.Button(top, text="☁ مزامنة الصور (DVC)", bg="#d6e4ff",
                                  command=self.sync_dvc)
         self.dvc_btn.pack(side=tk.RIGHT, padx=8)
@@ -934,13 +1185,16 @@ class AnnotationApp:
         if d:
             self.load_folder(Path(d))
 
-    def load_folder(self, folder: Path):
+    def load_folder(self, folder: Path, honor_marker: bool = True):
         self.images = sorted(p for p in folder.iterdir()
                              if p.suffix.lower() in IMG_EXTS)
         if not self.images:
             messagebox.showwarning("لا صور", f"لا توجد صور في:\n{folder}")
             return
         self.idx = -1
+        # إن كان للمطوّر علامة بداية محفوظة نفتحها، وإلا أول صورة غير معالَجة
+        if honor_marker and self.goto_start_marker(silent=True):
+            return
         self.next_unannotated(from_start=True)
 
     def _stem(self, i: int | None = None) -> str:
@@ -948,8 +1202,8 @@ class AnnotationApp:
         return self.images[i].stem
 
     def _confirm_leave(self) -> bool:
-        if not self.dirty:
-            return True
+        if not self.dirty or self.view_only:
+            return True   # في وضع العرض فقط لا حفظ ولا تحذير
         ans = messagebox.askyesnocancel("تغييرات غير محفوظة",
                                         "توجد تغييرات غير محفوظة. حفظ قبل المتابعة؟")
         if ans is None:
@@ -966,11 +1220,17 @@ class AnnotationApp:
             return
         stem = self._stem(i)
         owner = self.lm.lock_owner(stem)
+        self.view_only = False    # وضع القراءة فقط (صورة محجوزة لزميل نتصفّحها دون حجز)
         if owner is not None and owner != self.user and not force:
-            messagebox.showwarning("صورة محجوزة",
-                                   f"الصورة {stem} محجوزة حالياً بواسطة: {owner}\n"
-                                   f"(ينتهي القفل تلقائياً بعد ساعتين من حجزه)")
-            return
+            # بدل الرفض التام: نتيح فتحها للعرض فقط (دون حجز ودون إمكانية حفظ)
+            # حتى يمكن الانتقال لأي رقم وتفقّد أي صورة، مع صون ضمان القفل الجماعي.
+            if not messagebox.askyesno(
+                    "صورة محجوزة",
+                    f"الصورة {stem} محجوزة حالياً بواسطة: {owner}\n"
+                    f"(ينتهي القفل تلقائياً بعد ساعتين من حجزه)\n\n"
+                    f"فتحها للعرض فقط (بدون تعديل أو حفظ)؟"):
+                return
+            self.view_only = True
         # تحرير قفل الصورة السابقة عند مغادرتها
         if 0 <= self.idx < len(self.images) and self.idx != i:
             self.lm.release(self._stem())
@@ -988,12 +1248,14 @@ class AnnotationApp:
         self.dirty = False
         self.fit_view()
 
-        # حجز الصورة الحالية + حجز التالية غير المعالَجة استباقياً
-        self.lm.acquire(stem)
-        nxt = self._find_next_free(i + 1)
-        if nxt is not None:
-            self.lm.acquire(self._stem(nxt))
-        write_log(self.lm.log_path, self.lm.log)
+        # في وضع العرض فقط لا نحجز شيئاً (الصورة محجوزة لزميل) ولا نلمس أقفاله
+        if not self.view_only:
+            # حجز الصورة الحالية + حجز التالية غير المعالَجة استباقياً
+            self.lm.acquire(stem)
+            nxt = self._find_next_free(i + 1)
+            if nxt is not None:
+                self.lm.acquire(self._stem(nxt))
+            write_log(self.lm.log_path, self.lm.log)
 
         self._refresh_box_list()
         self.redraw()
@@ -1023,6 +1285,79 @@ class AnnotationApp:
             return
         self.open_index(j)
 
+    def goto_index_entry(self):
+        """الانتقال للصورة برقم ترتيبها (1-based) من خانة الإدخال."""
+        if not self.images:
+            messagebox.showwarning("لا صور", "افتح مجلد صور أولاً.")
+            return
+        raw = self.goto_var.get().strip()
+        if not raw:
+            return
+        try:
+            n = int(raw)
+        except ValueError:
+            messagebox.showwarning("رقم غير صالح", f"أدخل رقماً بين 1 و {len(self.images)}.")
+            return
+        if not (1 <= n <= len(self.images)):
+            messagebox.showwarning("خارج النطاق",
+                                   f"الرقم يجب أن يكون بين 1 و {len(self.images)}.")
+            return
+        self.goto_var.set("")
+        self.open_index(n - 1)   # التحويل من 1-based إلى فهرس 0-based
+
+    # ------------------------------------------------------ علامة البداية --
+
+    def _start_marker_key(self) -> str:
+        """مفتاح يربط علامة البداية بهذا الريبو تحديداً (كي لا تختلط المشاريع)."""
+        return str(self.repo.resolve())
+
+    def _load_start_markers(self) -> dict:
+        if not USER_CFG.exists():
+            return {}
+        try:
+            data = json.loads(USER_CFG.read_text(encoding="utf-8"))
+            return data.get("start_markers", {})
+        except (json.JSONDecodeError, OSError):
+            return {}
+
+    def set_start_marker(self):
+        """يحفظ الصورة الحالية كنقطة بداية شخصية لهذا المطوّر (تبقى بين الجلسات)."""
+        if self.idx < 0:
+            messagebox.showwarning("لا صورة", "افتح صورة أولاً لتحديدها كبداية.")
+            return
+        stem = self._stem()
+        try:
+            data = json.loads(USER_CFG.read_text(encoding="utf-8")) if USER_CFG.exists() else {}
+        except (json.JSONDecodeError, OSError):
+            data = {}
+        markers = data.setdefault("start_markers", {})
+        markers[self._start_marker_key()] = stem
+        try:
+            USER_CFG.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        except OSError as e:
+            messagebox.showwarning("خطأ", f"تعذّر حفظ العلامة:\n{e}")
+            return
+        self.status.set(f"⭐ حُفظت بدايتك عند الصورة [{self.idx + 1}] {stem} — "
+                        "ستُفتح تلقائياً في تشغيلك القادم")
+
+    def goto_start_marker(self, silent: bool = False) -> bool:
+        """الانتقال لعلامة البداية المحفوظة لهذا المطوّر إن وُجدت وطابقت صورة."""
+        markers = self._load_start_markers()
+        stem = markers.get(self._start_marker_key())
+        if not stem:
+            if not silent:
+                messagebox.showinfo("لا علامة",
+                                    "لم تحدّد نقطة بداية بعد. افتح صورة واضغط «⭐ ضع بدايتي هنا».")
+            return False
+        for j, p in enumerate(self.images):
+            if p.stem == stem:
+                self.open_index(j)
+                return True
+        if not silent:
+            messagebox.showwarning("غير موجودة",
+                                   f"علامة البداية ({stem}) لا تطابق أي صورة في المجلد الحالي.")
+        return False
+
     def _update_status(self):
         if self.idx < 0:
             return
@@ -1030,8 +1365,9 @@ class AnnotationApp:
         annotated = "✅ معالَجة" if self.lm.is_annotated(stem, self.images[self.idx]) else "⬜ غير معالَجة"
         nxt = self._find_next_free(self.idx + 1)
         reserved = self._stem(nxt) if nxt is not None else "—"
+        vo = "  |  👁 عرض فقط" if self.view_only else ""
         self.status.set(
-            f"[{self.idx + 1}/{len(self.images)}] {stem}  |  {annotated}  |  "
+            f"[{self.idx + 1}/{len(self.images)}] {stem}  |  {annotated}{vo}  |  "
             f"صناديق: {len(self.boxes)}  |  الكلاس: {CLASSES[self.current_class]}  |  "
             f"محجوز لك أيضاً: {reserved}  |  المستخدم: {self.user}"
         )
@@ -1261,6 +1597,139 @@ class AnnotationApp:
             self.redraw()
             self._update_status()
 
+    # ------------------------------------------------- حذف الصورة نهائياً --
+
+    def delete_current_image(self):
+        """حذف الصورة الحالية نهائياً: الملف من DVC + ملفات الـ label + سجلّها،
+        ثم رفع كل ذلك إلى الفريق. عملية مدمّرة لكنها قابلة للاسترجاع بـ git revert."""
+        if self.idx < 0 or self.img is None:
+            messagebox.showwarning("لا صورة", "افتح صورة أولاً.")
+            return
+        if self.view_only:
+            messagebox.showinfo("عرض فقط",
+                                "هذه الصورة محجوزة لزميل (عرض فقط) — لا يمكنك حذفها.")
+            return
+        if not self.dvc.available():
+            messagebox.showwarning(
+                "DVC مطلوب",
+                "الصور مُدارة عبر DVC، وحذفها نهائياً يتطلب توفّر أمر dvc.\n"
+                "ثبّته ثم أعد المحاولة:  pip install \"dvc[gdrive]\"")
+            return
+        if self.dvc_busy:
+            self.status.set("عملية DVC جارية — انتظر انتهاءها ثم أعد المحاولة.")
+            return
+
+        stem = self._stem()
+        img_path = self.images[self.idx]
+
+        # لا نحذف صورة يعمل عليها زميل الآن (قفل نشط لغيري)
+        owner = self.lm.lock_owner(stem)
+        if owner is not None and owner != self.user:
+            messagebox.showwarning(
+                "محجوزة لزميل",
+                f"الصورة {stem} محجوزة حالياً بواسطة {owner} — لا تحذفها أثناء عمله عليها.\n"
+                f"انتظر انتهاء قفله (ساعتان كحدّ أقصى) أو نسّق معه.")
+            return
+
+        n_labels = sum(1 for d in (LABELS_DIR, LABELS_OBB_DIR)
+                       if (self.repo / d / f"{stem}.txt").exists())
+        if not messagebox.askyesno(
+                "⚠️ حذف نهائي للصورة",
+                f"سيُحذف نهائياً وللجميع:\n\n"
+                f"• الصورة: {img_path.name}\n"
+                f"• {n_labels} ملف label مرتبط بها\n"
+                f"• سجلّها في processed_log.json\n\n"
+                f"يُحدَّث مؤشّر DVC ويُرفع إلى الفريق. عند مزامنتهم القادمة ستختفي الصورة من أجهزتهم.\n\n"
+                f"↩ الحذف قابل للاسترجاع لاحقاً بـ git revert للمؤشّر ثم dvc checkout "
+                f"(تبقى الصورة في مخزن DVC حتى يُشغَّل dvc gc).\n\n"
+                f"متابعة الحذف؟"):
+            return
+        # تأكيد ثانٍ صريح — العملية تمسّ الجميع
+        if not messagebox.askyesno("تأكيد أخير",
+                                   f"تأكيد حذف «{img_path.name}» نهائياً من الريبو للجميع؟"):
+            return
+
+        self.dvc_busy = True
+        # نُفلت مرجع الصورة قبل الحذف حتى لا يمنع ويندوز حذف ملف مفتوح
+        self.img = None
+        self.tk_img = None
+        self.boxes = []
+        self.selected = None
+        self.dirty = False
+        self.canvas.delete("all")
+        self.status.set(f"جارِ حذف {img_path.name} نهائياً…")
+        self.root.update_idletasks()
+
+        def worker():
+            # 1) أحدث سجل من GitHub أولاً (كي لا نطمس عمل زملاء)
+            self.lm.refresh_from_remote()
+
+            # 2) حذف ملفات الـ label (مُدارة في git)
+            removed_labels = []
+            for d in (LABELS_DIR, LABELS_OBB_DIR):
+                p = self.repo / d / f"{stem}.txt"
+                try:
+                    if p.exists():
+                        p.unlink()
+                        removed_labels.append(str(d / f"{stem}.txt"))
+                except OSError:
+                    pass
+
+            # 3) إزالة سجلّ الصورة من processed_log.json (annotated/locks)
+            self.lm.remove_image_record(stem)
+            write_log(self.lm.log_path, self.lm.log)
+
+            # 4) حذف الصورة من DVC (unlink + dvc add + dvc push)
+            ok_dvc, msg_dvc = self.dvc.delete_image_from_dvc(img_path)
+            if not ok_dvc:
+                # فشل DVC — نعيد السجل لأقرب حالة متسقة ونبلّغ
+                self.root.after(0, lambda: self._after_delete(False, msg_dvc, stem, None))
+                return
+
+            # 5) مزامنة git: المؤشّر الجديد + حذف ملفات الـ label + السجل، في commit واحد
+            extra = [Path("data") / "raw.dvc", ANNOT_DIR]
+            if (self.repo / "data" / ".gitignore").exists():
+                extra.append(Path("data") / ".gitignore")
+            ok_git, msg_git = self.lm.sync(
+                f"delete(image): remove {stem} from dataset ({self.user})",
+                extra_paths=extra)
+            combined = (msg_dvc + "\n" + msg_git) if not ok_git else msg_git
+            self.root.after(0, lambda: self._after_delete(ok_git, combined, stem, img_path))
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def _after_delete(self, ok: bool, msg: str, stem: str, img_path):
+        self.dvc_busy = False
+        if not ok:
+            self.status.set("⚠️ فشل الحذف — " + msg.splitlines()[0])
+            messagebox.showwarning("حذف الصورة", msg)
+            # نعيد فتح الصورة الحالية إن كانت ما زالت موجودة، وإلا ننتقل
+            if img_path is not None and img_path.exists():
+                self.open_index(self.idx)
+            else:
+                self._reopen_after_removal(stem)
+            return
+        # نجح: نزيل الصورة من القائمة وننتقل للتالية
+        self.status.set("✅ حُذفت الصورة نهائياً — " + msg.splitlines()[-1])
+        self._reopen_after_removal(stem)
+
+    def _reopen_after_removal(self, stem: str):
+        """يحدّث قائمة الصور بعد حذف واحدة وينتقل لصورة مناسبة."""
+        old_idx = self.idx
+        self.images = [p for p in self.images if p.stem != stem]
+        if not self.images:
+            self.idx = -1
+            self.img = None
+            self.tk_img = None
+            self.boxes = []
+            self.canvas.delete("all")
+            self.status.set("لا صور متبقية في المجلد.")
+            return
+        # نفتح الصورة التي أخذت مكان المحذوفة (أو آخر صورة إن حذفنا الأخيرة)
+        self.idx = -1   # نُجبر open_index على الفتح دون منطق "المغادرة"
+        target = min(old_idx, len(self.images) - 1)
+        self.open_index(target)
+
     def _refresh_box_list(self):
         self.box_list.delete(0, tk.END)
         for b in self.boxes:
@@ -1328,6 +1797,12 @@ class AnnotationApp:
     def save_current(self) -> bool:
         if self.idx < 0 or self.img is None:
             return False
+        if self.view_only:
+            messagebox.showinfo(
+                "عرض فقط",
+                "هذه الصورة محجوزة لزميل وأنت تتصفّحها للعرض فقط — لا يمكن الحفظ.\n"
+                "انتقل لصورة أخرى للعمل عليها.")
+            return False
         stem = self._stem()
         img_path = self.images[self.idx]
 
@@ -1369,6 +1844,66 @@ class AnnotationApp:
             self.root.after(0, lambda: (
                 self._update_status(),
                 messagebox.showinfo("YAML", f"تم تصدير الإحصائيات إلى:\n{out}")))
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def recover_stats(self):
+        """استعادة قسم annotated المفقود من ملفات الـ labels الموجودة على القرص.
+        يُدمج مع السجل الحالي (لا يكسر الموجود) ثم يُرفع إلى GitHub."""
+        n_std = len(list((self.repo / LABELS_DIR).glob("*.txt"))) if (self.repo / LABELS_DIR).exists() else 0
+        n_obb = len(list((self.repo / LABELS_OBB_DIR).glob("*.txt"))) if (self.repo / LABELS_OBB_DIR).exists() else 0
+        n_labels = max(n_std, n_obb)
+        if n_labels == 0:
+            messagebox.showwarning(
+                "لا ملفات labels",
+                "لم يُعثر على ملفات labels في data/annotations.\n"
+                "تأكد أنك على جذر الريبو وأن ملفات الـ labels موجودة.")
+            return
+        if not messagebox.askyesno(
+                "استعادة الإحصائيات",
+                f"سيُعاد بناء سجل الصور المعالَجة من {n_labels} ملف labels على القرص.\n\n"
+                "• لن تُمَس الإدخالات الموجودة سلفاً في السجل (تُكمَّل حقولها الناقصة فقط).\n"
+                "• الإدخالات المستعادة تُنسب إليك كـ annotated_by (الأصل غير معروف) وتُوسم recovered.\n"
+                "• سيُحسب MD5 لكل صورة مقابلة (قد يستغرق دقائق لآلاف الصور).\n\n"
+                "بعدها ستُدمج مع GitHub وتُرفع. متابعة؟"):
+            return
+        self.status.set("جارِ استعادة الإحصائيات من ملفات الـ labels…")
+        self.root.update_idletasks()
+
+        def worker():
+            # نبدأ بأحدث سجل من GitHub حتى لا نطمس عمل زملاء تم تسجيله فعلاً
+            self.lm.refresh_from_remote()
+
+            def prog(done, total):
+                self.root.after(0, lambda: self.status.set(
+                    f"استعادة… {done}/{total} ملف label ({self.user})"))
+
+            added, skipped, missing = recover_annotated_log(
+                self.repo, self.lm.log, self.user, compute_hash=True, progress=prog)
+            write_log(self.lm.log_path, self.lm.log)
+
+            # رفع السجل المستعاد إلى GitHub (مع أي labels على القرص للاكتمال)
+            ok, msg = self.lm.sync(
+                f"recover(stats): rebuild {added} annotated entries from labels ({self.user})",
+                extra_paths=[ANNOT_DIR])
+
+            def done():
+                if self.idx >= 0:
+                    self._update_status()
+                summary = (f"تمت الاستعادة:\n"
+                           f"• أُضيف {added} إدخال جديد من ملفات الـ labels.\n"
+                           f"• {skipped} إدخال كان موجوداً سلفاً (أُكمِلت حقوله الناقصة).\n")
+                if missing:
+                    ex = ", ".join(missing[:5]) + (" …" if len(missing) > 5 else "")
+                    summary += (f"• {len(missing)} ملف label بلا صورة مطابقة في data/raw "
+                                f"(سُجّل بدون MD5): {ex}\n")
+                summary += "\n" + ("✅ " if ok else "⚠️ ") + msg.splitlines()[0]
+                self.status.set(("✅ " if ok else "⚠️ ") +
+                                f"استعادة: +{added} إدخال، {skipped} موجود مسبقاً")
+                messagebox.showinfo("استعادة الإحصائيات", summary)
+                if not ok:
+                    messagebox.showwarning("مزامنة", msg)
+            self.root.after(0, done)
 
         threading.Thread(target=worker, daemon=True).start()
 
@@ -1441,22 +1976,26 @@ class AnnotationApp:
             messagebox.showwarning("DVC", "أمر dvc غير متوفر في هذا الجهاز.\n"
                                           "ثبّته عبر:  pip install \"dvc[gdrive]\"")
             return
+        if self.dvc_busy:
+            self.status.set("عملية DVC جارية بالفعل — انتظر انتهاءها…")
+            return
+        self.dvc_busy = True
         self.dvc_btn.configure(state=tk.DISABLED)
         self.status.set("جارِ مزامنة الصور مع DVC… قد يستغرق دقائق حسب حجم التغييرات")
         self.root.update_idletasks()
 
         def worker():
             # نصنّف الحالة أولاً — ولا نُنفّذ سحباً (checkout) قبل التأكد أنه لا
-            # توجد إضافات محلية، حتى لا تُحذف صور لم تُرفع بعد.
+            # توجد إضافات محلية، حتى لا تُحذف صور لم تُرفع بعد. نمرّر الحالة
+            # المحسوبة لتفادي استدعاء dvc status إضافي (يقلّل فرص تصادم الأقفال).
             state = self.dvc.raw_state()
             if state in ("has_new", "unknown"):
                 ok, msg = self.dvc.sync_raw(self.lm)          # رفع أولاً — يبدأ بـ dvc add
-            elif state == "missing":
-                ok, msg = self.dvc.pull_raw()                 # ناقصة — السحب آمن
-            else:  # clean
-                ok, msg = self.dvc.pull_raw()                 # تحديث محتمل من الزملاء
+            else:  # missing (ناقصة، السحب آمن) أو clean (تحديث محتمل من الزملاء)
+                ok, msg = self.dvc.pull_raw(state=state)
 
             def done():
+                self.dvc_busy = False
                 self.dvc_btn.configure(state=tk.NORMAL)
                 self.status.set(("✅ " if ok else "⚠️ ") + msg.splitlines()[0])
                 if not ok:
