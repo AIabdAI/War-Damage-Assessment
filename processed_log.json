@@ -4177,12 +4177,12 @@
     },
     "Crack-149_jpeg.rf.26bbbf3edd95a6f9ad1e5622609775c3": {
       "hash": "bd32f1a8e99d84423cdb68dea18ec9bd",
-      "timestamp": "2026-07-14T09:06:37.575062Z",
-      "boxes": 2,
-      "damaged_boxes": 2,
-      "annotated_by": "Ahmed AbuDagga",
+      "timestamp": "2026-07-21T10:00:18.490152Z",
+      "boxes": 1,
+      "damaged_boxes": 1,
+      "annotated_by": "Hazem",
       "class_boxes": {
-        "Brick_Wall": 2,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
@@ -47511,5 +47511,11 @@
     }
   },
   "augmented": {},
-  "locks": {}
+  "locks": {
+    "F174_jpg.rf.f15c376b9f35df55a4e8c6669fbb037c": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-21T10:00:08.534767Z",
+      "expires_at": "2026-07-21T12:00:08.534767Z"
+    }
+  }
 }
