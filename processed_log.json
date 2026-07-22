@@ -19550,7 +19550,7 @@
     },
     "image_1001": {
       "hash": "5fa2551ce5cf5d80f736dd4522bf398c",
-      "timestamp": "2026-07-21T07:47:12.332462Z",
+      "timestamp": "2026-07-22T18:17:52.574745Z",
       "boxes": 1,
       "damaged_boxes": 1,
       "annotated_by": "Hazem",
@@ -47554,6 +47554,11 @@
       "locked_by": "Hazem",
       "locked_at": "2026-07-22T18:17:02.660404Z",
       "expires_at": "2026-07-22T20:17:02.660404Z"
+    },
+    "image_1403": {
+      "locked_by": "Hazem",
+      "locked_at": "2026-07-22T18:17:49.464684Z",
+      "expires_at": "2026-07-22T20:17:49.464684Z"
     }
   }
 }
