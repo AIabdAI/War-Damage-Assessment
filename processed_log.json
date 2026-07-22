@@ -20156,9 +20156,9 @@
     },
     "image_1020": {
       "hash": "c89d494027ab44711ad806c27ed4cb71",
-      "timestamp": "2026-07-22T18:41:53.644991Z",
+      "timestamp": "2026-07-22T18:43:17.105202Z",
       "boxes": 2,
-      "damaged_boxes": 1,
+      "damaged_boxes": 2,
       "annotated_by": "Hazem",
       "class_boxes": {
         "Brick_Wall": 1,
