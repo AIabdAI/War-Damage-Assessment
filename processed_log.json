@@ -19461,10 +19461,10 @@
     },
     "image_10": {
       "hash": "0a5f16429fa914d0d7278a20313aba6b",
-      "timestamp": "2026-07-13T11:12:30.594561Z",
+      "timestamp": "2026-07-22T18:17:00.775337Z",
       "boxes": 1,
       "damaged_boxes": 0,
-      "annotated_by": "Abdallah",
+      "annotated_by": "Hazem",
       "class_boxes": {
         "Brick_Wall": 0,
         "Column": 0,
@@ -19486,8 +19486,7 @@
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
-      },
-      "recovered": true
+      }
     },
     "image_100": {
       "hash": "70bb8cfbdd4b7f8c4d94bafc4743cf2b",
@@ -47541,30 +47540,20 @@
   },
   "augmented": {},
   "locks": {
-    "F174_jpg.rf.f15c376b9f35df55a4e8c6669fbb037c": {
+    "a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8": {
       "locked_by": "Hazem",
-      "locked_at": "2026-07-21T10:00:08.534767Z",
-      "expires_at": "2026-07-21T12:00:08.534767Z"
+      "locked_at": "2026-07-22T18:16:12.025845Z",
+      "expires_at": "2026-07-22T20:16:12.025845Z"
     },
-    "image_317": {
+    "image_100": {
       "locked_by": "Hazem",
-      "locked_at": "2026-07-21T10:07:20.808421Z",
-      "expires_at": "2026-07-21T12:07:20.808421Z"
+      "locked_at": "2026-07-22T18:17:02.660404Z",
+      "expires_at": "2026-07-22T20:17:02.660404Z"
     },
-    "Crack-145_jpg.rf.5e5dfa5079ad0f907dde85cd1efcaed5": {
+    "image_1000": {
       "locked_by": "Hazem",
-      "locked_at": "2026-07-21T10:06:59.126068Z",
-      "expires_at": "2026-07-21T12:06:59.126068Z"
-    },
-    "image_1403": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-21T10:07:09.219949Z",
-      "expires_at": "2026-07-21T12:07:09.219949Z"
-    },
-    "F61_jpg.rf.33686049f4b78499ec06532ab377e329": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-21T10:06:37.075297Z",
-      "expires_at": "2026-07-21T12:06:37.075297Z"
+      "locked_at": "2026-07-22T18:17:02.660404Z",
+      "expires_at": "2026-07-22T20:17:02.660404Z"
     }
   }
 }
