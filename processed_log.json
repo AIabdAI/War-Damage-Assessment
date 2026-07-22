@@ -20214,13 +20214,13 @@
     },
     "image_1022": {
       "hash": "14d59166e0151e56edeaf731e750cb86",
-      "timestamp": "2026-07-22T18:37:13.729539Z",
-      "boxes": 1,
+      "timestamp": "2026-07-22T18:37:24.808866Z",
+      "boxes": 2,
       "damaged_boxes": 1,
       "annotated_by": "Hazem",
       "class_boxes": {
         "Brick_Wall": 1,
-        "Column": 0,
+        "Column": 1,
         "Staircase": 0,
         "Floor_Tiles": 0,
         "Ceiling": 0,
