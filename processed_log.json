@@ -25985,9 +25985,9 @@
     },
     "image_1201": {
       "hash": "5851d9b0643811bea4dcdc2d3e45a49a",
-      "timestamp": "2026-07-23T19:22:59.010225Z",
-      "boxes": 3,
-      "damaged_boxes": 2,
+      "timestamp": "2026-07-23T19:24:01.010052Z",
+      "boxes": 5,
+      "damaged_boxes": 4,
       "annotated_by": "Hazem",
       "class_boxes": {
         "Brick_Wall": 2,
@@ -26003,7 +26003,7 @@
         "Floor_Cabinet": 0,
         "Bathtub": 0,
         "Water_Faucet": 0,
-        "Window": 1,
+        "Window": 3,
         "Fire_Extinguisher": 0,
         "Roof": 0,
         "Door": 0,
