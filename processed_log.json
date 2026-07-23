@@ -25898,10 +25898,10 @@
     },
     "image_12": {
       "hash": "5ea3a6a662a0ef1e85c4b4266fa64738",
-      "timestamp": "2026-07-13T11:12:31.047031Z",
+      "timestamp": "2026-07-23T19:21:51.222520Z",
       "boxes": 1,
       "damaged_boxes": 0,
-      "annotated_by": "Abdallah",
+      "annotated_by": "Hazem",
       "class_boxes": {
         "Brick_Wall": 0,
         "Column": 0,
@@ -25923,8 +25923,7 @@
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
-      },
-      "recovered": true
+      }
     },
     "image_120": {
       "hash": "d26e5fc51e339d2dd6ac80059bcaf831",
