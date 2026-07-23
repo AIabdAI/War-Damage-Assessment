@@ -25782,12 +25782,12 @@
     },
     "image_1196": {
       "hash": "bd625c48e535a6acb1c9e3290816717f",
-      "timestamp": "2026-07-23T19:20:25.858214Z",
-      "boxes": 2,
-      "damaged_boxes": 2,
+      "timestamp": "2026-07-23T19:20:30.253021Z",
+      "boxes": 3,
+      "damaged_boxes": 3,
       "annotated_by": "Hazem",
       "class_boxes": {
-        "Brick_Wall": 1,
+        "Brick_Wall": 2,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
