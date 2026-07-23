@@ -25840,12 +25840,12 @@
     },
     "image_1198": {
       "hash": "486f0b851659d97d2eec0269103f8aae",
-      "timestamp": "2026-07-13T11:12:31.042776Z",
-      "boxes": 1,
-      "damaged_boxes": 1,
-      "annotated_by": "Abdallah",
+      "timestamp": "2026-07-23T19:21:09.044039Z",
+      "boxes": 3,
+      "damaged_boxes": 2,
+      "annotated_by": "Hazem",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 2,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
@@ -25865,8 +25865,7 @@
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
-      },
-      "recovered": true
+      }
     },
     "image_1199": {
       "hash": "8cae9e4fab46e47492a6efc03d02e2a6",
