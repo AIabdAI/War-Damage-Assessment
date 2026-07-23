@@ -23897,12 +23897,12 @@
     },
     "image_1137": {
       "hash": "ae44bb47028756651c0fa110bbce7d34",
-      "timestamp": "2026-07-13T11:12:30.886277Z",
+      "timestamp": "2026-07-23T19:03:13.733481Z",
       "boxes": 1,
       "damaged_boxes": 1,
-      "annotated_by": "Abdallah",
+      "annotated_by": "Hazem",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
@@ -23910,7 +23910,7 @@
         "Beam": 0,
         "Kitchen_Countertop": 0,
         "Sink": 0,
-        "Wall_Cabinet": 1,
+        "Wall_Cabinet": 0,
         "Chair": 0,
         "Floor_Cabinet": 0,
         "Bathtub": 0,
@@ -23922,8 +23922,7 @@
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
-      },
-      "recovered": true
+      }
     },
     "image_1138": {
       "hash": "314bdb2ed924bca6196882975945e8eb",
@@ -47387,46 +47386,5 @@
     }
   },
   "augmented": {},
-  "locks": {
-    "a-big-crack-on-an-old-rotten-wall_webp.rf.af67936283720c18fbc03ab60a6923a8": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:16:12.025845Z",
-      "expires_at": "2026-07-22T20:16:12.025845Z"
-    },
-    "image_100": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:17:02.660404Z",
-      "expires_at": "2026-07-22T20:17:02.660404Z"
-    },
-    "image_1000": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:17:02.660404Z",
-      "expires_at": "2026-07-22T20:17:02.660404Z"
-    },
-    "image_1403": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:17:49.464684Z",
-      "expires_at": "2026-07-22T20:17:49.464684Z"
-    },
-    "image_1005": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:22:56.970400Z",
-      "expires_at": "2026-07-22T20:22:56.970400Z"
-    },
-    "image_1013": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:29:16.526723Z",
-      "expires_at": "2026-07-22T20:29:16.526723Z"
-    },
-    "image_1404": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:35:47.455046Z",
-      "expires_at": "2026-07-22T20:35:47.455046Z"
-    },
-    "image_1019": {
-      "locked_by": "Hazem",
-      "locked_at": "2026-07-22T18:43:30.859839Z",
-      "expires_at": "2026-07-22T20:43:30.859839Z"
-    }
-  }
+  "locks": {}
 }
