@@ -24274,12 +24274,12 @@
     },
     "image_1149": {
       "hash": "e8cc278693820102f5edbd9f4de5935d",
-      "timestamp": "2026-07-13T11:12:30.912476Z",
+      "timestamp": "2026-07-23T19:06:42.687009Z",
       "boxes": 1,
       "damaged_boxes": 1,
-      "annotated_by": "Abdallah",
+      "annotated_by": "Hazem",
       "class_boxes": {
-        "Brick_Wall": 0,
+        "Brick_Wall": 1,
         "Column": 0,
         "Staircase": 0,
         "Floor_Tiles": 0,
@@ -24287,7 +24287,7 @@
         "Beam": 0,
         "Kitchen_Countertop": 0,
         "Sink": 0,
-        "Wall_Cabinet": 1,
+        "Wall_Cabinet": 0,
         "Chair": 0,
         "Floor_Cabinet": 0,
         "Bathtub": 0,
@@ -24299,8 +24299,7 @@
         "Air_Conditioner": 0,
         "Window_Sill": 0,
         "Light_Fixture": 0
-      },
-      "recovered": true
+      }
     },
     "image_115": {
       "hash": "7f70d89215729cda1867ed53666d07ce",
