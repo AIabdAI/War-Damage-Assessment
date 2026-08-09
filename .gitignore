@@ -40,3 +40,7 @@ review_state.json
 class_review_state.json
 mlflow.db
 /runs_smoke
+
+# Google service account keys - never commit
+war-damage-dvc-*.json
+*service_account*.json
