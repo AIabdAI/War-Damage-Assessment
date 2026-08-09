@@ -22,3 +22,16 @@ venv/
 # OS
 .DS_Store
 .vscode/
+
+# model weights
+*.pt
+weights/
+
+# growing local log
+processed_log.json
+
+# training outputs (MLflow سيتكفل بها لاحقاً)
+runs/
+runs_smoke/
+mlruns/
+/weights
