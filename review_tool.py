@@ -28,6 +28,7 @@ import copy
 import getpass
 import hashlib
 import json
+import re
 import math
 import os
 import platform
@@ -82,6 +83,69 @@ ANNOT_DIR = Path("data/annotations")
 LABELS_DIR = ANNOT_DIR / "labels"          # YOLO عادي: cls cx cy w h
 LABELS_OBB_DIR = ANNOT_DIR / "labels_obb"  # YOLO-OBB: cls x1 y1 x2 y2 x3 y3 x4 y4
 REPORTS_DIR = Path("reports")
+
+# ----------------------------------------------------------------------------
+# وضع المراجعة: تحليل تقارير التحقق — verification_report.md وتقرير مراجعة
+# الكلاسات reports/class_review_report.md (من class_check_tool.py) معاً.
+# الأداة تعرض فقط الصور المذكورة فيهما، مع سبب الإدراج في شريط أصفر أعلى الصورة.
+# ----------------------------------------------------------------------------
+REPORT_CATEGORY_MARKERS = [
+    ("file(s) with errors", "أخطاء تحقق"),
+    ("content differs", "اختلاف عن الفرع"),
+    ("MISSING LOCALLY", "مفقود محلياً"),
+    ("orphan labels", "label بلا صورة"),
+    ("images without a label", "صورة بلا label"),
+    ("wrong class (auto-detected)", "اشتباه تلقائي — كلاس خاطئ"),
+    ("wrong class", "كلاس خاطئ"),
+    ("out-of-range class", "كلاس خارج النطاق"),
+]
+
+DEFAULT_REPORTS = [Path("verification_report.md"),
+                   Path("reports/class_review_report.md")]
+
+
+def parse_report(path: Path) -> dict[str, dict]:
+    """يرجع {stem: {"cats": [...], "reasons": [...]}} من تقرير التحقق."""
+    items: dict[str, dict] = {}
+    current_cat = None
+    last_stem = None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        for marker, cat in REPORT_CATEGORY_MARKERS:
+            if marker in line:
+                current_cat, last_stem = cat, None
+                break
+        else:
+            if line.startswith("## "):
+                current_cat, last_stem = None, None
+                continue
+            m = re.match(r"\s*- `([^`]+)`\s*$", line)
+            if m and current_cat:
+                stem = m.group(1)
+                stem = stem[:-4] if stem.endswith(".txt") else stem
+                it = items.setdefault(stem, {"cats": [], "reasons": []})
+                if current_cat not in it["cats"]:
+                    it["cats"].append(current_cat)
+                last_stem = stem
+                continue
+            m = re.match(r"\s+- (line .+)$", line)
+            if m and last_stem and current_cat:
+                items[last_stem]["reasons"].append(m.group(1))
+    return items
+
+
+def parse_reports(paths: list[Path]) -> dict[str, dict]:
+    """يدمج عدة تقارير في خريطة واحدة {stem: {"cats", "reasons"}}."""
+    merged: dict[str, dict] = {}
+    for path in paths:
+        for stem, info in parse_report(path).items():
+            it = merged.setdefault(stem, {"cats": [], "reasons": []})
+            for cat in info["cats"]:
+                if cat not in it["cats"]:
+                    it["cats"].append(cat)
+            it["reasons"].extend(info["reasons"])
+    return merged
+
+
 LOG_FILE = Path("processed_log.json")
 USER_CFG = Path.home() / ".wda_annotator.json"
 
@@ -684,10 +748,13 @@ except ImportError:
 
 
 class AnnotationApp:
-    def __init__(self, root: tk.Tk, repo: Path, user: str):
+    def __init__(self, root: tk.Tk, repo: Path, user: str,
+                 report_map: dict | None = None):
         self.root = root
         self.repo = repo
         self.user = user
+        self.report_map = report_map or {}
+        self.review_mode = bool(self.report_map)
         self.lm = LockManager(repo, user)
         self.dvc = DvcManager(repo)
         self.dvc_busy = False     # عملية dvc جارية (تمنع تداخل الأوامر من الواجهة)
@@ -773,7 +840,8 @@ class AnnotationApp:
     # ------------------------------------------------------------------ UI --
 
     def _build_ui(self):
-        self.root.title(f"WDA Annotation Tool — {self.user}")
+        mode = " — وضع المراجعة (من التقرير)" if self.review_mode else ""
+        self.root.title(f"WDA Annotation Tool — {self.user}{mode}")
         self.root.geometry("1360x860")
 
         top = tk.Frame(self.root)
@@ -806,6 +874,14 @@ class AnnotationApp:
         tk.Button(top, text="🟡 YAML", command=self.export_yaml).pack(side=tk.RIGHT, padx=2)
         tk.Button(top, text="♻ استعادة الإحصائيات", bg="#ffe0b3",
                   command=self.recover_stats).pack(side=tk.RIGHT, padx=2)
+
+        self.report_var = tk.StringVar(value="")
+        self.report_banner = tk.Label(self.root, textvariable=self.report_var,
+                                      anchor="e", justify="right", bg="#fff3cd",
+                                      fg="#7a1f1f", font=("Segoe UI", 10, "bold"),
+                                      wraplength=1330)
+        if self.review_mode:
+            self.report_banner.pack(side=tk.TOP, fill=tk.X, padx=4)
 
         self.status = tk.StringVar(value="اختر مجلد الصور للبدء…")
         tk.Label(self.root, textvariable=self.status, anchor="w",
@@ -925,6 +1001,15 @@ class AnnotationApp:
     def load_folder(self, folder: Path, honor_marker: bool = True):
         self.images = sorted(p for p in folder.iterdir()
                              if p.suffix.lower() in IMG_EXTS)
+        if self.review_mode:
+            self.images = [p for p in self.images if p.stem in self.report_map]
+            if not self.images:
+                messagebox.showwarning(
+                    "مراجعة", f"لا توجد صور مذكورة في التقرير داخل:\n{folder}")
+                return
+            self.idx = -1
+            self.open_index(0)
+            return
         if not self.images:
             messagebox.showwarning("لا صور", f"لا توجد صور في:\n{folder}")
             return
@@ -1095,7 +1180,24 @@ class AnnotationApp:
                                    f"علامة البداية ({stem}) لا تطابق أي صورة في المجلد الحالي.")
         return False
 
+    def _update_report_banner(self):
+        if not getattr(self, "review_mode", False):
+            return
+        if self.idx < 0 or self.idx >= len(self.images):
+            self.report_var.set("")
+            return
+        info = self.report_map.get(self.images[self.idx].stem)
+        if not info:
+            self.report_var.set("")
+            return
+        parts = ["⚠ " + " + ".join(info["cats"])]
+        parts += info["reasons"][:4]
+        if len(info["reasons"]) > 4:
+            parts.append(f"... و{len(info['reasons']) - 4} أسباب أخرى")
+        self.report_var.set("  |  ".join(parts))
+
     def _update_status(self):
+        self._update_report_banner()
         if self.idx < 0:
             return
         stem = self._stem()
@@ -1470,7 +1572,11 @@ class AnnotationApp:
         for b in self.boxes:
             rot = f" ∠{b['angle']:.0f}°" if abs(b["angle"]) > 0.05 else ""
             state = "💥" if b.get("dmg", 0) else "✓"
-            self.box_list.insert(tk.END, f"{state} {CLASSES[b['cls']]}{rot}")
+            old_cls = not (0 <= b["cls"] < len(CLASSES))
+            cname = f"قديم:{b['cls']}" if old_cls else CLASSES[b["cls"]]
+            self.box_list.insert(tk.END, f"{state} {cname}{rot}")
+            if old_cls:
+                self.box_list.itemconfig(tk.END, fg="#c00000")
 
     # ------------------------------------------------------------- الرسم --
 
@@ -1486,7 +1592,8 @@ class AnnotationApp:
         c.create_image(self.off_x, self.off_y, image=self.tk_img, anchor="nw")
 
         for i, b in enumerate(self.boxes):
-            color = CLASS_COLORS[b["cls"] % len(CLASS_COLORS)]
+            old_cls = not (0 <= b["cls"] < len(CLASSES))
+            color = "#ff2222" if old_cls else CLASS_COLORS[b["cls"]]
             damaged = bool(b.get("dmg", 0))
             pts = [self.to_canvas(x, y) for x, y in box_corners(b)]
             flat = [v for p in pts for v in p]
@@ -1494,7 +1601,8 @@ class AnnotationApp:
             dash = (6, 4) if damaged else None
             c.create_polygon(*flat, outline=color, fill="", width=width, dash=dash)
             lx, ly = pts[0]
-            label = ("💥 " if damaged else "") + CLASSES[b["cls"]]
+            cname = f"قديم:{b['cls']}" if old_cls else CLASSES[b["cls"]]
+            label = ("💥 " if damaged else "") + cname
             c.create_rectangle(lx, ly - 16, lx + 7 * len(label) + 6, ly,
                                fill=color, outline=color)
             c.create_text(lx + 3, ly - 8, text=label, anchor="w",
@@ -1759,6 +1867,10 @@ def main():
     ap.add_argument("--repo", type=Path, default=Path.cwd(),
                     help="مسار جذر مستودع War-Damage-Assessment (افتراضياً: المجلد الحالي)")
     ap.add_argument("--user", type=str, default=None, help="اسم المطوّر (اختياري)")
+    ap.add_argument("--report", type=Path, nargs="*", default=None,
+                    help="تقارير التحقق — تُعرض فقط الصور المذكورة فيها مع سبب "
+                         "الإدراج. افتراضياً يُقرأ verification_report.md و "
+                         "reports/class_review_report.md معاً")
     args = ap.parse_args()
 
     repo = args.repo.resolve()
@@ -1766,9 +1878,28 @@ def main():
         print(f"تحذير: لم يُعثر على مجلد data داخل {repo} — تأكد أنك في جذر الريبو "
               f"وأنك نفّذت `dvc pull` لسحب الصور.", file=sys.stderr)
 
+    # المسار النسبي يُجرَّب كما هو (من مجلد التشغيل) ثم نسبةً إلى جذر الريبو
+    candidates = args.report if args.report else DEFAULT_REPORTS
+    found: list[Path] = []
+    for p in candidates:
+        if p.is_file():
+            found.append(p)
+        elif not p.is_absolute() and (repo / p).is_file():
+            found.append(repo / p)
+        else:
+            print(f"تنبيه: تقرير غير موجود، سيُتجاهل: {p}", file=sys.stderr)
+
+    report_map = parse_reports(found)
+    if report_map:
+        names = "، ".join(str(p) for p in found)
+        print(f"وضع المراجعة: {len(report_map)} عنصراً من: {names}")
+    else:
+        print("تنبيه: لا تقارير مقروءة أو لا عناصر فيها — الأداة ستعمل بالوضع "
+              "العادي على كل الصور", file=sys.stderr)
+
     root = tk.Tk()
     user = args.user or ask_user_name(root, resolve_user(repo))
-    app = AnnotationApp(root, repo, user)
+    app = AnnotationApp(root, repo, user, report_map)
     root.mainloop()
 
 

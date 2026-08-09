@@ -1,0 +1,26 @@
+# params.yaml — single source of truth
+data:
+  raw_images: data/raw            # flat structure
+  labels: data/annotations/labels
+  processed: data/processed
+
+classes:
+  num_classes: 12
+  names:
+    0: Brick_Wall
+    1: Column
+    2: Staircase
+    3: Floor_Tiles
+    4: Sink
+    5: Beam
+    6: Wall_Cabinet
+    7: Window
+    8: Door
+    9: Air_Conditioner
+    10: Light_Fixture
+    11: Toilet
+
+train_smoke:
+  epochs: 10
+  imgsz: 640
+  models: [yolo12n, yolo26n]
