@@ -24,4 +24,21 @@ jobs:
           dvc repro
           echo "## Smoke Metrics" > report.md
           dvc metrics diff master --md >> report.md
-          cml comment create report.md
+          for d in runs_smoke/*/; do
+            m=$(basename "$d")
+            {
+              echo "<details><summary><b>$m</b> — curves, confusion matrix, predictions</summary>"
+              echo ""
+              echo "### Training curves"
+              echo "![curves](runs_smoke/$m/results.png)"
+              echo "### Confusion matrix (normalized)"
+              echo "![confusion](runs_smoke/$m/confusion_matrix_normalized.png)"
+              echo "### Sample predictions vs ground truth"
+              echo "| ground truth | prediction |"
+              echo "|---|---|"
+              echo "| ![gt](runs_smoke/$m/val_batch0_labels.jpg) | ![pred](runs_smoke/$m/val_batch0_pred.jpg) |"
+              echo ""
+              echo "</details>"
+            } >> report.md
+          done
+          cml comment create --publish report.md
