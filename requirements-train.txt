@@ -1,0 +1,6 @@
+# Training deps — used by Dockerfile.train and .github/workflows/cml.yml
+# torch is NOT pinned here: Dockerfile.train's base image ships torch 2.5.1+cu124;
+# on CPU CI, ultralytics pulls a compatible CPU torch automatically.
+-r requirements.txt
+ultralytics==8.4.115
+mlflow==3.15.1

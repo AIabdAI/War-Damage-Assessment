@@ -38,3 +38,5 @@ mlruns/
 # tool state files (local, mutable)
 review_state.json
 class_review_state.json
+mlflow.db
+/runs_smoke

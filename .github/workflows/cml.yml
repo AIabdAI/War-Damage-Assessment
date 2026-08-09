@@ -1,0 +1,27 @@
+name: cml-report
+on: [pull_request]
+jobs:
+  train-smoke:
+    runs-on: ubuntu-latest
+    container: ghcr.io/iterative/cml:latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # dvc metrics diff master needs the master ref
+      - run: pip install -r requirements-train.txt
+      - name: Pull data
+        env:
+          GDRIVE_SA_JSON: ${{ secrets.GDRIVE_SA_JSON }}
+        run: |
+          echo "$GDRIVE_SA_JSON" > sa.json
+          dvc remote modify --local storage gdrive_use_service_account true
+          dvc remote modify --local storage gdrive_service_account_json_file_path sa.json
+          dvc pull
+      - name: Repro + report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dvc repro
+          echo "## Smoke Metrics" > report.md
+          dvc metrics diff master --md >> report.md
+          cml comment create report.md

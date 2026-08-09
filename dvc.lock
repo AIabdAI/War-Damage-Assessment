@@ -1,0 +1,98 @@
+schema: '2.0'
+stages:
+  validate:
+    cmd: python verify_labels.py --labels data/annotations/labels --num-classes 
+      12 --report reports/validation/report.md
+    deps:
+    - path: data/annotations
+      hash: md5
+      md5: 676fee657adbe993622911eefa02ad35.dir
+      size: 595009
+      nfiles: 9106
+    - path: verify_labels.py
+      hash: md5
+      md5: 325e1de0c26be641bff25f6dd533f30f
+      size: 16923
+    params:
+      params.yaml:
+        classes.num_classes: 12
+    outs:
+    - path: reports/validation
+      hash: md5
+      md5: 0b6231721109d86a57f190ee3af01a97.dir
+      size: 554
+      nfiles: 1
+  prepare:
+    cmd: python prepare_smoke_dataset.py
+    deps:
+    - path: data/annotations
+      hash: md5
+      md5: 676fee657adbe993622911eefa02ad35.dir
+      size: 595009
+      nfiles: 9106
+    - path: data/raw
+      hash: md5
+      md5: 958f5a3c6aa35e3f0fae70a79ad98489.dir
+      size: 889055828
+      nfiles: 8861
+    - path: prepare_smoke_dataset.py
+      hash: md5
+      md5: 33572174d2d8edf3ec77bea86b1f65ca
+      size: 8077
+    params:
+      params.yaml:
+        classes:
+          num_classes: 12
+          names:
+            0: Brick_Wall
+            1: Column
+            2: Staircase
+            3: Floor_Tiles
+            4: Sink
+            5: Beam
+            6: Wall_Cabinet
+            7: Window
+            8: Door
+            9: Air_Conditioner
+            10: Light_Fixture
+            11: Toilet
+        data:
+          raw_images: data/raw
+          labels: data/annotations/labels
+          processed: data/processed
+    outs:
+    - path: data/processed/smoke
+      hash: md5
+      md5: b98fb7726ba67f509559536cdfbabfd5.dir
+      size: 29342950
+      nfiles: 602
+  train:
+    cmd: python train_smoke.py
+    deps:
+    - path: data/processed/smoke
+      hash: md5
+      md5: ae0149db8f2c658acd7869d30603b3a2.dir
+      size: 29413983
+      nfiles: 604
+    - path: train_smoke.py
+      hash: md5
+      md5: 54a4392af080d53a4de9367884fe8d9b
+      size: 5432
+    params:
+      params.yaml:
+        train_smoke:
+          epochs: 10
+          imgsz: 640
+          models:
+          - yolo12n
+          - yolo26n
+    outs:
+    - path: reports/metrics.json
+      hash: md5
+      md5: 16f66d3d1f0ef22b113d6c6508975ac3
+      size: 276
+    - path: runs_smoke
+      hash: md5
+      md5: b8901b7e04e9fa41d989e965a48aa531.dir
+      size: 34417046
+      nfiles: 42

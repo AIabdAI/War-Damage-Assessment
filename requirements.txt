@@ -1,17 +1,11 @@
-# Phase 1 — validation gate (verified with Python 3.12; requires >= 3.10)
-# Later phases append their own pinned deps (dvc, mlflow, ultralytics, timm...)
-dvc[gdrive]>=3.0    # ملفات .dvc بصيغة DVC 3 — الإصدار 2.x لا يقرؤها
-opencv-python-headless
+# Base deps — validation gate + data tooling (Python >= 3.10, verified on 3.12)
+# Training-only deps (ultralytics, mlflow) live in requirements-train.txt.
+dvc[gdrive]>=3.0        # ملفات .dvc بصيغة DVC 3 — الإصدار 2.x لا يقرؤها
 numpy
-pandas
+pandas==2.3.3
 matplotlib
-opencv-python
+opencv-python           # full build: annotation/review GUI tools need cv2.imshow
 albumentations
-Pillow
-
-
-# ultralytics  # يُفعَّل لاحقاً عند بدء التدريب
-great-expectations==1.19.1
-pandas==3.0.2
-Pillow==12.1.1
+Pillow==12.2.0
 PyYAML==6.0.3
+great-expectations==1.19.1

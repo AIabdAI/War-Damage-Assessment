@@ -1,0 +1,36 @@
+stages:
+  validate:
+    cmd: python verify_labels.py --labels data/annotations/labels --num-classes 12 --report reports/validation/report.md
+    deps:
+      - verify_labels.py
+      - data/annotations
+    params:
+      - classes.num_classes
+    outs:
+      - reports/validation:
+          cache: false
+
+  prepare:
+    cmd: python prepare_smoke_dataset.py
+    deps:
+      - prepare_smoke_dataset.py
+      - data/raw
+      - data/annotations
+    params:
+      - data
+      - classes
+    outs:
+      - data/processed/smoke
+
+  train:
+    cmd: python train_smoke.py
+    deps:
+      - train_smoke.py
+      - data/processed/smoke
+    params:
+      - train_smoke
+    outs:
+      - runs_smoke
+    metrics:
+      - reports/metrics.json:
+          cache: false

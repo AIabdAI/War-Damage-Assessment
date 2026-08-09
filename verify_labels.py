@@ -369,7 +369,8 @@ def main(argv: list[str] | None = None) -> int:
 
     stats = Stats()
     all_issues = [validate_file(p, stats, args.num_classes)
-                  for p in sorted(args.labels.glob("*.txt"))]
+                  for p in sorted(args.labels.glob("*.txt"))
+                  if not p.name.startswith(".")]  # skip tool state files
     bad = [i for i in all_issues if i.has_errors]
 
     cmp_res: CompareResult | None = None
@@ -388,6 +389,7 @@ def main(argv: list[str] | None = None) -> int:
 
     common = dict(num_classes=args.num_classes, labels_dir=args.labels)
     print("\n" + build_report(all_issues, stats, cmp_res, corr, cap=30, **common))
+    args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(
         build_report(all_issues, stats, cmp_res, corr, cap=None, **common),
         encoding="utf-8")

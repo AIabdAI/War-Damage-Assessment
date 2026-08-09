@@ -54,9 +54,10 @@ def load_class_names(params_path: Path = Path("params.yaml")) -> list[str]:
     """Prefer params.yaml (single source of truth); fall back to constants."""
     try:
         import yaml
-        names = yaml.safe_load(params_path.read_text(encoding="utf-8"))["data"]["class_names"]
-        log.info("class names loaded from %s (%d classes)", params_path, len(names))
-        return list(names)
+        names = yaml.safe_load(params_path.read_text(encoding="utf-8"))["classes"]["names"]
+        ordered = [names[i] for i in sorted(names)]
+        log.info("class names loaded from %s (%d classes)", params_path, len(ordered))
+        return ordered
     except Exception:
         log.info("params.yaml not found/usable - using built-in 12-class list")
         return FALLBACK_CLASS_NAMES

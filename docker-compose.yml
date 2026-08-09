@@ -1,8 +1,20 @@
-version: '3'
 services:
-  app:
+  dev:
     build: .
-    container_name: war-damage
     volumes:
       - .:/app
     tty: true
+
+  train:
+    build:
+      context: .
+      dockerfile: Dockerfile.train
+    volumes:
+      - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
