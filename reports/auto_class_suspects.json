@@ -1,0 +1,3568 @@
+{
+  "generated_at": "2026-08-06T14:11:10.936367Z",
+  "model": "yolov8l-worldv2.pt",
+  "conf": 0.35,
+  "iou": 0.45,
+  "suspects": {
+    "Crack-126_jpg.rf.eaf7e57d0653dcdf008044cff59aef72": [
+      {
+        "idx": 3,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.366
+      }
+    ],
+    "MB_Door_0009": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.372
+      }
+    ],
+    "MB_Door_0010": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.405
+      }
+    ],
+    "MB_Door_0016": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.486
+      }
+    ],
+    "MB_Door_0017": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.576
+      }
+    ],
+    "MB_Door_0018": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.636
+      }
+    ],
+    "MB_Door_0019": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.573
+      }
+    ],
+    "MB_Door_0020": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.689
+      }
+    ],
+    "MB_Door_0021": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.511
+      }
+    ],
+    "MB_Door_0027": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.355
+      }
+    ],
+    "MB_Door_0028": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.488
+      }
+    ],
+    "MB_Door_0030": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.686
+      }
+    ],
+    "MB_Door_0031": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.413
+      }
+    ],
+    "MB_Door_0032": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.418
+      }
+    ],
+    "MB_Door_0033": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.414
+      }
+    ],
+    "MB_Door_0034": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.509
+      }
+    ],
+    "MB_Door_0035": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.412
+      }
+    ],
+    "MB_Door_0043": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.607
+      }
+    ],
+    "MB_Door_0044": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.702
+      }
+    ],
+    "MB_Door_0045": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.873
+      }
+    ],
+    "MB_Door_0046": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.852
+      }
+    ],
+    "MB_Door_0047": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.904
+      }
+    ],
+    "MB_Door_0048": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.838
+      }
+    ],
+    "MB_Door_0049": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.706
+      }
+    ],
+    "MB_Door_0050": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.691
+      }
+    ],
+    "MB_Door_0051": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.845
+      }
+    ],
+    "MB_Door_0052": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.766
+      }
+    ],
+    "MB_Door_0053": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.714
+      }
+    ],
+    "MB_Door_0054": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.664
+      }
+    ],
+    "MB_Door_0059": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.425
+      }
+    ],
+    "MB_Door_0060": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.608
+      }
+    ],
+    "MB_Door_0062": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.755
+      }
+    ],
+    "MB_Door_0063": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.922
+      }
+    ],
+    "MB_Door_0064": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.89
+      }
+    ],
+    "MB_Door_0065": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.85
+      }
+    ],
+    "MB_Door_0066": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.849
+      }
+    ],
+    "MB_Door_0067": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.789
+      }
+    ],
+    "MB_Door_0068": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.793
+      }
+    ],
+    "MB_Door_0069": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.807
+      }
+    ],
+    "MB_Door_0070": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.816
+      }
+    ],
+    "MB_Door_0071": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.856
+      }
+    ],
+    "MB_Door_0072": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.848
+      }
+    ],
+    "MB_Door_0073": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.849
+      }
+    ],
+    "MB_Door_0074": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.819
+      }
+    ],
+    "MB_Door_0075": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.705
+      }
+    ],
+    "MB_Door_0076": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.818
+      }
+    ],
+    "MB_Door_0081": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.398
+      }
+    ],
+    "MB_Door_0087": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.534
+      }
+    ],
+    "MB_Door_0096": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.352
+      }
+    ],
+    "MB_Door_0105": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.602
+      }
+    ],
+    "MB_Door_0108": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.403
+      }
+    ],
+    "MB_Door_0109": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.442
+      }
+    ],
+    "MB_Door_0110": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.45
+      }
+    ],
+    "MB_Door_0111": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.583
+      }
+    ],
+    "MB_Door_0112": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.611
+      }
+    ],
+    "MB_Door_0113": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.378
+      }
+    ],
+    "MB_Door_0114": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.57
+      }
+    ],
+    "MB_Door_0115": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.509
+      }
+    ],
+    "MB_Door_0116": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.388
+      }
+    ],
+    "MB_Door_0120": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.475
+      }
+    ],
+    "MB_Door_0122": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.638
+      }
+    ],
+    "MB_Door_0123": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.721
+      }
+    ],
+    "MB_Door_0124": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.722
+      }
+    ],
+    "MB_Door_0135": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 7,
+        "conf": 0.355
+      }
+    ],
+    "MB_Door_0148": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.386
+      }
+    ],
+    "MB_Door_0165": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.643
+      }
+    ],
+    "MB_Door_0166": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.518
+      }
+    ],
+    "MB_Door_0167": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.497
+      }
+    ],
+    "MB_Door_0168": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.386
+      }
+    ],
+    "MB_Door_0184": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.49
+      }
+    ],
+    "MB_Door_0185": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.504
+      }
+    ],
+    "MB_Door_0186": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.439
+      }
+    ],
+    "MB_Door_0187": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.376
+      }
+    ],
+    "MB_Door_0189": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.886
+      }
+    ],
+    "MB_Door_0190": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.776
+      }
+    ],
+    "MB_Door_0191": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.452
+      }
+    ],
+    "MB_Door_0192": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.892
+      }
+    ],
+    "MB_Door_0193": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.791
+      }
+    ],
+    "MB_Door_0196": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.709
+      },
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.709
+      }
+    ],
+    "MB_Door_0197": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.412
+      }
+    ],
+    "MB_Door_0200": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.361
+      }
+    ],
+    "MB_Door_0203": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.911
+      }
+    ],
+    "MB_Door_0204": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.54
+      }
+    ],
+    "MB_Door_0210": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.522
+      }
+    ],
+    "MB_Door_0211": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.401
+      }
+    ],
+    "MB_Door_0218": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.947
+      }
+    ],
+    "MB_Door_0222": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.461
+      }
+    ],
+    "MB_Door_0223": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.633
+      }
+    ],
+    "MB_Door_0224": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.655
+      }
+    ],
+    "MB_Door_0225": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.54
+      }
+    ],
+    "MB_Door_0226": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.552
+      }
+    ],
+    "MB_Door_0227": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.474
+      }
+    ],
+    "MB_Door_0229": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.559
+      }
+    ],
+    "MB_Door_0239": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.478
+      }
+    ],
+    "MB_Door_0243": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.777
+      }
+    ],
+    "MB_Door_0249": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.469
+      }
+    ],
+    "MB_Door_0252": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.585
+      }
+    ],
+    "MB_Door_0253": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.793
+      }
+    ],
+    "MB_Door_0254": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.835
+      }
+    ],
+    "MB_Door_0255": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.849
+      }
+    ],
+    "MB_Door_0257": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.454
+      }
+    ],
+    "MB_Door_0259": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.418
+      }
+    ],
+    "MB_Door_0261": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.729
+      }
+    ],
+    "MB_Door_0263": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.603
+      }
+    ],
+    "MB_Door_0265": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.634
+      }
+    ],
+    "MB_Door_0266": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.537
+      }
+    ],
+    "MB_Door_0267": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.411
+      }
+    ],
+    "MB_Door_0270": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.755
+      }
+    ],
+    "MB_Door_0272": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.698
+      }
+    ],
+    "MB_Door_0273": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.649
+      }
+    ],
+    "MB_Door_0274": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.585
+      }
+    ],
+    "MB_Door_0275": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.49
+      }
+    ],
+    "MB_Door_0276": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.815
+      }
+    ],
+    "MB_Door_0277": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.536
+      }
+    ],
+    "MB_Door_0278": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.606
+      }
+    ],
+    "MB_Door_0279": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.698
+      }
+    ],
+    "MB_Door_0280": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.407
+      }
+    ],
+    "MB_Door_0281": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.516
+      }
+    ],
+    "MB_Door_0283": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.843
+      }
+    ],
+    "MB_Door_0285": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.45
+      }
+    ],
+    "MB_Door_0294": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.389
+      }
+    ],
+    "MB_Door_0296": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.806
+      }
+    ],
+    "MB_Door_0297": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.61
+      }
+    ],
+    "MB_Door_0301": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.571
+      }
+    ],
+    "MB_Door_0303": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.424
+      }
+    ],
+    "MB_Door_0306": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.851
+      }
+    ],
+    "MB_Door_0308": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.69
+      }
+    ],
+    "MB_Door_0312": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.461
+      }
+    ],
+    "MB_Door_0313": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.822
+      }
+    ],
+    "MB_Door_0315": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.603
+      }
+    ],
+    "MB_Door_0318": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.413
+      }
+    ],
+    "MB_Door_0321": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.389
+      }
+    ],
+    "MB_Door_0322": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.633
+      }
+    ],
+    "MB_Door_0324": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.577
+      }
+    ],
+    "MB_Door_0325": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.621
+      }
+    ],
+    "MB_Door_0331": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.816
+      }
+    ],
+    "MB_Door_0336": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.547
+      }
+    ],
+    "MB_Door_0338": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.709
+      }
+    ],
+    "MB_Door_0339": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.391
+      }
+    ],
+    "MB_Door_0341": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.378
+      }
+    ],
+    "MB_Door_0342": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.567
+      }
+    ],
+    "MB_Door_0346": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.499
+      }
+    ],
+    "MB_Door_0347": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.722
+      }
+    ],
+    "MB_Door_0352": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.532
+      }
+    ],
+    "MB_Door_0355": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.51
+      }
+    ],
+    "MB_Door_0359": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.559
+      }
+    ],
+    "MB_Door_0360": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.864
+      }
+    ],
+    "MB_Door_0361": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.354
+      }
+    ],
+    "MB_Door_0365": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.838
+      }
+    ],
+    "MB_Door_0372": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.428
+      }
+    ],
+    "MB_Door_0373": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.397
+      }
+    ],
+    "MB_Door_0375": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.513
+      },
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.733
+      }
+    ],
+    "MB_Door_0422": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.611
+      }
+    ],
+    "MB_Door_0423": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.669
+      }
+    ],
+    "MB_Door_0424": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.719
+      }
+    ],
+    "MB_Door_0425": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.664
+      }
+    ],
+    "MB_Door_0426": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.71
+      }
+    ],
+    "MB_Door_0427": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.518
+      }
+    ],
+    "MB_Door_0428": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.59
+      }
+    ],
+    "MB_Door_0429": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.374
+      }
+    ],
+    "MB_Door_0430": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.673
+      }
+    ],
+    "MB_Door_0432": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.761
+      }
+    ],
+    "MB_Door_0433": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.42
+      }
+    ],
+    "MB_Door_0435": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.567
+      }
+    ],
+    "MB_Door_0436": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.643
+      }
+    ],
+    "MB_Door_0437": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.416
+      }
+    ],
+    "MB_Door_0443": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.592
+      }
+    ],
+    "MB_Door_0444": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.44
+      }
+    ],
+    "MB_Door_0446": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.65
+      }
+    ],
+    "MB_Door_0447": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.818
+      }
+    ],
+    "MB_Door_0448": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.79
+      }
+    ],
+    "MB_Door_0449": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.767
+      }
+    ],
+    "MB_Door_0450": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.878
+      }
+    ],
+    "MB_Door_0451": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.868
+      }
+    ],
+    "MB_Door_0452": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.77
+      }
+    ],
+    "MB_Door_0453": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.692
+      }
+    ],
+    "MB_Door_0454": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.777
+      }
+    ],
+    "MB_Door_0455": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.51
+      }
+    ],
+    "MB_Door_0456": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.647
+      }
+    ],
+    "MB_Door_0457": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.482
+      }
+    ],
+    "MB_Door_0458": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.59
+      }
+    ],
+    "MB_Door_0459": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.594
+      }
+    ],
+    "MB_Door_0461": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.585
+      }
+    ],
+    "MB_Door_0462": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.751
+      }
+    ],
+    "MB_Door_0463": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.76
+      }
+    ],
+    "MB_Door_0464": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.724
+      }
+    ],
+    "MB_Door_0465": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.671
+      }
+    ],
+    "MB_Door_0466": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.817
+      }
+    ],
+    "MB_Door_0467": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.725
+      }
+    ],
+    "MB_Door_0468": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.698
+      }
+    ],
+    "MB_Door_0469": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.87
+      }
+    ],
+    "MB_Door_0470": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.76
+      }
+    ],
+    "MB_Door_0471": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.82
+      }
+    ],
+    "MB_Door_0472": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.88
+      }
+    ],
+    "MB_Door_0473": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.875
+      }
+    ],
+    "MB_Door_0474": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.8
+      }
+    ],
+    "MB_Door_0475": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.716
+      }
+    ],
+    "MB_Door_0476": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.81
+      }
+    ],
+    "MB_Door_0477": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.594
+      }
+    ],
+    "MB_Door_0478": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.682
+      }
+    ],
+    "MB_Door_0479": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.752
+      }
+    ],
+    "MB_Door_0480": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.787
+      }
+    ],
+    "MB_Door_0481": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.579
+      }
+    ],
+    "MB_Door_0482": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.821
+      }
+    ],
+    "MB_Door_0483": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.772
+      }
+    ],
+    "MB_Door_0484": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.775
+      }
+    ],
+    "MB_Door_0485": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.545
+      }
+    ],
+    "MB_Door_0486": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.587
+      }
+    ],
+    "MB_Door_0487": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.558
+      }
+    ],
+    "MB_Door_0488": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.56
+      }
+    ],
+    "MB_Door_0489": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.672
+      }
+    ],
+    "MB_Door_0490": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.634
+      }
+    ],
+    "MB_Door_0491": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.845
+      }
+    ],
+    "MB_Door_0492": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.847
+      }
+    ],
+    "MB_Door_0493": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.891
+      }
+    ],
+    "MB_Door_0494": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.864
+      }
+    ],
+    "MB_Door_0495": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.776
+      }
+    ],
+    "MB_Door_0496": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.726
+      }
+    ],
+    "MB_Door_0497": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.685
+      }
+    ],
+    "MB_Door_0498": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.531
+      }
+    ],
+    "MB_Door_0501": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.372
+      }
+    ],
+    "MB_Door_0531": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.502
+      }
+    ],
+    "MB_Door_0539": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.577
+      }
+    ],
+    "MB_Door_0541": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.592
+      }
+    ],
+    "MB_Door_0542": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.746
+      }
+    ],
+    "MB_Door_0543": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.42
+      }
+    ],
+    "MB_Door_0546": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.361
+      }
+    ],
+    "MB_Door_0551": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.632
+      }
+    ],
+    "MB_Door_0552": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.685
+      }
+    ],
+    "MB_Door_0561": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.367
+      }
+    ],
+    "MB_Door_0562": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.425
+      }
+    ],
+    "MB_Door_0573": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.936
+      }
+    ],
+    "MB_Door_0574": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.921
+      }
+    ],
+    "MB_Door_0575": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.89
+      }
+    ],
+    "MB_Door_0576": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.918
+      }
+    ],
+    "MB_Door_0577": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.9
+      }
+    ],
+    "MB_Door_0578": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.882
+      }
+    ],
+    "MB_Door_0579": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.882
+      }
+    ],
+    "MB_Door_0580": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.9
+      }
+    ],
+    "MB_Door_0581": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.881
+      }
+    ],
+    "MB_Door_0582": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.778
+      }
+    ],
+    "MB_Door_0583": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.599
+      }
+    ],
+    "MB_Door_0584": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.883
+      }
+    ],
+    "MB_Door_0585": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.664
+      }
+    ],
+    "MB_Door_0586": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.84
+      }
+    ],
+    "MB_Door_0587": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.872
+      }
+    ],
+    "MB_Door_0588": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.767
+      }
+    ],
+    "MB_Door_0589": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.74
+      }
+    ],
+    "MB_Door_0590": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.663
+      }
+    ],
+    "MB_Door_0591": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.617
+      }
+    ],
+    "MB_Door_0595": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.557
+      }
+    ],
+    "MB_Door_0596": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.724
+      }
+    ],
+    "MB_Door_0597": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.861
+      }
+    ],
+    "MB_Door_0598": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.901
+      }
+    ],
+    "MB_Door_0600": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.448
+      }
+    ],
+    "MB_Door_0601": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.596
+      }
+    ],
+    "MB_Door_0602": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.5
+      }
+    ],
+    "MB_Door_0603": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.749
+      }
+    ],
+    "MB_Door_0604": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.633
+      }
+    ],
+    "MB_Door_0605": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.538
+      }
+    ],
+    "MB_Door_0606": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.679
+      }
+    ],
+    "MB_Door_0607": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.698
+      }
+    ],
+    "MB_Door_0608": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.475
+      }
+    ],
+    "MB_Door_0609": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.528
+      }
+    ],
+    "MB_Door_0614": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.789
+      }
+    ],
+    "MB_Door_0615": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.729
+      }
+    ],
+    "MB_Door_0616": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.741
+      }
+    ],
+    "MB_Door_0617": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.691
+      }
+    ],
+    "MB_Door_0618": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.549
+      }
+    ],
+    "MB_Door_0620": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.569
+      }
+    ],
+    "MB_Door_0621": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.503
+      }
+    ],
+    "MB_Door_0622": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.574
+      }
+    ],
+    "MB_Door_0623": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.74
+      }
+    ],
+    "MB_Door_0624": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.697
+      }
+    ],
+    "MB_Door_0625": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.386
+      }
+    ],
+    "MB_Door_0626": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.558
+      }
+    ],
+    "MB_Door_0628": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.559
+      }
+    ],
+    "MB_Door_0630": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.713
+      }
+    ],
+    "MB_Door_0631": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.787
+      }
+    ],
+    "MB_Door_0632": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.785
+      }
+    ],
+    "MB_Door_0633": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.654
+      }
+    ],
+    "MB_Door_0640": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.451
+      }
+    ],
+    "MB_Door_0643": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.461
+      }
+    ],
+    "MB_Door_0650": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.649
+      }
+    ],
+    "MB_Door_0651": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.403
+      }
+    ],
+    "MB_Door_0652": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.386
+      }
+    ],
+    "MB_Door_0653": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.627
+      },
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.415
+      }
+    ],
+    "MB_Door_0654": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.825
+      }
+    ],
+    "MB_Door_0655": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.827
+      }
+    ],
+    "MB_Door_0656": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.864
+      }
+    ],
+    "MB_Door_0657": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.803
+      }
+    ],
+    "MB_Door_0658": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.782
+      }
+    ],
+    "MB_Door_0659": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.873
+      }
+    ],
+    "MB_Door_0660": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.761
+      }
+    ],
+    "MB_Door_0661": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.61
+      }
+    ],
+    "MB_Door_0665": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.743
+      }
+    ],
+    "MB_Door_0667": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.636
+      }
+    ],
+    "MB_Door_0668": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.686
+      }
+    ],
+    "MB_Door_0669": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.727
+      }
+    ],
+    "MB_Door_0670": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.448
+      }
+    ],
+    "MB_Door_0671": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.707
+      }
+    ],
+    "MB_Door_0674": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.571
+      }
+    ],
+    "MB_Door_0676": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.417
+      }
+    ],
+    "MB_Door_0680": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.426
+      }
+    ],
+    "MB_Door_0691": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.486
+      }
+    ],
+    "MB_Door_0692": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.8
+      }
+    ],
+    "MB_Door_0693": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.755
+      }
+    ],
+    "MB_Door_0694": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.669
+      }
+    ],
+    "MB_Door_0695": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.758
+      }
+    ],
+    "MB_Door_0696": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.725
+      }
+    ],
+    "MB_Door_0697": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.675
+      }
+    ],
+    "MB_Door_0698": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.692
+      }
+    ],
+    "MB_Door_0700": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.759
+      }
+    ],
+    "MB_Door_0701": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.705
+      }
+    ],
+    "MB_Door_0702": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.81
+      }
+    ],
+    "MB_Door_0703": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.735
+      }
+    ],
+    "MB_Door_0704": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.743
+      }
+    ],
+    "MB_Door_0705": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.823
+      }
+    ],
+    "MB_Door_0706": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.792
+      }
+    ],
+    "MB_Door_0707": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.517
+      }
+    ],
+    "MB_Door_0708": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.628
+      }
+    ],
+    "MB_Door_0710": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.45
+      }
+    ],
+    "MB_Door_0717": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.464
+      }
+    ],
+    "MB_Door_0718": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.509
+      }
+    ],
+    "MB_Door_0720": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.549
+      }
+    ],
+    "MB_Door_0721": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.432
+      }
+    ],
+    "MB_Door_0738": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.836
+      }
+    ],
+    "MB_Door_0739": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.392
+      }
+    ],
+    "MB_Door_0744": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.392
+      }
+    ],
+    "MB_Door_0747": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.416
+      }
+    ],
+    "MB_Door_0761": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.569
+      }
+    ],
+    "MB_Door_0771": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.399
+      }
+    ],
+    "MB_Door_0778": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.441
+      }
+    ],
+    "MB_Door_0779": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.412
+      }
+    ],
+    "MB_Door_0780": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.449
+      }
+    ],
+    "MB_Door_0781": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.427
+      }
+    ],
+    "MB_Door_0796": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.529
+      }
+    ],
+    "MB_Door_0797": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.661
+      }
+    ],
+    "MB_Door_0800": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.888
+      }
+    ],
+    "MB_Door_0802": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.498
+      }
+    ],
+    "MB_Door_0803": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.405
+      }
+    ],
+    "MB_Door_0811": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.364
+      }
+    ],
+    "MB_Door_0812": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.633
+      }
+    ],
+    "MB_Door_0824": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.699
+      }
+    ],
+    "MB_Door_0835": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.594
+      }
+    ],
+    "MB_Door_0844": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.424
+      }
+    ],
+    "MB_Door_0865": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.353
+      }
+    ],
+    "MB_Door_0954": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.369
+      }
+    ],
+    "MB_Door_0960": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.503
+      }
+    ],
+    "MB_Door_0964": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.449
+      }
+    ],
+    "MB_Door_0977": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.382
+      }
+    ],
+    "MB_Door_0985": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.724
+      }
+    ],
+    "MB_Door_1040": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.755
+      }
+    ],
+    "MB_Door_1055": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.387
+      }
+    ],
+    "MB_Door_1064": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.609
+      }
+    ],
+    "MB_Door_1065": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.582
+      }
+    ],
+    "MB_Door_1066": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.674
+      }
+    ],
+    "MB_Door_1067": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.445
+      }
+    ],
+    "MB_Door_1069": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.578
+      }
+    ],
+    "MB_Door_1082": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.439
+      }
+    ],
+    "MB_Door_1123": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.456
+      }
+    ],
+    "MB_Door_1185": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.573
+      }
+    ],
+    "MB_Door_1186": [
+      {
+        "idx": 5,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.7
+      }
+    ],
+    "MB_Door_1187": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.479
+      }
+    ],
+    "MB_Door_1189": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.455
+      }
+    ],
+    "MB_Door_1190": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.492
+      }
+    ],
+    "MB_Door_1195": [
+      {
+        "idx": 0,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.457
+      }
+    ],
+    "MB_Pillar_0014": [
+      {
+        "idx": 2,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.575
+      }
+    ],
+    "MB_Pillar_0097": [
+      {
+        "idx": 2,
+        "cls": 7,
+        "suggest": 6,
+        "conf": 0.697
+      }
+    ],
+    "MB_Pillar_0467": [
+      {
+        "idx": 0,
+        "cls": 1,
+        "suggest": 6,
+        "conf": 0.499
+      }
+    ],
+    "MB_Pillar_1108": [
+      {
+        "idx": 3,
+        "cls": 0,
+        "suggest": 1,
+        "conf": 0.424
+      }
+    ],
+    "MB_Pillar_1308": [
+      {
+        "idx": 1,
+        "cls": 8,
+        "suggest": 6,
+        "conf": 0.703
+      }
+    ],
+    "MB_Pillar_1321": [
+      {
+        "idx": 0,
+        "cls": 1,
+        "suggest": 4,
+        "conf": 0.351
+      }
+    ],
+    "MB_Sink_0001": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.857
+      }
+    ],
+    "MB_Sink_0130": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.719
+      }
+    ],
+    "MB_Sink_0172": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.635
+      }
+    ],
+    "MB_Sink_0175": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.842
+      }
+    ],
+    "MB_Sink_0263": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.766
+      }
+    ],
+    "MB_Sink_0289": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.877
+      }
+    ],
+    "MB_Sink_0307": [
+      {
+        "idx": 1,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.749
+      }
+    ],
+    "MB_Sink_0309": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.818
+      }
+    ],
+    "MB_Sink_0321": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.916
+      }
+    ],
+    "MB_Sink_0445": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.403
+      }
+    ],
+    "MB_Sink_0511": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.573
+      }
+    ],
+    "MB_Sink_0512": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.918
+      }
+    ],
+    "MB_Sink_0568": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.539
+      }
+    ],
+    "MB_Sink_0569": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.476
+      }
+    ],
+    "MB_Sink_0581": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.712
+      }
+    ],
+    "MB_Sink_0589": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.386
+      }
+    ],
+    "MB_Sink_0606": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.758
+      }
+    ],
+    "MB_Sink_0610": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.535
+      },
+      {
+        "idx": 1,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.535
+      }
+    ],
+    "MB_Stairs_0071": [
+      {
+        "idx": 0,
+        "cls": 2,
+        "suggest": 6,
+        "conf": 0.418
+      }
+    ],
+    "MB_Stairs_0119": [
+      {
+        "idx": 0,
+        "cls": 2,
+        "suggest": 6,
+        "conf": 0.581
+      }
+    ],
+    "MB_Stairs_0530": [
+      {
+        "idx": 0,
+        "cls": 2,
+        "suggest": 6,
+        "conf": 0.455
+      }
+    ],
+    "MB_Stairs_0634": [
+      {
+        "idx": 0,
+        "cls": 2,
+        "suggest": 6,
+        "conf": 0.458
+      }
+    ],
+    "MB_light_fixture_0029": [
+      {
+        "idx": 1,
+        "cls": 10,
+        "suggest": 1,
+        "conf": 0.496
+      }
+    ],
+    "MB_light_fixture_0132": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.465
+      }
+    ],
+    "MB_light_fixture_0137": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.868
+      }
+    ],
+    "MB_light_fixture_0144": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 1,
+        "conf": 0.361
+      }
+    ],
+    "MB_light_fixture_0172": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.397
+      }
+    ],
+    "MB_light_fixture_0173": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.622
+      }
+    ],
+    "MB_light_fixture_0175": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 1,
+        "conf": 0.488
+      }
+    ],
+    "MB_light_fixture_0226": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 4,
+        "conf": 0.767
+      }
+    ],
+    "MB_light_fixture_0233": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 4,
+        "conf": 0.767
+      }
+    ],
+    "MB_light_fixture_0243": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.376
+      }
+    ],
+    "MB_light_fixture_0500": [
+      {
+        "idx": 0,
+        "cls": 10,
+        "suggest": 11,
+        "conf": 0.588
+      }
+    ],
+    "VID_20260621_105708_f004152": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 11,
+        "conf": 0.531
+      }
+    ],
+    "image_1292": [
+      {
+        "idx": 1,
+        "cls": 2,
+        "suggest": 6,
+        "conf": 0.383
+      }
+    ],
+    "image_1444": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.383
+      }
+    ],
+    "image_1475": [
+      {
+        "idx": 4,
+        "cls": 1,
+        "suggest": 6,
+        "conf": 0.406
+      }
+    ],
+    "image_1749": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.377
+      }
+    ],
+    "image_1750": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.372
+      }
+    ],
+    "image_1751": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.503
+      }
+    ],
+    "image_1752": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.397
+      }
+    ],
+    "image_1753": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.395
+      }
+    ],
+    "image_1754": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.365
+      }
+    ],
+    "image_1755": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.428
+      }
+    ],
+    "image_1756": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.382
+      }
+    ],
+    "image_1757": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.486
+      }
+    ],
+    "image_1758": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.457
+      }
+    ],
+    "image_1759": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.449
+      }
+    ],
+    "image_1760": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.409
+      }
+    ],
+    "image_1761": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.532
+      }
+    ],
+    "image_1762": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.4
+      }
+    ],
+    "image_1763": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.44
+      }
+    ],
+    "image_1764": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.425
+      }
+    ],
+    "image_1765": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.433
+      }
+    ],
+    "image_1766": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.368
+      }
+    ],
+    "image_1767": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.548
+      }
+    ],
+    "image_1768": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.64
+      }
+    ],
+    "image_1769": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.607
+      }
+    ],
+    "image_1770": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 6,
+        "conf": 0.559
+      }
+    ],
+    "image_1832": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.379
+      }
+    ],
+    "image_1833": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.374
+      }
+    ],
+    "image_1834": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.369
+      }
+    ],
+    "image_1835": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.434
+      }
+    ],
+    "image_1836": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.419
+      }
+    ],
+    "image_1837": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.415
+      }
+    ],
+    "image_1838": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.426
+      }
+    ],
+    "image_1839": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.358
+      }
+    ],
+    "image_1840": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.359
+      }
+    ],
+    "image_1842": [
+      {
+        "idx": 0,
+        "cls": 4,
+        "suggest": 7,
+        "conf": 0.373
+      }
+    ]
+  }
+}

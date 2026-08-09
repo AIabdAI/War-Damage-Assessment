@@ -1,0 +1,202 @@
+# Phase 0 gate report
+
+- generated: 2026-08-08T12:26:42
+- labels dir: `data\annotations\labels`
+- num_classes: 12
+
+## Dataset statistics
+- label files scanned: **8852** (empty: 259, CRLF endings: 0)
+- object lines: **13426**
+- damage flag counts: {0: 6763, 1: 6660}
+- per-class boxes: {0: 3892, 1: 2641, 2: 856, 3: 852, 4: 740, 5: 551, 6: 1, 7: 1101, 8: 1484, 9: 34, 10: 710, 11: 504, 13: 37, 16: 20}
+
+## Validation
+**74 file(s) with errors:**
+- `.annotator_progress.txt`
+  - line 1: 1 columns (expected 6)
+  - line 2: 1 columns (expected 6)
+  - line 3: 1 columns (expected 6)
+- `bricks_134.txt`
+  - line 1: w=1.003444 outside [0,1]
+- `bricks_135.txt`
+  - line 1: w=1.008037 outside [0,1]
+- `bricks_172.txt`
+  - line 1: w=1.003444 outside [0,1]
+- `bricks_192.txt`
+  - line 1: w=1.004592 outside [0,1]
+- `bricks_388.txt`
+  - line 1: w=1.043628 outside [0,1]
+- `bricks_439.txt`
+  - line 1: w=1.037887 outside [0,1]
+- `bricks_665.txt`
+  - line 1: w=1.003444 outside [0,1]
+- `tile_103.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_104.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_106.txt`
+  - line 1: w=1.001148 outside [0,1]
+- `tile_109.txt`
+  - line 1: w=1.003444 outside [0,1]
+- `tile_113.txt`
+  - line 2: class_id 13 outside [0,11]
+  - line 3: class_id 16 outside [0,11]
+- `tile_12.txt`
+  - line 1: w=1.002296 outside [0,1]
+- `tile_122.txt`
+  - line 1: w=1.001148 outside [0,1]
+- `tile_145.txt`
+  - line 1: h=1.002296 outside [0,1]
+- `tile_151.txt`
+  - line 1: w=1.001148 outside [0,1]
+- `tile_153.txt`
+  - line 1: w=1.004592 outside [0,1]
+- `tile_16.txt`
+  - line 1: w=1.010333 outside [0,1]
+- `tile_167.txt`
+  - line 1: h=1.025258 outside [0,1]
+- `tile_198.txt`
+  - line 1: w=1.001148 outside [0,1]
+- `tile_214.txt`
+  - line 1: w=1.021814 outside [0,1]
+- `tile_223.txt`
+  - line 1: w=1.002296 outside [0,1]
+- `tile_240.txt`
+  - line 1: w=1.002296 outside [0,1]
+- `tile_250.txt`
+  - line 1: w=1.04822 outside [0,1]
+- `tile_280.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_281.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_282.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_284.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_285.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_288.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_290.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_291.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_292.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_293.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_295.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_296.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_298.txt`
+  - line 2: class_id 13 outside [0,11]
+  - line 3: class_id 16 outside [0,11]
+- `tile_299.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_3.txt`
+  - line 1: w=1.036739 outside [0,1]
+- `tile_300.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_301.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 16 outside [0,11]
+- `tile_302.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_306.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_308.txt`
+  - line 3: class_id 13 outside [0,11]
+- `tile_31.txt`
+  - line 2: class_id 13 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_311.txt`
+  - line 3: class_id 13 outside [0,11]
+- `tile_312.txt`
+  - line 1: class_id 13 outside [0,11]
+  - line 2: class_id 16 outside [0,11]
+- `tile_315.txt`
+  - line 1: class_id 13 outside [0,11]
+  - line 2: class_id 16 outside [0,11]
+- `tile_32.txt`
+  - line 1: w=1.006889 outside [0,1]
+- `tile_323.txt`
+  - line 2: class_id 13 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_324.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_325.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 16 outside [0,11]
+- `tile_328.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_329.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_334.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_335.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_336.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_36.txt`
+  - line 1: w=1.004592 outside [0,1]
+- `tile_380.txt`
+  - line 1: w=1.020666 outside [0,1]
+- `tile_426.txt`
+  - line 2: class_id 16 outside [0,11]
+- `tile_427.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_428.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_429.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_430.txt`
+  - line 1: class_id 16 outside [0,11]
+- `tile_431.txt`
+  - line 1: class_id 13 outside [0,11]
+- `tile_432.txt`
+  - line 2: class_id 16 outside [0,11]
+  - line 3: class_id 16 outside [0,11]
+- `tile_433.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_436.txt`
+  - line 2: class_id 13 outside [0,11]
+- `tile_437.txt`
+  - line 2: class_id 13 outside [0,11]
+  - line 3: class_id 13 outside [0,11]
+- `tile_463.txt`
+  - line 1: w=1.014925 outside [0,1]
+- `tile_468.txt`
+  - line 1: h=1.01837 outside [0,1]
+- `tile_509.txt`
+  - line 1: w=1.002296 outside [0,1]
+- `tile_78.txt`
+  - line 1: w=1.003444 outside [0,1]
+
+Box-extent warnings (clamped later by the cropper) in 835 file(s) - informational only.
+
+## Image <-> label correspondence
+- matched pairs: 8848
+- **orphan labels (4) - label exists but image is missing (ERROR, investigate):**
+  - `.annotator_progress`
+  - `VID_20260607_174844_f000009`
+  - `VID_20260607_174900_f000945`
+  - `VID_20260607_174900_f002340`
+- **images without a label file (14) - if an image truly has no objects, create an EMPTY .txt for it (YOLO negative sample); otherwise annotate or remove it BEFORE tagging data-v1.0:**
+  - `bricks_589(1)`
+  - `bricks_59(1)`
+  - `bricks_590(1)`
+  - `bricks_591(1)`
+  - `bricks_593(1)`
+  - `bricks_595(1)`
+  - `bricks_596(1)`
+  - `bricks_597(1)`
+  - `bricks_598(1)`
+  - `bricks_599(1)`
+  - `bricks_6(1)`
+  - `bricks_60(1)`
+  - `bricks_600(1)`
+  - `bricks_601(1)`

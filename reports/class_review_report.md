@@ -1,0 +1,868 @@
+# Class Review Report — War-Damage-Assessment
+
+- **Generated:** 2026-08-06T14:43:51.818182Z
+- **Boxes verified:** 6 / 11242
+- **Boxes flagged wrong:** 0 (in 0 files)
+- **Class corrections:** 6
+- **Boxes deleted:** 0
+
+## ملفات فيها أنوتيشن كلاس خاطئ — راجعها عبر review_tool.py
+
+0 file(s) with wrong class annotations:
+
+_No flagged boxes._
+
+## اشتباه تلقائي — YOLO-World (model: yolov8l-worldv2.pt, generated: 2026-08-06T14:11:10.936367Z)
+
+إشارة فقط: لم يُعدَّل أي label أو حالة تلقائياً — راجعها بنفسك.
+
+403 file(s) with wrong class (auto-detected):
+
+- `Crack-126_jpg.rf.eaf7e57d0653dcdf008044cff59aef72`
+  - line 4: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0009`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0010`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0016`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_0017`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0018`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Door_0019`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0020`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0021`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0027`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.35)
+- `MB_Door_0028`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_0030`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0031`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0032`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0033`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0034`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0035`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0043`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0044`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0045`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.87)
+- `MB_Door_0046`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0047`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.90)
+- `MB_Door_0048`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0049`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0050`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0051`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0052`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.77)
+- `MB_Door_0053`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0054`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0059`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0060`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0062`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0063`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.92)
+- `MB_Door_0064`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.89)
+- `MB_Door_0065`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0066`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0067`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0068`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0069`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.81)
+- `MB_Door_0070`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0071`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.86)
+- `MB_Door_0072`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0073`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0074`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0075`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0076`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0081`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0087`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.53)
+- `MB_Door_0096`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.35)
+- `MB_Door_0105`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.60)
+- `MB_Door_0108`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0109`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.44)
+- `MB_Door_0110`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0111`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0112`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0113`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.38)
+- `MB_Door_0114`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0115`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0116`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0120`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.47)
+- `MB_Door_0122`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Door_0123`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0124`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0135`
+  - line 1: class 'Door' — model sees 'Window' (conf 0.35)
+- `MB_Door_0148`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0165`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Door_0166`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.52)
+- `MB_Door_0167`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0168`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0184`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_0185`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0186`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.44)
+- `MB_Door_0187`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.38)
+- `MB_Door_0190`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0191`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0192`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.89)
+- `MB_Door_0196`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0197`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0200`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.36)
+- `MB_Door_0203`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.91)
+- `MB_Door_0204`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.54)
+- `MB_Door_0210`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.52)
+- `MB_Door_0211`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0218`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.95)
+- `MB_Door_0222`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_0223`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0224`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0225`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.54)
+- `MB_Door_0226`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.55)
+- `MB_Door_0227`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.47)
+- `MB_Door_0229`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0239`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.48)
+- `MB_Door_0243`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0249`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.47)
+- `MB_Door_0252`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0253`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0254`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.83)
+- `MB_Door_0255`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0257`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0259`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0261`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0263`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.60)
+- `MB_Door_0265`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0266`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.54)
+- `MB_Door_0267`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0270`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0272`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0273`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.65)
+- `MB_Door_0274`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0275`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_0276`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.81)
+- `MB_Door_0277`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.54)
+- `MB_Door_0278`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0279`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0280`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0281`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.52)
+- `MB_Door_0283`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0285`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0294`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0296`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.81)
+- `MB_Door_0297`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0301`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0303`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0306`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0308`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0312`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_0313`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0315`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.60)
+- `MB_Door_0318`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0321`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0322`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0324`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0325`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.62)
+- `MB_Door_0331`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0336`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.55)
+- `MB_Door_0338`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0339`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0341`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.38)
+- `MB_Door_0342`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0346`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0347`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0352`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.53)
+- `MB_Door_0355`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0359`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0360`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.86)
+- `MB_Door_0361`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.35)
+- `MB_Door_0365`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0372`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.43)
+- `MB_Door_0373`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0375`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0422`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0423`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_0424`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0425`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0426`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0427`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.52)
+- `MB_Door_0428`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0429`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0430`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_0432`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0433`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0435`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0436`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Door_0437`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0443`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0444`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.44)
+- `MB_Door_0446`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.65)
+- `MB_Door_0447`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0448`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0449`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.77)
+- `MB_Door_0450`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0451`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.87)
+- `MB_Door_0452`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.77)
+- `MB_Door_0453`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0454`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0455`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0456`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.65)
+- `MB_Door_0457`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.48)
+- `MB_Door_0458`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0459`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0461`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0462`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.75)
+- `MB_Door_0463`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0464`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0465`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_0466`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0467`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0468`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0469`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.87)
+- `MB_Door_0470`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0471`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0472`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0473`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0474`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.80)
+- `MB_Door_0475`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0476`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.81)
+- `MB_Door_0477`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0478`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.68)
+- `MB_Door_0479`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.75)
+- `MB_Door_0480`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0481`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0482`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0483`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.77)
+- `MB_Door_0484`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0485`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.55)
+- `MB_Door_0486`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0487`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0488`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0489`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_0490`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0491`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0492`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.85)
+- `MB_Door_0493`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.89)
+- `MB_Door_0494`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.86)
+- `MB_Door_0495`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0496`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0497`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0498`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.53)
+- `MB_Door_0501`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0531`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0539`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_0541`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0542`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.75)
+- `MB_Door_0543`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0546`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.36)
+- `MB_Door_0551`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0552`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0561`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0562`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0573`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.94)
+- `MB_Door_0574`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.92)
+- `MB_Door_0575`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.89)
+- `MB_Door_0576`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.92)
+- `MB_Door_0577`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.90)
+- `MB_Door_0578`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0579`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0580`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.90)
+- `MB_Door_0581`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0582`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0583`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.60)
+- `MB_Door_0584`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.88)
+- `MB_Door_0585`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0586`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0587`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.87)
+- `MB_Door_0588`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.77)
+- `MB_Door_0589`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.74)
+- `MB_Door_0590`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0591`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.62)
+- `MB_Door_0595`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0596`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0597`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.86)
+- `MB_Door_0598`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.90)
+- `MB_Door_0600`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0601`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.60)
+- `MB_Door_0602`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0603`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.75)
+- `MB_Door_0604`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0605`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.54)
+- `MB_Door_0606`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.68)
+- `MB_Door_0607`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0608`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.47)
+- `MB_Door_0609`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.53)
+- `MB_Door_0614`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0615`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0616`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.74)
+- `MB_Door_0617`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0618`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.55)
+- `MB_Door_0620`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0621`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0622`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0623`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.74)
+- `MB_Door_0624`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0625`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0626`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0628`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.56)
+- `MB_Door_0630`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0631`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0632`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0633`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.65)
+- `MB_Door_0640`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0643`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_0650`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.65)
+- `MB_Door_0651`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0652`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0653`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0654`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0655`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.83)
+- `MB_Door_0656`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.86)
+- `MB_Door_0657`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.80)
+- `MB_Door_0658`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.78)
+- `MB_Door_0659`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.87)
+- `MB_Door_0660`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0661`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_0665`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.74)
+- `MB_Door_0667`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Door_0668`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0669`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0670`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0671`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.71)
+- `MB_Door_0674`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0676`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0680`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.43)
+- `MB_Door_0691`
+  - line 3: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_0692`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.80)
+- `MB_Door_0693`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0694`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_0695`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0696`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_0697`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.68)
+- `MB_Door_0698`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.69)
+- `MB_Door_0700`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_0701`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0702`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.81)
+- `MB_Door_0703`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.73)
+- `MB_Door_0704`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.74)
+- `MB_Door_0705`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.82)
+- `MB_Door_0706`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.79)
+- `MB_Door_0707`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.52)
+- `MB_Door_0708`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0710`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0717`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_0718`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.51)
+- `MB_Door_0720`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.55)
+- `MB_Door_0721`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.43)
+- `MB_Door_0738`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.84)
+- `MB_Door_0739`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0744`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_0747`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0761`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_0771`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Door_0778`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.44)
+- `MB_Door_0779`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0780`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0781`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.43)
+- `MB_Door_0796`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.53)
+- `MB_Door_0797`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.66)
+- `MB_Door_0800`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.89)
+- `MB_Door_0802`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0803`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.41)
+- `MB_Door_0811`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.36)
+- `MB_Door_0812`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.63)
+- `MB_Door_0824`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_0835`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.59)
+- `MB_Door_0844`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Door_0865`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.35)
+- `MB_Door_0954`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.37)
+- `MB_Door_0960`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Door_0964`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_0977`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.38)
+- `MB_Door_0985`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.72)
+- `MB_Door_1040`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.76)
+- `MB_Door_1055`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.39)
+- `MB_Door_1064`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.61)
+- `MB_Door_1065`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_1066`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.67)
+- `MB_Door_1067`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.45)
+- `MB_Door_1069`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Door_1082`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.44)
+- `MB_Door_1123`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_1185`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.57)
+- `MB_Door_1186`
+  - line 6: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Door_1187`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.48)
+- `MB_Door_1189`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Door_1190`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.49)
+- `MB_Door_1195`
+  - line 1: class 'Door' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Pillar_0097`
+  - line 3: class 'Window' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Pillar_0467`
+  - line 1: class 'Column' — model sees 'Wall_Cabinet' (conf 0.50)
+- `MB_Pillar_1308`
+  - line 2: class 'Door' — model sees 'Wall_Cabinet' (conf 0.70)
+- `MB_Pillar_1321`
+  - line 1: class 'Column' — model sees 'Sink' (conf 0.35)
+- `MB_Sink_0001`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.86)
+- `MB_Sink_0130`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.72)
+- `MB_Sink_0172`
+  - line 1: class 'Sink' — model sees 'Wall_Cabinet' (conf 0.64)
+- `MB_Sink_0175`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.84)
+- `MB_Sink_0263`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.77)
+- `MB_Sink_0289`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.88)
+- `MB_Sink_0307`
+  - line 2: class 'Sink' — model sees 'Toilet' (conf 0.75)
+- `MB_Sink_0309`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.82)
+- `MB_Sink_0321`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.92)
+- `MB_Sink_0445`
+  - line 1: class 'Sink' — model sees 'Wall_Cabinet' (conf 0.40)
+- `MB_Sink_0511`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.57)
+- `MB_Sink_0512`
+  - line 1: class 'Sink' — model sees 'Wall_Cabinet' (conf 0.92)
+- `MB_Sink_0568`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.54)
+- `MB_Sink_0569`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.48)
+- `MB_Sink_0581`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.71)
+- `MB_Sink_0589`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.39)
+- `MB_Sink_0606`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.76)
+- `MB_Sink_0610`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.54)
+  - line 2: class 'Sink' — model sees 'Toilet' (conf 0.54)
+- `MB_Stairs_0071`
+  - line 1: class 'Staircase' — model sees 'Wall_Cabinet' (conf 0.42)
+- `MB_Stairs_0119`
+  - line 1: class 'Staircase' — model sees 'Wall_Cabinet' (conf 0.58)
+- `MB_Stairs_0530`
+  - line 1: class 'Staircase' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_Stairs_0634`
+  - line 1: class 'Staircase' — model sees 'Wall_Cabinet' (conf 0.46)
+- `MB_light_fixture_0029`
+  - line 2: class 'Light_Fixture' — model sees 'Column' (conf 0.50)
+- `MB_light_fixture_0132`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.47)
+- `MB_light_fixture_0137`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.87)
+- `MB_light_fixture_0144`
+  - line 1: class 'Light_Fixture' — model sees 'Column' (conf 0.36)
+- `MB_light_fixture_0172`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.40)
+- `MB_light_fixture_0173`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.62)
+- `MB_light_fixture_0175`
+  - line 1: class 'Light_Fixture' — model sees 'Column' (conf 0.49)
+- `MB_light_fixture_0226`
+  - line 1: class 'Light_Fixture' — model sees 'Sink' (conf 0.77)
+- `MB_light_fixture_0233`
+  - line 1: class 'Light_Fixture' — model sees 'Sink' (conf 0.77)
+- `MB_light_fixture_0243`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.38)
+- `MB_light_fixture_0500`
+  - line 1: class 'Light_Fixture' — model sees 'Toilet' (conf 0.59)
+- `VID_20260621_105708_f004152`
+  - line 1: class 'Sink' — model sees 'Toilet' (conf 0.53)
+
+## كلاسات خارج النطاق
+
+0 file(s) with out-of-range class ids:
+
+_No out-of-range class ids._
+
+## Progress per class
+
+| Class | Verified | Total |
+|---|---|---|
+| Brick_Wall | 0 | 2827 |
+| Column | 0 | 2641 |
+| Staircase | 0 | 856 |
+| Floor_Tiles | 0 | 258 |
+| Sink | 0 | 1374 |
+| Beam | 0 | 550 |
+| Wall_Cabinet | 0 | 1 |
+| Window | 6 | 478 |
+| Door | 0 | 1508 |
+| Air_Conditioner | 0 | 32 |
+| Light_Fixture | 0 | 716 |
+| Toilet | 0 | 1 |
+
+## Corrections
+
+| Image | Box | From | To | By | At |
+|---|---|---|---|---|---|
+| `image_1419` | 0 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:43.141459Z |
+| `image_1420` | 1 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:47.060289Z |
+| `image_1421` | 0 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:48.169105Z |
+| `image_1445` | 0 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:49.067465Z |
+| `image_1446` | 1 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:50.034201Z |
+| `image_1447` | 0 | Brick_Wall | Window | abd50 | 2026-08-06T14:08:50.997068Z |
+
+## Deleted boxes
+
+_No deletions._

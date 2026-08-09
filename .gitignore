@@ -34,4 +34,7 @@ processed_log.json
 runs/
 runs_smoke/
 mlruns/
-/weights
+
+# tool state files (local, mutable)
+review_state.json
+class_review_state.json

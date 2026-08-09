@@ -1,0 +1,30 @@
+# .github/workflows/data-guard.yml
+# Hard guard: the git tree must never contain files under data/ except
+# DVC pointer files (*.dvc) and .gitignore. Data lives in DVC + Google Drive.
+# This prevents a repeat of both past incidents:
+#   1) raw labels committed directly to git (feature/startannotation)
+#   2) silent data loss going unnoticed (a shrunken .dvc pointer is visible in PR diffs)
+name: data-guard
+
+# Branch pushes and PRs only: archive/* tags intentionally preserve old commits
+# that contain labels in git - they must not trigger false failures.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  block-data-in-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail if data files are tracked by git
+        run: |
+          bad=$(git ls-files -- 'data/' | grep -v -E '(\.dvc|\.gitignore)$' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::These files must be tracked by DVC, not git:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "OK: no data files in the git tree."

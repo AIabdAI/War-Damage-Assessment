@@ -1,4 +1,6 @@
-dvc[gdrive]
+# Phase 1 — validation gate (verified with Python 3.12; requires >= 3.10)
+# Later phases append their own pinned deps (dvc, mlflow, ultralytics, timm...)
+dvc[gdrive]>=3.0    # ملفات .dvc بصيغة DVC 3 — الإصدار 2.x لا يقرؤها
 opencv-python-headless
 numpy
 pandas
@@ -9,3 +11,7 @@ Pillow
 
 
 # ultralytics  # يُفعَّل لاحقاً عند بدء التدريب
+great-expectations==1.19.1
+pandas==3.0.2
+Pillow==12.1.1
+PyYAML==6.0.3
