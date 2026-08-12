@@ -50,3 +50,4 @@ war-damage-dvc-*.json
 
 # CI service-account key written by the workflow
 sa.json
+/runs_classification

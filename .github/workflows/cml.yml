@@ -35,12 +35,18 @@ jobs:
       - name: Data stages
         run: dvc repro validate prepare_split crop_classification
 
-      - name: Smoke train (all 4 configs)
+      - name: Smoke train detection (all 4 configs)
         run: |
           for model in yolo12n yolo26n; do
             for variant in 11 22; do
               python scripts/train_detection.py --model $model --variant $variant --smoke
             done
+          done
+
+      - name: Smoke train classifiers (Approach B stage 2)
+        run: |
+          for model in dinov2 efficientnet swin; do
+            python scripts/train_classifier.py --model $model --smoke
           done
 
       - name: Build report
@@ -55,11 +61,33 @@ jobs:
           runs = []
           for p in sorted(Path("reports").glob("metrics_*.json")):
               m = json.loads(p.read_text(encoding="utf-8"))
+              if "variant" not in m:   # classifier metrics: separate table below
+                  continue
               runs.append(m)
               lines.append("| {model} | {variant} | {mAP50} | {mAP50_95} "
                            "| {precision} | {recall} |".format(**m))
           lines.append("")
           lines.append("> Note: variant-22 mAP is not directly comparable to variant-11 mAP (different class sets). It is included as reference only; the real Approach A vs B comparison happens after the classifier stage.")
+          cls_runs = [json.loads(p.read_text(encoding="utf-8"))
+                      for p in sorted(Path("reports").glob("metrics_cls_*.json"))]
+          if cls_runs:
+              lines += ["", "## Classifier Smoke (Approach B stage 2 — damaged/undamaged)", "",
+                        "| model | backbone | accuracy | precision | recall | F1 |",
+                        "|---|---|---|---|---|---|"]
+              for m in cls_runs:
+                  lines.append("| {model} | {backbone} | {accuracy} | {precision_damaged} "
+                               "| {recall_damaged} | {f1_damaged} |".format(**m))
+              for m in cls_runs:
+                  figdir = Path("reports/figures") / f"cls_{m['model']}"
+                  imgs = [("Training curves", "results.png"),
+                          ("Confusion matrix (best epoch)", "confusion_matrix.png")]
+                  existing = [(t, figdir / n) for t, n in imgs if (figdir / n).is_file()]
+                  if not existing:
+                      continue
+                  lines += ["", f"<details><summary><b>classifier: {m['model']}</b></summary>", ""]
+                  for title, path in existing:
+                      lines += [f"### {title}", f"![{title}]({path.as_posix()})", ""]
+                  lines.append("</details>")
           for m in runs:
               figdir = Path("reports/figures") / f"{m['model']}_{m['variant']}"
               imgs = [("Training curves", "results.png"),

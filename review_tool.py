@@ -53,18 +53,17 @@ CLASSES = [
     "Staircase",        # 2
     "Floor_Tiles",      # 3
     "Sink",             # 4
-    "Beam",             # 5
-    "Wall_Cabinet",     # 6
-    "Window",           # 7
-    "Door",             # 8
-    "Air_Conditioner",  # 9
-    "Light_Fixture",    # 10
-    "Toilet",           # 11
+    "Wall_Cabinet",     # 5
+    "Window",           # 6
+    "Door",             # 7
+    "Air_Conditioner",  # 8
+    "Light_Fixture",    # 9
+    "Toilet",           # 10
 ]
 
 CLASS_COLORS = [
     "#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4",
-    "#46f0f0", "#f032e6", "#bcf60c", "#fabebe", "#008080",
+    "#f032e6", "#bcf60c", "#fabebe", "#008080",
     "#e6beff", "#9a6324",
 ]
 

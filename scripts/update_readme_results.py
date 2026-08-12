@@ -50,7 +50,7 @@ def metrics_table(reports_dir: Path) -> list[str]:
     rows = []
     for path in sorted(reports_dir.glob("metrics_*.json")):
         m = load_json(path)
-        if m is not None:
+        if m is not None and "variant" in m:   # classifier files: own table
             rows.append(m)
     if not rows:
         return ["_No results yet — run dvc repro._", "", NOTE]
@@ -63,6 +63,23 @@ def metrics_table(reports_dir: Path) -> list[str]:
                  ("model", "variant", "mAP50", "mAP50_95", "precision", "recall")]
         lines.append("| " + " | ".join(cells) + " |")
     lines += ["", NOTE]
+    return lines
+
+
+def classifier_table(reports_dir: Path) -> list[str]:
+    """Markdown table of crop-classifier metrics (Approach B stage 2)."""
+    rows = [m for p in sorted(reports_dir.glob("metrics_cls_*.json"))
+            if (m := load_json(p)) is not None]
+    if not rows:
+        return []
+    lines = ["", "**Damage classifiers (Approach B stage 2 — damaged/undamaged):**", "",
+             "| model | backbone | accuracy | precision | recall | F1 |",
+             "|---|---|---|---|---|---|"]
+    for m in rows:
+        cells = [str(m.get(k, "-")) for k in
+                 ("model", "backbone", "accuracy", "precision_damaged",
+                  "recall_damaged", "f1_damaged")]
+        lines.append("| " + " | ".join(cells) + " |")
     return lines
 
 
@@ -95,6 +112,7 @@ def main() -> int:
 
     section = ["", f"_Generated: {datetime.now().isoformat(timespec='minutes')}_", ""]
     section += metrics_table(reports_dir)
+    section += classifier_table(reports_dir)
     section += split_counts(reports_dir)
     section.append("")
 

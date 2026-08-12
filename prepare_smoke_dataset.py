@@ -44,7 +44,7 @@ log = logging.getLogger("prepare_smoke")
 
 IMG_EXTS = (".jpg", ".jpeg", ".png")
 FALLBACK_CLASS_NAMES = [
-    "Brick_Wall", "Column", "Staircase", "Floor_Tiles", "Sink", "Beam",
+    "Brick_Wall", "Column", "Staircase", "Floor_Tiles", "Sink",
     "Wall_Cabinet", "Window", "Door", "Air_Conditioner", "Light_Fixture",
     "Toilet",
 ]

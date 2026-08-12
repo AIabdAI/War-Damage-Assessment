@@ -52,18 +52,17 @@ CLASSES = [
     "Staircase",        # 2
     "Floor_Tiles",      # 3
     "Sink",             # 4
-    "Beam",             # 5
-    "Wall_Cabinet",     # 6
-    "Window",           # 7
-    "Door",             # 8
-    "Air_Conditioner",  # 9
-    "Light_Fixture",    # 10
-    "Toilet",           # 11
+    "Wall_Cabinet",     # 5
+    "Window",           # 6
+    "Door",             # 7
+    "Air_Conditioner",  # 8
+    "Light_Fixture",    # 9
+    "Toilet",           # 10
 ]
 
 CLASS_COLORS = [
     "#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4",
-    "#46f0f0", "#f032e6", "#bcf60c", "#fabebe", "#008080",
+    "#f032e6", "#bcf60c", "#fabebe", "#008080",
     "#e6beff", "#9a6324",
 ]
 
@@ -98,12 +97,27 @@ def parse_iso(s: str) -> datetime:
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
 
 
+# كاش MD5 على (mtime, size) — يمنع إعادة قراءة صور لم تتغيّر في كل استعلام
+_MD5_CACHE: dict[str, tuple[float, int, str]] = {}
+
+
 def file_md5(path: Path) -> str:
+    try:
+        st = path.stat()
+    except OSError:
+        st = None
+    if st is not None:
+        cached = _MD5_CACHE.get(str(path))
+        if cached is not None and cached[0] == st.st_mtime and cached[1] == st.st_size:
+            return cached[2]
     h = hashlib.md5()
     with open(path, "rb") as f:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
-    return h.hexdigest()
+    digest = h.hexdigest()
+    if st is not None:
+        _MD5_CACHE[str(path)] = (st.st_mtime, st.st_size, digest)
+    return digest
 
 
 # ----------------------------------------------------------------------------
@@ -351,6 +365,11 @@ class LockManager:
             del self.log["locks"][stem]
 
     # ---------------- annotated registry ----------------
+
+    def is_annotated_fast(self, stem: str) -> bool:
+        """فحص سريع بلا قراءة ملف الصورة — يكفي للتنقّل بين الصور.
+        التحقق الكامل من MD5 يتم عند فتح الصورة نفسها فقط."""
+        return stem in self.log["annotated"]
 
     def is_annotated(self, stem: str, img_path: Path) -> bool:
         """Idempotency: الصورة معالَجة إذا سُجّلت ولم يتغيّر محتواها (MD5)."""
@@ -717,6 +736,13 @@ class AnnotationApp:
         self.scale = 1.0
         self.off_x = self.off_y = 0.0
 
+        # كاش عرض الصورة: (img, crop_box, scale, tk_img) — يمنع إعادة تكبير
+        # الصورة كاملة عند كل حركة ماوس
+        self._view_cache = None
+        # معرّف after لكتابة السجل المؤجّلة (السجل عدّة ميغابايت — لا نكتبه
+        # متزامناً عند كل تنقّل بين الصور)
+        self._log_after_id = None
+
         self._build_ui()
         self._bind_keys()
 
@@ -992,7 +1018,7 @@ class AnnotationApp:
             nxt = self._find_next_free(i + 1)
             if nxt is not None:
                 self.lm.acquire(self._stem(nxt))
-            write_log(self.lm.log_path, self.lm.log)
+            self._schedule_log_write()
 
         self._refresh_box_list()
         self.redraw()
@@ -1001,12 +1027,24 @@ class AnnotationApp:
     def _find_next_free(self, start: int) -> int | None:
         for j in range(start, len(self.images)):
             stem = self._stem(j)
-            if self.lm.is_annotated(stem, self.images[j]):
+            # فحص العضوية فقط — بدون MD5، وإلا يمسح آلاف الصور عند كل تنقّل
+            if self.lm.is_annotated_fast(stem):
                 continue
             owner = self.lm.lock_owner(stem)
             if owner is None or owner == self.user:
                 return j
         return None
+
+    def _schedule_log_write(self, delay_ms: int = 1500):
+        """كتابة السجل مؤجَّلة ومجمَّعة: التنقّل السريع بين عدة صور يكتب مرة واحدة."""
+        if self._log_after_id is not None:
+            self.root.after_cancel(self._log_after_id)
+
+        def flush():
+            self._log_after_id = None
+            write_log(self.lm.log_path, self.lm.log)
+
+        self._log_after_id = self.root.after(delay_ms, flush)
 
     def next_image(self):
         self.open_index(self.idx + 1)
@@ -1388,6 +1426,7 @@ class AnnotationApp:
         # نُفلت مرجع الصورة قبل الحذف حتى لا يمنع ويندوز حذف ملف مفتوح
         self.img = None
         self.tk_img = None
+        self._view_cache = None
         self.boxes = []
         self.selected = None
         self.dirty = False
@@ -1456,6 +1495,7 @@ class AnnotationApp:
             self.idx = -1
             self.img = None
             self.tk_img = None
+            self._view_cache = None
             self.boxes = []
             self.canvas.delete("all")
             self.status.set("لا صور متبقية في المجلد.")
@@ -1479,11 +1519,32 @@ class AnnotationApp:
         c.delete("all")
         if self.img is None:
             return
-        disp_w = max(1, int(self.img_w * self.scale))
-        disp_h = max(1, int(self.img_h * self.scale))
-        resized = self.img.resize((disp_w, disp_h), Image.BILINEAR)
-        self.tk_img = ImageTk.PhotoImage(resized)
-        c.create_image(self.off_x, self.off_y, image=self.tk_img, anchor="nw")
+        cw = max(1, c.winfo_width())
+        ch = max(1, c.winfo_height())
+        # المنطقة المرئية من الصورة (بإحداثيات الصورة) — نقصّها ونكبّرها وحدها
+        # بدل تكبير الصورة كاملة عند كل حركة ماوس، ونعيد استخدام الناتج ما دام
+        # التكبير ثابتاً والمنطقة المرئية داخل القصّ المخزّن (بهامشه)
+        vx0 = max(0.0, -self.off_x / self.scale)
+        vy0 = max(0.0, -self.off_y / self.scale)
+        vx1 = min(float(self.img_w), (cw - self.off_x) / self.scale)
+        vy1 = min(float(self.img_h), (ch - self.off_y) / self.scale)
+        if vx1 > vx0 and vy1 > vy0:
+            cache = self._view_cache
+            if (cache is None or cache[0] is not self.img or cache[2] != self.scale
+                    or vx0 < cache[1][0] or vy0 < cache[1][1]
+                    or vx1 > cache[1][2] or vy1 > cache[1][3]):
+                pad = int(200 / self.scale) + 1
+                crop_box = (max(0, int(vx0) - pad), max(0, int(vy0) - pad),
+                            min(self.img_w, int(vx1) + pad + 1),
+                            min(self.img_h, int(vy1) + pad + 1))
+                disp_w = max(1, round((crop_box[2] - crop_box[0]) * self.scale))
+                disp_h = max(1, round((crop_box[3] - crop_box[1]) * self.scale))
+                tk_img = ImageTk.PhotoImage(
+                    self.img.crop(crop_box).resize((disp_w, disp_h), Image.BILINEAR))
+                cache = self._view_cache = (self.img, crop_box, self.scale, tk_img)
+            self.tk_img = cache[3]
+            px, py = self.to_canvas(cache[1][0], cache[1][1])
+            c.create_image(px, py, image=self.tk_img, anchor="nw")
 
         for i, b in enumerate(self.boxes):
             color = CLASS_COLORS[b["cls"] % len(CLASS_COLORS)]
@@ -1714,6 +1775,9 @@ class AnnotationApp:
     def _finalize_close(self):
         # تحرير كل أقفالي عند الخروج ومزامنتها (مع أي labels متبقية) حتى لا
         # تبقى صور محجوزة بلا داعٍ
+        if self._log_after_id is not None:
+            self.root.after_cancel(self._log_after_id)
+            self._log_after_id = None
         self.lm.release_all_mine()
         try:
             self.lm.sync(f"chore(locks): release locks on exit ({self.user})",

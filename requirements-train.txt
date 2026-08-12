@@ -4,3 +4,4 @@
 -r requirements.txt
 ultralytics==8.4.115
 mlflow==3.15.1
+timm==1.0.28            # classifier backbones: DINOv2 / EfficientNet / Swin

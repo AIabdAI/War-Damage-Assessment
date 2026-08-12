@@ -71,3 +71,21 @@ stages:
     metrics:
       - reports/metrics_${item.model}_${item.variant}.json:
           cache: false
+
+  train_classifier:
+    matrix:
+      model: [dinov2, efficientnet, swin]
+    cmd: python scripts/train_classifier.py --model ${item.model}
+    deps:
+      - scripts/train_classifier.py
+      - data/processed/classification
+    params:
+      - train_classifier
+    outs:
+      - runs_classification/${item.model}
+    plots:
+      - reports/figures/cls_${item.model}:
+          cache: false
+    metrics:
+      - reports/metrics_cls_${item.model}.json:
+          cache: false
