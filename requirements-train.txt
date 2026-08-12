@@ -5,3 +5,7 @@
 ultralytics==8.4.115
 mlflow==3.15.1
 timm==1.0.28            # classifier backbones: DINOv2 / EfficientNet / Swin
+# gdrive service-account auth: newer pyopenssl removed crypto.sign (needed by
+# oauth2client), older ones lack GEN_EMAIL bindings - this pair is verified
+pyopenssl==24.2.1
+cryptography==43.0.3
