@@ -1,0 +1,42 @@
+{
+  "base_classes": {
+    "0": "Brick_Wall",
+    "1": "Column",
+    "2": "Staircase",
+    "3": "Floor_Tiles",
+    "4": "Sink",
+    "5": "Wall_Cabinet",
+    "6": "Window",
+    "7": "Door",
+    "8": "Air_Conditioner",
+    "9": "Light_Fixture",
+    "10": "Toilet"
+  },
+  "encoded_classes": {
+    "0": "Brick_Wall",
+    "1": "Column",
+    "2": "Staircase",
+    "3": "Floor_Tiles",
+    "4": "Sink",
+    "5": "Wall_Cabinet",
+    "6": "Window",
+    "7": "Door",
+    "8": "Air_Conditioner",
+    "9": "Light_Fixture",
+    "10": "Toilet",
+    "11": "Brick_Wall_damaged",
+    "12": "Column_damaged",
+    "13": "Staircase_damaged",
+    "14": "Floor_Tiles_damaged",
+    "15": "Sink_damaged",
+    "16": "Wall_Cabinet_damaged",
+    "17": "Window_damaged",
+    "18": "Door_damaged",
+    "19": "Air_Conditioner_damaged",
+    "20": "Light_Fixture_damaged",
+    "21": "Toilet_damaged"
+  },
+  "rule": "new_cls = cls + 11 * damage_flag",
+  "num_base_classes": 11,
+  "num_encoded_classes": 22
+}

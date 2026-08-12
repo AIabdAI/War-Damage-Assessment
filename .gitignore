@@ -44,3 +44,9 @@ mlflow.db
 # Google service account keys - never commit
 war-damage-dvc-*.json
 *service_account*.json
+
+# detection training outputs (DVC-tracked)
+/runs_detection
+
+# CI service-account key written by the workflow
+sa.json

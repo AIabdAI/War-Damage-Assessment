@@ -1,0 +1,16 @@
+{
+  "labels_without_image": [],
+  "images_without_label": [],
+  "bad_lines": [],
+  "clamped_lines": [],
+  "counts": {
+    "labels_without_image": 0,
+    "images_without_label": 0,
+    "missing_damage_flag": 0,
+    "bad_columns": 0,
+    "non_numeric": 0,
+    "old_scheme_remnant": 0,
+    "invalid_damage_flag": 0,
+    "clamped": 0
+  }
+}

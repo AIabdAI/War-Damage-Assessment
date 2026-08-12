@@ -1,0 +1,152 @@
+{
+  "train": {
+    "damaged": 4815,
+    "undamaged": 5449,
+    "per_class": {
+      "Brick_Wall": {
+        "damaged": 1261,
+        "undamaged": 1067
+      },
+      "Column": {
+        "damaged": 1296,
+        "undamaged": 558
+      },
+      "Staircase": {
+        "damaged": 193,
+        "undamaged": 415
+      },
+      "Floor_Tiles": {
+        "damaged": 198,
+        "undamaged": 412
+      },
+      "Sink": {
+        "damaged": 150,
+        "undamaged": 314
+      },
+      "Wall_Cabinet": {
+        "damaged": 99,
+        "undamaged": 377
+      },
+      "Window": {
+        "damaged": 432,
+        "undamaged": 538
+      },
+      "Door": {
+        "damaged": 404,
+        "undamaged": 661
+      },
+      "Air_Conditioner": {
+        "damaged": 33,
+        "undamaged": 44
+      },
+      "Light_Fixture": {
+        "damaged": 687,
+        "undamaged": 729
+      },
+      "Toilet": {
+        "damaged": 62,
+        "undamaged": 334
+      }
+    }
+  },
+  "val": {
+    "damaged": 1042,
+    "undamaged": 1163,
+    "per_class": {
+      "Brick_Wall": {
+        "damaged": 281,
+        "undamaged": 202
+      },
+      "Column": {
+        "damaged": 304,
+        "undamaged": 107
+      },
+      "Staircase": {
+        "damaged": 30,
+        "undamaged": 87
+      },
+      "Floor_Tiles": {
+        "damaged": 51,
+        "undamaged": 88
+      },
+      "Sink": {
+        "damaged": 29,
+        "undamaged": 85
+      },
+      "Wall_Cabinet": {
+        "damaged": 17,
+        "undamaged": 74
+      },
+      "Window": {
+        "damaged": 83,
+        "undamaged": 117
+      },
+      "Door": {
+        "damaged": 72,
+        "undamaged": 146
+      },
+      "Air_Conditioner": {
+        "damaged": 9,
+        "undamaged": 14
+      },
+      "Light_Fixture": {
+        "damaged": 146,
+        "undamaged": 146
+      },
+      "Toilet": {
+        "damaged": 20,
+        "undamaged": 97
+      }
+    }
+  },
+  "test": {
+    "damaged": 1047,
+    "undamaged": 1186,
+    "per_class": {
+      "Brick_Wall": {
+        "damaged": 290,
+        "undamaged": 214
+      },
+      "Column": {
+        "damaged": 289,
+        "undamaged": 136
+      },
+      "Staircase": {
+        "damaged": 39,
+        "undamaged": 85
+      },
+      "Floor_Tiles": {
+        "damaged": 42,
+        "undamaged": 95
+      },
+      "Sink": {
+        "damaged": 24,
+        "undamaged": 69
+      },
+      "Wall_Cabinet": {
+        "damaged": 27,
+        "undamaged": 74
+      },
+      "Window": {
+        "damaged": 72,
+        "undamaged": 141
+      },
+      "Door": {
+        "damaged": 81,
+        "undamaged": 158
+      },
+      "Air_Conditioner": {
+        "damaged": 6,
+        "undamaged": 6
+      },
+      "Light_Fixture": {
+        "damaged": 158,
+        "undamaged": 140
+      },
+      "Toilet": {
+        "damaged": 19,
+        "undamaged": 68
+      }
+    }
+  }
+}

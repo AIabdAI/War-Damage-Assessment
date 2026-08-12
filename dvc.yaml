@@ -1,6 +1,6 @@
 stages:
   validate:
-    cmd: python verify_labels.py --labels data/annotations/labels --num-classes 12 --report reports/validation/report.md
+    cmd: python verify_labels.py --labels data/annotations/labels --num-classes 11 --report reports/validation/report.md
     deps:
       - verify_labels.py
       - data/annotations
@@ -10,27 +10,64 @@ stages:
       - reports/validation:
           cache: false
 
-  prepare:
-    cmd: python prepare_smoke_dataset.py
+  prepare_split:
+    cmd: python scripts/prepare_split.py
     deps:
-      - prepare_smoke_dataset.py
+      - scripts/prepare_split.py
+      - scripts/label_common.py
       - data/raw
       - data/annotations
     params:
-      - data
       - classes
+      - data
+      - split
     outs:
-      - data/processed/smoke
+      - data/processed/detection11
+      - data/processed/detection22
+      - reports/split_manifest.json:
+          cache: false
+      - reports/classes_map.json:
+          cache: false
+      - reports/split_skipped.json:
+          cache: false
+      - reports/class_distribution.json:
+          cache: false
 
-  train:
-    cmd: python train_smoke.py
+  crop_classification:
+    cmd: python scripts/crop_classification.py
     deps:
-      - train_smoke.py
-      - data/processed/smoke
+      - scripts/crop_classification.py
+      - scripts/label_common.py
+      - data/raw
+      - data/annotations
+      - reports/split_manifest.json
     params:
-      - train_smoke
+      - classes
+      - crop
+      - data
     outs:
-      - runs_smoke
+      - data/processed/classification
+      - reports/crop_skipped.json:
+          cache: false
+      - reports/classification_stats.json:
+          cache: false
+
+  train_detection:
+    matrix:
+      model: [yolo12n, yolo26n]
+      variant: ['11', '22']
+    cmd: python scripts/train_detection.py --model ${item.model} --variant ${item.variant}
+    deps:
+      - scripts/train_detection.py
+      - data/processed/detection${item.variant}
+      - reports/classes_map.json
+    params:
+      - train_detection
+    outs:
+      - runs_detection/${item.model}_det${item.variant}
+    plots:
+      - reports/figures/${item.model}_${item.variant}:
+          cache: false
     metrics:
-      - reports/metrics.json:
+      - reports/metrics_${item.model}_${item.variant}.json:
           cache: false

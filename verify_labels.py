@@ -40,7 +40,7 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from pathlib import Path
 
-DEFAULT_NUM_CLASSES = 12
+DEFAULT_NUM_CLASSES = 11
 EXPECTED_COLS = 6
 FLOAT_TOL = 1e-9
 IMG_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}

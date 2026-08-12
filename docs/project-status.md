@@ -1,7 +1,30 @@
 # Project status — MLOps infrastructure
 
-**Last updated:** 2026-08-09
+**Last updated:** 2026-08-12
 **Repo:** `AIabdAI/War-Damage-Assessment`, branch `master`
+
+## Update 2026-08-12 — two-approach comparison pipeline
+
+The class scheme moved to **11 classes** (Beam removed; ids remapped, labels on
+disk already converted — 9,964 pairs, 14,702 objects, gate-verified). The
+pipeline was rebuilt to compare two damage-assessment approaches:
+
+- **Approach A (end-to-end):** YOLO detects 22 classes = 11 base classes ×
+  damaged/undamaged, encoded as `new_cls = cls + 11 * damage_flag`.
+- **Approach B (two-stage):** YOLO detects the 11 base classes; separate
+  classifiers (DINOv2 / EfficientNet / Swin — next phase) classify crops.
+
+New stages (all params.yaml-driven, one shared deterministic 70/15/15 split):
+`prepare_split` (detection11 + detection22 datasets + split manifest/reports)
+→ `crop_classification` (14,702 padded crops into damaged/undamaged buckets)
+→ `train_detection` matrix (yolo12n/yolo26n × 11/22; `--smoke` for CI).
+Canonical label parsing lives in `scripts/label_common.py` (shared by both
+data stages so objects stay aligned; contract locked by tests).
+MLflow experiment `war-damage-detection` tags each run approach=A|B, logs
+`classes_map.json` so every run is self-describing, and registers weights as
+`{model}-det{variant}`. CML posts a 4-run comparison table + figures on PRs
+and auto-refreshes the README "Latest Results" section on pushes to master.
+Full (non-smoke) training is reserved for the A100 server: `dvc repro`.
 
 ## What is set up and verified working
 

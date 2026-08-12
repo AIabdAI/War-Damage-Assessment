@@ -2,25 +2,25 @@ schema: '2.0'
 stages:
   validate:
     cmd: python verify_labels.py --labels data/annotations/labels --num-classes 
-      12 --report reports/validation/report.md
+      11 --report reports/validation/report.md
     deps:
     - path: data/annotations
       hash: md5
-      md5: 676fee657adbe993622911eefa02ad35.dir
-      size: 595009
-      nfiles: 9106
+      md5: 8217539d553f3ced6017ef69ad5288d9.dir
+      size: 769694
+      nfiles: 10879
     - path: verify_labels.py
       hash: md5
-      md5: 325e1de0c26be641bff25f6dd533f30f
+      md5: e142c616d418a28eff3923acc93f1a53
       size: 16923
     params:
       params.yaml:
-        classes.num_classes: 12
+        classes.num_classes: 11
     outs:
     - path: reports/validation
       hash: md5
-      md5: 0b6231721109d86a57f190ee3af01a97.dir
-      size: 554
+      md5: d152e42fd6ce712e1f1069e627e7d5ec.dir
+      size: 548
       nfiles: 1
   prepare:
     cmd: python prepare_smoke_dataset.py
@@ -96,3 +96,140 @@ stages:
       md5: b8901b7e04e9fa41d989e965a48aa531.dir
       size: 34417046
       nfiles: 42
+  prepare_split:
+    cmd: python scripts/prepare_split.py
+    deps:
+    - path: data/annotations
+      hash: md5
+      md5: 8217539d553f3ced6017ef69ad5288d9.dir
+      size: 769694
+      nfiles: 10879
+    - path: data/raw
+      hash: md5
+      md5: fcdb8fb8761ba61118883ad3bf232166.dir
+      size: 1070850547
+      nfiles: 9964
+    - path: scripts/label_common.py
+      hash: md5
+      md5: 8eba06d345eefd97d8a247f9a93c3011
+      size: 4742
+    - path: scripts/prepare_split.py
+      hash: md5
+      md5: 4874dc54dca34a0db078d8d47a01e90e
+      size: 9261
+    params:
+      params.yaml:
+        classes:
+          num_classes: 11
+          names:
+            0: Brick_Wall
+            1: Column
+            2: Staircase
+            3: Floor_Tiles
+            4: Sink
+            5: Wall_Cabinet
+            6: Window
+            7: Door
+            8: Air_Conditioner
+            9: Light_Fixture
+            10: Toilet
+        data:
+          raw_images: data/raw
+          labels: data/annotations/labels
+          processed: data/processed
+        split:
+          ratios:
+            train: 0.7
+            val: 0.15
+            test: 0.15
+          seed: 42
+          min_objects_warn: 30
+    outs:
+    - path: data/processed/detection11
+      hash: md5
+      md5: cc49d50f0016c40fb07abb03a8251e86.dir
+      size: 1071410187
+      nfiles: 19929
+    - path: data/processed/detection22
+      hash: md5
+      md5: ea8b016a484d842a12b9204eef269230.dir
+      size: 1071417251
+      nfiles: 19929
+    - path: reports/class_distribution.json
+      hash: md5
+      md5: d8f9c23745fefbec8967461596737f1d
+      size: 1770
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: reports/split_manifest.json
+      hash: md5
+      md5: 2a38a81a4f23a0124191f9283306b4c9
+      size: 258185
+    - path: reports/split_skipped.json
+      hash: md5
+      md5: 26cc0d20e7f4c8b181c29f912c28a659
+      size: 336
+  crop_classification:
+    cmd: python scripts/crop_classification.py
+    deps:
+    - path: data/annotations
+      hash: md5
+      md5: 8217539d553f3ced6017ef69ad5288d9.dir
+      size: 769694
+      nfiles: 10879
+    - path: data/raw
+      hash: md5
+      md5: fcdb8fb8761ba61118883ad3bf232166.dir
+      size: 1070850547
+      nfiles: 9964
+    - path: reports/split_manifest.json
+      hash: md5
+      md5: 2a38a81a4f23a0124191f9283306b4c9
+      size: 258185
+    - path: scripts/crop_classification.py
+      hash: md5
+      md5: 22a76f07074c6acacaffa85f016f014f
+      size: 7212
+    - path: scripts/label_common.py
+      hash: md5
+      md5: 8eba06d345eefd97d8a247f9a93c3011
+      size: 4742
+    params:
+      params.yaml:
+        classes:
+          num_classes: 11
+          names:
+            0: Brick_Wall
+            1: Column
+            2: Staircase
+            3: Floor_Tiles
+            4: Sink
+            5: Wall_Cabinet
+            6: Window
+            7: Door
+            8: Air_Conditioner
+            9: Light_Fixture
+            10: Toilet
+        crop:
+          padding_pct: 0.1
+          min_crop_px: 16
+        data:
+          raw_images: data/raw
+          labels: data/annotations/labels
+          processed: data/processed
+    outs:
+    - path: data/processed/classification
+      hash: md5
+      md5: 3a49948cf63e960f554e73f8cb2cf6f9.dir
+      size: 680466466
+      nfiles: 14702
+    - path: reports/classification_stats.json
+      hash: md5
+      md5: 3ee8794570d46fbce8b656036ba8b36e
+      size: 2824
+    - path: reports/crop_skipped.json
+      hash: md5
+      md5: b4011edab2f07a636288d489b8fdd24b
+      size: 215

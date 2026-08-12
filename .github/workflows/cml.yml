@@ -1,14 +1,28 @@
 name: cml-report
-on: [pull_request]
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
-  train-smoke:
+  train-smoke-matrix:
+    # skip the push triggered by the README auto-commit below
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     container: ghcr.io/iterative/cml:latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # dvc metrics diff master needs the master ref
+          fetch-depth: 0   # full history: metrics diffs + push back to master
+
       - run: pip install -r requirements-train.txt
+
       - name: Pull data
         env:
           GDRIVE_SA_JSON: ${{ secrets.GDRIVE_SA_JSON }}
@@ -16,29 +30,68 @@ jobs:
           echo "$GDRIVE_SA_JSON" > sa.json
           dvc remote modify --local storage gdrive_use_service_account true
           dvc remote modify --local storage gdrive_service_account_json_file_path sa.json
-          dvc pull
-      - name: Repro + report
+          dvc pull data/raw.dvc data/annotations.dvc
+
+      - name: Data stages
+        run: dvc repro validate prepare_split crop_classification
+
+      - name: Smoke train (all 4 configs)
+        run: |
+          for model in yolo12n yolo26n; do
+            for variant in 11 22; do
+              python scripts/train_detection.py --model $model --variant $variant --smoke
+            done
+          done
+
+      - name: Build report
+        run: |
+          python - <<'EOF'
+          import json
+          from pathlib import Path
+
+          lines = ["## Smoke Metrics (1 epoch, 5% data — plumbing check)", ""]
+          lines += ["| model | classes | mAP50 | mAP50-95 | precision | recall |",
+                    "|---|---|---|---|---|---|"]
+          runs = []
+          for p in sorted(Path("reports").glob("metrics_*.json")):
+              m = json.loads(p.read_text(encoding="utf-8"))
+              runs.append(m)
+              lines.append("| {model} | {variant} | {mAP50} | {mAP50_95} "
+                           "| {precision} | {recall} |".format(**m))
+          lines.append("")
+          lines.append("> Note: variant-22 mAP is not directly comparable to variant-11 mAP (different class sets). It is included as reference only; the real Approach A vs B comparison happens after the classifier stage.")
+          for m in runs:
+              figdir = Path("reports/figures") / f"{m['model']}_{m['variant']}"
+              imgs = [("Training curves", "results.png"),
+                      ("Confusion matrix (normalized)", "confusion_matrix_normalized.png"),
+                      ("Sample predictions", "val_batch0_pred.jpg")]
+              existing = [(t, figdir / n) for t, n in imgs if (figdir / n).is_file()]
+              if not existing:
+                  continue
+              lines += ["", f"<details><summary><b>{m['model']} — {m['variant']} classes</b></summary>", ""]
+              for title, path in existing:
+                  lines += [f"### {title}", f"![{title}]({path.as_posix()})", ""]
+              lines.append("</details>")
+          Path("report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+          print("report.md written")
+          EOF
+
+      - name: Publish report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: cml comment create --publish report.md
+
+      - name: Refresh README Latest Results
+        if: github.event_name == 'push'
         run: |
-          dvc repro
-          echo "## Smoke Metrics" > report.md
-          dvc metrics diff master --md >> report.md
-          for d in runs_smoke/*/; do
-            m=$(basename "$d")
-            {
-              echo "<details><summary><b>$m</b> — curves, confusion matrix, predictions</summary>"
-              echo ""
-              echo "### Training curves"
-              echo "![curves](runs_smoke/$m/results.png)"
-              echo "### Confusion matrix (normalized)"
-              echo "![confusion](runs_smoke/$m/confusion_matrix_normalized.png)"
-              echo "### Sample predictions vs ground truth"
-              echo "| ground truth | prediction |"
-              echo "|---|---|"
-              echo "| ![gt](runs_smoke/$m/val_batch0_labels.jpg) | ![pred](runs_smoke/$m/val_batch0_pred.jpg) |"
-              echo ""
-              echo "</details>"
-            } >> report.md
-          done
-          cml comment create --publish report.md
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          python scripts/update_readme_results.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # stage first: `git diff --quiet` exits 0 for an UNTRACKED README
+          git add README.md
+          if ! git diff --cached --quiet -- README.md; then
+            git commit -m "docs: refresh Latest Results [skip ci]"
+            git pull --rebase origin master
+            git push
+          fi
