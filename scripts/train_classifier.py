@@ -82,16 +82,19 @@ def main(argv: list[str] | None = None) -> int:
 
     backbone = str(cfg["models"][args.model])
     imgsz = int(cfg["imgsz"])
-    batch = args.batch or int(cfg["batch"])
-    lr = args.lr or float(cfg["lr"])
+    batch = args.batch if args.batch is not None else int(cfg["batch"])
+    lr = args.lr if args.lr is not None else float(cfg["lr"])
     weight_decay = float(cfg["weight_decay"])
     seed = int(cfg["seed"])
     if args.smoke:
         epochs = int(cfg["smoke"]["epochs"])
         fraction = float(cfg["smoke"]["fraction"])
     else:
-        epochs = args.epochs or int(cfg["epochs"])
+        epochs = args.epochs if args.epochs is not None else int(cfg["epochs"])
         fraction = 1.0
+    if epochs < 1 or batch < 1:
+        print("ERROR: epochs and batch must be >= 1", file=sys.stderr)
+        return 2
 
     data_root = Path("data/processed/classification")
     if not (data_root / "train").is_dir() or not (data_root / "val").is_dir():
@@ -316,7 +319,10 @@ def main(argv: list[str] | None = None) -> int:
                       file=sys.stderr)
     finally:
         if mlflow is not None and mlflow.active_run() is not None:
-            mlflow.end_run()
+            # end_run() defaults to FINISHED even on exceptions - mark
+            # crashed runs FAILED so the experiment stays trustworthy
+            mlflow.end_run("FAILED" if sys.exc_info()[0] is not None
+                           else "FINISHED")
 
     print(f"best epoch {best['epoch']}: F1(damaged)={best['f1_damaged']:.4f} "
           f"acc={best['accuracy']:.4f}")

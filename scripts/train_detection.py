@@ -252,7 +252,10 @@ def main(argv: list[str] | None = None) -> int:
                       file=sys.stderr)
     finally:
         if mlflow is not None and mlflow.active_run() is not None:
-            mlflow.end_run()
+            # end_run() defaults to FINISHED even on exceptions - mark
+            # crashed runs FAILED so the experiment stays trustworthy
+            mlflow.end_run("FAILED" if sys.exc_info()[0] is not None
+                           else "FINISHED")
 
     return 0
 

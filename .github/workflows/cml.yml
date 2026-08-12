@@ -68,6 +68,18 @@ jobs:
                            "| {precision} | {recall} |".format(**m))
           lines.append("")
           lines.append("> Note: variant-22 mAP is not directly comparable to variant-11 mAP (different class sets). It is included as reference only; the real Approach A vs B comparison happens after the classifier stage.")
+          for m in runs:   # detection figure dropdowns belong under the detection table
+              figdir = Path("reports/figures") / f"{m['model']}_{m['variant']}"
+              imgs = [("Training curves", "results.png"),
+                      ("Confusion matrix (normalized)", "confusion_matrix_normalized.png"),
+                      ("Sample predictions", "val_batch0_pred.jpg")]
+              existing = [(t, figdir / n) for t, n in imgs if (figdir / n).is_file()]
+              if not existing:
+                  continue
+              lines += ["", f"<details><summary><b>{m['model']} — {m['variant']} classes</b></summary>", ""]
+              for title, path in existing:
+                  lines += [f"### {title}", f"![{title}]({path.as_posix()})", ""]
+              lines.append("</details>")
           cls_runs = [json.loads(p.read_text(encoding="utf-8"))
                       for p in sorted(Path("reports").glob("metrics_cls_*.json"))]
           if cls_runs:
@@ -88,18 +100,6 @@ jobs:
                   for title, path in existing:
                       lines += [f"### {title}", f"![{title}]({path.as_posix()})", ""]
                   lines.append("</details>")
-          for m in runs:
-              figdir = Path("reports/figures") / f"{m['model']}_{m['variant']}"
-              imgs = [("Training curves", "results.png"),
-                      ("Confusion matrix (normalized)", "confusion_matrix_normalized.png"),
-                      ("Sample predictions", "val_batch0_pred.jpg")]
-              existing = [(t, figdir / n) for t, n in imgs if (figdir / n).is_file()]
-              if not existing:
-                  continue
-              lines += ["", f"<details><summary><b>{m['model']} — {m['variant']} classes</b></summary>", ""]
-              for title, path in existing:
-                  lines += [f"### {title}", f"![{title}]({path.as_posix()})", ""]
-              lines.append("</details>")
           Path("report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
           print("report.md written")
           EOF
