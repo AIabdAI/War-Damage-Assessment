@@ -39,7 +39,7 @@ crop:
 train_detection:
   models: [yolo12n, yolo26n]
   variants: [11, 22]      # 11 = base classes (Approach B), 22 = damage-encoded (Approach A)
-  epochs: 100             # full run (A100); CI/laptop use --smoke
+  epochs: 200             # full run (A100); CI/laptop use --smoke
   imgsz: 640
   batch: 16
   seed: 42

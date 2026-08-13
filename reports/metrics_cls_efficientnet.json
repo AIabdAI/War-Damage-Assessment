@@ -1,0 +1,11 @@
+{
+  "model": "efficientnet",
+  "backbone": "efficientnet_b0",
+  "smoke": false,
+  "epochs": 30,
+  "best_epoch": 25,
+  "accuracy": 0.946,
+  "precision_damaged": 0.9565,
+  "recall_damaged": 0.928,
+  "f1_damaged": 0.942
+}

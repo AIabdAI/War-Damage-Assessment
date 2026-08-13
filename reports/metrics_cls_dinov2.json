@@ -1,0 +1,11 @@
+{
+  "model": "dinov2",
+  "backbone": "vit_small_patch14_dinov2.lvd142m",
+  "smoke": false,
+  "epochs": 30,
+  "best_epoch": 28,
+  "accuracy": 0.8717,
+  "precision_damaged": 0.8732,
+  "recall_damaged": 0.8522,
+  "f1_damaged": 0.8626
+}

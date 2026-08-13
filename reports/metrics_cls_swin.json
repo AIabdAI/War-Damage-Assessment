@@ -1,0 +1,11 @@
+{
+  "model": "swin",
+  "backbone": "swin_tiny_patch4_window7_224",
+  "smoke": false,
+  "epochs": 30,
+  "best_epoch": 19,
+  "accuracy": 0.9583,
+  "precision_damaged": 0.955,
+  "recall_damaged": 0.9568,
+  "f1_damaged": 0.9559
+}

@@ -233,3 +233,320 @@ stages:
       hash: md5
       md5: b4011edab2f07a636288d489b8fdd24b
       size: 215
+  train_detection@yolo12n-11:
+    cmd: python scripts/train_detection.py --model yolo12n --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: 3e77376cf7c77dece12f61a81eca0e7a.dir
+      size: 1073334010
+      nfiles: 19931
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo12n_11
+      hash: md5
+      md5: 50232fa191e7f2acefb28e277ff4e7d2.dir
+      size: 1719446
+      nfiles: 5
+    - path: reports/metrics_yolo12n_11.json
+      hash: md5
+      md5: 72d5b03747c7f36f92322cc954f679a5
+      size: 160
+    - path: runs_detection/yolo12n_det11
+      hash: md5
+      md5: bead807bea10b238d1d4ddd9709d56c0.dir
+      size: 20046828
+      nfiles: 24
+  train_detection@yolo12n-22:
+    cmd: python scripts/train_detection.py --model yolo12n --variant 22
+    deps:
+    - path: data/processed/detection22
+      hash: md5
+      md5: eb6242abfce7e061870da4ca01baa61f.dir
+      size: 1073341074
+      nfiles: 19931
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo12n_22
+      hash: md5
+      md5: ce9cdc1e49eb84cd2eb83ef9dedae42a.dir
+      size: 2148091
+      nfiles: 5
+    - path: reports/metrics_yolo12n_22.json
+      hash: md5
+      md5: 50fac510a4d2c3d19affd8c6f82bf490
+      size: 161
+    - path: runs_detection/yolo12n_det22
+      hash: md5
+      md5: 91b7c372f8ccc2b310f18e9d7af84b16.dir
+      size: 20882032
+      nfiles: 24
+  train_detection@yolo26n-11:
+    cmd: python scripts/train_detection.py --model yolo26n --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: 3e77376cf7c77dece12f61a81eca0e7a.dir
+      size: 1073334010
+      nfiles: 19931
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo26n_11
+      hash: md5
+      md5: 30741df7b1927bab042503372bc4f6dd.dir
+      size: 1681161
+      nfiles: 5
+    - path: reports/metrics_yolo26n_11.json
+      hash: md5
+      md5: cbd3816ea649e7f2eae8c6906146836c
+      size: 161
+    - path: runs_detection/yolo26n_det11
+      hash: md5
+      md5: 14c37d3e2d2d4ab943d22d7991b19037.dir
+      size: 19769522
+      nfiles: 24
+  train_detection@yolo26n-22:
+    cmd: python scripts/train_detection.py --model yolo26n --variant 22
+    deps:
+    - path: data/processed/detection22
+      hash: md5
+      md5: eb6242abfce7e061870da4ca01baa61f.dir
+      size: 1073341074
+      nfiles: 19931
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo26n_22
+      hash: md5
+      md5: 611f429482e404a0549f6d1540d5a67f.dir
+      size: 2131725
+      nfiles: 5
+    - path: reports/metrics_yolo26n_22.json
+      hash: md5
+      md5: ce126f57fa23aff20674219418d016a0
+      size: 161
+    - path: runs_detection/yolo26n_det22
+      hash: md5
+      md5: 9b32d209082ca3094ffa715f5881121c.dir
+      size: 20566490
+      nfiles: 24
+  train_classifier@dinov2:
+    cmd: python scripts/train_classifier.py --model dinov2
+    deps:
+    - path: data/processed/classification
+      hash: md5
+      md5: 3a49948cf63e960f554e73f8cb2cf6f9.dir
+      size: 680466466
+      nfiles: 14702
+    - path: scripts/train_classifier.py
+      hash: md5
+      md5: cef101a4ef6544b0182921f45e930a9f
+      size: 15484
+    params:
+      params.yaml:
+        train_classifier:
+          models:
+            dinov2: vit_small_patch14_dinov2.lvd142m
+            efficientnet: efficientnet_b0
+            swin: swin_tiny_patch4_window7_224
+          epochs: 30
+          imgsz: 224
+          batch: 32
+          lr: 0.0001
+          weight_decay: 0.05
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/cls_dinov2
+      hash: md5
+      md5: 2329cd686d2bb6cfa347440194b5a8ea.dir
+      size: 86035
+      nfiles: 2
+    - path: reports/metrics_cls_dinov2.json
+      hash: md5
+      md5: bb69bb60a0c27234c5c3df1571a1b490
+      size: 233
+    - path: runs_classification/dinov2
+      hash: md5
+      md5: 2b219cad253dd3da81761af46dd045c1.dir
+      size: 173233635
+      nfiles: 5
+  train_classifier@efficientnet:
+    cmd: python scripts/train_classifier.py --model efficientnet
+    deps:
+    - path: data/processed/classification
+      hash: md5
+      md5: 3a49948cf63e960f554e73f8cb2cf6f9.dir
+      size: 680466466
+      nfiles: 14702
+    - path: scripts/train_classifier.py
+      hash: md5
+      md5: cef101a4ef6544b0182921f45e930a9f
+      size: 15484
+    params:
+      params.yaml:
+        train_classifier:
+          models:
+            dinov2: vit_small_patch14_dinov2.lvd142m
+            efficientnet: efficientnet_b0
+            swin: swin_tiny_patch4_window7_224
+          epochs: 30
+          imgsz: 224
+          batch: 32
+          lr: 0.0001
+          weight_decay: 0.05
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/cls_efficientnet
+      hash: md5
+      md5: f85dcfe1967693ad2dd5b836a6331b1b.dir
+      size: 84085
+      nfiles: 2
+    - path: reports/metrics_cls_efficientnet.json
+      hash: md5
+      md5: 8be45c2bb5486f175843b65bd4777079
+      size: 219
+    - path: runs_classification/efficientnet
+      hash: md5
+      md5: e3dc398125f696e16a85f51a077fef7e.dir
+      size: 32717587
+      nfiles: 5
+  train_classifier@swin:
+    cmd: python scripts/train_classifier.py --model swin
+    deps:
+    - path: data/processed/classification
+      hash: md5
+      md5: 3a49948cf63e960f554e73f8cb2cf6f9.dir
+      size: 680466466
+      nfiles: 14702
+    - path: scripts/train_classifier.py
+      hash: md5
+      md5: cef101a4ef6544b0182921f45e930a9f
+      size: 15484
+    params:
+      params.yaml:
+        train_classifier:
+          models:
+            dinov2: vit_small_patch14_dinov2.lvd142m
+            efficientnet: efficientnet_b0
+            swin: swin_tiny_patch4_window7_224
+          epochs: 30
+          imgsz: 224
+          batch: 32
+          lr: 0.0001
+          weight_decay: 0.05
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/cls_swin
+      hash: md5
+      md5: 0b5d3fe69f3cae5d91062adc4426493b.dir
+      size: 85850
+      nfiles: 2
+    - path: reports/metrics_cls_swin.json
+      hash: md5
+      md5: 727255c530c0f591cb754a90553b4eae
+      size: 226
+    - path: runs_classification/swin
+      hash: md5
+      md5: 692fd8818d422b527fc3a39a64dc94c2.dir
+      size: 220368326
+      nfiles: 5
