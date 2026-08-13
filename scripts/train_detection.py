@@ -175,6 +175,13 @@ def main(argv: list[str] | None = None) -> int:
                   file=sys.stderr)
 
     device = 0 if torch.cuda.is_available() else "cpu"
+    if device == "cpu" and not smoke and not os.environ.get("ALLOW_CPU_TRAIN"):
+        print("ERROR: CUDA unavailable but this is a FULL training run - a CPU\n"
+              "run would take days and usually means the torch build does not\n"
+              "match the GPU driver (check: python -c 'import torch;\n"
+              "print(torch.cuda.is_available())'). Set ALLOW_CPU_TRAIN=1 to\n"
+              "override deliberately.", file=sys.stderr)
+        return 2
     print(f"\ndevice: {device} | model: {weights} | variant: {variant} | "
           f"epochs: {epochs} | fraction: {fraction} | smoke: {smoke}")
 

@@ -120,6 +120,13 @@ def main(argv: list[str] | None = None) -> int:
 
     torch.manual_seed(seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if device.type == "cpu" and not args.smoke \
+            and not os.environ.get("ALLOW_CPU_TRAIN"):
+        print("ERROR: CUDA unavailable but this is a FULL training run - a CPU\n"
+              "run would take days and usually means the torch build does not\n"
+              "match the GPU driver. Set ALLOW_CPU_TRAIN=1 to override.",
+              file=sys.stderr)
+        return 2
 
     # -- data ----------------------------------------------------------------
     train_tf = transforms.Compose([
