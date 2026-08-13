@@ -30,6 +30,8 @@ import sys
 import os
 from pathlib import Path
 
+import yaml
+
 METRIC_KEYS = {
     "mAP50": "metrics/mAP50(B)",
     "mAP50_95": "metrics/mAP50-95(B)",
@@ -92,12 +94,21 @@ def main(argv: list[str] | None = None) -> int:
     batch = args.batch if args.batch is not None else int(td["batch"])
     seed = int(td["seed"])
 
-    data_yaml = Path(f"data/processed/detection{variant}/data.yaml")
-    if not data_yaml.is_file():
-        print(f"dataset file not found: {data_yaml}\n"
+    dataset_dir = Path(f"data/processed/detection{variant}")
+    if not (dataset_dir / "data.yaml").is_file():
+        print(f"dataset file not found: {dataset_dir / 'data.yaml'}\n"
               "run the prepare_split stage first (dvc repro prepare_split)",
               file=sys.stderr)
         return 2
+    # data.yaml is a DVC-tracked stage out, so its absolute 'path:' comes from
+    # whatever machine ran prepare_split. Rewrite it for THIS machine into a
+    # runtime copy (never touch the tracked file - that would dirty the stage).
+    data_cfg = yaml.safe_load((dataset_dir / "data.yaml").read_text(encoding="utf-8"))
+    data_cfg["path"] = dataset_dir.resolve().as_posix()
+    data_yaml = Path("runs_detection") / f"data_{variant}.local.yaml"
+    data_yaml.parent.mkdir(parents=True, exist_ok=True)
+    data_yaml.write_text(yaml.safe_dump(data_cfg, sort_keys=False),
+                         encoding="utf-8")
 
     try:
         import torch
