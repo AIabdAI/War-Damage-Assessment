@@ -15,11 +15,18 @@ jobs:
     # skip the push triggered by the README auto-commit below
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
-    container: ghcr.io/iterative/cml:latest
+    # NOTE: the ghcr.io/iterative/cml container ships Python 3.8, too old for
+    # our pins (pandas/torch/timm) - use a plain runner + setup actions instead
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0   # full history: metrics diffs + push back to master
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: iterative/setup-cml@v2
 
       - run: pip install -r requirements-train.txt
 
