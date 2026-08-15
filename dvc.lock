@@ -550,3 +550,207 @@ stages:
       md5: 692fd8818d422b527fc3a39a64dc94c2.dir
       size: 220368326
       nfiles: 5
+  train_detection_scaled@yolo12m-11:
+    cmd: python scripts/train_detection.py --model yolo12m --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: cc49d50f0016c40fb07abb03a8251e86.dir
+      size: 1071410187
+      nfiles: 19929
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          - yolo12m
+          - yolo26m
+          - yolo12s
+          - yolo26s
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo12m_11
+      hash: md5
+      md5: b7da124490b436d269ecc9c90a20053d.dir
+      size: 1677807
+      nfiles: 5
+    - path: reports/metrics_yolo12m_11.json
+      hash: md5
+      md5: 8b0af955362434696a5e8323e71557bf
+      size: 160
+    - path: runs_detection/yolo12m_det11
+      hash: md5
+      md5: c537e5c5ec7ad244078943e1dfc90684.dir
+      size: 90506526
+      nfiles: 24
+  train_detection_scaled@yolo26m-11:
+    cmd: python scripts/train_detection.py --model yolo26m --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: cc49d50f0016c40fb07abb03a8251e86.dir
+      size: 1071410187
+      nfiles: 19929
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          - yolo12m
+          - yolo26m
+          - yolo12s
+          - yolo26s
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo26m_11
+      hash: md5
+      md5: bf7f272939c4977fd0f391417f472236.dir
+      size: 1667255
+      nfiles: 5
+    - path: reports/metrics_yolo26m_11.json
+      hash: md5
+      md5: e7d8895062025f2e5b5d72dfffa788b0
+      size: 161
+    - path: runs_detection/yolo26m_det11
+      hash: md5
+      md5: a5bc923f9da6489e7ff0a63641acd620.dir
+      size: 97023705
+      nfiles: 24
+  train_detection_scaled@yolo12s-11:
+    cmd: python scripts/train_detection.py --model yolo12s --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: cc49d50f0016c40fb07abb03a8251e86.dir
+      size: 1071410187
+      nfiles: 19929
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          - yolo12m
+          - yolo26m
+          - yolo12s
+          - yolo26s
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo12s_11
+      hash: md5
+      md5: 5136c96285fd179f697a1d2a55d4f257.dir
+      size: 1725946
+      nfiles: 5
+    - path: reports/metrics_yolo12s_11.json
+      hash: md5
+      md5: 80788782bd07dc50ba50211864f1e766
+      size: 159
+    - path: runs_detection/yolo12s_det11
+      hash: md5
+      md5: 295f795d69b6105d7f3b45cefb704e06.dir
+      size: 46928508
+      nfiles: 24
+  train_detection_scaled@yolo26s-11:
+    cmd: python scripts/train_detection.py --model yolo26s --variant 11
+    deps:
+    - path: data/processed/detection11
+      hash: md5
+      md5: cc49d50f0016c40fb07abb03a8251e86.dir
+      size: 1071410187
+      nfiles: 19929
+    - path: reports/classes_map.json
+      hash: md5
+      md5: 126601d75b4d0b4091d69ba841465f9d
+      size: 973
+    - path: scripts/train_detection.py
+      hash: md5
+      md5: e1eaa071e323f1057faa83b24f1a58b7
+      size: 12197
+    params:
+      params.yaml:
+        train_detection:
+          models:
+          - yolo12n
+          - yolo26n
+          - yolo12m
+          - yolo26m
+          - yolo12s
+          - yolo26s
+          variants:
+          - 11
+          - 22
+          epochs: 200
+          imgsz: 640
+          batch: 16
+          seed: 42
+          smoke:
+            epochs: 1
+            fraction: 0.05
+    outs:
+    - path: reports/figures/yolo26s_11
+      hash: md5
+      md5: 7445793346916d9a205074f56bfb0e36.dir
+      size: 1693060
+      nfiles: 5
+    - path: reports/metrics_yolo26s_11.json
+      hash: md5
+      md5: ac5a138a45f564a84dd1436da919f51a
+      size: 161
+    - path: runs_detection/yolo26s_det11
+      hash: md5
+      md5: 2ceb41b30ea6536551e1e876fe2a577d.dir
+      size: 49620250
+      nfiles: 24

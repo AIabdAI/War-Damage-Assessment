@@ -30,6 +30,12 @@ jobs:
 
       - run: pip install -r requirements-train.txt
 
+      - name: Cache DVC data
+        uses: actions/cache@v4
+        with:
+          path: .dvc/cache
+          key: dvc-data-${{ hashFiles('data/raw.dvc', 'data/annotations.dvc') }}
+
       - name: Pull data
         env:
           GDRIVE_SA_JSON: ${{ secrets.GDRIVE_SA_JSON }}
@@ -37,7 +43,15 @@ jobs:
           echo "$GDRIVE_SA_JSON" > sa.json
           dvc remote modify --local storage gdrive_use_service_account true
           dvc remote modify --local storage gdrive_service_account_json_file_path sa.json
-          dvc pull data/raw.dvc data/annotations.dvc
+          # Drive throttles bulk API downloads (transient SSL EOFs) - retry;
+          # after the first green run the cache step above skips the download
+          ok=0
+          for i in 1 2 3 4 5; do
+            dvc pull -j 4 data/raw.dvc data/annotations.dvc && { ok=1; break; }
+            echo "pull attempt $i failed - retrying in 30s"
+            sleep 30
+          done
+          [ "$ok" = "1" ]
 
       - name: Data stages
         run: dvc repro validate prepare_split crop_classification
@@ -63,15 +77,17 @@ jobs:
           from pathlib import Path
 
           lines = ["## Smoke Metrics (1 epoch, 5% data — plumbing check)", ""]
-          lines += ["| model | classes | mAP50 | mAP50-95 | precision | recall |",
-                    "|---|---|---|---|---|---|"]
+          lines += ["| model | classes | run | mAP50 | mAP50-95 | precision | recall |",
+                    "|---|---|---|---|---|---|---|"]
           runs = []
           for p in sorted(Path("reports").glob("metrics_*.json")):
               m = json.loads(p.read_text(encoding="utf-8"))
               if "variant" not in m:   # classifier metrics: separate table below
                   continue
               runs.append(m)
-              lines.append("| {model} | {variant} | {mAP50} | {mAP50_95} "
+              # smoke rows come from this CI run; full rows are committed results
+              m["_run"] = "smoke" if m.get("smoke") else "full (committed)"
+              lines.append("| {model} | {variant} | {_run} | {mAP50} | {mAP50_95} "
                            "| {precision} | {recall} |".format(**m))
           lines.append("")
           lines.append("> Note: variant-22 mAP is not directly comparable to variant-11 mAP (different class sets). It is included as reference only; the real Approach A vs B comparison happens after the classifier stage.")
@@ -120,6 +136,9 @@ jobs:
         if: github.event_name == 'push'
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          # the smoke runs above overwrote reports/ in this workspace - restore
+          # the COMMITTED full-run metrics before regenerating the README table
+          git checkout -- reports/
           python scripts/update_readme_results.py
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

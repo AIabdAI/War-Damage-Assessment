@@ -37,7 +37,9 @@ crop:
   min_crop_px: 16         # skip crops smaller than this (either side, pixels)
 
 train_detection:
-  models: [yolo12n, yolo26n]
+  # nano models ran both schemes (Pod 1); m/s scales ran det11 only (Pod 2,
+  # train_detection_scaled stage). The CLI validates --model against this list.
+  models: [yolo12n, yolo26n, yolo12m, yolo26m, yolo12s, yolo26s]
   variants: [11, 22]      # 11 = base classes (Approach B), 22 = damage-encoded (Approach A)
   epochs: 200             # full run (A100); CI/laptop use --smoke
   imgsz: 640
