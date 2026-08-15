@@ -6,7 +6,7 @@ DVC + MLflow + CML MLOps stack.
 ## Latest Results
 
 <!-- latest-results:start -->
-_Generated: 2026-08-15T00:39_
+_Generated: 2026-08-15T17:53_
 
 | model | classes | mAP50 | mAP50-95 | precision | recall |
 |---|---|---|---|---|---|
