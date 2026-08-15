@@ -146,6 +146,9 @@ jobs:
           git add README.md
           if ! git diff --cached --quiet -- README.md; then
             git commit -m "docs: refresh Latest Results [skip ci]"
+            # smoke runs leave tracked files (dvc.lock, reports/) modified in
+            # this throwaway workspace - discard them or the rebase refuses
+            git checkout -- .
             git pull --rebase origin master
             git push
           fi
