@@ -6,7 +6,9 @@ DVC + MLflow + CML MLOps stack.
 ## Latest Results
 
 <!-- latest-results:start -->
-_Generated: 2026-08-15T17:53_
+_Generated: 2026-08-16T12:30_
+
+### Validation results (val split, model selection)
 
 | model | classes | mAP50 | mAP50-95 | precision | recall |
 |---|---|---|---|---|---|
@@ -28,6 +30,20 @@ _Generated: 2026-08-15T17:53_
 | dinov2 | vit_small_patch14_dinov2.lvd142m | 0.8717 | 0.8732 | 0.8522 | 0.8626 |
 | efficientnet | efficientnet_b0 | 0.946 | 0.9565 | 0.928 | 0.942 |
 | swin | swin_tiny_patch4_window7_224 | 0.9583 | 0.955 | 0.9568 | 0.9559 |
+
+### Held-out test results (finalists, evaluated once)
+
+| model | mAP50 | mAP50-95 | precision | recall | F1 |
+|---|---|---|---|---|---|
+| yolo26m_det11 | 0.7527 | 0.4912 | 0.8115 | 0.7086 | 0.7566 |
+| yolo12m_det11 | 0.7498 | 0.4816 | 0.7512 | 0.7245 | 0.7376 |
+| yolo26n_det22 | 0.6941 | 0.4562 | 0.756 | 0.659 | 0.7042 |
+
+| classifier | crops | accuracy | precision (damaged) | recall (damaged) | F1 (damaged) |
+|---|---|---|---|---|---|
+| swin | 2233 | 0.9481 | 0.9379 | 0.9522 | 0.945 |
+
+> Full analysis and per-class breakdown: [reports/comparison_report.md](reports/comparison_report.md)
 
 **Objects per split (11-class scheme):**
 

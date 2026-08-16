@@ -83,6 +83,37 @@ def classifier_table(reports_dir: Path) -> list[str]:
     return lines
 
 
+def test_tables(reports_dir: Path) -> list[str]:
+    """Held-out test-split tables (finalists), if evaluation has run."""
+    det = [m for p in sorted(reports_dir.glob("test_metrics_det_*.json"))
+           if (m := load_json(p)) is not None]
+    cls = [m for p in sorted(reports_dir.glob("test_metrics_cls_*.json"))
+           if (m := load_json(p)) is not None]
+    if not det and not cls:
+        return []
+    lines = ["", "### Held-out test results (finalists, evaluated once)", ""]
+    if det:
+        lines += ["| model | mAP50 | mAP50-95 | precision | recall | F1 |",
+                  "|---|---|---|---|---|---|"]
+        for m in sorted(det, key=lambda m: -m.get("mAP50", 0)):
+            cells = [str(m.get(k, "-")) for k in
+                     ("run", "mAP50", "mAP50_95", "precision", "recall", "f1")]
+            lines.append("| " + " | ".join(cells) + " |")
+        lines.append("")
+    if cls:
+        lines += ["| classifier | crops | accuracy | precision (damaged) | recall (damaged) | F1 (damaged) |",
+                  "|---|---|---|---|---|---|"]
+        for m in cls:
+            cells = [str(m.get(k, "-")) for k in
+                     ("model", "crops", "accuracy", "precision_damaged",
+                      "recall_damaged", "f1_damaged")]
+            lines.append("| " + " | ".join(cells) + " |")
+        lines.append("")
+    lines.append("> Full analysis and per-class breakdown: "
+                 "[reports/comparison_report.md](reports/comparison_report.md)")
+    return lines
+
+
 def split_counts(reports_dir: Path) -> list[str]:
     """Per-split total object counts (11-class scheme), if the report exists."""
     dist = load_json(reports_dir / "class_distribution.json")
@@ -111,8 +142,10 @@ def main() -> int:
         text = text.rstrip("\n") + f"\n\n## Latest Results\n\n{START}\n{END}\n"
 
     section = ["", f"_Generated: {datetime.now().isoformat(timespec='minutes')}_", ""]
+    section += ["### Validation results (val split, model selection)", ""]
     section += metrics_table(reports_dir)
     section += classifier_table(reports_dir)
+    section += test_tables(reports_dir)
     section += split_counts(reports_dir)
     section.append("")
 
