@@ -1,0 +1,86 @@
+schema: '2.0'
+stages:
+  eval_detection@yolo12m_det11:
+    cmd: python scripts/evaluate_detection.py --run yolo12m_det11
+    deps:
+    - path: runs_detection/yolo12m_det11/weights/best.pt
+      hash: md5
+      md5: a88c59275d363af3b4c857cc8b816dbc
+      size: 40808878
+    - path: scripts/evaluate_detection.py
+      hash: md5
+      md5: f639f7e9e068715dc5d546aec4972b19
+      size: 5902
+    outs:
+    - path: reports/figures/test_yolo12m_det11
+      hash: md5
+      md5: 11ecbce78e636825dc7236357a478946.dir
+      size: 1322556
+      nfiles: 4
+    - path: reports/test_metrics_det_yolo12m_det11.json
+      hash: md5
+      md5: 5540ccc09b4b3ae91a003b88ce089d5e
+      size: 1324
+  eval_detection@yolo26m_det11:
+    cmd: python scripts/evaluate_detection.py --run yolo26m_det11
+    deps:
+    - path: runs_detection/yolo26m_det11/weights/best.pt
+      hash: md5
+      md5: fe54348112dfccae4a787bd0fd92e63f
+      size: 44080857
+    - path: scripts/evaluate_detection.py
+      hash: md5
+      md5: f639f7e9e068715dc5d546aec4972b19
+      size: 5902
+    outs:
+    - path: reports/figures/test_yolo26m_det11
+      hash: md5
+      md5: 301e89e5370a02883210f10f559f2ffb.dir
+      size: 1317734
+      nfiles: 4
+    - path: reports/test_metrics_det_yolo26m_det11.json
+      hash: md5
+      md5: d76ca4595faeeb37ff127d249380cb5b
+      size: 1325
+  eval_detection@yolo26n_det22:
+    cmd: python scripts/evaluate_detection.py --run yolo26n_det22
+    deps:
+    - path: runs_detection/yolo26n_det22/weights/best.pt
+      hash: md5
+      md5: 6dc9ec873a1d02821c5d2bea88619144
+      size: 5432197
+    - path: scripts/evaluate_detection.py
+      hash: md5
+      md5: f639f7e9e068715dc5d546aec4972b19
+      size: 5902
+    outs:
+    - path: reports/figures/test_yolo26n_det22
+      hash: md5
+      md5: f3336ab350c580f9873c33c167220c9c.dir
+      size: 1702587
+      nfiles: 4
+    - path: reports/test_metrics_det_yolo26n_det22.json
+      hash: md5
+      md5: 75509e910d2f54ac8a4847ab9e7e6531
+      size: 2539
+  eval_classifier:
+    cmd: python scripts/evaluate_classifier.py --model swin
+    deps:
+    - path: runs_classification/swin/weights/best.pt
+      hash: md5
+      md5: 5256f6a4d7ccd0f30a91be074a729394
+      size: 110140492
+    - path: scripts/evaluate_classifier.py
+      hash: md5
+      md5: 66abd36dc045b6a3bb551cbe4aae6471
+      size: 5897
+    outs:
+    - path: reports/figures/test_cls_swin
+      hash: md5
+      md5: dee47cbdb4452635086934a95d5db223.dir
+      size: 15065
+      nfiles: 1
+    - path: reports/test_metrics_cls_swin.json
+      hash: md5
+      md5: b5797682338d197edb751cae3bbf7d78
+      size: 304

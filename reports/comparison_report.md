@@ -143,16 +143,71 @@ Caveats, stated honestly:
 | cls efficientnet | [results](figures/cls_efficientnet/results.png) | [matrix](figures/cls_efficientnet/confusion_matrix.png) | — | — |
 | cls dinov2 | [results](figures/cls_dinov2/results.png) | [matrix](figures/cls_dinov2/confusion_matrix.png) | — | — |
 
+## Test-split results (held-out, evaluated once)
+
+The 70/15/15 split's **test set** (1,495 images, 2,233 objects / crops) was
+never touched during training or model selection. The finalists were
+evaluated on it exactly once, via the separate evaluation pipeline
+(`evaluation/dvc.yaml`, MLflow experiment `war-damage-test-eval`):
+
+| finalist | mAP50 | mAP50-95 | precision | recall | F1 |
+|---|---|---|---|---|---|
+| **yolo26m · det11** | **0.753** | **0.491** | **0.812** | 0.709 | **0.757** |
+| yolo12m · det11 | 0.750 | 0.482 | 0.751 | **0.725** | 0.738 |
+| yolo26n · det22 | 0.694 | 0.456 | 0.756 | 0.659 | 0.704 |
+
+| classifier | crops | accuracy | precision (damaged) | recall (damaged) | F1 (damaged) |
+|---|---|---|---|---|---|
+| swin | 2,233 | 0.948 | 0.938 | 0.952 | 0.945 |
+
+What the held-out set changed:
+
+- **The detector ranking flips**: yolo26m edges yolo12m on test mAP50
+  (0.753 vs 0.750 — within noise) and wins clearly on precision (+0.061)
+  and F1 (+0.019). Combined with its val-split wins on mAP50-95 and
+  precision, **yolo26m-det11 is the better deployment detector**.
+- **Plan B generalized better than validation suggested**: yolo26n-det22
+  scored 0.694 on test vs 0.669 on val, while Swin came in slightly under
+  its val accuracy (0.948 vs 0.958). The honest final margin is therefore
+  narrower: Plan A effective test mAP50 ≈ 0.753 × 0.948 = **0.714** vs
+  Plan B's measured **0.694** — **+0.020 (+2.8 % relative)**, not the
+  +0.049 the validation numbers implied. Test break-even: 0.694 / 0.753 =
+  92.2 %; Swin's 94.8 % clears it by 2.6 points.
+- **Plan A still wins on quality** — on both splits, independently — but
+  the gap is modest, which strengthens the case for Plan B in deployments
+  where single-model simplicity matters.
+
+Per-class test AP50 of the recommended detector (yolo26m · det11):
+
+| class | AP50 | P | R | | class | AP50 | P | R |
+|---|---|---|---|---|---|---|---|---|
+| Staircase | 0.933 | 0.915 | 0.866 | | Sink | 0.684 | 0.807 | 0.630 |
+| Toilet | 0.915 | 0.879 | 0.836 | | Column | 0.655 | 0.733 | 0.645 |
+| Light_Fixture | 0.888 | 0.913 | 0.848 | | Floor_Tiles | 0.647 | 0.711 | 0.647 |
+| Door | 0.835 | 0.901 | 0.787 | | Wall_Cabinet | 0.643 | 0.719 | 0.594 |
+| Window | 0.823 | 0.846 | 0.770 | | Air_Conditioner | 0.633 | 0.766 | 0.583 |
+| | | | | | Brick_Wall | 0.623 | 0.736 | 0.589 |
+
+Fixtures with distinctive shapes (staircases, toilets, light fixtures) detect
+excellently; large diffuse or under-represented classes (brick walls, wall
+cabinets, air conditioners) are the improvement targets — more training data
+for those classes would move the needle most.
+
+![test confusion — yolo26m](figures/test_yolo26m_det11/confusion_matrix_normalized.png)
+![test confusion — swin](figures/test_cls_swin/confusion_matrix.png)
+
 ## Conclusion & recommendation
 
-Deploy **Plan A: yolo12m-det11 + Swin-Tiny** (effective mAP50 ≈ 0.718,
-effective recall ≈ 0.666). Where inference cost matters more than the last
-point of quality, **yolo12s-det11 + Swin** delivers ~98 % of that at a
-fraction of the compute; where false positives are the dominant concern,
-**yolo26m-det11** is the better detector half. Recommended follow-ups:
-per-class test-split error analysis, and — only if Plan B must be revisited —
-a single yolo12m-det22 run to replace the extrapolated caveat with a
-measurement.
+Deploy **Plan A: yolo26m-det11 + Swin-Tiny** — the held-out test evaluation
+(the deciding evidence) puts it first on mAP50, mAP50-95, precision, and F1,
+with an effective test mAP50 of ≈ 0.714 vs 0.694 for the best single-stage
+model. yolo12m-det11 is a near-tie on mAP50 with better recall — a valid
+alternative where missed detections cost more than false positives. Where
+inference cost dominates, the s-scale detectors deliver ~98 % of the quality
+at a fraction of the compute. Remaining follow-ups: targeted data collection
+for the weak classes (Brick_Wall, Wall_Cabinet, Air_Conditioner), and — only
+if Plan B must be revisited — a single m-scale det22 run to replace the
+extrapolated caveat with a measurement.
 
 Note on provenance: Pod 2 also re-ran the three classifiers as part of its
 pipeline; those near-duplicate runs were deliberately not merged — the
