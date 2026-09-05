@@ -1,0 +1,6 @@
+outs:
+- md5: e8713b22e0717e2ccae817995b298a6d.dir
+  size: 15170454
+  nfiles: 36
+  hash: md5
+  path: runs_evaluation

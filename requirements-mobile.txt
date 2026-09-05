@@ -1,0 +1,9 @@
+# Model compression + distribution (dissertation section 3.6 - edge deployment).
+# Install on top of requirements-train.txt:
+#   pip install -r requirements-train.txt -r requirements-mobile.txt
+onnx==1.22.0
+onnxruntime==1.29.0
+onnxslim                 # graph simplification during ultralytics ONNX export
+onnxconverter-common     # FP16 weight conversion
+fastapi==0.141.1         # model-distribution API
+uvicorn==0.52.1

@@ -1,0 +1,44 @@
+# SEPARATE compression pipeline (dissertation section 3.6 - edge deployment).
+#
+#     cd compression && dvc repro --single-item
+#
+# --single-item keeps DVC from walking upstream into the training stages:
+# the trained checkpoints are inputs here, pinned by the training pipeline's
+# own lock. The ORIGINAL models are never modified - every artefact is written
+# under models_mobile/.
+#
+# MLflow experiment: war-damage-compression (one run per model x variant x split).
+# All stages run from the repository root (wdir: ..).
+stages:
+  compress:
+    wdir: ..
+    cmd: python scripts/compress_models.py --all
+    deps:
+      - scripts/compress_models.py
+      - runs_detection/yolo26m_det11/weights/best.pt
+      - runs_detection/yolo12s_det11/weights/best.pt
+      - runs_classification/swin/weights/best.pt
+      - runs_classification/efficientnet/weights/best.pt
+    outs:
+      - models_mobile
+
+  evaluate_compressed:
+    wdir: ..
+    cmd: python scripts/evaluate_compressed.py --all --splits val,test
+    deps:
+      - scripts/evaluate_compressed.py
+      - models_mobile
+    outs:
+      - reports/compression:
+          cache: false
+
+  build_registry:
+    wdir: ..
+    cmd: python serve/build_registry.py --production int8_static
+    deps:
+      - serve/build_registry.py
+      - models_mobile
+      - reports/compression
+    outs:
+      - serve/model_registry.json:
+          cache: false

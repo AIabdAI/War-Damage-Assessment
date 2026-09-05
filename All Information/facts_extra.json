@@ -1,0 +1,34 @@
+{
+  "provenance": {
+    "team photos (MB_*)": 6521,
+    "other/own photos": 2814,
+    "roboflow/web-sourced": 472,
+    "own video frames (VID_*)": 157
+  },
+  "timeline": {
+    "first_commit": "2026-06-22 initial project structure with Docker and DVC",
+    "annotation_span": "2026-07-05 to 2026-07-12 (16 sprint commits, 4 annotators)",
+    "training": "nano matrix + classifiers 2026-08-13; s/m scales 2026-08-14",
+    "test_eval": "2026-08-16 (single pass)"
+  },
+  "swin_test_acc_ci95": [
+    0.9381,
+    0.9565
+  ],
+  "swin_test_recall_ci95": [
+    0.9376,
+    0.9636
+  ],
+  "swin_test_n": 2233,
+  "yolo26m": {
+    "params_M": 21.8,
+    "gflops": 68.2,
+    "weight_MB": 42.0,
+    "ms_per_image_rtx3050ti": 58.1
+  },
+  "swin": {
+    "params_M": 27.5,
+    "weight_MB": 105.0,
+    "ms_per_crop_rtx3050ti": 40.1
+  }
+}

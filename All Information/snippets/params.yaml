@@ -1,0 +1,65 @@
+# params.yaml — single source of truth
+data:
+  raw_images: data/raw            # flat structure
+  labels: data/annotations/labels
+  processed: data/processed
+
+classes:
+  num_classes: 11
+  names:
+    0: Brick_Wall
+    1: Column
+    2: Staircase
+    3: Floor_Tiles
+    4: Sink
+    5: Wall_Cabinet
+    6: Window
+    7: Door
+    8: Air_Conditioner
+    9: Light_Fixture
+    10: Toilet
+
+train_smoke:
+  epochs: 10
+  imgsz: 640
+  models: [yolo12n, yolo26n]
+
+split:
+  ratios:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+  seed: 42
+  min_objects_warn: 30    # warn if a 22-scheme class has fewer training objects
+
+crop:
+  padding_pct: 0.10       # bbox padding before cropping, fraction of box size
+  min_crop_px: 16         # skip crops smaller than this (either side, pixels)
+
+train_detection:
+  # nano models ran both schemes (Pod 1); m/s scales ran det11 only (Pod 2,
+  # train_detection_scaled stage). The CLI validates --model against this list.
+  models: [yolo12n, yolo26n, yolo12m, yolo26m, yolo12s, yolo26s]
+  variants: [11, 22]      # 11 = base classes (Approach B), 22 = damage-encoded (Approach A)
+  epochs: 200             # full run (A100); CI/laptop use --smoke
+  imgsz: 640
+  batch: 16
+  seed: 42
+  smoke:
+    epochs: 1
+    fraction: 0.05        # fraction of train set used in smoke mode
+
+train_classifier:         # Approach B stage 2: damaged/undamaged crop classifiers
+  models:                 # short name -> timm backbone (pretrained)
+    dinov2: vit_small_patch14_dinov2.lvd142m
+    efficientnet: efficientnet_b0
+    swin: swin_tiny_patch4_window7_224
+  epochs: 30              # full run (A100); CI/laptop use --smoke
+  imgsz: 224
+  batch: 32
+  lr: 0.0001
+  weight_decay: 0.05
+  seed: 42
+  smoke:
+    epochs: 1
+    fraction: 0.05        # fraction of train AND val crops used in smoke mode

@@ -1,0 +1,31 @@
+schema: '2.0'
+stages:
+  compress:
+    cmd: python scripts/compress_models.py --all
+    deps:
+    - path: runs_classification/efficientnet/weights/best.pt
+      hash: md5
+      md5: 2627b1faaa5a264990cd58326217609f
+      size: 16316005
+    - path: runs_classification/swin/weights/best.pt
+      hash: md5
+      md5: 5256f6a4d7ccd0f30a91be074a729394
+      size: 110140492
+    - path: runs_detection/yolo12s_det11/weights/best.pt
+      hash: md5
+      md5: 5dc5c12e6e58c1f618f2a9e577f0baac
+      size: 18968410
+    - path: runs_detection/yolo26m_det11/weights/best.pt
+      hash: md5
+      md5: fe54348112dfccae4a787bd0fd92e63f
+      size: 44080857
+    - path: scripts/compress_models.py
+      hash: md5
+      md5: 704349006fb4baf2c47d945c41181145
+      size: 12126
+    outs:
+    - path: models_mobile
+      hash: md5
+      md5: d15cadf33d780e08ef5eb9c0ca66ed41.dir
+      size: 505655123
+      nfiles: 20

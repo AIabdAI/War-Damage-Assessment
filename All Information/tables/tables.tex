@@ -1,0 +1,91 @@
+% LaTeX versions of the main tables (numbers verified against reports/*.json)
+% Drop into the dissertation; adjust caption/label numbering to your chapters.
+
+% ---- Detection results, validation split -------------------------------
+\begin{table}[htbp]
+\centering
+\caption{Detection results on the validation split (200 epochs, NVIDIA A100).}
+\label{tab:det-val}
+\begin{tabular}{llccccc}
+\hline
+Model & Scheme & mAP@0.5 & mAP@0.5:0.95 & Precision & Recall & F1 \\
+\hline
+YOLO12m & det11 & \textbf{0.750} & 0.488 & 0.804 & \textbf{0.695} & 0.746 \\
+YOLO26m & det11 & 0.738 & \textbf{0.490} & \textbf{0.814} & 0.693 & \textbf{0.748} \\
+YOLO12s & det11 & 0.738 & 0.483 & 0.768 & 0.687 & 0.725 \\
+YOLO26s & det11 & 0.733 & 0.486 & 0.801 & 0.685 & 0.738 \\
+YOLO12n & det11 & 0.725 & 0.474 & 0.784 & 0.689 & 0.734 \\
+YOLO26n & det11 & 0.721 & 0.467 & 0.754 & 0.684 & 0.717 \\
+YOLO26n & det22 & 0.669 & 0.435 & 0.732 & 0.633 & 0.679 \\
+YOLO12n & det22 & 0.668 & 0.432 & 0.741 & 0.617 & 0.674 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---- Damage classifiers, validation split ------------------------------
+\begin{table}[htbp]
+\centering
+\caption{Damage classifier results on the validation crops (30 epochs).}
+\label{tab:cls-val}
+\begin{tabular}{llccc}
+\hline
+Model & Backbone & F1 (damaged) & Accuracy & Best epoch \\
+\hline
+Swin-Tiny & swin\_tiny\_patch4\_window7\_224 & \textbf{0.956} & \textbf{0.958} & 19 \\
+EfficientNet-B0 & efficientnet\_b0 & 0.942 & 0.946 & 25 \\
+DINOv2-S & vit\_small\_patch14\_dinov2 & 0.863 & 0.872 & 28 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---- Held-out test results ---------------------------------------------
+\begin{table}[htbp]
+\centering
+\caption{Held-out test-split results (finalists, evaluated once).}
+\label{tab:test}
+\begin{tabular}{lccccc}
+\hline
+Finalist & mAP@0.5 & mAP@0.5:0.95 & Precision & Recall & F1 \\
+\hline
+YOLO26m (det11) & \textbf{0.753} & \textbf{0.491} & \textbf{0.812} & 0.709 & \textbf{0.757} \\
+YOLO12m (det11) & 0.750 & 0.482 & 0.751 & \textbf{0.725} & 0.738 \\
+YOLO26n (det22) & 0.694 & 0.456 & 0.756 & 0.659 & 0.704 \\
+\hline
+Swin-Tiny (classifier) & \multicolumn{5}{c}{accuracy 0.948, F1(damaged) 0.945 on 2{,}233 crops} \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---- Per-class test AP50, recommended detector -------------------------
+\begin{table}[htbp]
+\centering
+\caption{Per-class test AP@0.5 of the recommended detector (YOLO26m, det11).}
+\label{tab:per-class}
+\begin{tabular}{lccc|lccc}
+\hline
+Class & AP@0.5 & P & R & Class & AP@0.5 & P & R \\
+\hline
+Staircase & 0.933 & 0.915 & 0.866 & Sink & 0.684 & 0.807 & 0.630 \\
+Toilet & 0.915 & 0.879 & 0.836 & Column & 0.655 & 0.733 & 0.645 \\
+Light\_Fixture & 0.888 & 0.913 & 0.848 & Floor\_Tiles & 0.647 & 0.711 & 0.647 \\
+Door & 0.835 & 0.901 & 0.787 & Wall\_Cabinet & 0.643 & 0.719 & 0.594 \\
+Window & 0.823 & 0.846 & 0.770 & Air\_Conditioner & 0.633 & 0.766 & 0.583 \\
+ & & & & Brick\_Wall & 0.623 & 0.736 & 0.589 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ---- Targets vs achieved ------------------------------------------------
+\begin{table}[htbp]
+\centering
+\caption{Proposal performance targets versus achieved results (held-out test).}
+\label{tab:targets}
+\begin{tabular}{lll}
+\hline
+Target & Achieved & Status \\
+\hline
+Detection mAP@0.5 $\geq$ 0.75 & 0.753 (YOLO26m, det11) & met \\
+Classification F1 $\geq$ 0.75 & 0.945 (Swin-Tiny, damaged) & exceeded \\
+\hline
+\end{tabular}
+\end{table}

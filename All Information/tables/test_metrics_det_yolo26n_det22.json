@@ -1,0 +1,122 @@
+{
+  "run": "yolo26n_det22",
+  "variant": 22,
+  "split": "test",
+  "mAP50": 0.6941,
+  "mAP50_95": 0.4562,
+  "precision": 0.756,
+  "recall": 0.659,
+  "f1": 0.7042,
+  "per_class": {
+    "Brick_Wall": {
+      "ap50": 0.69,
+      "precision": 0.7438,
+      "recall": 0.6822
+    },
+    "Column": {
+      "ap50": 0.7794,
+      "precision": 0.8849,
+      "recall": 0.7132
+    },
+    "Staircase": {
+      "ap50": 0.9292,
+      "precision": 0.9175,
+      "recall": 0.8706
+    },
+    "Floor_Tiles": {
+      "ap50": 0.6912,
+      "precision": 0.7202,
+      "recall": 0.7368
+    },
+    "Sink": {
+      "ap50": 0.6795,
+      "precision": 0.7092,
+      "recall": 0.6009
+    },
+    "Wall_Cabinet": {
+      "ap50": 0.6766,
+      "precision": 0.6676,
+      "recall": 0.6622
+    },
+    "Window": {
+      "ap50": 0.8697,
+      "precision": 0.8487,
+      "recall": 0.8014
+    },
+    "Door": {
+      "ap50": 0.8932,
+      "precision": 0.8821,
+      "recall": 0.8354
+    },
+    "Air_Conditioner": {
+      "ap50": 0.1971,
+      "precision": 0.7546,
+      "recall": 0.1667
+    },
+    "Light_Fixture": {
+      "ap50": 0.8391,
+      "precision": 0.8877,
+      "recall": 0.8214
+    },
+    "Toilet": {
+      "ap50": 0.8993,
+      "precision": 0.7737,
+      "recall": 0.8529
+    },
+    "Brick_Wall_damaged": {
+      "ap50": 0.5707,
+      "precision": 0.6961,
+      "recall": 0.5292
+    },
+    "Column_damaged": {
+      "ap50": 0.5241,
+      "precision": 0.572,
+      "recall": 0.4948
+    },
+    "Staircase_damaged": {
+      "ap50": 0.8452,
+      "precision": 0.8169,
+      "recall": 0.7692
+    },
+    "Floor_Tiles_damaged": {
+      "ap50": 0.5698,
+      "precision": 0.7616,
+      "recall": 0.5238
+    },
+    "Sink_damaged": {
+      "ap50": 0.7148,
+      "precision": 0.7287,
+      "recall": 0.625
+    },
+    "Wall_Cabinet_damaged": {
+      "ap50": 0.5732,
+      "precision": 0.7469,
+      "recall": 0.5185
+    },
+    "Window_damaged": {
+      "ap50": 0.6563,
+      "precision": 0.6842,
+      "recall": 0.6667
+    },
+    "Door_damaged": {
+      "ap50": 0.5948,
+      "precision": 0.7035,
+      "recall": 0.5858
+    },
+    "Air_Conditioner_damaged": {
+      "ap50": 0.5815,
+      "precision": 0.5539,
+      "recall": 0.6667
+    },
+    "Light_Fixture_damaged": {
+      "ap50": 0.9161,
+      "precision": 0.9536,
+      "recall": 0.8481
+    },
+    "Toilet_damaged": {
+      "ap50": 0.5796,
+      "precision": 0.6248,
+      "recall": 0.526
+    }
+  }
+}

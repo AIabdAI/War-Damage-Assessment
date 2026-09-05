@@ -1,0 +1,67 @@
+{
+  "run": "yolo12m_det11",
+  "variant": 11,
+  "split": "test",
+  "mAP50": 0.7498,
+  "mAP50_95": 0.4816,
+  "precision": 0.7512,
+  "recall": 0.7245,
+  "f1": 0.7376,
+  "per_class": {
+    "Brick_Wall": {
+      "ap50": 0.6282,
+      "precision": 0.6726,
+      "recall": 0.629
+    },
+    "Column": {
+      "ap50": 0.6683,
+      "precision": 0.6789,
+      "recall": 0.6566
+    },
+    "Staircase": {
+      "ap50": 0.9259,
+      "precision": 0.9031,
+      "recall": 0.9021
+    },
+    "Floor_Tiles": {
+      "ap50": 0.66,
+      "precision": 0.6609,
+      "recall": 0.6828
+    },
+    "Sink": {
+      "ap50": 0.6884,
+      "precision": 0.7409,
+      "recall": 0.6452
+    },
+    "Wall_Cabinet": {
+      "ap50": 0.6493,
+      "precision": 0.6542,
+      "recall": 0.6436
+    },
+    "Window": {
+      "ap50": 0.8175,
+      "precision": 0.7633,
+      "recall": 0.7887
+    },
+    "Door": {
+      "ap50": 0.8451,
+      "precision": 0.8468,
+      "recall": 0.7862
+    },
+    "Air_Conditioner": {
+      "ap50": 0.5822,
+      "precision": 0.6142,
+      "recall": 0.5326
+    },
+    "Light_Fixture": {
+      "ap50": 0.8789,
+      "precision": 0.893,
+      "recall": 0.8523
+    },
+    "Toilet": {
+      "ap50": 0.9038,
+      "precision": 0.8357,
+      "recall": 0.8506
+    }
+  }
+}

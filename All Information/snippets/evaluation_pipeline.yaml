@@ -1,0 +1,37 @@
+# SEPARATE evaluation pipeline - deliberately outside the training pipeline
+# so the held-out TEST split is only touched on purpose:
+#
+#     cd evaluation && dvc repro --single-item
+#
+# Scope: the finalists only (every test evaluation spends statistical
+# credibility of the held-out set). MLflow experiment: war-damage-test-eval.
+# All stages run from the repository root (wdir: ..).
+stages:
+  eval_detection:
+    matrix:
+      run: [yolo12m_det11, yolo26m_det11, yolo26n_det22]
+    wdir: ..
+    cmd: python scripts/evaluate_detection.py --run ${item.run}
+    deps:
+      - scripts/evaluate_detection.py
+      - runs_detection/${item.run}/weights/best.pt
+      # note: the detection dataset itself is intentionally NOT a dep here -
+      # it is pinned by the training pipeline's lock; eval re-runs are
+      # triggered by new weights or a changed evaluator, not data churn
+    outs:
+      - reports/test_metrics_det_${item.run}.json:
+          cache: false
+      - reports/figures/test_${item.run}:
+          cache: false
+
+  eval_classifier:
+    wdir: ..
+    cmd: python scripts/evaluate_classifier.py --model swin
+    deps:
+      - scripts/evaluate_classifier.py
+      - runs_classification/swin/weights/best.pt
+    outs:
+      - reports/test_metrics_cls_swin.json:
+          cache: false
+      - reports/figures/test_cls_swin:
+          cache: false

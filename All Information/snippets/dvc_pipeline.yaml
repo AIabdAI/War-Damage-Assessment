@@ -1,0 +1,113 @@
+stages:
+  validate:
+    cmd: python verify_labels.py --labels data/annotations/labels --num-classes 11 --report reports/validation/report.md
+    deps:
+      - verify_labels.py
+      - data/annotations
+    params:
+      - classes.num_classes
+    outs:
+      - reports/validation:
+          cache: false
+
+  prepare_split:
+    cmd: python scripts/prepare_split.py
+    deps:
+      - scripts/prepare_split.py
+      - scripts/label_common.py
+      - data/raw
+      - data/annotations
+    params:
+      - classes
+      - data
+      - split
+    outs:
+      - data/processed/detection11
+      - data/processed/detection22
+      - reports/split_manifest.json:
+          cache: false
+      - reports/classes_map.json:
+          cache: false
+      - reports/split_skipped.json:
+          cache: false
+      - reports/class_distribution.json:
+          cache: false
+
+  crop_classification:
+    cmd: python scripts/crop_classification.py
+    deps:
+      - scripts/crop_classification.py
+      - scripts/label_common.py
+      - data/raw
+      - data/annotations
+      - reports/split_manifest.json
+    params:
+      - classes
+      - crop
+      - data
+    outs:
+      - data/processed/classification
+      - reports/crop_skipped.json:
+          cache: false
+      - reports/classification_stats.json:
+          cache: false
+
+  train_detection:
+    matrix:
+      model: [yolo12n, yolo26n]
+      variant: ['11', '22']
+    cmd: python scripts/train_detection.py --model ${item.model} --variant ${item.variant}
+    deps:
+      - scripts/train_detection.py
+      - data/processed/detection${item.variant}
+      - reports/classes_map.json
+    params:
+      - train_detection
+    outs:
+      - runs_detection/${item.model}_det${item.variant}
+    plots:
+      - reports/figures/${item.model}_${item.variant}:
+          cache: false
+    metrics:
+      - reports/metrics_${item.model}_${item.variant}.json:
+          cache: false
+
+  # larger detection models (Pod 2): det11 scheme only - kept as a separate
+  # stage so the nano matrix above (and its lock entries) stay intact
+  train_detection_scaled:
+    matrix:
+      model: [yolo12m, yolo26m, yolo12s, yolo26s]
+      variant: ['11']
+    cmd: python scripts/train_detection.py --model ${item.model} --variant ${item.variant}
+    deps:
+      - scripts/train_detection.py
+      - data/processed/detection${item.variant}
+      - reports/classes_map.json
+    params:
+      - train_detection
+    outs:
+      - runs_detection/${item.model}_det${item.variant}
+    plots:
+      - reports/figures/${item.model}_${item.variant}:
+          cache: false
+    metrics:
+      - reports/metrics_${item.model}_${item.variant}.json:
+          cache: false
+
+  train_classifier:
+    matrix:
+      model: [dinov2, efficientnet, swin]
+    cmd: python scripts/train_classifier.py --model ${item.model}
+    deps:
+      - scripts/train_classifier.py
+      - data/processed/classification
+    params:
+      - train_classifier
+    outs:
+      - runs_classification/${item.model}
+    plots:
+      - reports/figures/cls_${item.model}:
+          cache: false
+    metrics:
+      - reports/metrics_cls_${item.model}.json:
+          cache: false

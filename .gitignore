@@ -53,3 +53,9 @@ sa.json
 /runs_classification
 /mlflow_pod1.db
 /mlflow_pod2.db
+/runs_evaluation
+/runs_compression
+
+# local archive dumps (large, regenerable)
+*.zip
+/models_mobile
