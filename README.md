@@ -6,7 +6,7 @@ DVC + MLflow + CML MLOps stack.
 ## Latest Results
 
 <!-- latest-results:start -->
-_Generated: 2026-08-16T10:09_
+_Generated: 2026-09-05T20:36_
 
 ### Validation results (val split, model selection)
 
