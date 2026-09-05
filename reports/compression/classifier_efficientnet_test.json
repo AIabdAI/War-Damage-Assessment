@@ -1,0 +1,50 @@
+{
+  "kind": "classifier",
+  "name": "efficientnet",
+  "split": "test",
+  "baseline_pytorch": {},
+  "variants": {
+    "fp32": {
+      "file": "fp32.onnx",
+      "size_mb": 15.27,
+      "technique": "ONNX export (FP32 baseline)",
+      "export_s": 8.8,
+      "compression_ratio_vs_fp32": 1.0,
+      "crops": 2233,
+      "accuracy": 0.9413,
+      "precision_damaged": 0.9473,
+      "recall_damaged": 0.9265,
+      "f1_damaged": 0.9367,
+      "confusion": {
+        "tp": 970,
+        "fp": 54,
+        "fn": 77,
+        "tn": 1132
+      },
+      "cpu_latency_ms": 7.4,
+      "eval_seconds": 97.0
+    },
+    "int8_static": {
+      "file": "int8_static.onnx",
+      "size_mb": 4.59,
+      "technique": "post-training static quantisation (QDQ)",
+      "quant_type": "QUInt8 activations / QInt8 per-channel weights",
+      "calibration": "128 TRAIN images, MinMax",
+      "compression_ratio_vs_fp32": 3.33,
+      "crops": 2233,
+      "accuracy": 0.7734,
+      "precision_damaged": 0.8385,
+      "recall_damaged": 0.6399,
+      "f1_damaged": 0.7259,
+      "confusion": {
+        "tp": 670,
+        "fp": 129,
+        "fn": 377,
+        "tn": 1057
+      },
+      "cpu_latency_ms": 7.2,
+      "eval_seconds": 23.6,
+      "delta_accuracy_vs_fp32": -0.1679
+    }
+  }
+}

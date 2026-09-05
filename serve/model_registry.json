@@ -1,0 +1,994 @@
+{
+  "registry_version": "1.0",
+  "generated_at": "2026-09-05T20:35:42+00:00",
+  "release": "1.0.0",
+  "detection_classes": [
+    "Brick_Wall",
+    "Column",
+    "Staircase",
+    "Floor_Tiles",
+    "Sink",
+    "Wall_Cabinet",
+    "Window",
+    "Door",
+    "Air_Conditioner",
+    "Light_Fixture",
+    "Toilet"
+  ],
+  "models": [
+    {
+      "model_id": "yolo12s_det11-fp32",
+      "kind": "detector",
+      "base_model": "yolo12s_det11",
+      "variant": "fp32",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "ONNX export (FP32 baseline)",
+      "quantization_type": "none",
+      "size_bytes": 37281981,
+      "size_mb": 35.55,
+      "compression_ratio_vs_fp32": 1.0,
+      "sha256": "89419b380c67a6c5ed730b10d2d4582a0eda7600160590bcff38e892f91c08f1",
+      "path": "models_mobile/detector/yolo12s_det11/fp32.onnx",
+      "download_url": "/api/v1/models/yolo12s_det11-fp32/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          15,
+          8400
+        ],
+        "layout": "[batch, 4 + num_classes, anchors]",
+        "nms_included": false,
+        "postprocess": "transpose, decode boxes, then apply NMS on device"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "yolo12s_det11-fp16",
+      "kind": "detector",
+      "base_model": "yolo12s_det11",
+      "variant": "fp16",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training FP16 weight conversion",
+      "quantization_type": "none",
+      "size_bytes": 18727655,
+      "size_mb": 17.86,
+      "compression_ratio_vs_fp32": 1.99,
+      "sha256": "d3e01a2a8a826c80727606da4e6eaf21c361475ceac8d65ffa433046c3c6c6b5",
+      "path": "models_mobile/detector/yolo12s_det11/fp16.onnx",
+      "download_url": "/api/v1/models/yolo12s_det11-fp16/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          15,
+          8400
+        ],
+        "layout": "[batch, 4 + num_classes, anchors]",
+        "nms_included": false,
+        "postprocess": "transpose, decode boxes, then apply NMS on device"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "yolo12s_det11-int8_dynamic",
+      "kind": "detector",
+      "base_model": "yolo12s_det11",
+      "variant": "int8_dynamic",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training dynamic quantisation",
+      "quantization_type": "QUInt8 weights, activations ranged at runtime",
+      "size_bytes": 9834466,
+      "size_mb": 9.38,
+      "compression_ratio_vs_fp32": 3.79,
+      "sha256": "41ee4effa5bf289c1353ea937f3f49a952bc6544bfe8d9cdf421c0d330a480cf",
+      "path": "models_mobile/detector/yolo12s_det11/int8_dynamic.onnx",
+      "download_url": "/api/v1/models/yolo12s_det11-int8_dynamic/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          15,
+          8400
+        ],
+        "layout": "[batch, 4 + num_classes, anchors]",
+        "nms_included": false,
+        "postprocess": "transpose, decode boxes, then apply NMS on device"
+      },
+      "metrics": {},
+      "production": true
+    },
+    {
+      "model_id": "yolo12s_det11-int8_static",
+      "kind": "detector",
+      "base_model": "yolo12s_det11",
+      "variant": "int8_static",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training static quantisation (QDQ)",
+      "quantization_type": "QUInt8 activations / QInt8 per-channel weights",
+      "size_bytes": 10312145,
+      "size_mb": 9.83,
+      "compression_ratio_vs_fp32": 3.62,
+      "sha256": "1e870a39ee5c8f59ba54ebedae2a07c5fc7242703351427acd3f1aa4c044ab86",
+      "path": "models_mobile/detector/yolo12s_det11/int8_static.onnx",
+      "download_url": "/api/v1/models/yolo12s_det11-int8_static/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          15,
+          8400
+        ],
+        "layout": "[batch, 4 + num_classes, anchors]",
+        "nms_included": false,
+        "postprocess": "transpose, decode boxes, then apply NMS on device"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "yolo26m_det11-fp32",
+      "kind": "detector",
+      "base_model": "yolo26m_det11",
+      "variant": "fp32",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "ONNX export (FP32 baseline)",
+      "quantization_type": "none",
+      "size_bytes": 81749289,
+      "size_mb": 77.96,
+      "compression_ratio_vs_fp32": 1.0,
+      "sha256": "8cef1f7674a4467857774b727c0358d23ca5e3fb2121afa6305a88a012b9ed57",
+      "path": "models_mobile/detector/yolo26m_det11/fp32.onnx",
+      "download_url": "/api/v1/models/yolo26m_det11-fp32/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "layout": "[x1, y1, x2, y2, confidence, class_id]",
+        "nms_included": true,
+        "postprocess": "filter by confidence threshold; boxes ready to use"
+      },
+      "metrics": {
+        "val": {
+          "mAP50": 0.6677,
+          "mAP50_95": 0.4394,
+          "precision": 0.6541,
+          "recall": 0.6674,
+          "f1": 0.6607,
+          "cpu_latency_ms": 378.8
+        },
+        "test": {
+          "mAP50": 0.7569,
+          "mAP50_95": 0.4833,
+          "precision": 0.7924,
+          "recall": 0.6943,
+          "f1": 0.7401,
+          "cpu_latency_ms": 356.0
+        }
+      },
+      "production": false
+    },
+    {
+      "model_id": "yolo26m_det11-fp16",
+      "kind": "detector",
+      "base_model": "yolo26m_det11",
+      "variant": "fp16",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training FP16 weight conversion",
+      "quantization_type": "none",
+      "size_bytes": 40949773,
+      "size_mb": 39.05,
+      "compression_ratio_vs_fp32": 2.0,
+      "sha256": "d1d7b26d5eb0c66e264cdb994e7b138e854704ccde5a6e0637c429e649a04232",
+      "path": "models_mobile/detector/yolo26m_det11/fp16.onnx",
+      "download_url": "/api/v1/models/yolo26m_det11-fp16/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "layout": "[x1, y1, x2, y2, confidence, class_id]",
+        "nms_included": true,
+        "postprocess": "filter by confidence threshold; boxes ready to use"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "yolo26m_det11-int8_dynamic",
+      "kind": "detector",
+      "base_model": "yolo26m_det11",
+      "variant": "int8_dynamic",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training dynamic quantisation",
+      "quantization_type": "QUInt8 weights, activations ranged at runtime",
+      "size_bytes": 20930745,
+      "size_mb": 19.96,
+      "compression_ratio_vs_fp32": 3.91,
+      "sha256": "f7385a715befb01ef20a55d724191f9a44a93cd8bca9480ba7fbf31e699cb156",
+      "path": "models_mobile/detector/yolo26m_det11/int8_dynamic.onnx",
+      "download_url": "/api/v1/models/yolo26m_det11-int8_dynamic/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "layout": "[x1, y1, x2, y2, confidence, class_id]",
+        "nms_included": true,
+        "postprocess": "filter by confidence threshold; boxes ready to use"
+      },
+      "metrics": {
+        "val": {
+          "mAP50": 0.6404,
+          "mAP50_95": 0.405,
+          "precision": 0.6981,
+          "recall": 0.6294,
+          "f1": 0.662,
+          "cpu_latency_ms": 453.9
+        },
+        "test": {
+          "mAP50": 0.7102,
+          "mAP50_95": 0.4471,
+          "precision": 0.7373,
+          "recall": 0.6942,
+          "f1": 0.7151,
+          "cpu_latency_ms": 395.0
+        }
+      },
+      "production": true
+    },
+    {
+      "model_id": "yolo26m_det11-int8_static",
+      "kind": "detector",
+      "base_model": "yolo26m_det11",
+      "variant": "int8_static",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training static quantisation (QDQ)",
+      "quantization_type": "QUInt8 activations / QInt8 per-channel weights",
+      "size_bytes": 21379801,
+      "size_mb": 20.39,
+      "compression_ratio_vs_fp32": 3.82,
+      "sha256": "47493872c96ae44e476b2aac34153417a46fdf58e23ef644ea1f32abaa3159eb",
+      "path": "models_mobile/detector/yolo26m_det11/int8_static.onnx",
+      "download_url": "/api/v1/models/yolo26m_det11-int8_static/download",
+      "preprocessing": {
+        "input_size": [
+          640,
+          640
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": "none",
+        "letterbox": true,
+        "conf_threshold": 0.25,
+        "iou_threshold": 0.7,
+        "max_detections": 300
+      },
+      "output_format": {
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "layout": "[x1, y1, x2, y2, confidence, class_id]",
+        "nms_included": true,
+        "postprocess": "filter by confidence threshold; boxes ready to use"
+      },
+      "metrics": {
+        "val": {
+          "mAP50": 0.0,
+          "mAP50_95": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "cpu_latency_ms": 100.2
+        },
+        "test": {
+          "mAP50": 0.0,
+          "mAP50_95": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "cpu_latency_ms": 152.4
+        }
+      },
+      "production": false
+    },
+    {
+      "model_id": "efficientnet-fp32",
+      "kind": "classifier",
+      "base_model": "efficientnet",
+      "variant": "fp32",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "ONNX export (FP32 baseline)",
+      "quantization_type": "none",
+      "size_bytes": 16015216,
+      "size_mb": 15.27,
+      "compression_ratio_vs_fp32": 1.0,
+      "sha256": "66b556730f1b6303f7550739cc16044b659fb7c324e1f8ac9a6f3a91a92b69b4",
+      "path": "models_mobile/classifier/efficientnet/fp32.onnx",
+      "download_url": "/api/v1/models/efficientnet-fp32/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {
+        "val": {
+          "accuracy": 0.9438,
+          "precision_damaged": 0.9518,
+          "recall_damaged": 0.928,
+          "f1_damaged": 0.9397,
+          "cpu_latency_ms": 7.8
+        },
+        "test": {
+          "accuracy": 0.9413,
+          "precision_damaged": 0.9473,
+          "recall_damaged": 0.9265,
+          "f1_damaged": 0.9367,
+          "cpu_latency_ms": 7.4
+        }
+      },
+      "production": false
+    },
+    {
+      "model_id": "efficientnet-fp16",
+      "kind": "classifier",
+      "base_model": "efficientnet",
+      "variant": "fp16",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training FP16 weight conversion",
+      "quantization_type": "none",
+      "size_bytes": 8057051,
+      "size_mb": 7.68,
+      "compression_ratio_vs_fp32": 1.99,
+      "sha256": "4c12cc13b3ced8e83e951af313a1e7884ce484c63186082296bbf0c547744b2d",
+      "path": "models_mobile/classifier/efficientnet/fp16.onnx",
+      "download_url": "/api/v1/models/efficientnet-fp16/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "efficientnet-int8_dynamic",
+      "kind": "classifier",
+      "base_model": "efficientnet",
+      "variant": "int8_dynamic",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training dynamic quantisation",
+      "quantization_type": "QUInt8 weights, activations ranged at runtime",
+      "size_bytes": 4306992,
+      "size_mb": 4.11,
+      "compression_ratio_vs_fp32": 3.72,
+      "sha256": "91771e27395975856cb3dbd264d580adcf8811690bc4dc7fad671fc366ffb20d",
+      "path": "models_mobile/classifier/efficientnet/int8_dynamic.onnx",
+      "download_url": "/api/v1/models/efficientnet-int8_dynamic/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {
+        "val": {
+          "accuracy": 0.5442,
+          "precision_damaged": 0.5787,
+          "recall_damaged": 0.1305,
+          "f1_damaged": 0.213,
+          "cpu_latency_ms": 37.8
+        }
+      },
+      "production": false
+    },
+    {
+      "model_id": "efficientnet-int8_static",
+      "kind": "classifier",
+      "base_model": "efficientnet",
+      "variant": "int8_static",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training static quantisation (QDQ)",
+      "quantization_type": "QUInt8 activations / QInt8 per-channel weights",
+      "size_bytes": 4810862,
+      "size_mb": 4.59,
+      "compression_ratio_vs_fp32": 3.33,
+      "sha256": "046d85df4098bce489c3f05857f396439d615732ba6d62cbc3312c842e5b2011",
+      "path": "models_mobile/classifier/efficientnet/int8_static.onnx",
+      "download_url": "/api/v1/models/efficientnet-int8_static/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {
+        "val": {
+          "accuracy": 0.7388,
+          "precision_damaged": 0.7814,
+          "recall_damaged": 0.6209,
+          "f1_damaged": 0.692,
+          "cpu_latency_ms": 7.1
+        },
+        "test": {
+          "accuracy": 0.7734,
+          "precision_damaged": 0.8385,
+          "recall_damaged": 0.6399,
+          "f1_damaged": 0.7259,
+          "cpu_latency_ms": 7.2
+        }
+      },
+      "production": true
+    },
+    {
+      "model_id": "swin-fp32",
+      "kind": "classifier",
+      "base_model": "swin",
+      "variant": "fp32",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "ONNX export (FP32 baseline)",
+      "quantization_type": "none",
+      "size_bytes": 112862228,
+      "size_mb": 107.63,
+      "compression_ratio_vs_fp32": 1.0,
+      "sha256": "cb13606cba635ae774117e6d5b6db16353542148c7ffb277dfc5d07c73161a6a",
+      "path": "models_mobile/classifier/swin/fp32.onnx",
+      "download_url": "/api/v1/models/swin-fp32/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {
+        "val": {
+          "accuracy": 0.9596,
+          "precision_damaged": 0.956,
+          "recall_damaged": 0.9587,
+          "f1_damaged": 0.9574,
+          "cpu_latency_ms": 54.2
+        },
+        "test": {
+          "accuracy": 0.9498,
+          "precision_damaged": 0.9406,
+          "recall_damaged": 0.9532,
+          "f1_damaged": 0.9469,
+          "cpu_latency_ms": 54.6
+        }
+      },
+      "production": false
+    },
+    {
+      "model_id": "swin-fp16",
+      "kind": "classifier",
+      "base_model": "swin",
+      "variant": "fp16",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training FP16 weight conversion",
+      "quantization_type": "none",
+      "size_bytes": 56996436,
+      "size_mb": 54.36,
+      "compression_ratio_vs_fp32": 1.98,
+      "sha256": "037dda887f54d72bae4188e784fd465c684214918adf10c5fe6250daba262280",
+      "path": "models_mobile/classifier/swin/fp16.onnx",
+      "download_url": "/api/v1/models/swin-fp16/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "swin-int8_dynamic",
+      "kind": "classifier",
+      "base_model": "swin",
+      "variant": "int8_dynamic",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training dynamic quantisation",
+      "quantization_type": "QUInt8 weights, activations ranged at runtime",
+      "size_bytes": 30868863,
+      "size_mb": 29.44,
+      "compression_ratio_vs_fp32": 3.66,
+      "sha256": "b53b4be4d4c6b5105e4357ce9c069f48175460793562a5839dbd28d5ed122656",
+      "path": "models_mobile/classifier/swin/int8_dynamic.onnx",
+      "download_url": "/api/v1/models/swin-int8_dynamic/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {},
+      "production": false
+    },
+    {
+      "model_id": "swin-int8_static",
+      "kind": "classifier",
+      "base_model": "swin",
+      "variant": "int8_static",
+      "version": "1.0.0",
+      "format": "onnx",
+      "opset": 13,
+      "runtime": "onnxruntime-mobile",
+      "compression_technique": "post-training static quantisation (QDQ)",
+      "quantization_type": "QUInt8 activations / QInt8 per-channel weights",
+      "size_bytes": 30565588,
+      "size_mb": 29.15,
+      "compression_ratio_vs_fp32": 3.69,
+      "sha256": "2fd78277ec7fe107c0a94b1827868866299db1288ab28ffbc7ea954eccae4db1",
+      "path": "models_mobile/classifier/swin/int8_static.onnx",
+      "download_url": "/api/v1/models/swin-int8_static/download",
+      "preprocessing": {
+        "input_size": [
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "color_order": "RGB",
+        "scale": "divide_by_255",
+        "normalization": {
+          "mean": [
+            0.485,
+            0.456,
+            0.406
+          ],
+          "std": [
+            0.229,
+            0.224,
+            0.225
+          ]
+        },
+        "resize_then_center_crop": [
+          256,
+          224
+        ],
+        "classes": [
+          "damaged",
+          "undamaged"
+        ]
+      },
+      "output_format": {
+        "shape": [
+          "batch",
+          2
+        ],
+        "layout": "logits[batch, 2]",
+        "classes": [
+          "damaged",
+          "undamaged"
+        ],
+        "postprocess": "argmax"
+      },
+      "metrics": {
+        "val": {
+          "accuracy": 0.9478,
+          "precision_damaged": 0.9487,
+          "recall_damaged": 0.9405,
+          "f1_damaged": 0.9446,
+          "cpu_latency_ms": 48.5
+        },
+        "test": {
+          "accuracy": 0.9454,
+          "precision_damaged": 0.9392,
+          "recall_damaged": 0.9446,
+          "f1_damaged": 0.9419,
+          "cpu_latency_ms": 46.3
+        }
+      },
+      "production": true
+    }
+  ],
+  "bundle": {
+    "bundle_version": "1.0.0",
+    "detector": "yolo26m_det11-int8_dynamic",
+    "classifier": "swin-int8_static",
+    "pipeline": [
+      "capture_image",
+      "record_gps",
+      "preprocess",
+      "detect",
+      "crop_elements",
+      "classify_damage",
+      "store_local",
+      "sync"
+    ]
+  }
+}

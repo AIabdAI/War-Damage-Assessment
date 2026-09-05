@@ -1,0 +1,76 @@
+{
+  "kind": "classifier",
+  "name": "efficientnet",
+  "split": "val",
+  "baseline_pytorch": {
+    "accuracy": 0.946,
+    "precision_damaged": 0.9565,
+    "recall_damaged": 0.928,
+    "f1_damaged": 0.942
+  },
+  "variants": {
+    "fp32": {
+      "file": "fp32.onnx",
+      "size_mb": 15.27,
+      "technique": "ONNX export (FP32 baseline)",
+      "export_s": 8.8,
+      "compression_ratio_vs_fp32": 1.0,
+      "crops": 2205,
+      "accuracy": 0.9438,
+      "precision_damaged": 0.9518,
+      "recall_damaged": 0.928,
+      "f1_damaged": 0.9397,
+      "confusion": {
+        "tp": 967,
+        "fp": 49,
+        "fn": 75,
+        "tn": 1114
+      },
+      "cpu_latency_ms": 7.8,
+      "eval_seconds": 60.8
+    },
+    "int8_static": {
+      "file": "int8_static.onnx",
+      "size_mb": 4.59,
+      "technique": "post-training static quantisation (QDQ)",
+      "quant_type": "QUInt8 activations / QInt8 per-channel weights",
+      "calibration": "128 TRAIN images, MinMax",
+      "compression_ratio_vs_fp32": 3.33,
+      "crops": 2205,
+      "accuracy": 0.7388,
+      "precision_damaged": 0.7814,
+      "recall_damaged": 0.6209,
+      "f1_damaged": 0.692,
+      "confusion": {
+        "tp": 647,
+        "fp": 181,
+        "fn": 395,
+        "tn": 982
+      },
+      "cpu_latency_ms": 7.1,
+      "eval_seconds": 23.3,
+      "delta_accuracy_vs_fp32": -0.205
+    },
+    "int8_dynamic": {
+      "file": "int8_dynamic.onnx",
+      "size_mb": 4.11,
+      "technique": "post-training dynamic quantisation",
+      "quant_type": "QUInt8 weights, activations ranged at runtime",
+      "compression_ratio_vs_fp32": 3.72,
+      "crops": 2205,
+      "accuracy": 0.5442,
+      "precision_damaged": 0.5787,
+      "recall_damaged": 0.1305,
+      "f1_damaged": 0.213,
+      "confusion": {
+        "tp": 136,
+        "fp": 99,
+        "fn": 906,
+        "tn": 1064
+      },
+      "cpu_latency_ms": 37.8,
+      "eval_seconds": 129.0,
+      "delta_accuracy_vs_fp32": -0.3996
+    }
+  }
+}

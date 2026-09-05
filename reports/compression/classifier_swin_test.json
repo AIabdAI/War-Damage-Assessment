@@ -1,0 +1,55 @@
+{
+  "kind": "classifier",
+  "name": "swin",
+  "split": "test",
+  "baseline_pytorch": {
+    "accuracy": 0.9481,
+    "precision_damaged": 0.9379,
+    "recall_damaged": 0.9522,
+    "f1_damaged": 0.945
+  },
+  "variants": {
+    "fp32": {
+      "file": "fp32.onnx",
+      "size_mb": 107.63,
+      "technique": "ONNX export (FP32 baseline)",
+      "export_s": 30.9,
+      "compression_ratio_vs_fp32": 1.0,
+      "crops": 2233,
+      "accuracy": 0.9498,
+      "precision_damaged": 0.9406,
+      "recall_damaged": 0.9532,
+      "f1_damaged": 0.9469,
+      "confusion": {
+        "tp": 998,
+        "fp": 63,
+        "fn": 49,
+        "tn": 1123
+      },
+      "cpu_latency_ms": 54.6,
+      "eval_seconds": 124.0
+    },
+    "int8_static": {
+      "file": "int8_static.onnx",
+      "size_mb": 29.15,
+      "technique": "post-training static quantisation (QDQ)",
+      "quant_type": "QUInt8 activations / QInt8 per-channel weights",
+      "calibration": "128 TRAIN images, MinMax",
+      "compression_ratio_vs_fp32": 3.69,
+      "crops": 2233,
+      "accuracy": 0.9454,
+      "precision_damaged": 0.9392,
+      "recall_damaged": 0.9446,
+      "f1_damaged": 0.9419,
+      "confusion": {
+        "tp": 989,
+        "fp": 64,
+        "fn": 58,
+        "tn": 1122
+      },
+      "cpu_latency_ms": 46.3,
+      "eval_seconds": 121.9,
+      "delta_accuracy_vs_fp32": -0.0044
+    }
+  }
+}

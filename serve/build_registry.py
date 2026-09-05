@@ -103,8 +103,13 @@ def load_metrics(kind: str, name: str) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--production", default="int8_static",
-                    help="variant flagged as the production default for mobile")
+    # the best variant differs by architecture (measured, see
+    # reports/compression_report.md): detectors survive DYNAMIC int8 but are
+    # destroyed by static; the Swin classifier is the opposite way round
+    ap.add_argument("--production-detector", default="int8_dynamic",
+                    help="variant served as the mobile default for detectors")
+    ap.add_argument("--production-classifier", default="int8_static",
+                    help="variant served as the mobile default for classifiers")
     ap.add_argument("--out", type=Path, default=Path("serve/model_registry.json"))
     args = ap.parse_args()
 
@@ -152,7 +157,9 @@ def main() -> int:
                     "preprocessing": PREPROCESSING[kind],
                     "output_format": output_format(f, kind),
                     "metrics": metrics.get(vname, {}),
-                    "production": vname == args.production,
+                    "production": vname == (args.production_detector
+                                            if kind == "detector"
+                                            else args.production_classifier),
                 })
 
     # the deployment bundle the Flutter app asks for in one call

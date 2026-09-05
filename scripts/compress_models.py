@@ -108,17 +108,35 @@ def sample_train_images(root: Path, n: int, seed: int = 42) -> list[Path]:
 # --------------------------------------------------------------------------- #
 # export
 # --------------------------------------------------------------------------- #
-def export_detector_fp32(name: str, out_dir: Path, imgsz: int = 640) -> Path:
+def export_detector(name: str, out_dir: Path, imgsz: int = 640,
+                    half: bool = False) -> Path:
+    """Export a detector to ONNX.
+
+    NOTE: FP16 must come from ultralytics' native half export (needs a GPU).
+    The generic onnxconverter_common FP16 pass produces an UNLOADABLE graph
+    for YOLO models - it leaves Resize nodes emitting float32 into float16
+    consumers ("Type Error: ... does not match expected type (tensor(float16))").
+    """
     from ultralytics import YOLO
     weights = Path("runs_detection") / name / "weights" / "best.pt"
     if not weights.is_file():
         raise SystemExit(f"missing weights: {weights}")
+    kw = {}
+    if half:
+        import torch
+        if not torch.cuda.is_available():
+            raise RuntimeError("FP16 export needs CUDA; skip fp16 on this machine")
+        kw = {"half": True, "device": 0}
     model = YOLO(str(weights))
     exported = Path(model.export(format="onnx", imgsz=imgsz, simplify=True,
-                                 dynamic=False, opset=13, verbose=False))
-    dst = out_dir / "fp32.onnx"
+                                 dynamic=False, opset=13, verbose=False, **kw))
+    dst = out_dir / ("fp16.onnx" if half else "fp32.onnx")
     shutil.move(str(exported), dst)          # the original .pt stays untouched
     return dst
+
+
+def export_detector_fp32(name: str, out_dir: Path, imgsz: int = 640) -> Path:
+    return export_detector(name, out_dir, imgsz, half=False)
 
 
 def export_classifier_fp32(name: str, out_dir: Path) -> Path:
@@ -204,7 +222,14 @@ def main(argv: list[str] | None = None) -> int:
         out_dir = Path("models_mobile") / kind / name
         out_dir.mkdir(parents=True, exist_ok=True)
         print(f"\n=== {kind}: {name} ===")
+        man_path = out_dir / "compression_manifest.json"
         manifest = {"kind": kind, "name": name, "variants": {}}
+        if man_path.is_file():      # keep variants from earlier runs
+            try:
+                prev = json.loads(man_path.read_text(encoding="utf-8"))
+                manifest["variants"].update(prev.get("variants", {}))
+            except Exception:
+                pass
 
         t0 = time.perf_counter()
         fp32 = (export_detector_fp32(name, out_dir) if kind == "detector"
@@ -222,8 +247,14 @@ def main(argv: list[str] | None = None) -> int:
         if "fp16" in techniques:
             dst = out_dir / "fp16.onnx"
             try:
-                to_fp16(fp32, dst)
-                preserve_metadata(fp32, dst)
+                if kind == "detector":
+                    # native half export - the generic converter breaks YOLO graphs
+                    export_detector(name, out_dir, half=True)
+                else:
+                    to_fp16(fp32, dst)
+                    preserve_metadata(fp32, dst)
+                import onnxruntime as _ort         # fail fast on an invalid graph
+                _ort.InferenceSession(str(dst), providers=["CPUExecutionProvider"])
                 manifest["variants"]["fp16"] = {
                     "file": dst.name, "size_mb": mb(dst),
                     "technique": "post-training FP16 weight conversion"}
@@ -281,9 +312,14 @@ def main(argv: list[str] | None = None) -> int:
                   else Path("runs_classification") / name / "weights" / "best.pt")
         manifest["source_checkpoint"] = {"path": str(src_pt).replace("\\", "/"),
                                          "size_mb": mb(src_pt)}
-        (out_dir / "compression_manifest.json").write_text(
-            json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-        print(f"  manifest -> {out_dir / 'compression_manifest.json'}")
+        manifest["variants"] = {k: manifest["variants"][k]
+                                for k in ("fp32", "fp16", "int8_dynamic",
+                                          "int8_static")
+                                if k in manifest["variants"]}
+        man_path.write_text(json.dumps(manifest, indent=2) + "\n",
+                            encoding="utf-8")
+        n_variants = len(manifest["variants"])
+        print(f"  manifest -> {man_path} ({n_variants} variants)")
     return 0
 
 

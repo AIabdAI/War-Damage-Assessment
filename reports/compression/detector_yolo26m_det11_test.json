@@ -1,0 +1,58 @@
+{
+  "kind": "detector",
+  "name": "yolo26m_det11",
+  "split": "test",
+  "baseline_pytorch": {
+    "mAP50": 0.7527,
+    "mAP50_95": 0.4912,
+    "precision": 0.8115,
+    "recall": 0.7086
+  },
+  "variants": {
+    "fp32": {
+      "file": "fp32.onnx",
+      "size_mb": 77.96,
+      "technique": "ONNX export (FP32 baseline)",
+      "export_s": 75.8,
+      "compression_ratio_vs_fp32": 1.0,
+      "mAP50": 0.7569,
+      "mAP50_95": 0.4833,
+      "precision": 0.7924,
+      "recall": 0.6943,
+      "f1": 0.7401,
+      "cpu_latency_ms": 356.0,
+      "eval_seconds": 87.4
+    },
+    "int8_static": {
+      "file": "int8_static.onnx",
+      "size_mb": 20.39,
+      "technique": "post-training static quantisation (QDQ)",
+      "quant_type": "QUInt8 activations / QInt8 per-channel weights",
+      "calibration": "128 TRAIN images, MinMax",
+      "compression_ratio_vs_fp32": 3.82,
+      "mAP50": 0.0,
+      "mAP50_95": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "cpu_latency_ms": 152.4,
+      "eval_seconds": 36.1,
+      "delta_mAP50_vs_fp32": -0.7569
+    },
+    "int8_dynamic": {
+      "file": "int8_dynamic.onnx",
+      "size_mb": 19.96,
+      "technique": "post-training dynamic quantisation",
+      "quant_type": "QUInt8 weights, activations ranged at runtime",
+      "compression_ratio_vs_fp32": 3.91,
+      "mAP50": 0.7102,
+      "mAP50_95": 0.4471,
+      "precision": 0.7373,
+      "recall": 0.6942,
+      "f1": 0.7151,
+      "cpu_latency_ms": 395.0,
+      "eval_seconds": 358.0,
+      "delta_mAP50_vs_fp32": -0.0467
+    }
+  }
+}

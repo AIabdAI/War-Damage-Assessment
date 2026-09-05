@@ -86,18 +86,60 @@ def time_cpu(onnx_path: Path, shape: tuple[int, ...], runs: int = 30) -> float:
 # --------------------------------------------------------------------------- #
 # evaluation
 # --------------------------------------------------------------------------- #
-def eval_detector(onnx_path: Path, name: str, split: str) -> dict:
+def build_subset(dataset_dir: Path, split: str, n: int, seed: int = 42) -> Path:
+    """Deterministic N-image subset (hardlinked) for fast variant comparison.
+
+    Every variant is scored on the SAME images, so the deltas between them -
+    which is what a compression study needs - stay exact. Absolute values come
+    from the full-split evaluations reported in the main results chapter.
+    """
+    import os
+    import random
+    import shutil
+    dst = Path("runs_compression") / f"subset_{dataset_dir.name}_{split}_{n}"
+    if (dst / "images").is_dir() and any((dst / "images").iterdir()):
+        return dst
+    (dst / "images").mkdir(parents=True, exist_ok=True)
+    (dst / "labels").mkdir(parents=True, exist_ok=True)
+    files = sorted((dataset_dir / split / "images").glob("*"))
+    rng = random.Random(seed)
+    rng.shuffle(files)
+    for f in files[:n]:
+        for src, out in ((f, dst / "images" / f.name),
+                         (dataset_dir / split / "labels" / f"{f.stem}.txt",
+                          dst / "labels" / f"{f.stem}.txt")):
+            if not src.is_file():
+                continue
+            try:
+                os.link(src, out)
+            except OSError:
+                shutil.copy2(src, out)
+    return dst
+
+
+def eval_detector(onnx_path: Path, name: str, split: str,
+                  max_images: int = 0) -> dict:
     import yaml
     from ultralytics import YOLO
     variant = 22 if name.endswith("det22") else 11
     dataset_dir = Path(f"data/processed/detection{variant}")
     cfg = yaml.safe_load((dataset_dir / "data.yaml").read_text(encoding="utf-8"))
-    cfg["path"] = dataset_dir.resolve().as_posix()
-    data_yaml = Path("runs_detection") / f"data_{variant}.local.yaml"
+    if max_images:
+        sub = build_subset(dataset_dir, split, max_images)
+        cfg["path"] = sub.resolve().as_posix()
+        cfg["train"] = cfg["val"] = cfg["test"] = "images"
+        split = "val"                    # the subset is exposed as the val key
+        data_yaml = Path("runs_detection") / f"data_{variant}_subset.local.yaml"
+    else:
+        cfg["path"] = dataset_dir.resolve().as_posix()
+        data_yaml = Path("runs_detection") / f"data_{variant}.local.yaml"
     data_yaml.write_text(yaml.safe_dump(cfg, sort_keys=False), encoding="utf-8")
 
     res = YOLO(str(onnx_path), task="detect").val(
         data=str(data_yaml), split=split, plots=False, verbose=False,
+        # the ONNX session runs on the CPU provider; without this ultralytics
+        # feeds CUDA tensors and ORT fails with "no data transfer registered"
+        device="cpu",
         project=str(Path("runs_compression").resolve()),
         name=f"{name}_{onnx_path.stem}_{split}", exist_ok=True)
     md = getattr(res, "results_dict", {}) or {}
@@ -179,6 +221,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--splits", default="val,test")
     ap.add_argument("--variants", default=",".join(VARIANT_ORDER))
     ap.add_argument("--no-mlflow", action="store_true")
+    ap.add_argument("--max-images", type=int, default=0,
+                    help="detectors: score a deterministic N-image "
+                         "subset (0 = full split)")
     args = ap.parse_args(argv)
 
     if args.all:
@@ -217,8 +262,16 @@ def main(argv: list[str] | None = None) -> int:
 
         for split in splits:
             base = baseline_metrics(kind, name, split)
+            prev_path = out_dir / f"{kind}_{name}_{split}.json"
+            prev_variants = {}
+            if prev_path.is_file():      # keep variants from earlier partial runs
+                try:
+                    prev_variants = json.loads(
+                        prev_path.read_text(encoding="utf-8")).get("variants", {})
+                except Exception:
+                    pass
             results = {"kind": kind, "name": name, "split": split,
-                       "baseline_pytorch": base, "variants": {}}
+                       "baseline_pytorch": base, "variants": dict(prev_variants)}
             for vname in VARIANT_ORDER:
                 if vname not in want or vname not in manifest["variants"]:
                     continue
@@ -227,7 +280,9 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"\n--- {kind}/{name} [{vname}] {split} ---", flush=True)
                 t0 = time.perf_counter()
                 try:
-                    metrics = (eval_detector(onnx_path, name, split) if kind == "detector"
+                    metrics = (eval_detector(onnx_path, name, split,
+                                             args.max_images)
+                               if kind == "detector"
                                else eval_classifier(onnx_path, split))
                 except Exception as exc:
                     print(f"  eval FAILED: {exc}", file=sys.stderr)

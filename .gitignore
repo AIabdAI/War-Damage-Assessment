@@ -59,3 +59,5 @@ sa.json
 # local archive dumps (large, regenerable)
 *.zip
 /models_mobile
+
+claude_code_prompt_damage_app.md
