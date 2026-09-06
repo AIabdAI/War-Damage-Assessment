@@ -58,18 +58,48 @@ CPU-only machine? That is fine for inference. Only training needs a GPU.
 
 The trained weights are stored in DVC (Google Drive), not in git.
 
-**Option A — with the project's Drive credentials** (ask the project owner for
-the service-account JSON, then):
+First install DVC 3 (2.x cannot read this repo's pointer files):
+
+```bash
+pip install "dvc[gdrive]>=3.0"
+```
+
+**Authentication** — the remote is the Drive folder
+`1Ts4w602gk_PLeDyVPC-eqEIZq0iAFBLa`. Either:
+
+*A. Service-account key* (what the CI and training servers use — ask the
+project owner for `gdrive-sa.json`):
 
 ```bash
 dvc remote modify --local storage gdrive_use_service_account true
-dvc remote modify --local storage gdrive_service_account_json_file_path /path/to/key.json
-dvc pull models_mobile          # ~480 MB, the mobile ONNX models
-# or: dvc pull                  # everything incl. training weights and data (~2 GB)
+dvc remote modify --local storage gdrive_service_account_json_file_path /path/to/gdrive-sa.json
 ```
 
-**Option B — no credentials:** ask the owner for `models_mobile/` directly, or
-run the API (Level 2) against a machine that has them.
+*B. Personal Google login* — run `dvc pull` with no extra config and sign in
+through the browser once; the token is cached. Your account needs access to
+the folder.
+
+A service account can only **download**; uploading requires a personal
+account (Google blocks service-account writes to personal Drives).
+
+**Download only what you need:**
+
+| you want | command | size |
+|---|---|---|
+| mobile models (enough for inference) | `dvc pull models_mobile` | 482 MB |
+| best detector, PyTorch weights | `dvc pull runs_detection/yolo26m_det11` | 93 MB |
+| best classifier, PyTorch weights | `dvc pull runs_classification/swin` | 210 MB |
+| original images + labels | `dvc pull data/raw.dvc data/annotations.dvc` | 1.0 GB |
+| training-ready detection dataset | `dvc pull data/processed/detection11` | 1.0 GB |
+| damage-classification crops | `dvc pull data/processed/classification` | 649 MB |
+| MLflow experiment databases | `dvc pull mlflow_pod1.db mlflow_pod2.db` | 9 MB |
+| everything | `dvc pull` | ~5 GB |
+
+Verify: `dvc status -c` should print
+`Cache and remote 'storage' are in sync.`
+
+**No credentials at all?** Ask the owner for the `models_mobile/` folder
+directly, or point your client at a machine running the API (Level 2).
 
 ### 1.4 Run the two-stage assessment on an image
 
